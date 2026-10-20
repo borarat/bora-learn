@@ -1,7 +1,7 @@
 <!DOCTYPE html>
 <html lang="ko">
 <!-- 리모델링 2026.10.01 17:00 (7차)
-     문항: 심화 '스트레스' — 질문 문장("스트레스는 무엇이길래…?")을 흥미 유발 → 방향 안내로(게임 기준·숏폼·아이스크림과 같게),
+     문항: 심화 '스트레스' — 질문 문장("스트레스는 무엇이길래…?")을 흥미 유발 → 방향 안내로(학습 기준·숏폼·아이스크림과 같게),
            본론 내용('종류')을 넣은 배경 정보 문장을 '처음'에 맞는 배경 정보 문장으로 바꿈(순서: 흥미→배경→안내→안내)
      키보드: 답하기 전 → 키로 다음 주제로 넘어가던 버그 수정
      해설: 스트레스 3번 문장 순서 설명 → '2번이 이처럼으로 1번을 바로 받으므로, 질문은 2번 뒤에 와요.'
@@ -13,7 +13,7 @@
 <head>
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width,initial-scale=1.0">
-<title>설명문 '처음' 조립 게임</title>
+<title>설명문 '처음' 조립 콘텐츠</title>
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link href="https://fonts.googleapis.com/css2?family=Noto+Sans+KR:wght@400;500;700;900&display=swap" rel="stylesheet">
 <style>
@@ -87,7 +87,7 @@ button{font-family:inherit}
 .ingame-credit{position:fixed;right:12px;bottom:8px;z-index:6;font-size:.68rem;color:var(--muted);opacity:.5;pointer-events:none;display:none}
 .ingame-credit.show{display:block}
 
-/* ===== 게임 화면 ===== */
+/* ===== 학습 화면 ===== */
 #game-screen{display:none;width:100%;max-width:1160px;min-height:100vh;flex-direction:column;justify-content:center;padding:10px 0}
 #game-screen.show{display:flex}
 .game-body{padding:12px 16px 14px;display:grid;grid-template-columns:1fr 96px;gap:10px;align-items:start}
@@ -250,7 +250,7 @@ button{font-family:inherit}
   .arrow-btn{width:34px;height:32px;font-size:.8rem}
 }
 
-/* ═══ 게임 테마층 · 퍼즐 맞추기 (2026.10.08) ═══
+/* ═══ 화면 테마층 · 퍼즐 맞추기 (2026.10.08) ═══
    글의 첫 조각을 퍼즐 판의 첫 칸에 끼우는 장면('처음' 조립). 보조색 머스터드 #C99A2E. 영역 팔레트·헤더 띠·정답/오답 색·흰 문제 카드·정답 카드·문장 역할 색은 그대로.
    이 블록과 시작 화면 SVG를 지우면 원래 모습 */
 :root{--th:#C99A2E}
@@ -272,7 +272,7 @@ button{font-family:inherit}
     <div class="hero">
       <img src="data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAIQAAACxCAMAAAAyLeWLAAAB/lBMVEUAAABMNSXZ1s7hupPcto7alVnNxba4uryMqcKptsLQiEyTp7jTmmfXpXTkwZxGLBvipW3i2snLeDWcscPUrIR8osLnx6NqSDBNMR7FvbLb0b2telCoq6vGxsb7+vqth2eHm6ivpJaMZ0rhmlvgnWGLeGm2g1ipmozGfUJtWEjTgTySlpVaRDS2lHXo6OeVhXbk4dl0UjmdsL6+wL1ELiDFbCd4mraGWDe8wcLGxsaXc1Z4ZVZ8oL77+vo6JhhiPSWoq6uTjIa4urzZ1s6DXELwsnh6bWK8dTuSYzwIBQUbFRNuOBZ3Qh3groDi0rsqHRdMNSWcoJuvpJbFvbLi2sl1nsKSlpWzajKptsLawZ7Nxbbo6OdtWEiLeGmpmowxIyF7c2l+lJ2BTSeTjIa2WBG8YhyjbUXd4eLk4dk8MS1ELiBlT0B4ZVaVhXaTp7imf2GvpJbAZh3An4De3+AAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAADGtm7NAAAAgHRSTlMA///////////////////////////////////////////////////////////////////////////c////3P//3P/c3P///////////////9z/3Nzc/9z/3P/c3Nzc3P/////c/////9z/3P/c3Nz/oP///wAAAAAAAAAAAAAAAKaTQcIAABeqSURBVHja7VwHd+JItl4kUUpVKCAjhMjYYINxTh2me3q6e3vyvNnZ3dmcw8vx/5/z7r1VEghjLLfp3XPeebVjaANWffrud0PdKvYHP/j/sa3xC5Ml7cmrSdLRnvxdAPwjm+wdVPIRH+wN/sZAnhwfVJpepTi8SnzMPvqbQdg79C4q68fhr/8mED5+VvEqm8bBJx8cw68r9w7v4DcfFMJP72EhG3u//GAQXv+wHIRKpXn4iw+E4buDshhwfCBFxg/BUPnnD4Hhk8oD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" alt="보라라샘">
       <div>
-        <h1>🧩 설명문 '처음' 조립 게임</h1>
+        <h1>🧩 설명문 '처음' 조립 콘텐츠</h1>
         <p>설명문의 '처음' 부분을 순서대로 조립하고, 각 문장의 역할을 구분해요</p>
       </div>
       <svg class="keyArt" viewBox="0 0 230 112" aria-hidden="true">
@@ -316,7 +316,7 @@ button{font-family:inherit}
 
     <div class="two-col">
       <div class="box">
-        <h3>🎮 게임 방법</h3>
+        <h3>🎮 학습 방법</h3>
         <p>· 순서 맞추기 — 화살표(▲▼)로 문장 순서를 배치해요.<br>
         · 역할 찾기 — 역할 버튼을 고른 뒤 문장을 눌러 구분해요.<br>
         · 통합 — 순서와 역할을 한꺼번에 맞춰요.<br>
@@ -332,7 +332,7 @@ button{font-family:inherit}
       </div>
     </div>
 
-    <div class="sec-title">🎮 게임 모드를 선택하세요</div>
+    <div class="sec-title">🎓 학습 모드를 선택하세요</div>
     <div class="mode-btns">
       <button class="mode-btn sel" data-mode="order" onclick="selectMode('order')">🔢 순서 맞추기<span class="mode-badge">문장의 순서만 배치해요<br>역할은 해설에서 확인해요</span></button>
       <button class="mode-btn" data-mode="role" onclick="selectMode('role')">🎨 역할 찾기<span class="mode-badge">순서는 이미 맞춰져 있어요<br>각 문장의 역할만 구분해요</span></button>
@@ -352,12 +352,12 @@ button{font-family:inherit}
 
     <div class="privacy" id="privacyOffline">
       <b>🔒 개인정보 보호 안내</b><br>
-      본 게임은 별도의 서버로 데이터를 전송하거나 저장하지 않습니다.<br>
-      게임 중 입력하는 이름, 활동 소감 등의 정보는 오직 사용자 기기 내부에서 리포트 이미지를 다운로드하는 용도로만 안전하게 처리됩니다.
+      본 콘텐츠는 별도의 서버로 데이터를 전송하거나 저장하지 않습니다.<br>
+      학습 중 입력하는 이름, 활동 소감 등의 정보는 오직 사용자 기기 내부에서 리포트 이미지를 다운로드하는 용도로만 안전하게 처리됩니다.
     </div>
     <div class="privacy" id="privacyOnline" style="display:none">
       <b>🔒 개인정보 보호 안내</b><br>
-      본 게임의 학습 결과(학번, 이름, 점수, 오답 정보, 학습 소감)는 담당 선생님의 학습 관리용 스프레드시트에 안전하게 전송·저장됩니다.<br>
+      본 콘텐츠의 학습 결과(학번, 이름, 점수, 오답 정보, 학습 소감)는 담당 선생님의 학습 관리용 스프레드시트에 안전하게 전송·저장됩니다.<br>
       수집된 정보는 학습 지도 목적으로만 사용되며, 제3자에게 제공되지 않습니다.
     </div>
   </div>
@@ -367,7 +367,7 @@ button{font-family:inherit}
  <div style="background:#fff;border-radius:20px;padding:32px;max-width:380px;width:90%;box-shadow:0 20px 60px rgba(0,0,0,0.3);text-align:center">
   <div style="font-size:36px;margin-bottom:8px">🔑</div>
   <h2 style="font-size:20px;margin-bottom:4px;color:var(--ink)">학생 인증</h2>
-  <p style="font-size:13px;color:var(--muted);margin-bottom:20px">학번과 이름을 입력하면 게임을 시작할 수 있어요.</p>
+  <p style="font-size:13px;color:var(--muted);margin-bottom:20px">학번과 이름을 입력하면 학습을 시작할 수 있어요.</p>
   <div style="text-align:left;margin-bottom:12px">
    <label style="font-size:13px;font-weight:700;color:var(--ink)">학번 (5자리)</label>
    <input id="loginId" type="text" maxlength="5" inputmode="numeric" placeholder="예: 20101" style="width:100%;padding:10px 14px;border:2px solid var(--line);border-radius:10px;font-size:16px;margin-top:4px;box-sizing:border-box">
@@ -382,7 +382,7 @@ button{font-family:inherit}
  </div>
 </div>
 
-<!-- ===== 게임 화면 ===== -->
+<!-- ===== 학습 화면 ===== -->
 <div id="game-screen">
  <div class="shell">
   <div class="band">
@@ -419,7 +419,7 @@ button{font-family:inherit}
     <div class="nav-sidebar">
       <button class="nav-btn" id="prev-btn" onclick="navStage(-1)" disabled>◀ 이전<br>주제</button>
       <button class="nav-btn" id="next-btn" onclick="navStage(1)">다음<br>주제 ▶</button>
-      <button class="nav-btn finish" onclick="askFinish()">게임<br>끝내기</button>
+      <button class="nav-btn finish" onclick="askFinish()">학습<br>끝내기</button>
     </div>
   </div>
  </div>
@@ -481,7 +481,7 @@ button{font-family:inherit}
 
 <script>
 /* ═══════════════════════════════════════════
-   설명문 '처음' 조립 게임 — W202
+   설명문 '처음' 조립 콘텐츠 — W202
    ★ 제작일은 아래 MADE_DATE 한 줄만 고치면 전체에 반영됩니다
    ═══════════════════════════════════════════ */
 const MADE_DATE='2026.06.18';
@@ -489,7 +489,7 @@ const LAST_MOD='2026.10.11 16:48';
 
 const GAME_CONFIG={
   gameCode:"W202",
-  gameName:"설명문 '처음' 조립 게임",
+  gameName:"설명문 '처음' 조립 콘텐츠",
   webAppUrl:"https://script.google.com/macros/s/AKfycbzgq9yT5svpFzeFwW5p2pWOpL-lKpj5_RldoJejFT1EOk1Osjcf6hDx85jGQzvr5rU0ww/exec"
 };
 const params=new URLSearchParams(location.search);
@@ -894,7 +894,7 @@ function askFinish(){
   const pending=S.qs.filter(q=>q.status===null).length;
   if(pending>0){
     const left=S.qs.filter(q=>q.status===null&&!q.attempts).length;
-    const msg=left>0?'아직 '+left+'주제가 남았어요. 게임을 끝낼까요?\n(남은 주제는 미응답으로 기록돼요)':'지금까지 푼 결과로 게임을 끝낼까요?';
+    const msg=left>0?'아직 '+left+'주제가 남았어요. 학습을 끝낼까요?\n(남은 주제는 미응답으로 기록돼요)':'지금까지 푼 결과로 학습을 끝낼까요?';
     if(!confirm(msg))return;
   }
   finishGame();
@@ -1019,7 +1019,7 @@ function needName(){const n=($('inName').value||'').trim();if(!n){showToast('이
 function stageLabel(){return STAGES[S.stage-1].name+'단계_'+MODE_NAMES[S.mode]}
 function fileStamp(){return completedTimeStr.replace(/[.: ]/g,'').slice(0,8)+'_'+completedTimeStr.slice(-5).replace(':','')}
 function saveCanvas(canvas,name){const a=document.createElement('a');a.href=canvas.toDataURL('image/jpeg',.92);a.download=name;document.body.appendChild(a);a.click();document.body.removeChild(a)}
-const PRIV_OFF='본 게임은 서버로 데이터를 전송·저장하지 않습니다. 이름과 소감은 이 이미지 생성용으로만 쓰였습니다.';
+const PRIV_OFF='본 콘텐츠는 서버로 데이터를 전송·저장하지 않습니다. 이름과 소감은 이 이미지 생성용으로만 쓰였습니다.';
 const PRIV_ON='학습 결과는 담당 선생님의 학습 관리 시스템에 전송됩니다. 이름과 소감은 이 이미지 생성에도 사용되었습니다.';
 function privLine(){return IS_ONLINE?PRIV_ON:PRIV_OFF}
 
@@ -1028,7 +1028,7 @@ function drawWrongNote(c,W,PAD,H,name,targets,measure){
   const wrapW=W-PAD*2-26;
   if(!measure){c.fillStyle='#FDF5F8';c.fillRect(0,0,W,H);c.fillStyle='#fff';roundBox(c,PAD/2,PAD/2,W-PAD,H-PAD,14);c.fill()}
   let y=PAD+6;
-  c.fillStyle='#993556';c.font='bold 23px '+CF;if(!measure)c.fillText("📝 설명문 '처음' 조립 게임 · 오답노트",PAD,y+10);y+=40;
+  c.fillStyle='#993556';c.font='bold 23px '+CF;if(!measure)c.fillText("📝 설명문 '처음' 조립 콘텐츠 · 오답노트",PAD,y+10);y+=40;
   c.fillStyle='#8a7a80';c.font='13px '+CF;
   if(!measure)c.fillText(name+'  ·  '+STAGES[S.stage-1].name+' 단계 · '+MODE_NAMES[S.mode]+'  ·  '+completedTimeStr,PAD,y);y+=22;
   if(!measure){c.strokeStyle='#FAE4EC';c.lineWidth=1;c.beginPath();c.moveTo(PAD,y);c.lineTo(W-PAD,y);c.stroke()}y+=22;
@@ -1084,7 +1084,7 @@ function drawReport(c,W,PAD,H,d,measure){
   let y=PAD+6;
   c.fillStyle='#993556';c.font='bold 23px '+CF;if(!M)c.fillText('📊 학습 결과 분석 리포트',PAD,y+10);y+=38;
   c.fillStyle='#8a7a80';c.font='13px '+CF;
-  if(!M)c.fillText("설명문 '처음' 조립 게임  ·  "+STAGES[S.stage-1].name+' 단계 · '+MODE_NAMES[S.mode],PAD,y);y+=20;
+  if(!M)c.fillText("설명문 '처음' 조립 콘텐츠  ·  "+STAGES[S.stage-1].name+' 단계 · '+MODE_NAMES[S.mode],PAD,y);y+=20;
   if(!M)c.fillText(d.name+'  ·  '+completedTimeStr,PAD,y);y+=24;
 
   if(!M){
@@ -1205,7 +1205,7 @@ function downloadTeacherXls(){
      '<tr><td>배점 규칙</td><td>첫 시도 정답 +'+BASE_PT+'점 / 재시도(1회) 정답 +'+RETRY_PT+'점 / 오답 −'+PENALTY+'점(하한 0) / 3연속 +5, 5연속 +10</td></tr>'+
      '<tr><td>총 주제 수</td><td>'+(STAGES[0].questions.length+STAGES[1].questions.length)+'주제 (기본 '+STAGES[0].questions.length+' / 심화 '+STAGES[1].questions.length+')</td></tr>'+
      '<tr><td>만점</td><td>기본 '+maxScoreOf(STAGES[0].questions.length)+'점 / 심화 '+maxScoreOf(STAGES[1].questions.length)+'점</td></tr>'+
-     '<tr><td>게임 코드</td><td>'+GAME_CONFIG.gameCode+'</td></tr>'+
+     '<tr><td>자료 코드</td><td>'+GAME_CONFIG.gameCode+'</td></tr>'+
      '<tr><td>크레딧</td><td>제작 · 보라라샘 · 전주서신중학교 교사 · siaawase@gmail.com · 제작일 '+MADE_DATE+' · 최종 수정 '+LAST_MOD+'</td></tr>'+
      '</table></body></html>';
   const blob=new Blob(['\ufeff'+h],{type:'application/vnd.ms-excel'});

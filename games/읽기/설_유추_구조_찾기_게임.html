@@ -228,7 +228,7 @@ input,textarea,button{font-family:inherit;color-scheme:light}
  .text-panel{max-height:46vh}
  #startScreen .inner{padding:36px 18px 44px}
 }
-/* ═══ 게임 테마층 · 마주 걸린 족자 둘 (2026.10.07) ═══
+/* ═══ 화면 테마층 · 마주 걸린 족자 둘 (2026.10.07) ═══
    경험을 그린 족자와 깨달음을 그린 족자가 마주 걸려 서로 비추는 장면(유추). 보조색 회청 #5F7C8A. 영역 팔레트·헤더 띠·정답/오답 색·흰 문제 카드·정답 카드는 그대로.
    이 블록과 시작 화면 SVG를 지우면 원래 모습 */
 :root{--th:#5F7C8A}
@@ -295,7 +295,7 @@ input,textarea,button{font-family:inherit;color-scheme:light}
 
    <div class="cols">
     <div class="info-box">
-     <h3>🎯 게임 방법</h3>
+     <h3>🎯 학습 방법</h3>
      <p>고전 수필 '설(說)' 여섯 편을 읽습니다.</p>
      <p><b>파란 점선으로 표시된 문장</b>이 유추 구조의 어느 단계인지 분류하세요.</p>
      <div class="cat-tags"><span class="cat-tag exp">① 구체적 경험</span><span class="cat-tag ext">② 대상 확장</span><span class="cat-tag les">③ 깨달음</span></div>
@@ -319,7 +319,7 @@ input,textarea,button{font-family:inherit;color-scheme:light}
     </div>
    </div>
 
-   <div style="text-align:center"><button class="btn" onclick="startGame()" style="margin-top:16px">게임 시작</button></div>
+   <div style="text-align:center"><button class="btn" onclick="startGame()" style="margin-top:16px">학습 시작</button></div>
 
    <div class="credit-box">
     제작 · 보라라샘 · 전주서신중학교 교사 · siaawase@gmail.com<br>
@@ -328,12 +328,12 @@ input,textarea,button{font-family:inherit;color-scheme:light}
 
    <div class="privacy" id="privacyOffline">
     <b>🔒 개인정보 보호 안내</b><br>
-    본 게임은 별도의 서버로 데이터를 전송하거나 저장하지 않습니다.<br>
-    게임 중 입력하는 이름, 활동 소감 등의 정보는 오직 사용자 기기 내부에서 리포트 이미지를 다운로드하는 용도로만 안전하게 처리됩니다.
+    본 콘텐츠는 별도의 서버로 데이터를 전송하거나 저장하지 않습니다.<br>
+    학습 중 입력하는 이름, 활동 소감 등의 정보는 오직 사용자 기기 내부에서 리포트 이미지를 다운로드하는 용도로만 안전하게 처리됩니다.
    </div>
    <div class="privacy" id="privacyOnline" style="display:none">
     <b>🔒 개인정보 보호 안내</b><br>
-    본 게임의 학습 결과(학번, 이름, 점수, 오답 정보, 학습 소감)는 담당 선생님의 학습 관리용 스프레드시트에 안전하게 전송·저장됩니다.<br>
+    본 콘텐츠의 학습 결과(학번, 이름, 점수, 오답 정보, 학습 소감)는 담당 선생님의 학습 관리용 스프레드시트에 안전하게 전송·저장됩니다.<br>
     수집된 정보는 학습 지도 목적으로만 사용되며, 제3자에게 제공되지 않습니다.
    </div>
   </div>
@@ -344,7 +344,7 @@ input,textarea,button{font-family:inherit;color-scheme:light}
  <div style="background:#fff;border-radius:20px;padding:32px;max-width:380px;width:90%;box-shadow:0 20px 60px rgba(0,0,0,0.3);text-align:center">
   <div style="font-size:36px;margin-bottom:8px">🔑</div>
   <h2 style="font-size:20px;margin-bottom:4px;color:var(--ink)">학생 인증</h2>
-  <p style="font-size:13px;color:var(--ink2);margin-bottom:20px">학번과 이름을 입력하면 게임을 시작할 수 있어요.</p>
+  <p style="font-size:13px;color:var(--ink2);margin-bottom:20px">학번과 이름을 입력하면 학습을 시작할 수 있어요.</p>
   <div style="text-align:left;margin-bottom:12px">
    <label style="font-size:13px;font-weight:700;color:var(--ink)">학번 (5자리)</label>
    <input id="loginId" type="text" maxlength="5" inputmode="numeric" placeholder="예: 30101" style="width:100%;padding:10px 14px;border:2px solid var(--line);border-radius:10px;font-size:16px;margin-top:4px;box-sizing:border-box">
@@ -365,7 +365,7 @@ input,textarea,button{font-family:inherit;color-scheme:light}
   <div class="band"><span class="band-left">읽기 <span class="band-goal">· 유추의 개념과 논리 구조를 이해한다</span></span><span class="band-right">개념 학습 1 / 2</span></div>
   <div class="concept-wrap">
    <h2>📖 유추(類推)란?</h2>
-   <div class="sub">게임을 시작하기 전에 유추의 기본 개념을 알아봅시다.</div>
+   <div class="sub">학습을 시작하기 전에 유추의 기본 개념을 알아봅시다.</div>
    <div style="font-size:13.5px;line-height:1.95;color:#3a4856;margin-bottom:14px"><b>유추</b>란 두 대상이 여러 면에서 비슷하다는 점을 근거로, 한 대상이 가진 또 다른 특성을 다른 대상도 가지고 있으리라고 추론하는 <b>논증 방식</b>입니다. 익숙한 대상을 빌려 낯선 개념을 설명하고 설득할 때 효과적으로 쓰입니다.</div>
    <div style="display:flex;gap:14px;flex-wrap:wrap;margin-bottom:14px">
     <div class="cbox">
@@ -462,7 +462,7 @@ input,textarea,button{font-family:inherit;color-scheme:light}
     <div class="navbar">
      <button class="nav-btn" id="btnPrev" onclick="goPrev()">← 이전</button>
      <button class="nav-btn primary" id="btnNext" onclick="goNext()">다음 →</button>
-     <button class="nav-btn end" onclick="confirmEnd()">■ 게임 끝내기</button>
+     <button class="nav-btn end" onclick="confirmEnd()">■ 학습 끝내기</button>
     </div>
    </div>
   </div>
@@ -478,7 +478,7 @@ input,textarea,button{font-family:inherit;color-scheme:light}
   <div style="display:flex;gap:9px;justify-content:center;padding:0 20px 24px;flex-wrap:wrap">
    <button class="nav-btn" onclick="goPrev()">← 이전</button>
    <button class="nav-btn primary" onclick="goNext()" id="btnQuizNext">다음 →</button>
-   <button class="nav-btn end" onclick="confirmEnd()">■ 게임 끝내기</button>
+   <button class="nav-btn end" onclick="confirmEnd()">■ 학습 끝내기</button>
   </div>
  </div>
  <div class="in-game-credit">제작 · 보라라샘 · 2026.07.15</div>
@@ -828,7 +828,7 @@ function goNext(){
  if(left>0&&!confirm(`아직 풀지 않은 문항이 ${left}개 있어요. 결과를 볼까요?\n풀지 않은 문항은 오답이 아니라 미응답으로 따로 표시됩니다.`))return;
  finish();
 }
-function confirmEnd(){if(confirm('지금 게임을 끝낼까요?\n아직 풀지 않은 문항은 오답이 아니라 미응답으로 따로 표시됩니다.'))finish()}
+function confirmEnd(){if(confirm('지금 학습을 끝낼까요?\n아직 풀지 않은 문항은 오답이 아니라 미응답으로 따로 표시됩니다.'))finish()}
 function updateHeader(){
  const a=answeredCount();const txt=`문항 ${a}/${TOTAL_Q} · ${score}점`;
  $('hdrProgress').textContent=txt;$('hdrProgress2').textContent=txt;
@@ -1069,7 +1069,7 @@ function finish(){
    studentId:STUDENT.id,
    studentName:STUDENT.name,
    className:STUDENT.className,
-   stage:1,                              // 단계가 없는 게임 — 단계 번호 숫자 1 (지침 7-2)
+   stage:1,                              // 단계가 없는 콘텐츠 — 단계 번호 숫자 1 (지침 7-2)
    totalQuestions:TOTAL_Q,
    correctCount:st.first.length,
    retryCorrectCount:st.retryOk.length,  // 다시 풀어 맞힘 — stats()의 값 (지침 7-2)
@@ -1138,7 +1138,7 @@ function saveCanvas(canvas,filename){
  const link=document.createElement('a');link.download=filename;link.href=canvas.toDataURL('image/jpeg',.92);link.click();
 }
 const STAGE_LABEL='전체과정';
-const PRIVACY_IMG='본 게임은 입력한 이름과 소감을 서버에 저장하지 않으며, 이 이미지 생성용으로만 사용합니다.';
+const PRIVACY_IMG='본 콘텐츠는 입력한 이름과 소감을 서버에 저장하지 않으며, 이 이미지 생성용으로만 사용합니다.';
 const PRIVACY_IMG_ON='학습 결과는 담당 선생님의 학습 관리 시스템에 전송되며, 이름과 소감은 이 이미지 생성에도 사용됩니다.';
 const STD_LINE1='[9국02-05] 글에 사용된 다양한 설명 방법과 논증 방법을 파악하고, 그 타당성을 평가하며 읽는다.';
 const STD_LINE2='[9국02-06] 동일한 화제를 다룬 여러 글이나 자료를 주제 통합적으로 읽는다.';

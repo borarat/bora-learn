@@ -1,18 +1,18 @@
-# games.html 생성기 — catalog.json(게임 파일에서 뽑은 정보) → 밝은 디자인 + 영역·학년·기기 필터 + 검색
-# 쓰는 법: python3 tools/games_build.py  (저장소 루트에서). 게임을 더하거나 뺄 때는 catalog.json을 고친 뒤 다시 실행한다. games.html은 손으로 고치지 않는다
+# games.html 생성기 — catalog.json(학습 콘텐츠 파일에서 뽑은 정보) → 밝은 디자인 + 영역·학년·기기 필터 + 검색
+# 쓰는 법: python3 tools/games_build.py  (저장소 루트에서). 콘텐츠를 더하거나 뺄 때는 catalog.json을 고친 뒤 다시 실행한다. games.html은 손으로 고치지 않는다
 import json,html
 import os
 HERE=os.path.dirname(os.path.abspath(__file__))
 rows=json.load(open(os.path.join(HERE,'catalog.json'),encoding='utf8'))
 FIX={'훈민정음 제자 원리 익히기':'G211','사랑손님과 어머니 시뮬레이션':'L401'}
-HIDE=set()  # 숨길 게임 이름 (조건 사냥꾼은 2026.10.08 폐기·삭제)
+HIDE=set()  # 숨길 콘텐츠 이름 (조건 사냥꾼은 2026.10.08 폐기·삭제)
 rows=[r for r in rows if r['title'] not in HIDE]
 for r in rows:
     if not r['code']: r['code']=FIX[r['title']]
 AREA={'G':'문법','L':'문학','R':'읽기','W':'쓰기','S':'말하기듣기'}
 AREA_LABEL={'문법':'문법','문학':'문학','읽기':'읽기','쓰기':'쓰기','말하기듣기':'말하기·듣기'}
 GRADE={'1':'1학년','2':'2학년','3':'3학년','4':'학년 무관'}
-# 표시 학년 — 목록에 보이는 학년(게임 코드와 무관, 내년 교육과정 통일 때 여기만 고친다). 한 게임에 여럿 가능, '4'=학년 무관
+# 표시 학년 — 목록에 보이는 학년(자료 코드와 무관, 내년 교육과정 통일 때 여기만 고친다). 한 콘텐츠에 여럿 가능, '4'=학년 무관
 BOTH_STD={'9국04-01','9국02-05'}  # 음운·논증은 두 학년에 걸침
 GRADE_OVERRIDE={  # 교사 확정 2026.10.08
  'G209':['2'],'G210':['2'],'G211':['2'],   # 한글 창제원리 3종 → 2학년 전용
@@ -56,7 +56,7 @@ def group_of(c,std):
     return std[0] if std else 'none'
 def group_meta(gid):  # (정렬키, 코드표시, 주제, 원문)
     if gid=='한글': return ('9국04-05a','9국04-01','한글 창제 원리','한글의 창제 원리와 제자 원리를 이해한다. (문자 체계, 9국04-01)')
-    if gid=='none': return ('zzz','','그 외','성취기준을 아직 정하지 않은 게임')
+    if gid=='none': return ('zzz','','그 외','성취기준을 아직 정하지 않은 자료')
     t=STD2022.get(gid,('',''))
     return (gid,gid,t[0],t[1])
 DEV={'💻📱 노트북·모바일':('M1','노트북·모바일'),'💻 노트북 권장':('M2','노트북 권장'),'💻 노트북 전용':('M3','노트북 전용')}
@@ -114,12 +114,12 @@ page=f'''<!DOCTYPE html>
 <head>
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
-<title>게임 모음 | 보라라랩 국어 에듀테크 연구소</title>
+<title>국어 학습 콘텐츠 모음 | 보라라랩 국어 에듀테크 연구소</title>
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
 <link href="https://fonts.googleapis.com/css2?family=Gaegu:wght@400;700&family=Jua&family=Noto+Sans+KR:wght@400;500;700&display=swap" rel="stylesheet">
 <style>
-/* 첫 화면(index.html)과 같은 크림·파스텔 팔레트. 영역 색은 게임 화면 헤더 띠 색과 맞춤 */
+/* 첫 화면(index.html)과 같은 크림·파스텔 팔레트. 영역 색은 학습 화면 헤더 띠 색과 맞춤 */
 :root{{--ink:#24324a;--ink2:#5a6478;--coral:#e56b5d;--blue:#7c3aed;--mint:#c9f2e5;--cream:#fff8ee;--lemon:#f7d774;--line:#eadfce;
   --c-문법:#7C5CBF;--c-문학:#2E9B79;--c-읽기:#3B86C9;--c-쓰기:#D4718F;--c-말하기듣기:#F58A2E;
   --l-문법:#F1ECFA;--l-문학:#E6F6EF;--l-읽기:#E8F1FA;--l-쓰기:#FBEAF0;--l-말하기듣기:#FFF0DF}}
@@ -196,14 +196,14 @@ a{{color:inherit;text-decoration:none}}
   <header class="head">
     <div>
       <div class="brand">보라라랩 에듀테크 연구소</div>
-      <h1>국어 <em>게임</em> 모음</h1>
+      <h1>국어 <em>학습 콘텐츠</em> 모음</h1>
       <div class="sub">재미있게 배우고 연습하는 국어 개념</div>
     </div>
     <a class="back" href="index.html">← 홈으로</a>
   </header>
 
   <div class="tools">
-    <label class="search" id="searchBox"><span aria-hidden="true">🔍</span><input id="q" type="search" placeholder="게임 이름, 설명, 성취기준 코드로 찾기 (예: 피동, 9국04-02, 두더지)" autocomplete="off"><button class="clr" id="clr" aria-label="지우기">✕</button></label>
+    <label class="search" id="searchBox"><span aria-hidden="true">🔍</span><input id="q" type="search" placeholder="콘텐츠 이름, 설명, 성취기준 코드로 찾기 (예: 피동, 9국04-02, 두더지)" autocomplete="off"><button class="clr" id="clr" aria-label="지우기">✕</button></label>
     <div class="frow"><span class="lab">영역</span>
       <button class="chip on" data-f="area" data-v="">전체</button>
       {' '.join(f'<button class="chip c-{a}" data-f="area" data-v="{a}">{AREA_LABEL[a]}<span class="n"></span></button>' for a in areas)}
@@ -222,10 +222,10 @@ a{{color:inherit;text-decoration:none}}
   </div>
 
 {chr(10).join(sections)}
-  <div class="none" id="none">조건에 맞는 게임이 없어요. 다른 조건으로 찾아보세요.</div>
+  <div class="none" id="none">조건에 맞는 자료가 없어요. 다른 조건으로 찾아보세요.</div>
 
   <footer class="foot">
-    학년은 게임 코드 기준(1·2학년 2022 개정, 3학년 2015 개정)이며, 같은 내용을 두 학년이 배우는 게임도 있습니다.<br>
+    학년은 자료 코드 기준(1·2학년 2022 개정, 3학년 2015 개정)이며, 같은 내용을 두 학년이 배우는 자료도 있습니다.<br>
     보라라랩 국어 에듀테크 연구소 · <a href="privacy.html">개인정보처리방침</a> · Powered by GitHub Pages
   </footer>
 </div>

@@ -55,7 +55,7 @@ main{position:relative;z-index:10;width:100%;max-width:900px;padding:12px 8px 10
 .start-emoji{font-size:3.2rem;flex-shrink:0;line-height:1}
 .start-desc{color:var(--muted);font-size:1rem;line-height:2;word-break:keep-all}
 .start-desc strong{color:var(--text)}
-/* 게임 방법 박스 */
+/* 학습 방법 박스 */
 .howto-box{background:var(--accent-xl);border:1.5px solid var(--accent-m);border-radius:12px;padding:12px 16px;margin-bottom:14px;text-align:left}
 .howto-box h3{font-size:.95rem;font-weight:800;color:var(--accent-d);margin-bottom:6px}
 .howto-box p{font-size:.85rem;color:#4a6a86;line-height:1.8}
@@ -262,7 +262,7 @@ main{position:relative;z-index:10;width:100%;max-width:900px;padding:12px 8px 10
 .mini-btns button{flex:1;padding:11px;border-radius:10px;font-family:inherit;font-size:14px;font-weight:700;cursor:pointer;border:none}
 .mini-ok{background:var(--accent);color:#fff}
 .mini-cancel{background:var(--border);color:var(--text)}
-/* ═══ 게임 테마층 · 법정 (2026.10.08) ═══
+/* ═══ 화면 테마층 · 법정 (2026.10.08) ═══
    논증을 심리하고 판결하는 법정 장면(의사봉과 받침). 보조색 남색 #24395E. 영역 팔레트·헤더 띠·정답/오답 색·흰 문제 카드·정답 카드는 그대로.
    이 블록과 시작 화면 SVG를 지우면 원래 모습 */
 :root{--th:#24395E}
@@ -319,7 +319,7 @@ main{position:relative;z-index:10;width:100%;max-width:900px;padding:12px 8px 10
     </svg>
   </div>
   <div class="howto-box">
-    <h3>📖 게임 방법</h3>
+    <h3>📖 학습 방법</h3>
     <p>예문을 읽고 9가지 오류 유형 중 해당하는 버튼을 클릭하세요.<br>
     첫 시도에 맞히면 +10점, 콤보 보너스(3~4연속 +5점, 5연속 이상 +10점)가 붙습니다.<br>
     틀리면 -10점(0점 하한)이며, 다시 풀어 맞히면 절반인 +5점을 받습니다.<br>
@@ -345,8 +345,8 @@ main{position:relative;z-index:10;width:100%;max-width:900px;padding:12px 8px 10
     </div>
     <div class="start-creator">제작 · 보라라샘 · 전주서신중학교 교사 · siaawase@gmail.com<br>제작일 2026.06.09 · <span class="dl-hook">최종 수정</span> 2026.10.11 16:48</div>
   </div>
-  <div class="privacy-box" id="privacyOffline">🔒 <strong>개인정보 보호 안내</strong><br>본 게임은 별도의 서버로 데이터를 전송하거나 저장하지 않습니다. 게임 중 입력하는 이름, 활동 소감 등의 정보는 오직 사용자 기기 내부에서 리포트 이미지를 다운로드하는 용도로만 안전하게 처리됩니다.</div>
-  <div class="privacy-box" id="privacyOnline" style="display:none">🔒 <strong>개인정보 보호 안내</strong><br>본 게임의 학습 결과(학번, 이름, 점수, 오답 정보, 학습 소감)는 담당 선생님의 학습 관리용 스프레드시트에 안전하게 전송·저장됩니다. 수집된 정보는 학습 지도 목적으로만 사용되며, 제3자에게 제공되지 않습니다.</div>
+  <div class="privacy-box" id="privacyOffline">🔒 <strong>개인정보 보호 안내</strong><br>본 콘텐츠는 별도의 서버로 데이터를 전송하거나 저장하지 않습니다. 학습 중 입력하는 이름, 활동 소감 등의 정보는 오직 사용자 기기 내부에서 리포트 이미지를 다운로드하는 용도로만 안전하게 처리됩니다.</div>
+  <div class="privacy-box" id="privacyOnline" style="display:none">🔒 <strong>개인정보 보호 안내</strong><br>본 콘텐츠의 학습 결과(학번, 이름, 점수, 오답 정보, 학습 소감)는 담당 선생님의 학습 관리용 스프레드시트에 안전하게 전송·저장됩니다. 수집된 정보는 학습 지도 목적으로만 사용되며, 제3자에게 제공되지 않습니다.</div>
   </div>
 </div>
 
@@ -364,7 +364,7 @@ main{position:relative;z-index:10;width:100%;max-width:900px;padding:12px 8px 10
  <div style="background:#fff;border-radius:20px;padding:32px;max-width:380px;width:90%;box-shadow:0 20px 60px rgba(0,0,0,0.3);text-align:center">
   <div style="font-size:36px;margin-bottom:8px">🔑</div>
   <h2 style="font-size:20px;margin-bottom:4px;color:var(--text)">학생 인증</h2>
-  <p style="font-size:13px;color:var(--muted);margin-bottom:20px">학번과 이름을 입력하면 게임을 시작할 수 있어요.</p>
+  <p style="font-size:13px;color:var(--muted);margin-bottom:20px">학번과 이름을 입력하면 학습을 시작할 수 있어요.</p>
   <div style="text-align:left;margin-bottom:12px">
    <label style="font-size:13px;font-weight:700;color:var(--text)">학번 (5자리)</label>
    <input id="loginId" type="text" maxlength="5" inputmode="numeric" placeholder="예: 20101" style="width:100%;padding:10px 14px;border:2px solid var(--border);border-radius:10px;font-size:16px;margin-top:4px;box-sizing:border-box;background:#fff;color:var(--text)">
@@ -414,7 +414,7 @@ main{position:relative;z-index:10;width:100%;max-width:900px;padding:12px 8px 10
     <button class="nav-btn" id="prev-btn" onclick="navigate(-1)" disabled>◀ 이전<br>문제</button>
     <button class="nav-btn" id="next-btn" onclick="navigate(1)">다음<br>문제 ▶</button>
     <span id="stage-jumps" style="display:contents"></span>
-    <button class="nav-btn finish-btn" onclick="finishGame()">게임<br>끝내기</button>
+    <button class="nav-btn finish-btn" onclick="finishGame()">학습<br>끝내기</button>
   </div>
 </div>
 
@@ -521,7 +521,7 @@ const STAGES=[
   {id:17,answer:'성급한 일반화의 오류',text:'고양이는 다 사납고 위험한 동물이야. 왜냐하면 우리 동네 고양이 두 마리가 다가가니까 할퀴고 도망갔거든.',detail:'🔵 성급한 일반화의 오류 — 두 마리의 행동으로 고양이 전체를 위험하다고 단정하는 오류예요. \'왜냐하면\' 뒤의 근거가 주장과 다른 말(두 마리의 경험)이니 순환논증이 아니에요.'},
   {id:18,answer:'흑백논리의 오류',text:'스마트폰을 완전히 끊지 못한 사람은 중독자야. 너는 아직 매일 스마트폰을 쓰잖아? 그러니까 넌 중독자인 거지.',detail:'🟢 흑백논리의 오류 — 사람을 "완전히 끊은 사람"과 "중독자" 두 극단으로만 나누고, 끊지 않았으니 중독자라고 단정했어요. 필요할 때만 적당히 쓰는 사람이라는 중간 경우를 무시했어요.'},
   {id:19,answer:'피장파장의 오류',text:'"스마트폰 사용 시간을 좀 줄이렴."이라는 아빠의 말에 민서는 "아빠도 밥 먹을 때 핸드폰 보시잖아요. 왜 저한테만 그러세요?"라고 했다.',detail:'🟠 피장파장의 오류 — 스마트폰 사용 제한 주장에 대해 상대방의 동일한 행동을 지적해 무력화하는 오류예요. 말에 대답하는 형식이지만 화제를 바꾼 것이 아니라 상대도 같은 행동을 한다고 들춘 것이니 논점 일탈이 아니에요.'},
-  {id:20,answer:'미끄러운 비탈길의 오류',text:'오늘 게임 30분만 봐주면, 넌 결국 공부는 손도 안 대고 게임 중독자가 되고 말 거야.',detail:'🔴 미끄러운 비탈길의 오류 — 작은 허용(30분)이 곧장 최악(중독)으로 치닫는다고 단정하는 오류예요. 사이의 여러 단계를 무시했어요.'},
+  {id:20,answer:'미끄러운 비탈길의 오류',text:'오늘 학습 30분만 봐주면, 넌 결국 공부는 손도 안 대고 학습 중독자가 되고 말 거야.',detail:'🔴 미끄러운 비탈길의 오류 — 작은 허용(30분)이 곧장 최악(중독)으로 치닫는다고 단정하는 오류예요. 사이의 여러 단계를 무시했어요.'},
   {id:21,answer:'논점 일탈의 오류',text:'그 배우 연기가 어색하다는 평이 많던데, 나는 그 배우가 요리를 얼마나 잘하는지 말해 주고 싶어. 예능에서 만든 음식이 진짜 맛있어 보였거든.',detail:'🩷 논점 일탈의 오류 — 말이 시작된 곳은 "연기가 어색하다"는 평가예요. 그 평가를 반박하려면 연기를 이야기해야 하는데, 말하는 사람은 예능에서 만든 음식 이야기로 넘어갔어요. 요리를 잘한다는 것은 연기가 어색하지 않다는 근거가 되지 못해요.'},
   {id:22,answer:'순환논증의 오류',text:'법은 무조건 지켜야 해. 왜냐하면 법을 안 지키는 건 불법이기 때문이야. 불법이니까 당연히 안 되는 거지.',detail:'🟣 순환논증의 오류 — "법을 지켜야 한다"의 근거가 "법을 어기면 불법"으로, 결국 같은 말을 반복하는 오류예요.'},
   {id:23,answer:'인신공격의 오류',text:'그 의사가 치료 방법을 자세히 설명해 주는데, 옷차림이 늘 촌스럽고 인상도 차가워 보이잖아요. 저런 사람 말을 어떻게 믿어요.',detail:'🟡 인신공격의 오류 — 치료 방법의 타당성은 따지지 않고 의사의 옷차림과 인상을 공격하는 오류예요.'},
@@ -698,7 +698,7 @@ function renderStageJumps(){
   }
   $('stage-jumps').innerHTML=h;
 }
-// 채점한 기록이 있는 판을 떠나 다른 단계로 갈 때는 '게임 끝내기'처럼 한 번 묻는다(기록이 없으면 묻지 않음)
+// 채점한 기록이 있는 판을 떠나 다른 단계로 갈 때는 '학습 끝내기'처럼 한 번 묻는다(기록이 없으면 묻지 않음)
 function hasRecord(){return answered.some(a=>a!==null);}
 function jumpStage(i){
   if(hasRecord()&&!confirm('지금까지 푼 기록이 있어요. '+(i+1)+'단계로 가면 이 판의 기록은 지워져요.\n이동할까요?'))return;
@@ -798,7 +798,7 @@ function answer(choice){
 function finishGame(){
   if(gameDone)return;
   const left=answered.filter(a=>a===null).length;
-  if(left>0&&!confirm('아직 '+left+'문항이 남았어요. 게임을 끝낼까요?\n(남은 문항은 미응답으로 기록돼요)'))return;
+  if(left>0&&!confirm('아직 '+left+'문항이 남았어요. 학습을 끝낼까요?\n(남은 문항은 미응답으로 기록돼요)'))return;
   // 첫 시도에 틀리고 다시 풀지 않은 문항(다시 풀기를 눌러 놓고 떠난 문항 포함)은 '못 맞힘'
   answered=answered.map(a=>a==='wrong'?'wrong-final':a);hideBanner();showComplete()}
 function showFeedback(correct,msg,animate,shake){const fb=$('feedback');$('fb-icon').textContent=correct?'✅':'❌';$('fb-msg').textContent=msg;fb.className='feedback show '+(correct?'correct':'wrong')+(shake?' shake':'');fb.style.animation=animate?'':'none'}

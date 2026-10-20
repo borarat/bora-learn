@@ -1,6 +1,6 @@
 <!DOCTYPE html>
 <html lang="ko">
-<!-- 리모델링 2026.10.01 21:00 (9차) — 게임 코드 L101 (1학년), 성취기준 (2022) [9국05-02]
+<!-- 리모델링 2026.10.01 21:00 (9차) — 자료 코드 L101 (1학년), 성취기준 (2022) [9국05-02]
      문항: 운명 정답이던 가난(2-8)·전쟁(2-13)·역사 비극(3-13), 장애(3-5), 병(1-5 불치병, 3-8 짧은 수명)을 예언·신탁·저주 운명 문항으로 교체
            3-6 지주 vs 소작농 → 주전 자리 다툼(인물 vs 인물), 1-4 '양반이 아닌' → '서자로 태어난', 개념표 운명 설명에서 '불치병' 뺌
      채점: v3 점수(첫 시도 +10, 다시 풀어 맞힘 +5, 오답 −5, 콤보 3~4번째 +5·5번째부터 +10, 단계 만점 270), 정답률(첫 시도 정답 ÷ 채점 문항)로 총평,
@@ -10,7 +10,7 @@
      화면 표준 v3 맞춤(교사 결정 2026.10.07 — 문항·해설·점수식·전송 항목은 그대로): G202 자음 체계 구분하기와 같은 화면 구조로 다시 짬
            헤더 띠·모바일 배지(M1)·투명 배경 마스코트·크레딧('최종 수정' 클릭 = 교사용 엑셀, 정답 열 빨간 글씨)·개인정보 안내,
            단계 안에서 문항 순서 섞기(셔플), 문항 데이터에 유형 코드(cat) 명시, 정답 카드 공통 모듈(옛 토스트 대신), 숫자 키 1~5,
-           '게임 종료' → '게임 끝내기'(확인 한 번), 내비게이션 오른쪽, 중간 종료 제목·총평, 오늘 나온 문제,
+           '학습 종료' → '학습 끝내기'(확인 한 번), 내비게이션 오른쪽, 중간 종료 제목·총평, 오늘 나온 문제,
            오답노트(번호 대신 유형·해설 포함)·리포트 JPG('보완이 필요한 유형' 한 칸 = 가장 먼저 공부할 유형 하나 + 학습 조언, 성취기준·개인정보 꼬리말), 단계 칩
      테마층 '줄다리기'(머스터드 #C99A2E): 시작 화면 그림만. 문제 화면·버튼에는 쓰지 않음
      2026.10.11 16:48 13차 문구 조정(남은 확인 목록 문항·해설) · 실제 조작 검사 통과 -->
@@ -244,7 +244,7 @@ button{cursor:pointer}
   .stats{grid-template-columns:repeat(3,1fr)}
   #hud{top:48px}
 }
-/* ═══ 게임 테마층 · 줄다리기 (2026.10.07) ═══
+/* ═══ 화면 테마층 · 줄다리기 (2026.10.07) ═══
    한 줄을 두고 양쪽이 서로 당기는 장면. 보조색 머스터드 #C99A2E. 영역 팔레트·헤더 띠·정답/오답 색·흰 문제 카드·정답 카드는 그대로.
    유형 이름이나 정답 단서는 그림에 넣지 않는다. 이 블록과 시작 화면 SVG를 지우면 원래 모습 */
 :root{--th:#C99A2E;--th-soft:#FBF4E2}
@@ -297,7 +297,7 @@ button{cursor:pointer}
        <div class="std-text"><span class="std-code">(2022) 9국05-02</span><br>갈등의 진행과 해결 과정을 파악하며 작품을 감상한다.</div>
       </div>
       <div class="box how">
-       <h3>🎮 게임 방법</h3>
+       <h3>🎮 학습 방법</h3>
        <p>예문을 읽고 인물이 겪는 갈등이 어떤 유형인지 골라요.</p>
        <p>칸을 누르거나 숫자 키 1~5를 눌러요.</p>
        <p>첫 시도 정답 <b>+10점</b>, 다시 풀어 맞히면 <b>+5점</b>이에요.</p>
@@ -322,12 +322,12 @@ button{cursor:pointer}
      <div>
       <div class="privacy" id="privacyOffline">
        <b>🔒 개인정보 보호 안내</b><br>
-       본 게임은 별도의 서버로 데이터를 전송하거나 저장하지 않습니다.<br>
-       게임 중 입력하는 이름, 활동 소감 등의 정보는 오직 사용자 기기 내부에서<br>리포트 이미지를 다운로드하는 용도로만 안전하게 처리됩니다.
+       본 콘텐츠는 별도의 서버로 데이터를 전송하거나 저장하지 않습니다.<br>
+       학습 중 입력하는 이름, 활동 소감 등의 정보는 오직 사용자 기기 내부에서<br>리포트 이미지를 다운로드하는 용도로만 안전하게 처리됩니다.
       </div>
       <div class="privacy" id="privacyOnline" style="display:none">
        <b>🔒 개인정보 보호 안내</b><br>
-       본 게임의 학습 결과(학번, 이름, 점수, 오답 정보, 학습 소감)는 담당 선생님의 학습 관리용 스프레드시트에 안전하게 전송·저장됩니다.<br>
+       본 콘텐츠의 학습 결과(학번, 이름, 점수, 오답 정보, 학습 소감)는 담당 선생님의 학습 관리용 스프레드시트에 안전하게 전송·저장됩니다.<br>
        수집된 정보는 학습 지도 목적으로만 사용되며, 제3자에게 제공되지 않습니다.
       </div>
      </div>
@@ -341,7 +341,7 @@ button{cursor:pointer}
  <div style="background:#fff;border-radius:20px;padding:32px;max-width:380px;width:90%;box-shadow:0 20px 60px rgba(0,0,0,0.3);text-align:center">
   <div style="font-size:36px;margin-bottom:8px">🔑</div>
   <h2 style="font-size:20px;margin-bottom:4px;color:var(--ink)">학생 인증</h2>
-  <p style="font-size:13px;color:var(--ink2);margin-bottom:20px">학번과 이름을 입력하면 게임을 시작할 수 있어요.</p>
+  <p style="font-size:13px;color:var(--ink2);margin-bottom:20px">학번과 이름을 입력하면 학습을 시작할 수 있어요.</p>
   <div style="text-align:left;margin-bottom:12px">
    <label style="font-size:13px;font-weight:700;color:var(--ink)">학번 (5자리)</label>
    <input id="loginId" type="text" maxlength="5" inputmode="numeric" placeholder="예: 10101" style="width:100%;padding:10px 14px;border:2px solid var(--line);border-radius:10px;font-size:16px;margin-top:4px;box-sizing:border-box">
@@ -382,7 +382,7 @@ button{cursor:pointer}
     <div class="side">
      <button id="btnPrev" onclick="goPrev()">◀ 이전</button>
      <button id="btnNext" onclick="goNextBtn()">다음 ▶</button>
-     <button class="end-b" id="btnEnd" onclick="askFinish()">게임<br>끝내기</button>
+     <button class="end-b" id="btnEnd" onclick="askFinish()">학습<br>끝내기</button>
      <div class="keys">정답 뒤<br>Enter · Space · →</div>
     </div>
    </div>
@@ -420,7 +420,7 @@ button{cursor:pointer}
       <div class="f-item"><label>📅 완료 날짜</label><input id="inDate" readonly></div>
       <div class="f-item"><label>⏱ 학습 시간</label><input id="inTime" readonly></div>
      </div>
-     <div class="f-item"><label for="inRefl">💬 학습 소감 <small>(선택)</small></label><textarea id="inRefl" maxlength="300" placeholder="오늘 게임으로 알게 된 점이나 헷갈렸던 점을 적어 보세요"></textarea></div>
+     <div class="f-item"><label for="inRefl">💬 학습 소감 <small>(선택)</small></label><textarea id="inRefl" maxlength="300" placeholder="오늘 학습으로 알게 된 점이나 헷갈렸던 점을 적어 보세요"></textarea></div>
      <div class="f-msg" id="fMsg"></div>
      <div class="end-privacy" id="endPrivacy">🔒 입력하신 이름과 소감은 서버에 저장되지 않으며, 리포트 이미지(JPG) 생성용으로만 쓰입니다.</div>
     </div>
@@ -799,7 +799,7 @@ function goNextBtn(){
 function askFinish(){
   if(S.done)return;
   const left=S.qs.filter(x=>x.st===null).length;
-  const msg=left>0?'아직 '+left+'문항이 남았어요. 게임을 끝낼까요?\n(남은 문항은 미응답으로 기록돼요)':'지금까지 푼 결과로 게임을 끝낼까요?';
+  const msg=left>0?'아직 '+left+'문항이 남았어요. 학습을 끝낼까요?\n(남은 문항은 미응답으로 기록돼요)':'지금까지 푼 결과로 학습을 끝낼까요?';
   if(!confirm(msg))return;
   finishGame();
 }
@@ -848,7 +848,7 @@ function shakeWrong(){clearFx();sWrong();const c=$('qCard');c.classList.remove('
 document.addEventListener('keydown',e=>{
   if($('reviewModal').classList.contains('on')){if(e.key==='Escape')closeReview();return}
   if($('loginOverlay').style.display==='flex'){if(e.key==='Enter'){e.preventDefault();doLogin()}return}
-  if(!$('game').classList.contains('on')||S.done)return;   // 게임 중에만 키를 가로챈다 (종료 화면 입력칸은 그대로)
+  if(!$('game').classList.contains('on')||S.done)return;   // 학습 중에만 키를 가로챈다 (종료 화면 입력칸은 그대로)
   const k=e.key,go=(k==='Enter'||k===' '||k==='ArrowRight');
   const ae=document.activeElement;if((k==='Enter'||k===' ')&&ae&&ae.tagName==='BUTTON')e.preventDefault();   // 포커스 남은 버튼이 다시 눌리지 않게
   if(e.repeat&&(go||k==='ArrowLeft'||/^[1-9]$/.test(k))){e.preventDefault();return}
@@ -1145,7 +1145,7 @@ function downloadTeacherXls(){
     xRow(['성취기준','('+STD.year+') ['+STD.code+'] '+STD.text],'b'),
     xRow(['배점 규칙','첫 시도 정답 +10 · 다시 풀어 맞힘 +5(다시 풀기 1회) · 오답 −5(하한 0) · 콤보 3~4연속 +5, 5연속 이상 +10 · 단계 안에서 문항 순서를 섞어 출제'],'b'),
     xRow(['총문항 수',totalQ+'문항 (단계별 '+STAGES_Q.map(s=>s.length).join('/')+') · 만점 합계 '+totalMax+'점'],'b'),
-    xRow(['크레딧',CREDIT1+' · '+CREDIT2+' · 게임 코드 '+GAME_CONFIG.gameCode],'b')
+    xRow(['크레딧',CREDIT1+' · '+CREDIT2+' · 자료 코드 '+GAME_CONFIG.gameCode],'b')
   ];
   STAGES.forEach((st,i)=>{
     const pool=stagePool(i),rows=[xRow([(i+1)+'단계 · '+st.label+' · '+pool.length+'문항 · 만점 '+maxScore(pool.length)+'점'],'h'),

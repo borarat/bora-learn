@@ -3,7 +3,7 @@
 <!-- 리모델링 기록
      2026.10.02 00:30 10차 — 양식→糧食·상호→商號로 뜻 통일, 3단계 구실 가짜 뜻풀이 교체(01:00 반대 뜻으로), 뜻 비슷한 낱말 오답 보기 짝 제외, 답하기 전 Enter·Space·→ 건너뜀 막음, 채점 0문항 문구, 총평 반올림 기준, wrongItems=첫 시도에 못 맞힌 문항, 연동 모드 JPG 개인정보 문구, 4단계 '게임 설정(원작에 없음)' 표시·결말 문구, 1단계 힌트 첫 글자만, 콤보 단계마다 새로 시작(전체 만점 2300)
      2026.10.02 01:30 — 2단계 빈칸의 ○ 글자 수 표시·글자 수 힌트 삭제(보기 글자 수로 답이 드러남), 보기는 기본형이고 문장에서 활용형으로 들어간다는 안내와 해설 추가
-     2026.10.05 03:00 정답 배너를 깔끔한 카드형으로(교사 결정): 화면 어둡게·광선·색종이·이모지 낙하 없앰, 5·10연속에만 작은 색종이 / 이전·다음·게임 끝내기 내비게이션 바를 오른쪽으로(교사 요청)
+     2026.10.05 03:00 정답 배너를 깔끔한 카드형으로(교사 결정): 화면 어둡게·광선·색종이·이모지 낙하 없앰, 5·10연속에만 작은 색종이 / 이전·다음·학습 끝내기 내비게이션 바를 오른쪽으로(교사 요청)
      2026.10.07 23:01 9차: 테마층(1980년대 동네 골목) + 실제 조작 버그 검사·수정 — Made with 삭제·총평·보완 칸 하나·자동 종료·재감점·엑셀 정답 빨강
      2026.10.11 16:10 13차: 남은 확인 목록 반영(버그·표준·설계 결정) · 실제 조작 검사 통과
      2026.10.11 16:48 13차 문구 조정(남은 확인 목록 문항·해설) · 실제 조작 검사 통과 -->
@@ -289,7 +289,7 @@ button:focus-visible,input:focus-visible,textarea:focus-visible{outline:3px soli
 ::-webkit-scrollbar{width:9px}
 ::-webkit-scrollbar-thumb{background:#bcdfd2;border-radius:5px}
 
-/* ═══ 게임 테마층 · 1980년대 동네 골목 (2026.10.07) ═══
+/* ═══ 화면 테마층 · 1980년대 동네 골목 (2026.10.07) ═══
    간판을 단 낮은 가게들이 늘어선 원미동 골목. 보조색 머스터드 #C99A2E. 영역 팔레트·헤더 띠·정답/오답 색·흰 문제 카드·정답 카드는 그대로.
    이 블록과 시작 화면 SVG를 지우면 원래 모습 */
 :root{--th:#C99A2E}
@@ -354,7 +354,7 @@ button:focus-visible,input:focus-visible,textarea:focus-visible{outline:3px soli
      <p>[9국05-05] 작품에 반영된 사회·문화적 상황을 이해하며 작품을 감상한다.</p>
     </div>
     <div class="box">
-     <h3>게임 방법</h3>
+     <h3>학습 방법</h3>
      <ul>
       <li>네 단계를 지나며 같은 낱말을 서로 다른 방식으로 네 번 만납니다.</li>
       <li>보기를 클릭하거나 <b>숫자키 1~4</b>를 눌러 고릅니다.</li>
@@ -415,12 +415,12 @@ button:focus-visible,input:focus-visible,textarea:focus-visible{outline:3px soli
 
   <div class="privacy" id="privacyOffline">
    <b>🔒 개인정보 보호 안내</b><br>
-   본 게임은 별도의 서버로 데이터를 전송하거나 저장하지 않습니다.<br>
-   게임 중 입력하는 이름, 활동 소감 등의 정보는 오직 사용자 기기 내부에서 리포트 이미지를 다운로드하는 용도로만 안전하게 처리됩니다.
+   본 콘텐츠는 별도의 서버로 데이터를 전송하거나 저장하지 않습니다.<br>
+   학습 중 입력하는 이름, 활동 소감 등의 정보는 오직 사용자 기기 내부에서 리포트 이미지를 다운로드하는 용도로만 안전하게 처리됩니다.
   </div>
   <div class="privacy" id="privacyOnline" style="display:none">
    <b>🔒 개인정보 보호 안내</b><br>
-   본 게임의 학습 결과(학번, 이름, 점수, 오답 정보, 학습 소감)는 담당 선생님의 학습 관리용 스프레드시트에 안전하게 전송·저장됩니다.<br>
+   본 콘텐츠의 학습 결과(학번, 이름, 점수, 오답 정보, 학습 소감)는 담당 선생님의 학습 관리용 스프레드시트에 안전하게 전송·저장됩니다.<br>
    수집된 정보는 학습 지도 목적으로만 사용되며, 제3자에게 제공되지 않습니다.
   </div>
  </div>
@@ -430,7 +430,7 @@ button:focus-visible,input:focus-visible,textarea:focus-visible{outline:3px soli
  <div style="background:#fff;border-radius:20px;padding:32px;max-width:380px;width:90%;box-shadow:0 20px 60px rgba(0,0,0,0.3);text-align:center">
   <div style="font-size:36px;margin-bottom:8px">🔑</div>
   <h2 style="font-size:20px;margin-bottom:4px;color:var(--ink)">학생 인증</h2>
-  <p style="font-size:13px;color:var(--ink2);margin-bottom:20px">학번과 이름을 입력하면 게임을 시작할 수 있어요.</p>
+  <p style="font-size:13px;color:var(--ink2);margin-bottom:20px">학번과 이름을 입력하면 학습을 시작할 수 있어요.</p>
   <div style="text-align:left;margin-bottom:12px">
    <label style="font-size:13px;font-weight:700;color:var(--ink)">학번 (5자리)</label>
    <input id="loginId" type="text" maxlength="5" inputmode="numeric" placeholder="예: 20101" style="width:100%;padding:10px 14px;border:2px solid var(--line);border-radius:10px;font-size:16px;margin-top:4px;box-sizing:border-box">
@@ -457,7 +457,7 @@ button:focus-visible,input:focus-visible,textarea:focus-visible{outline:3px soli
    <button class="nav-btn" id="btnPrev">◀ 이전</button>
    <button class="nav-btn" id="btnNext">다음 ▶</button>
    <div class="keyhint"><b>1~4</b> 보기 선택<br><b>Enter</b> 다음<br><b>← →</b> 앞뒤 이동</div>
-   <button class="nav-btn end" id="btnEnd">게임 끝내기</button>
+   <button class="nav-btn end" id="btnEnd">학습 끝내기</button>
   </div>
   <div class="main">
    <div class="inner">
@@ -1274,7 +1274,7 @@ $('btnAll').addEventListener('click',()=>startMode(0));
 document.querySelectorAll('.stage-btn').forEach(b=>b.addEventListener('click',()=>startMode(parseInt(b.dataset.stage,10))));
 $('btnNext').addEventListener('click',goNext);
 $('btnPrev').addEventListener('click',goPrev);
-$('btnEnd').addEventListener('click',()=>{ if(confirm('게임을 끝내고 결과 화면으로 이동할까요?')) finish(); });
+$('btnEnd').addEventListener('click',()=>{ if(confirm('학습을 끝내고 결과 화면으로 이동할까요?')) finish(); });
 
 document.addEventListener('keydown',e=>{
   if($('reviewModal').classList.contains('on')){
@@ -1347,7 +1347,7 @@ function firstToStudy(){
   list.sort((a,b)=> b.w-a.w || a.r-b.r || b.t-a.t );
   return list[0];
 }
-/* '보완이 필요한 분야' 한 칸 = 가장 먼저 공부할 분야 하나 + 판단 방법(tip) (화면연출표준 8-2, v3.3 — 이 게임은 유형을 '분야'라 부른다) */
+/* '보완이 필요한 분야' 한 칸 = 가장 먼저 공부할 분야 하나 + 판단 방법(tip) (화면연출표준 8-2, v3.3 — 이 콘텐츠는 유형을 '분야'라 부른다) */
 function adviceText(){
   const H='보완이 필요한 분야';
   const shown=catShown(), totalWrong=S.qs.filter(q=>q.done&&!(q.correct&&q.firstTry)).length;
@@ -1420,7 +1420,7 @@ function finish(){
 
   if(IS_ONLINE&&STUDENT.verified){
     const nameInput=$('inName');nameInput.value=STUDENT.name;nameInput.readOnly=true;nameInput.style.background='#F1F7F5';
-    /* 첫 시도에 못 맞힌 문항(재시도 정답 포함) — 다른 리모델링 게임과 같은 기준 */
+    /* 첫 시도에 못 맞힌 문항(재시도 정답 포함) — 다른 리모델링 콘텐츠과 같은 기준 */
     const wrongItems=S.qs.filter(q=>q.done&&!q.firstTry).map(q=>q.oid).join(',');
     submitResult({
       studentId:STUDENT.id,studentName:STUDENT.name,className:STUDENT.className,
@@ -1744,7 +1744,7 @@ function downloadTeacherXls(){
   sum+=xRow([xCell(std)]);
   sum+=xRow([xCell(rule)]);
   sum+=xRow([xCell('총문항 수: 121문항 (단계별 57/30/20/14) · 만점 1110/570/370/250점, 전체 도전 2300점 (콤보는 단계마다 새로 시작)')]);
-  sum+=xRow([xCell('게임 코드 '+GAME_CONFIG.gameCode+' · '+GAME_CONFIG.gameName)]);
+  sum+=xRow([xCell('자료 코드 '+GAME_CONFIG.gameCode+' · '+GAME_CONFIG.gameName)]);
   sum+=xRow([xCell(credit)]);
   sheets+='<Worksheet ss:Name="유형별 요약"><Table>'+sum+'</Table></Worksheet>';
 

@@ -244,7 +244,7 @@
   .tag.유사성 { background: var(--green-light); color: #2e8b57; }
   .tag.근거   { background: var(--orange-light); color: #d06030; }
 
-  /* ─── 게임 영역 (사이드바 레이아웃) ─── */
+  /* ─── 학습 영역 (사이드바 레이아웃) ─── */
   #game-area { display: none; }
   #game-area.show {
     display: grid; grid-template-columns: 1fr 76px;
@@ -660,7 +660,7 @@
   .sa-input { min-height: 48px; background: #fff; color: var(--text); }
   @media (max-width: 560px) { .sentence-card { padding-left: 12px; padding-right: 12px; } }
 
-/* ═══ 게임 테마층 · 천칭 실험대 (2026.10.08) ═══
+/* ═══ 화면 테마층 · 천칭 실험대 (2026.10.08) ═══
    실험대 위 균형 잡힌 천칭과 양쪽 접시의 작은 추 — 근거와 결론의 무게를 달아 보는 장면. 보조색 먹 #3D3D4A. 영역 팔레트·헤더 띠·정답/오답 색·흰 문제 카드·정답 카드·컵 색은 그대로.
    이 블록과 시작 화면 SVG를 지우면 원래 모습 */
 :root{--th:#3D3D4A}
@@ -759,13 +759,13 @@ body.started header .keyArt{display:none}
 
     <div class="start-bottom">
       <div class="info-box how">
-        <h3>📖 게임 방법</h3>
+        <h3>📖 학습 방법</h3>
         <p>
           ① 위에서 <strong>단계를 골라</strong> 시작합니다(각 단계는 따로따로 풀 수 있어요).<br>
           ② 문제를 읽고 답을 고르거나(1·2·3 키) 입력해 제출합니다.<br>
           ③ 채점 후 예문의 짜임(대전제·소전제·결론 / 사례·일반화 / 유사성·근거·결론)을 풀어 줍니다.<br>
           ④ <strong>정답이면</strong> Enter·Space·→ 로 다음 문제, <strong>틀리면</strong> Enter·Space로 다시 풀기, ← 로 이전 문제.<br>
-          ⑤ 오른쪽 <strong>이전 / 다음 / 게임 끝내기</strong> 버튼으로 언제든 이동할 수 있습니다.<br>
+          ⑤ 오른쪽 <strong>이전 / 다음 / 학습 끝내기</strong> 버튼으로 언제든 이동할 수 있습니다.<br>
           ⑥ 문제 순서는 매번 섞입니다.
         </p>
       </div>
@@ -773,12 +773,12 @@ body.started header .keyArt{display:none}
         <div class="rule-line">🏅 <b>점수</b> · 첫 시도 정답 <b>10점</b> · 3콤보부터 보너스(+5, 5콤보부터 +10)<br>다시 풀어 맞히면 <b>5점</b> · 오답 <b>−10점</b> · 결과는 정답률로 평가해요</div>
         <div class="privacy-box" id="privacyOffline">
           🔒 <strong>개인정보 보호 안내</strong><br>
-          본 게임은 별도의 서버로 데이터를 전송하거나 저장하지 않습니다.<br>
-          게임 중 입력하는 이름, 활동 소감 등의 정보는 오직 사용자 기기 내부에서 리포트 이미지를 다운로드하는 용도로만 안전하게 처리됩니다.
+          본 콘텐츠는 별도의 서버로 데이터를 전송하거나 저장하지 않습니다.<br>
+          학습 중 입력하는 이름, 활동 소감 등의 정보는 오직 사용자 기기 내부에서 리포트 이미지를 다운로드하는 용도로만 안전하게 처리됩니다.
         </div>
         <div class="privacy-box" id="privacyOnline" style="display:none">
           🔒 <strong>개인정보 보호 안내</strong><br>
-          본 게임의 학습 결과(학번, 이름, 점수, 오답 정보, 학습 소감)는 담당 선생님의 학습 관리용 스프레드시트에 안전하게 전송·저장됩니다.<br>
+          본 콘텐츠의 학습 결과(학번, 이름, 점수, 오답 정보, 학습 소감)는 담당 선생님의 학습 관리용 스프레드시트에 안전하게 전송·저장됩니다.<br>
           수집된 정보는 학습 지도 목적으로만 사용되며, 제3자에게 제공되지 않습니다.
         </div>
         <div class="credit-box">
@@ -793,7 +793,7 @@ body.started header .keyArt{display:none}
    <div style="background:#fff;border-radius:20px;padding:32px;max-width:380px;width:90%;box-shadow:0 20px 60px rgba(0,0,0,0.3);text-align:center">
     <div style="font-size:36px;margin-bottom:8px">🔑</div>
     <h2 style="font-size:20px;margin-bottom:4px;color:var(--ink)">학생 인증</h2>
-    <p style="font-size:13px;color:var(--ink2);margin-bottom:20px">학번과 이름을 입력하면 게임을 시작할 수 있어요.</p>
+    <p style="font-size:13px;color:var(--ink2);margin-bottom:20px">학번과 이름을 입력하면 학습을 시작할 수 있어요.</p>
     <div style="text-align:left;margin-bottom:12px">
      <label style="font-size:13px;font-weight:700;color:var(--ink)">학번 (5자리)</label>
      <input id="loginId" type="text" maxlength="5" inputmode="numeric" placeholder="예: 20101" style="width:100%;padding:10px 14px;border:2px solid var(--line);border-radius:10px;font-size:16px;margin-top:4px;box-sizing:border-box">
@@ -808,7 +808,7 @@ body.started header .keyArt{display:none}
    </div>
   </div>
 
-  <!-- ══════════ 게임 영역 ══════════ -->
+  <!-- ══════════ 학습 영역 ══════════ -->
   <div id="game-area">
     <div class="progress-wrap">
       <div class="progress-top">
@@ -842,7 +842,7 @@ body.started header .keyArt{display:none}
     <div class="nav-sidebar">
       <button class="nav-btn" id="prev-btn" onclick="navigate(-1)">◀<br>이전</button>
       <button class="nav-btn" id="next-btn" onclick="navigate(1)">다음<br>▶</button>
-      <button class="nav-btn finish-btn" id="finish-btn" onclick="finishStage()">게임<br>끝내기</button>
+      <button class="nav-btn finish-btn" id="finish-btn" onclick="finishStage()">학습<br>끝내기</button>
     </div>
   </div>
 
@@ -928,7 +928,7 @@ body.started header .keyArt{display:none}
 <script>
 
 /* ══════════════════════════════════════════════════════════
-   게임 데이터
+   학습 데이터
    ══════════════════════════════════════════════════════════ */
 
 // ─── 1단계: 개념 이해 (객관식 5 + 단답형 7) ───
@@ -1675,7 +1675,7 @@ function navigate(dir){
   hideBanner();
   const next=S.current+dir;
   if(next<0 || next>=S.n){
-    showToast(dir<0 ? '첫 번째 문제입니다.' : '마지막 문제입니다. 「게임 끝내기」를 눌러 결과를 확인하세요.');
+    showToast(dir<0 ? '첫 번째 문제입니다.' : '마지막 문제입니다. 「학습 끝내기」를 눌러 결과를 확인하세요.');
     return;
   }
   restoreReview(S.current);
@@ -1727,11 +1727,11 @@ document.addEventListener('click',(e)=>{
   if(b && document.activeElement===b) b.blur();
 });
 
-/* ─── 게임 끝내기 ─── */
+/* ─── 학습 끝내기 ─── */
 function finishStage(){
   if(S.completed) return;
   const left=S.firstResult.filter(r=>r===null).length;
-  if(left>0 && !confirm('아직 '+left+'문항이 남았어요. 게임을 끝낼까요?\n(남은 문항은 미응답으로 기록돼요)')) return;
+  if(left>0 && !confirm('아직 '+left+'문항이 남았어요. 학습을 끝낼까요?\n(남은 문항은 미응답으로 기록돼요)')) return;
   S.qs.forEach((_,i)=>restoreReview(i));
   S.answered = S.answered.map(a=> a==='wrong' ? 'wrong-final' : a);
   showComplete();
@@ -2075,7 +2075,7 @@ function downloadDataXlsx(){
   rows.push({ cells:['배점','','',`첫 시도 정답 ${BASE_POINT}점 · 3~4콤보 매 문항 +5 · 5콤보 이상 매 문항 +10 · 다시 풀어 맞힘 ${RETRY_POINT}점(콤보 복구 없음) · 오답 −${WRONG_PENALTY}점(0점 하한)`], style:2 });
   rows.push({ cells:['만점','','','단계별 (문항 수 × 10) + 10 + 10 × (문항 수 − 4)'], style:2 });
   rows.push({ cells:['총 문항 수','','',`${stageInfo.join(' / ')} · 총 ${total}문항`], style:2 });
-  rows.push({ cells:['게임','','',`${GAME_CONFIG.gameCode} · ${GAME_NAME} · 내려받은 시각 ${now.getFullYear()}.${pad2(now.getMonth()+1)}.${pad2(now.getDate())} ${pad2(now.getHours())}:${pad2(now.getMinutes())}`], style:2 });
+  rows.push({ cells:['자료','','',`${GAME_CONFIG.gameCode} · ${GAME_NAME} · 내려받은 시각 ${now.getFullYear()}.${pad2(now.getMonth()+1)}.${pad2(now.getDate())} ${pad2(now.getHours())}:${pad2(now.getMinutes())}`], style:2 });
   const blob=buildXlsx(rows,[16,8,12,60,14,24,60]);
   const fname=`${GAME_CONFIG.gameCode}_${GAME_NAME.replace(/\s/g,'')}_학습데이터_${now.getFullYear()}${pad2(now.getMonth()+1)}${pad2(now.getDate())}_${pad2(now.getHours())}${pad2(now.getMinutes())}.xlsx`;
   const url=URL.createObjectURL(blob);

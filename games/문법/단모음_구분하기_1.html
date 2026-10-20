@@ -14,7 +14,7 @@
      산출물: 오답노트·리포트 JPG 표준 구성(유형 라벨, 해설, 성취기준·개인정보 꼬리말, 2문항 이상 유형만 판정, 가장 먼저 공부할 것, 파일명에 단계·날짜·시각)
      테마층: '발음 연구실'(시작 화면 거울 세 개 — ㅣ·ㅐ·ㅜ 입 모양), 보조색 청록 #2A8C8C
      2026.10.06 00:30 버그 검사(실제 입력): 코드 주석에 남은 날짜 자리 표시(파이썬 치환 흔적)를 실제 날짜로 — 동작 변화 없음
-     2026.10.07 13:58 끝낸 게임 다시 훑기(실제 조작 재검사): 중간 종료 칭찬·0% 제거, 보완 칸 하나, 자동 종료 가드, 엑셀 정답 빨간 글씨
+     2026.10.07 13:58 끝낸 학습 다시 훑기(실제 조작 재검사): 중간 종료 칭찬·0% 제거, 보완 칸 하나, 자동 종료 가드, 엑셀 정답 빨간 글씨
      2026.10.11 16:10 13차: 남은 확인 목록 반영(버그·표준·설계 결정) · 실제 조작 검사 통과
      2026.10.11 16:48 13차 문구 조정(남은 확인 목록 문항·해설) · 실제 조작 검사 통과 -->
 <head>
@@ -292,7 +292,7 @@ body{font-family:'Noto Sans KR','Malgun Gothic','맑은 고딕',sans-serif;backg
 .rv .tg{font-size:.75rem;color:#fff;background:var(--pri);border-radius:999px;padding:1px 8px;margin-right:6px}
 .rv .a{color:#3a8f60;font-weight:700}
 .rv .d{color:#64748b;font-size:.88rem}
-/* ═══ 게임 테마층 · 발음 연구실 (2026.10.05) ═══
+/* ═══ 화면 테마층 · 발음 연구실 (2026.10.05) ═══
    거울 앞에서 입 모양을 살피며 모음을 가르는 실험실. 보조색 청록 #2A8C8C. 영역 팔레트·헤더 띠·정답/오답 색·흰 문제 카드는 그대로.
    이 블록과 시작 화면 SVG를 지우면 원래 모습 */
 :root{--th:#2A8C8C;--th-soft:#E2F2F1}
@@ -335,7 +335,7 @@ body{font-family:'Noto Sans KR','Malgun Gothic','맑은 고딕',sans-serif;backg
 
   <div class="start-body">
     <div class="info-box">
-      <div class="info-box-title">📖 게임 방법</div>
+      <div class="info-box-title">📖 학습 방법</div>
       <p>제시된 <strong>단모음</strong>이 어떤 분류에 해당하는지 골라보세요. 문제의 절반은 <strong>객관식</strong>(버튼 선택), 나머지 절반은 <strong>단답형</strong>(직접 입력)으로 출제됩니다.</p>
       <p style="margin-top:4px"><strong>정답 +10점</strong> · 오답 −5점(최저 0점) · 3~4번째 연속 정답 +5 · 5번째부터 +10 · 단계 만점 170점</p>
       <p>2단계(고·중·저)는 틀리면 힌트를 보고 한 번 더 풀 수 있어요(맞히면 +5점). 1·3단계는 틀리면 바로 정답과 해설이 나와요.</p>
@@ -370,11 +370,11 @@ body{font-family:'Noto Sans KR','Malgun Gothic','맑은 고딕',sans-serif;backg
     <div class="credit-line">제작 · 보라라샘 · 전주서신중학교 교사 · siaawase@gmail.com<br>제작일 2026.08.13 · <span id="lastMod">최종 수정 2026.10.11 16:48</span></div>
     <div class="privacy-box" id="privacyOffline">
       <strong>🔒 개인정보 보호 안내</strong><br>
-      본 게임은 별도의 서버로 데이터를 전송하거나 저장하지 않습니다. 게임 중 입력하는 이름, 활동 소감 등의 정보는 오직 사용자 기기 내부에서 리포트 이미지를 다운로드하는 용도로만 안전하게 처리됩니다.
+      본 콘텐츠는 별도의 서버로 데이터를 전송하거나 저장하지 않습니다. 학습 중 입력하는 이름, 활동 소감 등의 정보는 오직 사용자 기기 내부에서 리포트 이미지를 다운로드하는 용도로만 안전하게 처리됩니다.
     </div>
     <div class="privacy-box" id="privacyOnline" style="display:none">
       <strong>🔒 개인정보 보호 안내</strong><br>
-      본 게임의 학습 결과(학번, 이름, 점수, 오답 정보, 학습 소감)는 담당 선생님의 학습 관리용 스프레드시트에 안전하게 전송·저장됩니다.<br>
+      본 콘텐츠의 학습 결과(학번, 이름, 점수, 오답 정보, 학습 소감)는 담당 선생님의 학습 관리용 스프레드시트에 안전하게 전송·저장됩니다.<br>
       수집된 정보는 학습 지도 목적으로만 사용되며, 제3자에게 제공되지 않습니다.
     </div>
   </div>
@@ -386,7 +386,7 @@ body{font-family:'Noto Sans KR','Malgun Gothic','맑은 고딕',sans-serif;backg
  <div style="background:#fff;border-radius:20px;padding:32px;max-width:380px;width:90%;box-shadow:0 20px 60px rgba(0,0,0,0.3);text-align:center">
   <div style="font-size:36px;margin-bottom:8px">🔑</div>
   <h2 style="font-size:20px;margin-bottom:4px;color:var(--text)">학생 인증</h2>
-  <p style="font-size:13px;color:var(--muted);margin-bottom:20px">학번과 이름을 입력하면 게임을 시작할 수 있어요.</p>
+  <p style="font-size:13px;color:var(--muted);margin-bottom:20px">학번과 이름을 입력하면 학습을 시작할 수 있어요.</p>
   <div style="text-align:left;margin-bottom:12px">
    <label style="font-size:13px;font-weight:700;color:var(--text)">학번 (5자리)</label>
    <input id="loginId" type="text" maxlength="5" inputmode="numeric" placeholder="예: 20101" style="width:100%;padding:10px 14px;border:2px solid var(--border);border-radius:10px;font-size:16px;margin-top:4px;box-sizing:border-box">
@@ -424,7 +424,7 @@ body{font-family:'Noto Sans KR','Malgun Gothic','맑은 고딕',sans-serif;backg
   <div class="nav-sidebar">
     <button class="nav-btn" id="prev-btn" onclick="navigate(-1)" disabled>◀ 이전<br>문제</button>
     <button class="nav-btn" id="next-btn" onclick="navigate(1)" disabled>다음<br>문제 ▶</button>
-    <button class="nav-btn finish-btn" onclick="finishGame()">게임<br>끝내기</button>
+    <button class="nav-btn finish-btn" onclick="finishGame()">학습<br>끝내기</button>
   </div>
 </div>
 
@@ -877,7 +877,7 @@ function updateNav() {
 
 function finishGame() {
   if (completed) return;
-  if (!confirm('게임을 끝낼까요? 풀지 않은 문제는 미응답으로 기록됩니다.')) return;
+  if (!confirm('학습을 끝낼까요? 풀지 않은 문제는 미응답으로 기록됩니다.')) return;
   if (completed) return;   // 확인 창이 떠 있는 동안 자동 종료가 이미 돈 경우
   showComplete();
 }
@@ -1001,8 +1001,8 @@ function renderWrongReport() {
 }
 
 /* ===== 오답노트·리포트 JPG (화면연출표준 8장) ===== */
-const PRIV_OFF = '🔒 개인정보 보호 안내 — 본 게임은 별도의 서버로 데이터를 전송하거나 저장하지 않습니다. 게임 중 입력하는 이름, 활동 소감 등의 정보는 오직 사용자 기기 내부에서 리포트 이미지를 다운로드하는 용도로만 안전하게 처리됩니다.';
-const PRIV_ON = '🔒 개인정보 보호 안내 — 본 게임의 학습 결과(학번, 이름, 점수, 오답 정보, 학습 소감)는 담당 선생님의 학습 관리용 스프레드시트에 안전하게 전송·저장됩니다. 수집된 정보는 학습 지도 목적으로만 사용되며, 제3자에게 제공되지 않습니다.';
+const PRIV_OFF = '🔒 개인정보 보호 안내 — 본 콘텐츠는 별도의 서버로 데이터를 전송하거나 저장하지 않습니다. 학습 중 입력하는 이름, 활동 소감 등의 정보는 오직 사용자 기기 내부에서 리포트 이미지를 다운로드하는 용도로만 안전하게 처리됩니다.';
+const PRIV_ON = '🔒 개인정보 보호 안내 — 본 콘텐츠의 학습 결과(학번, 이름, 점수, 오답 정보, 학습 소감)는 담당 선생님의 학습 관리용 스프레드시트에 안전하게 전송·저장됩니다. 수집된 정보는 학습 지도 목적으로만 사용되며, 제3자에게 제공되지 않습니다.';
 const CREDIT = '제작 · 보라라샘 · 전주서신중학교 교사 · siaawase@gmail.com';
 const FF = "'Malgun Gothic','맑은 고딕','Apple SD Gothic Neo',sans-serif";
 function rrect(ctx, x, y, w, h, r) { ctx.beginPath(); ctx.moveTo(x + r, y); ctx.lineTo(x + w - r, y); ctx.quadraticCurveTo(x + w, y, x + w, y + r); ctx.lineTo(x + w, y + h - r); ctx.quadraticCurveTo(x + w, y + h, x + w - r, y + h); ctx.lineTo(x + r, y + h); ctx.quadraticCurveTo(x, y + h, x, y + h - r); ctx.lineTo(x, y + r); ctx.quadraticCurveTo(x, y, x + r, y); ctx.closePath(); }

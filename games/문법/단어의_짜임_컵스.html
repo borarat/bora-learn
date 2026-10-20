@@ -6,10 +6,10 @@
      채점: 4단계에서 틀린 적이 있으면 1과정 끝과 문항 끝 모두 '정답!' 대신 재시도 배너(색종이·광선 없음). 점수·기록은 원래도 재시도 정답
      버그: 채점 전 → 키로 문항이 넘어가던 것 막음 (지침 6-1)
      2026.10.01 13:00 재시도 배너를 모든 단계로: 틀린 뒤 다시 풀어 맞히면 0~3단계도 '정답!'·색종이 대신 작은 재시도 배너 (첫 시도 정답은 그대로 큰 배너) 
-     화면 2026.10.02 14:11: 게임 테마층 '낱말 블록과 퍼즐'(CSS 끝 블록 + 시작 화면 SVG). 문항·채점·로직 변경 없음
+     화면 2026.10.02 14:11: 화면 테마층 '낱말 블록과 퍼즐'(CSS 끝 블록 + 시작 화면 SVG). 문항·채점·로직 변경 없음
      2026.10.05 03:00 정답 배너를 깔끔한 카드형으로(교사 결정): 화면 어둡게·광선·색종이·이모지 낙하 없앰, 5·10연속에만 작은 색종이
-     2026.10.06 17:25 실제 조작 버그 검사·수정: '다음'·'게임 끝내기'를 마우스로 누른 뒤 Enter·Space로 문제가 넘어가거나 게임이 끝나던 버그, 다시 하기 직후 '게임 끝내기' 한 번에 끝나던 버그, 중간 종료 제목·총평, 채점 0개 판 정답률 –, 플레이 크레딧 가운뎃점
-     2026.10.07 13:58 끝낸 게임 다시 훑기(실제 조작 재검사): 끝내기 확인창, 오답 뒤 끝낸 문항=못 맞힘, 같은 틀린 컵 재감점 없앰, 보완 칸 하나, 엑셀 빨간 글씨
+     2026.10.06 17:25 실제 조작 버그 검사·수정: '다음'·'학습 끝내기'를 마우스로 누른 뒤 Enter·Space로 문제가 넘어가거나 학습이 끝나던 버그, 다시 하기 직후 '학습 끝내기' 한 번에 끝나던 버그, 중간 종료 제목·총평, 채점 0개 판 정답률 –, 플레이 크레딧 가운뎃점
+     2026.10.07 13:58 끝낸 학습 다시 훑기(실제 조작 재검사): 끝내기 확인창, 오답 뒤 끝낸 문항=못 맞힘, 같은 틀린 컵 재감점 없앰, 보완 칸 하나, 엑셀 빨간 글씨
      2026.10.11 16:10 13차: 남은 확인 목록 반영(버그·표준·설계 결정) · 실제 조작 검사 통과
      2026.10.16 09:50 문항 추가: 활동지 낱말 14개 반영(중복 5개 거울·콧물·논밭·개살구·울보 제외).
        3단계(분류) +7: 무늬·앞뒤·촛불·여닫다·치솟다·헛걸음·따님 (id 63~69)
@@ -269,8 +269,8 @@ img.mascot{height:90px;border-radius:12px;-webkit-touch-callout:none;user-select
 @media (prefers-reduced-motion:reduce){
 }
 
-/* ═══ 게임 테마층 · 낱말 블록과 퍼즐 (2026.10.02) ═══
-   G 단어 형성 게임 공통 그림 언어: 어근 = 네모 블록, 접사 = 퍼즐 조각('-' 쪽에만 이음매).
+/* ═══ 화면 테마층 · 낱말 블록과 퍼즐 (2026.10.02) ═══
+   G 단어 형성 콘텐츠 공통 그림 언어: 어근 = 네모 블록, 접사 = 퍼즐 조각('-' 쪽에만 이음매).
    영역 팔레트(문법)·헤더 띠·정답/오답 색·플레이 화면은 그대로. 이 블록과 시작 화면 SVG를 지우면 원래 모습. */
 :root{--th:#C9A227;--th-soft:#F6E7B0;--th-ink:#7A5C0A}
 .keyArt{flex:0 0 auto;height:118px;width:auto}
@@ -313,7 +313,7 @@ img.mascot{height:90px;border-radius:12px;-webkit-touch-callout:none;user-select
       <p><b>[9국04-02]</b> 단어의 짜임을 분석하여 새말 형성의 원리를 이해한다.</p>
      </div>
      <div class="box">
-      <h3>🎮 게임 방법</h3>
+      <h3>🎮 학습 방법</h3>
       <ul>
        <li>카드를 누른 뒤, 알맞은 컵을 누르세요.</li>
        <li>한 번에 맞히면 10점이고, 연속으로 맞히면 콤보 보너스가 붙어요.</li>
@@ -336,12 +336,12 @@ img.mascot{height:90px;border-radius:12px;-webkit-touch-callout:none;user-select
    </div>
    <div class="privacy" id="privacyOffline">
     <b>🔒 개인정보 보호 안내</b><br>
-    본 게임은 별도의 서버로 데이터를 전송하거나 저장하지 않습니다.<br>
-    게임 중 입력하는 이름, 활동 소감 등의 정보는 오직 사용자 기기 내부에서 리포트 이미지를 다운로드하는 용도로만 안전하게 처리됩니다.
+    본 콘텐츠는 별도의 서버로 데이터를 전송하거나 저장하지 않습니다.<br>
+    학습 중 입력하는 이름, 활동 소감 등의 정보는 오직 사용자 기기 내부에서 리포트 이미지를 다운로드하는 용도로만 안전하게 처리됩니다.
    </div>
    <div class="privacy" id="privacyOnline" style="display:none">
     <b>🔒 개인정보 보호 안내</b><br>
-    본 게임의 학습 결과(학번, 이름, 점수, 오답 정보, 학습 소감)는 담당 선생님의 학습 관리용 스프레드시트에 안전하게 전송·저장됩니다.<br>
+    본 콘텐츠의 학습 결과(학번, 이름, 점수, 오답 정보, 학습 소감)는 담당 선생님의 학습 관리용 스프레드시트에 안전하게 전송·저장됩니다.<br>
     수집된 정보는 학습 지도 목적으로만 사용되며, 제3자에게 제공되지 않습니다.
    </div>
   </div>
@@ -352,7 +352,7 @@ img.mascot{height:90px;border-radius:12px;-webkit-touch-callout:none;user-select
  <div style="background:#fff;border-radius:20px;padding:32px;max-width:380px;width:90%;box-shadow:0 20px 60px rgba(0,0,0,0.3);text-align:center">
   <div style="font-size:36px;margin-bottom:8px">🔑</div>
   <h2 style="font-size:20px;margin-bottom:4px;color:var(--ink)">학생 인증</h2>
-  <p style="font-size:13px;color:var(--ink2);margin-bottom:20px">학번과 이름을 입력하면 게임을 시작할 수 있어요.</p>
+  <p style="font-size:13px;color:var(--ink2);margin-bottom:20px">학번과 이름을 입력하면 학습을 시작할 수 있어요.</p>
   <div style="text-align:left;margin-bottom:12px">
    <label style="font-size:13px;font-weight:700;color:var(--ink)">학번 (5자리)</label>
    <input id="loginId" type="text" maxlength="5" inputmode="numeric" placeholder="예: 20101" style="width:100%;padding:10px 14px;border:2px solid var(--line);border-radius:10px;font-size:16px;margin-top:4px;box-sizing:border-box">
@@ -403,7 +403,7 @@ img.mascot{height:90px;border-radius:12px;-webkit-touch-callout:none;user-select
      <button class="btn sec" onclick="prevQ()">◀ 이전</button>
      <button class="btn" onclick="nextQ()">다음 ▶</button>
      <div class="stagego"><button class="btn sec" style="width:100%" onclick="toggleStMenu(event)">단계 이동</button><div class="stmenu" id="stMenu"></div></div>
-     <button class="btn sec" id="quitBtn" onclick="quitGame()">게임 끝내기</button>
+     <button class="btn sec" id="quitBtn" onclick="quitGame()">학습 끝내기</button>
     </div>
    </div>
   </div>
@@ -998,11 +998,11 @@ function nextQ(){
   else { const k=S.qs.findIndex(q=>!isDone(q)); S.idx=k; toast('아직 풀지 않은 문항으로 돌아왔어요'); renderQ(); }
 }
 function prevQ(){ if(!S||S.finished||S.banner) return; if(S.idx>0){ leaveQ(); S.idx--; renderQ(); } else toast('첫 문항이에요'); }
-// 게임 끝내기: 남은 문항이 있으면 확인창 한 번 (지침 6-1). 취소하면 버튼 포커스를 풀어 Enter·Space로 다시 눌리지 않게
+// 학습 끝내기: 남은 문항이 있으면 확인창 한 번 (지침 6-1). 취소하면 버튼 포커스를 풀어 Enter·Space로 다시 눌리지 않게
 function quitGame(){
   if(!S||S.finished) return;
   const left=S.qs.filter(q=>!isDone(q)).length;
-  if(left && !confirm('게임을 끝낼까요? 풀지 않은 문제는 미응답으로 기록됩니다.')){ if(document.activeElement) document.activeElement.blur(); return; }
+  if(left && !confirm('학습을 끝낼까요? 풀지 않은 문제는 미응답으로 기록됩니다.')){ if(document.activeElement) document.activeElement.blur(); return; }
   if(S.finished) return;
   finish();
 }
@@ -1024,7 +1024,7 @@ document.addEventListener('keydown',e=>{
   if(k==='Enter'||k===' '||k==='ArrowRight'){
     if(S.banner){ e.preventDefault(); hideBanner(true); return; }
     if(isDone(q)){ e.preventDefault(); nextQ(); return; }
-    // 채점 전: 마우스로 누른 '다음'·'게임 끝내기' 버튼에 포커스가 남아 Enter·Space로 다시 눌리던 버그 막기(지침 6-1).
+    // 채점 전: 마우스로 누른 '다음'·'학습 끝내기' 버튼에 포커스가 남아 Enter·Space로 다시 눌리던 버그 막기(지침 6-1).
     // 카드(#tray) 버튼만 키보드로 고를 수 있게 둔다
     const ae=document.activeElement;
     if((k===' '||k==='Enter') && !(ae && ae.closest && ae.closest('#tray'))) e.preventDefault();
@@ -1160,8 +1160,8 @@ function wrapLines(ctx,text,maxW){
     out.push(line);
   }); return out;
 }
-function privacyText(){ return IS_ONLINE ? '🔒 개인정보 보호 안내 · 본 게임의 학습 결과(학번, 이름, 점수, 오답 정보, 학습 소감)는 담당 선생님의 학습 관리용 스프레드시트에 안전하게 전송·저장됩니다. 수집된 정보는 학습 지도 목적으로만 사용되며, 제3자에게 제공되지 않습니다.'
-  : '🔒 개인정보 보호 안내 · 본 게임은 별도의 서버로 데이터를 전송하거나 저장하지 않습니다. 게임 중 입력하는 이름, 활동 소감 등의 정보는 오직 사용자 기기 내부에서 리포트 이미지를 다운로드하는 용도로만 안전하게 처리됩니다.'; }
+function privacyText(){ return IS_ONLINE ? '🔒 개인정보 보호 안내 · 본 콘텐츠의 학습 결과(학번, 이름, 점수, 오답 정보, 학습 소감)는 담당 선생님의 학습 관리용 스프레드시트에 안전하게 전송·저장됩니다. 수집된 정보는 학습 지도 목적으로만 사용되며, 제3자에게 제공되지 않습니다.'
+  : '🔒 개인정보 보호 안내 · 본 콘텐츠는 별도의 서버로 데이터를 전송하거나 저장하지 않습니다. 학습 중 입력하는 이름, 활동 소감 등의 정보는 오직 사용자 기기 내부에서 리포트 이미지를 다운로드하는 용도로만 안전하게 처리됩니다.'; }
 const STD_TEXT='[9국04-02] 단어의 짜임을 분석하여 새말 형성의 원리를 이해한다.';
 const CREDIT_TEXT='제작 · 보라라샘 · 전주서신중학교 교사 · siaawase@gmail.com · 제작일 '+MADE_DATE;
 function saveJpg(canvas,fname){

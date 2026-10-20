@@ -3,14 +3,14 @@
 <!-- 리모델링 2026.10.01 02:10 (1차 야간)
      채점: 정답률 = 맞힌 목표 ÷ (나온 목표 + 잘못 쏜 비목표). 그냥 통과시킨 비목표는 정답률에 넣지 않음
      채점: 잘못 격추 감점 −5 → −10 (명중 득점과 같게, 지침 3-6 속도형)
-     화면: 시작 화면에 ㅚ·ㅟ 이중 모음 발음 허용 안내 한 줄, '게임 끝내기' 확인 단계
+     화면: 시작 화면에 ㅚ·ㅟ 이중 모음 발음 허용 안내 한 줄, '학습 끝내기' 확인 단계
      2026.10.01 13:00 안내: ㅚ·ㅟ 문구를 '단모음으로 발음하는 것이 원칙이지만, 이중 모음으로 발음할 수도 있어요'로
      2026.10.01 13:00 채점: 리포트 '모음별 정답'도 전체 정답률과 같은 기준(그냥 통과시킨 비목표는 정답 아님)
-     2026.10.01 13:00 '게임 끝내기' 확인을 브라우저 confirm() 대신 화면 안 확인창으로 (떠 있는 동안 멈춤, 계속하기·Esc면 이어서) 
-     화면 2026.10.05 02:10: 게임 테마층 '밤하늘 모음 별자리'(시작 화면 그림, 모음 사각도). 문항·채점·로직 변경 없음
+     2026.10.01 13:00 '학습 끝내기' 확인을 브라우저 confirm() 대신 화면 안 확인창으로 (떠 있는 동안 멈춤, 계속하기·Esc면 이어서) 
+     화면 2026.10.05 02:10: 화면 테마층 '밤하늘 모음 별자리'(시작 화면 그림, 모음 사각도). 문항·채점·로직 변경 없음
      2026.10.05 03:00 정답 배너를 깔끔한 카드형으로(교사 결정): 화면 어둡게·광선·색종이·이모지 낙하 없앰, 5·10연속에만 작은 색종이
      2026.10.06 17:25 실제 조작 버그 검사·수정: 중간 종료 제목·총평(칭찬 대신 연습 권유), 판정 0개 문구·정답률 –, 플레이 크레딧 가운뎃점
-     2026.10.07 13:58 끝낸 게임 다시 훑기(실제 조작 재검사): 소리 버튼 Enter 재입력·오답노트 칭찬 제거, 보완 칸 하나, 확인 버튼 이름, 엑셀 빨간 글씨
+     2026.10.07 13:58 끝낸 학습 다시 훑기(실제 조작 재검사): 소리 버튼 Enter 재입력·오답노트 칭찬 제거, 보완 칸 하나, 확인 버튼 이름, 엑셀 빨간 글씨
      2026.10.11 16:10 13차: 남은 확인 목록 반영(버그·표준·설계 결정) · 실제 조작 검사 통과 -->
 <head>
 <meta charset="UTF-8">
@@ -83,7 +83,7 @@ details.vtable summary{cursor:pointer;font-size:.9rem;font-weight:700;color:var(
 .privacy{margin-top:12px;background:#faf8fe;border:1px solid var(--line-c);border-radius:10px;padding:10px 14px;font-size:.78rem;color:var(--muted);line-height:1.7}
 .privacy b{color:var(--deep)}
 
-/* 게임 화면 */
+/* 학습 화면 */
 #game-screen{min-height:100vh;display:flex;flex-direction:column;justify-content:center;padding:8px 0}
 #game-screen .panel{padding:10px 14px 12px}
 .hud{display:flex;justify-content:space-between;align-items:center;gap:8px;margin-bottom:6px}
@@ -190,8 +190,8 @@ details.vtable summary{cursor:pointer;font-size:.9rem;font-weight:700;color:var(
 @media(max-width:600px){.band .goal-text{display:none}.end-top,.analysis,.inputs{grid-template-columns:1fr}.rules{grid-template-columns:1fr}.controls{grid-template-columns:1fr 1.5fr 1fr}.ctrl.small,.ctrl.quit{grid-column:span 1}}
 @media(prefers-reduced-motion:reduce){.arena.shake{animation:none}}
 
-/* ═══ 게임 테마층 · 밤하늘 모음 별자리 (2026.10.05) ═══
-   단모음 게임 공통 그림 언어 = 모음 사각도(혀의 앞뒤 × 높낮이). 영역 팔레트·헤더 띠·플레이 화면은 그대로. 이 블록과 시작 화면 SVG를 지우면 원래 모습 */
+/* ═══ 화면 테마층 · 밤하늘 모음 별자리 (2026.10.05) ═══
+   단모음 콘텐츠 공통 그림 언어 = 모음 사각도(혀의 앞뒤 × 높낮이). 영역 팔레트·헤더 띠·플레이 화면은 그대로. 이 블록과 시작 화면 SVG를 지우면 원래 모습 */
 .title-row .keyArt{flex:0 0 auto;height:126px;width:auto;margin-left:18px}
 @media (max-width:860px){.title-row .keyArt{display:none}}
 </style>
@@ -218,7 +218,7 @@ details.vtable summary{cursor:pointer;font-size:.9rem;font-weight:700;color:var(
     </svg>
     </div>
 
-    <div class="m3-block hidden" id="m3Top" style="margin:0 0 16px"><b>💻 이 게임은 노트북에서 열어주세요</b><br>마우스로 조작하는 게임이라 휴대폰에서는 제대로 동작하지 않습니다.</div>
+    <div class="m3-block hidden" id="m3Top" style="margin:0 0 16px"><b>💻 이 콘텐츠는 노트북에서 열어주세요</b><br>마우스로 조작하는 콘텐츠이라 휴대폰에서는 제대로 동작하지 않습니다.</div>
     <div class="start-grid">
       <div>
         <div class="box std-box">
@@ -226,7 +226,7 @@ details.vtable summary{cursor:pointer;font-size:.9rem;font-weight:700;color:var(
           <div class="std-text"><span class="std-code">[9국04-01]</span> 국어의 음운 체계와 문자 체계를 이해하고 국어생활에 활용한다.</div>
         </div>
         <div class="box how">
-          <div class="box-title">🎮 게임 방법</div>
+          <div class="box-title">🎮 학습 방법</div>
           <p>분류 목표와 단계를 고르면 60초 동안 단모음이 내려옵니다.</p>
           <p>목표에 해당하는 모음은 격추하고, 해당하지 않는 모음은 그대로 흘려보내세요.</p>
           <p>← → 키로 움직이고 스페이스바로 발사해요.</p>
@@ -268,7 +268,7 @@ details.vtable summary{cursor:pointer;font-size:.9rem;font-weight:700;color:var(
             <button class="stage-btn" disabled onclick="startStage(3)">3단계 빠름<span>빠르게</span></button>
           </div>
           <div class="sel-hint" id="selHint">먼저 분류 목표를 골라 주세요.</div>
-          <div class="m3-block hidden" id="m3Block"><b>💻 이 게임은 노트북에서 열어주세요</b><br>마우스로 조작하는 게임이라 휴대폰에서는 제대로 동작하지 않습니다.</div>
+          <div class="m3-block hidden" id="m3Block"><b>💻 이 콘텐츠는 노트북에서 열어주세요</b><br>마우스로 조작하는 콘텐츠이라 휴대폰에서는 제대로 동작하지 않습니다.</div>
         </div>
       </div>
     </div>
@@ -280,12 +280,12 @@ details.vtable summary{cursor:pointer;font-size:.9rem;font-weight:700;color:var(
 
     <div class="privacy" id="privacyOffline">
       <b>🔒 개인정보 보호 안내</b><br>
-      본 게임은 별도의 서버로 데이터를 전송하거나 저장하지 않습니다.<br>
-      게임 중 입력하는 이름, 활동 소감 등의 정보는 오직 사용자 기기 내부에서 리포트 이미지를 다운로드하는 용도로만 안전하게 처리됩니다.
+      본 콘텐츠는 별도의 서버로 데이터를 전송하거나 저장하지 않습니다.<br>
+      학습 중 입력하는 이름, 활동 소감 등의 정보는 오직 사용자 기기 내부에서 리포트 이미지를 다운로드하는 용도로만 안전하게 처리됩니다.
     </div>
     <div class="privacy" id="privacyOnline" style="display:none">
       <b>🔒 개인정보 보호 안내</b><br>
-      본 게임의 학습 결과(학번, 이름, 점수, 오답 정보, 학습 소감)는 담당 선생님의 학습 관리용 스프레드시트에 안전하게 전송·저장됩니다.<br>
+      본 콘텐츠의 학습 결과(학번, 이름, 점수, 오답 정보, 학습 소감)는 담당 선생님의 학습 관리용 스프레드시트에 안전하게 전송·저장됩니다.<br>
       수집된 정보는 학습 지도 목적으로만 사용되며, 제3자에게 제공되지 않습니다.
     </div>
   </div>
@@ -295,7 +295,7 @@ details.vtable summary{cursor:pointer;font-size:.9rem;font-weight:700;color:var(
  <div style="background:#fff;border-radius:20px;padding:32px;max-width:380px;width:90%;box-shadow:0 20px 60px rgba(0,0,0,0.3);text-align:center">
   <div style="font-size:36px;margin-bottom:8px">🔑</div>
   <h2 style="font-size:20px;margin-bottom:4px;color:var(--ink)">학생 인증</h2>
-  <p style="font-size:13px;color:var(--ink2);margin-bottom:20px">학번과 이름을 입력하면 게임을 시작할 수 있어요.</p>
+  <p style="font-size:13px;color:var(--ink2);margin-bottom:20px">학번과 이름을 입력하면 학습을 시작할 수 있어요.</p>
   <div style="text-align:left;margin-bottom:12px">
    <label style="font-size:13px;font-weight:700;color:var(--ink)">학번 (5자리)</label>
    <input id="loginId" type="text" maxlength="5" inputmode="numeric" placeholder="예: 20101" style="width:100%;padding:10px 14px;border:2px solid var(--line);border-radius:10px;font-size:16px;margin-top:4px;box-sizing:border-box">
@@ -310,7 +310,7 @@ details.vtable summary{cursor:pointer;font-size:.9rem;font-weight:700;color:var(
  </div>
 </div>
 
-<!-- ═════════ 게임 화면 ═════════ -->
+<!-- ═════════ 학습 화면 ═════════ -->
 <div id="game-screen" class="hidden">
   <div>
     <div class="band"><span class="goal">문법<span class="goal-text"> · 단모음을 혀의 위치와 입술 모양에 따라 분류한다</span></span><span id="bandRight">⏱ 60초 · 0점</span></div>
@@ -337,7 +337,7 @@ details.vtable summary{cursor:pointer;font-size:.9rem;font-weight:700;color:var(
         <button class="ctrl fire" id="btnFire">🔫 발사</button>
         <button class="ctrl move" id="btnR" aria-label="오른쪽">▶</button>
         <button class="ctrl small" id="muteBtn" onclick="toggleMute()">🔊</button>
-        <button class="ctrl quit" onclick="quitGame()">게임 끝내기</button>
+        <button class="ctrl quit" onclick="quitGame()">학습 끝내기</button>
       </div>
       <div class="key-help">← → 이동 · 스페이스바 또는 ↑ 발사 (누르고 있으면 연사)</div>
     </div>
@@ -368,7 +368,7 @@ details.vtable summary{cursor:pointer;font-size:.9rem;font-weight:700;color:var(
     </div>
     <div class="inputs">
       <div><label for="inName">📛 이름 (필수)</label><input type="text" id="inName" maxlength="10" placeholder="이름을 입력하세요"></div>
-      <div><label for="inComment">✍️ 학습 소감 (선택)</label><textarea id="inComment" placeholder="오늘 게임에서 새로 알게 된 점을 적어 보세요"></textarea></div>
+      <div><label for="inComment">✍️ 학습 소감 (선택)</label><textarea id="inComment" placeholder="오늘 학습에서 새로 알게 된 점을 적어 보세요"></textarea></div>
     </div>
     <div class="meta-line" id="metaLine"></div>
     <div class="privacy" style="margin-top:6px;text-align:left" id="endPrivacy">입력하신 이름과 소감은 서버에 저장되지 않으며, 리포트 이미지(JPG) 생성용으로만 쓰입니다.</div>
@@ -389,10 +389,10 @@ details.vtable summary{cursor:pointer;font-size:.9rem;font-weight:700;color:var(
 
 <div class="modal hidden" id="quitModal" role="dialog" aria-modal="true" aria-labelledby="quitTitle" onclick="if(event.target===this)quitCancel()">
   <div class="modal-card" style="max-width:420px">
-    <div class="modal-head"><span id="quitTitle">게임 끝내기</span></div>
+    <div class="modal-head"><span id="quitTitle">학습 끝내기</span></div>
     <div class="modal-body" style="text-align:center;padding:20px 16px;line-height:1.6">
-      <b style="font-size:1.1rem">게임을 끝낼까요?</b><br>지금까지의 결과로 마무리돼요.
-      <div style="display:flex;gap:10px;margin-top:16px"><button class="btn sec" id="quitNo" onclick="quitCancel()">계속하기</button><button class="btn" id="quitYes" onclick="quitConfirm()">게임 끝내기</button></div>
+      <b style="font-size:1.1rem">학습을 끝낼까요?</b><br>지금까지의 결과로 마무리돼요.
+      <div style="display:flex;gap:10px;margin-top:16px"><button class="btn sec" id="quitNo" onclick="quitCancel()">계속하기</button><button class="btn" id="quitYes" onclick="quitConfirm()">학습 끝내기</button></div>
     </div>
   </div>
 </div>
@@ -577,7 +577,7 @@ function toggleMute(){muted=!muted;$('muteBtn').textContent=muted?'🔇':'🔊';
 function toast(m){const t=$('toast');t.textContent=m;t.classList.add('show');clearTimeout(t._h);t._h=setTimeout(()=>t.classList.remove('show'),1800)}
 const REDUCED=window.matchMedia&&matchMedia('(prefers-reduced-motion: reduce)').matches;
 
-/* ═════════ 게임 상태 ═════════ */
+/* ═════════ 학습 상태 ═════════ */
 let S=null, raf=null, lastTs=0;
 let enemies=[], bullets=[], moveDir=0, firing=false, fireCd=0;
 let arenaW=0, arenaH=0, shipX=0, pairBag=[], tBag=[], nBag=[];
@@ -775,7 +775,7 @@ function setupControls(){
   document.addEventListener('keydown',e=>{
     if(S&&S.paused){if(e.key==='Escape'){e.preventDefault();quitCancel()}return}
     if(!S||S.ended||$('game-screen').classList.contains('hidden'))return;
-    if(e.key==='Enter'&&e.target&&e.target.tagName==='BUTTON'){e.preventDefault();return}   // 마우스로 누른 버튼(소리·게임 끝내기)이 Enter로 다시 눌리지 않게
+    if(e.key==='Enter'&&e.target&&e.target.tagName==='BUTTON'){e.preventDefault();return}   // 마우스로 누른 버튼(소리·학습 끝내기)이 Enter로 다시 눌리지 않게
     if(e.key==='ArrowLeft'||e.key==='a'||e.key==='A'){e.preventDefault();moveDir=-1;keys.add('L')}
     else if(e.key==='ArrowRight'||e.key==='d'||e.key==='D'){e.preventDefault();moveDir=1;keys.add('R')}
     else if(e.key===' '||e.key==='ArrowUp'){e.preventDefault();if(!keys.has('F')){keys.add('F');fire();fireCd=.25;firing=true}}
@@ -835,7 +835,7 @@ function stageLabel(){return `${S.stage}단계 ${S.stageName}`}
 
 /* ═════════ 종료 ═════════ */
 let ST=null,AN=null;
-// 게임 끝내기: 한 번 확인한 뒤 끝낸다 (지침 6-1). 화면 안 확인창이 떠 있는 동안 게임(시간·적·총알)을 멈춘다
+// 학습 끝내기: 한 번 확인한 뒤 끝낸다 (지침 6-1). 화면 안 확인창이 떠 있는 동안 진행(시간·적·총알)을 멈춘다
 function quitGame(){
   if(!S||S.ended||S.paused)return;
   S.paused=true;cancelAnimationFrame(raf);raf=null;
@@ -856,7 +856,7 @@ function quitConfirm(){
 function endGame(byUser){
   if(!S||S.ended)return;
   S.ended=true;cancelAnimationFrame(raf);firing=false;moveDir=0;
-  S.early=!!byUser&&S.elapsed<GAME_SEC-1;   // 시간이 남았는데 '게임 끝내기'로 끝냄 = 중간 종료
+  S.early=!!byUser&&S.elapsed<GAME_SEC-1;   // 시간이 남았는데 '학습 끝내기'로 끝냄 = 중간 종료
   S.finishedAt=new Date();
   enemies.forEach(e=>e.el.remove());enemies=[];bullets.forEach(b=>b.el.remove());bullets=[];
   S.elapsedSec=Math.round(Math.min(S.elapsed,GAME_SEC));
@@ -985,8 +985,8 @@ function renderCanvas(drawFn){
 }
 function privacyForJpg(){
   return IS_ONLINE
-    ?'개인정보 보호 안내 — 본 게임의 학습 결과(학번, 이름, 점수, 오답 정보, 학습 소감)는 담당 선생님의 학습 관리용 스프레드시트에 안전하게 전송·저장됩니다. 수집된 정보는 학습 지도 목적으로만 사용되며, 제3자에게 제공되지 않습니다.'
-    :'개인정보 보호 안내 — 본 게임은 별도의 서버로 데이터를 전송하거나 저장하지 않습니다. 게임 중 입력하는 이름, 활동 소감 등의 정보는 오직 사용자 기기 내부에서 리포트 이미지를 다운로드하는 용도로만 안전하게 처리됩니다.';
+    ?'개인정보 보호 안내 — 본 콘텐츠의 학습 결과(학번, 이름, 점수, 오답 정보, 학습 소감)는 담당 선생님의 학습 관리용 스프레드시트에 안전하게 전송·저장됩니다. 수집된 정보는 학습 지도 목적으로만 사용되며, 제3자에게 제공되지 않습니다.'
+    :'개인정보 보호 안내 — 본 콘텐츠는 별도의 서버로 데이터를 전송하거나 저장하지 않습니다. 학습 중 입력하는 이름, 활동 소감 등의 정보는 오직 사용자 기기 내부에서 리포트 이미지를 다운로드하는 용도로만 안전하게 처리됩니다.';
 }
 function footer(d,withStandard){
   d.gap(18);d.rect(PAD,d.y,W-PAD*2,1,'#EAE5F8');d.gap(12);

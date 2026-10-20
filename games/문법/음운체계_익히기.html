@@ -10,8 +10,8 @@
      후속(2026.10.01 11:52, 교사 답변 반영): 4단계 이름·발문 '1음절 단어' → '1음절 글자'(톺·욀은 혼자 쓰는 단어가 아님), ㅚ·ㅟ 이중 모음 발음 허용 안내, 오답 문구 조사·띄어쓰기
      기록: 첫 시도 / 다시 풀어 맞힘 / 못 맞힘 / 미응답을 나눠 기록, 앱스크립트 연동, 교사용 엑셀('최종 수정' 클릭)
      2026.10.05 03:00 정답 배너를 깔끔한 카드형으로(교사 결정): 화면 어둡게·광선·색종이·이모지 낙하 없앰, 5·10연속에만 작은 색종이
-     2026.10.06 00:30 게임 테마층 · 설계실(시작 화면 설계 도면 그림·게임 방법 상자 청록 테두리) + 버그 수정: 1~3단계 카드·빈칸 빠른 두 번 클릭이 선택 취소·오답 2회로 기록되던 것, 풀어 본 문제가 없을 때 정답률 0% 대신 — 표시, 휴대폰 폭에서 4단계 자음 체계표 목청소리(ㅎ) 칸이 잘려 고를 수 없던 것
-     2026.10.07 13:58 끝낸 게임 다시 훑기(실제 조작 재검사): 중간 종료·0개 총평(배치=칸), 보완 칸 하나, 엑셀 정답 빨강, 버튼 포커스
+     2026.10.06 00:30 화면 테마층 · 설계실(시작 화면 설계 도면 그림·학습 방법 상자 청록 테두리) + 버그 수정: 1~3단계 카드·빈칸 빠른 두 번 클릭이 선택 취소·오답 2회로 기록되던 것, 풀어 본 문제가 없을 때 정답률 0% 대신 — 표시, 휴대폰 폭에서 4단계 자음 체계표 목청소리(ㅎ) 칸이 잘려 고를 수 없던 것
+     2026.10.07 13:58 끝낸 학습 다시 훑기(실제 조작 재검사): 중간 종료·0개 총평(배치=칸), 보완 칸 하나, 엑셀 정답 빨강, 버튼 포커스
      2026.10.11 16:10 13차: 남은 확인 목록 반영(버그·표준·설계 결정) · 실제 조작 검사 통과
      2026.10.11 16:48 13차 문구 조정(남은 확인 목록 문항·해설) · 실제 조작 검사 통과 -->
 <head>
@@ -339,7 +339,7 @@ table.mt{border-collapse:collapse;width:100%}
   #hud{top:48px}
   .mini{overflow-x:auto} /* 좁은 화면: 4단계 자음 체계표 목청소리(ㅎ) 칸이 잘려 고를 수 없던 것 — 표 안에서 가로로 밀어 보기 */
 }
-/* ═══ 게임 테마층 · 설계실 (2026.10.05) ═══
+/* ═══ 화면 테마층 · 설계실 (2026.10.05) ═══
    펼친 설계 도면 위에서 체계표를 완성하는 설계실. 보조색 청록 #2A8C8C. 영역 팔레트·헤더 띠·정답/오답 색·흰 문제 카드·정답 카드는 그대로.
    이 블록과 시작 화면 SVG를 지우면 원래 모습 */
 :root{--th:#2A8C8C;--th-soft:#E2F2F1}
@@ -381,7 +381,7 @@ table.mt{border-collapse:collapse;width:100%}
        <div id="stdBox"></div>
       </div>
       <div class="box how">
-       <h3>🎮 게임 방법</h3>
+       <h3>🎮 학습 방법</h3>
        <p><b>1~3단계</b>: 카드를 누른 뒤 체계표의 알맞은 빈칸을 눌러 배치해요.</p>
        <p>틀리면 맞을 때까지 다시 골라요. 틀린 횟수는 기록돼요.</p>
        <p><b>4단계</b>: 초성·중성·종성 설명을 읽고, 체계표에서 해당 음운을 찾아 눌러요.</p>
@@ -403,12 +403,12 @@ table.mt{border-collapse:collapse;width:100%}
      <div>
       <div class="privacy" id="privacyOffline">
        <b>🔒 개인정보 보호 안내</b><br>
-       본 게임은 별도의 서버로 데이터를 전송하거나 저장하지 않습니다.<br>
-       게임 중 입력하는 이름, 활동 소감 등의 정보는 오직 사용자 기기 내부에서<br>리포트 이미지를 다운로드하는 용도로만 안전하게 처리됩니다.
+       본 콘텐츠는 별도의 서버로 데이터를 전송하거나 저장하지 않습니다.<br>
+       학습 중 입력하는 이름, 활동 소감 등의 정보는 오직 사용자 기기 내부에서<br>리포트 이미지를 다운로드하는 용도로만 안전하게 처리됩니다.
       </div>
       <div class="privacy" id="privacyOnline" style="display:none">
        <b>🔒 개인정보 보호 안내</b><br>
-       본 게임의 학습 결과(학번, 이름, 점수, 오답 정보, 학습 소감)는 담당 선생님의 학습 관리용 스프레드시트에 안전하게 전송·저장됩니다.<br>
+       본 콘텐츠의 학습 결과(학번, 이름, 점수, 오답 정보, 학습 소감)는 담당 선생님의 학습 관리용 스프레드시트에 안전하게 전송·저장됩니다.<br>
        수집된 정보는 학습 지도 목적으로만 사용되며, 제3자에게 제공되지 않습니다.
       </div>
      </div>
@@ -422,7 +422,7 @@ table.mt{border-collapse:collapse;width:100%}
  <div style="background:#fff;border-radius:20px;padding:32px;max-width:380px;width:90%;box-shadow:0 20px 60px rgba(0,0,0,0.3);text-align:center">
   <div style="font-size:36px;margin-bottom:8px">🔑</div>
   <h2 style="font-size:20px;margin-bottom:4px;color:var(--ink)">학생 인증</h2>
-  <p style="font-size:13px;color:var(--ink2);margin-bottom:20px">학번과 이름을 입력하면 게임을 시작할 수 있어요.</p>
+  <p style="font-size:13px;color:var(--ink2);margin-bottom:20px">학번과 이름을 입력하면 학습을 시작할 수 있어요.</p>
   <div style="text-align:left;margin-bottom:12px">
    <label style="font-size:13px;font-weight:700;color:var(--ink)">학번 (5자리)</label>
    <input id="loginId" type="text" maxlength="5" inputmode="numeric" placeholder="예: 20101" style="width:100%;padding:10px 14px;border:2px solid var(--line);border-radius:10px;font-size:16px;margin-top:4px;box-sizing:border-box">
@@ -459,7 +459,7 @@ table.mt{border-collapse:collapse;width:100%}
      <div class="p-btns">
       <button onclick="goHomeAsk()">🏠 시작 화면으로</button>
       <button onclick="resetPlace()">↺ 카드 리셋</button>
-      <button class="end-b" onclick="askFinish()">게임 끝내기</button>
+      <button class="end-b" onclick="askFinish()">학습 끝내기</button>
      </div>
      <div class="cards-box">
       <h4 id="cardsTitle">남은 카드</h4>
@@ -492,7 +492,7 @@ table.mt{border-collapse:collapse;width:100%}
     <div class="w-side">
      <button id="btnPrev" onclick="wNav(-1)">◀ 이전<br>문제</button>
      <button id="btnNext" onclick="wNextBtn()">다음<br>문제 ▶</button>
-     <button class="end-b" onclick="askFinish()">게임<br>끝내기</button>
+     <button class="end-b" onclick="askFinish()">학습<br>끝내기</button>
      <div class="keys">답한 뒤<br>Enter · Space · →</div>
     </div>
    </div>
@@ -524,7 +524,7 @@ table.mt{border-collapse:collapse;width:100%}
       <div class="f-item"><label>📅 완료 날짜</label><input id="inDate" readonly></div>
       <div class="f-item"><label>⏱ 학습 시간</label><input id="inTime" readonly></div>
      </div>
-     <div class="f-item"><label for="inRefl">💬 학습 소감 <small>(선택)</small></label><textarea id="inRefl" maxlength="300" placeholder="오늘 게임으로 알게 된 점이나 헷갈렸던 점을 적어 보세요"></textarea></div>
+     <div class="f-item"><label for="inRefl">💬 학습 소감 <small>(선택)</small></label><textarea id="inRefl" maxlength="300" placeholder="오늘 학습으로 알게 된 점이나 헷갈렸던 점을 적어 보세요"></textarea></div>
      <div class="f-msg" id="fMsg"></div>
      <div class="end-privacy" id="endPrivacy">🔒 입력하신 이름과 소감은 서버에 저장되지 않으며, 리포트 이미지(JPG) 생성용으로만 쓰입니다.</div>
     </div>
@@ -668,50 +668,50 @@ const LABELS=[
 //    바꾼 문구는 주석 [수정]으로 표시 (보고서 대조표 참고)
 // ═══════════════════════════════════════════
 const QUESTIONS=[
-  {id:1,cat:'word',stage:4,word:'빵',answer:{cho:'ㅃ',jung:'ㅏ',jong:'ㅇ'},src:'원본 게임',clues:{
+  {id:1,cat:'word',stage:4,word:'빵',answer:{cho:'ㅃ',jung:'ㅏ',jong:'ㅇ'},src:'원본 콘텐츠',clues:{
     cho:['두 입술 사이에서 나는 소리이다.','입안의 통로를 막았다가 터뜨리면서 내는 된소리이다.'],
     jung:['혀의 최고점이 입천장의 중간점을 기준으로 뒤쪽에 놓인다.','입술을 둥글게 오므리지 않고 소리 낸다.','혀의 높이가 낮다.'],
     jong:['혀 뒷부분과 여린입천장 사이에서 나는 소리이다.','입안의 통로를 막았다가 코로 공기를 내보내면서 내는 소리이다.']}},
-  {id:2,cat:'word',stage:4,word:'널',answer:{cho:'ㄴ',jung:'ㅓ',jong:'ㄹ'},src:'원본 게임',clues:{
+  {id:2,cat:'word',stage:4,word:'널',answer:{cho:'ㄴ',jung:'ㅓ',jong:'ㄹ'},src:'원본 콘텐츠',clues:{
     cho:['혓끝과 윗잇몸 사이에서 나는 소리이다.','입안의 통로를 막았다가 코로 공기를 내보내면서 내는 소리이다.'],
     jung:['혀의 최고점이 입천장의 중간점을 기준으로 뒤쪽에 놓인다.','입술을 둥글게 오므리지 않고 소리 낸다.','혀의 높이가 중간이다.'],
     jong:['혓끝과 윗잇몸 사이에서 나는 소리이다.','혓끝을 윗잇몸에 가볍게 대었다가 떼거나, 혓끝을 윗잇몸에 댄 채 공기를 그 양옆으로 흘려보내면서 내는 소리이다.']}},
-  {id:3,cat:'word',stage:4,word:'물',answer:{cho:'ㅁ',jung:'ㅜ',jong:'ㄹ'},src:'원본 게임',clues:{
+  {id:3,cat:'word',stage:4,word:'물',answer:{cho:'ㅁ',jung:'ㅜ',jong:'ㄹ'},src:'원본 콘텐츠',clues:{
     cho:['두 입술 사이에서 나는 소리이다.','입안의 통로를 막았다가 코로 공기를 내보내면서 내는 소리이다.'],
     jung:['혀의 최고점이 입천장의 중간점을 기준으로 뒤쪽에 놓인다.','입술을 둥글게 오므리고 소리 낸다.','혀의 높이가 높다.'],
     jong:['혓끝과 윗잇몸 사이에서 나는 소리이다.','혓끝을 윗잇몸에 가볍게 대었다가 떼거나, 혓끝을 윗잇몸에 댄 채 공기를 그 양옆으로 흘려보내면서 내는 소리이다.']}},
-  {id:4,cat:'word',stage:4,word:'뱀',answer:{cho:'ㅂ',jung:'ㅐ',jong:'ㅁ'},src:'원본 게임',clues:{
+  {id:4,cat:'word',stage:4,word:'뱀',answer:{cho:'ㅂ',jung:'ㅐ',jong:'ㅁ'},src:'원본 콘텐츠',clues:{
     cho:['두 입술 사이에서 나는 소리이다.','입안의 통로를 막았다가 터뜨리면서 내는 예사소리이다.'],
     jung:['혀의 최고점이 입천장의 중간점을 기준으로 앞쪽에 놓인다.','입술을 둥글게 오므리지 않고 소리 낸다.','혀의 높이가 낮다.'],
     jong:['두 입술 사이에서 나는 소리이다.','입안의 통로를 막았다가 코로 공기를 내보내면서 내는 소리이다.']}},
-  {id:5,cat:'word',stage:4,word:'신',answer:{cho:'ㅅ',jung:'ㅣ',jong:'ㄴ'},src:'원본 게임',clues:{
+  {id:5,cat:'word',stage:4,word:'신',answer:{cho:'ㅅ',jung:'ㅣ',jong:'ㄴ'},src:'원본 콘텐츠',clues:{
     cho:['혓끝과 윗잇몸 사이에서 나는 소리이다.','좁은 틈 사이로 공기를 내보내면서 내는 예사소리이다.'],
     jung:['혀의 최고점이 입천장의 중간점을 기준으로 앞쪽에 놓인다.','입술을 둥글게 오므리지 않고 소리 낸다.','혀의 높이가 높다.'],
     jong:['혓끝과 윗잇몸 사이에서 나는 소리이다.','입안의 통로를 막았다가 코로 공기를 내보내면서 내는 소리이다.']}},
-  {id:6,cat:'word',stage:4,word:'켁',answer:{cho:'ㅋ',jung:'ㅔ',jong:'ㄱ'},src:'원본 게임',clues:{
+  {id:6,cat:'word',stage:4,word:'켁',answer:{cho:'ㅋ',jung:'ㅔ',jong:'ㄱ'},src:'원본 콘텐츠',clues:{
     cho:['혀 뒷부분과 여린입천장 사이에서 나는 소리이다.','입안의 통로를 막았다가 터뜨리면서 내는 거센소리이다.'],
     jung:['혀의 최고점이 입천장의 중간점을 기준으로 앞쪽에 놓인다.','입술을 둥글게 오므리지 않고 소리 낸다.','혀의 높이가 중간이다.'],
     jong:['혀 뒷부분과 여린입천장 사이에서 나는 소리이다.',
           '입안의 통로를 막았다가 터뜨리면서 내는 예사소리이다.']}}, // 원본 문구 (교사 결정: 음운 체계 범위, 받침 발음 설명 넣지 않음)
-  {id:7,cat:'word',stage:4,word:'쥐',answer:{cho:'ㅈ',jung:'ㅟ',jong:''},src:'원본 게임',clues:{
+  {id:7,cat:'word',stage:4,word:'쥐',answer:{cho:'ㅈ',jung:'ㅟ',jong:''},src:'원본 콘텐츠',clues:{
     cho:['혓바닥과 센입천장 사이에서 나는 소리이다.','입안의 통로를 막았다가 서서히 터뜨려 마찰을 일으키며 내는 예사소리이다.'],
     jung:['혀의 최고점이 입천장의 중간점을 기준으로 앞쪽에 놓인다.','입술을 둥글게 오므리고 소리 낸다.','혀의 높이가 높다.'],
     jong:['이 음절에는 종성(받침)이 없다.']}},
-  {id:8,cat:'word',stage:4,word:'쏙',answer:{cho:'ㅆ',jung:'ㅗ',jong:'ㄱ'},src:'원본 게임',clues:{
+  {id:8,cat:'word',stage:4,word:'쏙',answer:{cho:'ㅆ',jung:'ㅗ',jong:'ㄱ'},src:'원본 콘텐츠',clues:{
     cho:['혓끝과 윗잇몸 사이에서 나는 소리이다.','좁은 틈 사이로 공기를 내보내면서 내는 된소리이다.'],
     jung:['혀의 최고점이 입천장의 중간점을 기준으로 뒤쪽에 놓인다.','입술을 둥글게 오므리고 소리 낸다.','혀의 높이가 중간이다.'],
     jong:['혀 뒷부분과 여린입천장 사이에서 나는 소리이다.',
           '입안의 통로를 막았다가 터뜨리면서 내는 예사소리이다.']}}, // 원본 문구 (교사 결정: 음운 체계 범위, 받침 발음 설명 넣지 않음)
-  {id:9,cat:'word',stage:4,word:'책',answer:{cho:'ㅊ',jung:'ㅐ',jong:'ㄱ'},src:'원본 게임',clues:{
+  {id:9,cat:'word',stage:4,word:'책',answer:{cho:'ㅊ',jung:'ㅐ',jong:'ㄱ'},src:'원본 콘텐츠',clues:{
     cho:['혓바닥과 센입천장 사이에서 나는 소리이다.','입안의 통로를 막았다가 서서히 터뜨려 마찰을 일으키며 내는 거센소리이다.'],
     jung:['혀의 최고점이 입천장의 중간점을 기준으로 앞쪽에 놓인다.','입술을 둥글게 오므리지 않고 소리 낸다.','혀의 높이가 낮다.'],
     jong:['혀 뒷부분과 여린입천장 사이에서 나는 소리이다.',
           '입안의 통로를 막았다가 터뜨리면서 내는 예사소리이다.']}}, // 원본 문구 (교사 결정: 음운 체계 범위, 받침 발음 설명 넣지 않음)
-  {id:10,cat:'word',stage:4,word:'틈',answer:{cho:'ㅌ',jung:'ㅡ',jong:'ㅁ'},src:'원본 게임',clues:{
+  {id:10,cat:'word',stage:4,word:'틈',answer:{cho:'ㅌ',jung:'ㅡ',jong:'ㅁ'},src:'원본 콘텐츠',clues:{
     cho:['혓끝과 윗잇몸 사이에서 나는 소리이다.','입안의 통로를 막았다가 터뜨리면서 내는 거센소리이다.'],
     jung:['혀의 최고점이 입천장의 중간점을 기준으로 뒤쪽에 놓인다.','입술을 둥글게 오므리지 않고 소리 낸다.','혀의 높이가 높다.'],
     jong:['두 입술 사이에서 나는 소리이다.','입안의 통로를 막았다가 코로 공기를 내보내면서 내는 소리이다.']}},
-  {id:11,cat:'word',stage:4,word:'톺',answer:{cho:'ㅌ',jung:'ㅗ',jong:'ㅍ'},src:'원본 게임',clues:{
+  {id:11,cat:'word',stage:4,word:'톺',answer:{cho:'ㅌ',jung:'ㅗ',jong:'ㅍ'},src:'원본 콘텐츠',clues:{
     cho:['혓끝과 윗잇몸 사이에서 나는 소리이다.','입안의 통로를 막았다가 터뜨리면서 내는 거센소리이다.'],
     jung:['혀의 최고점이 입천장의 중간점을 기준으로 뒤쪽에 놓인다.','입술을 둥글게 오므리고 소리 낸다.','혀의 높이가 중간이다.'],
     jong:['두 입술 사이에서 나는 소리이다.',
@@ -721,7 +721,7 @@ const QUESTIONS=[
          '자음 체계표에서는 글자 ㅇ의 자리를 고른다.'], // [수정] 초성 ㅇ
     jung:['혀의 최고점이 입천장의 중간점을 기준으로 앞쪽에 놓인다.','입술을 둥글게 오므리고 소리 낸다.','혀의 높이가 중간이다.'],
     jong:['혓끝과 윗잇몸 사이에서 나는 소리이다.','혓끝을 윗잇몸에 가볍게 대었다가 떼거나, 혓끝을 윗잇몸에 댄 채 공기를 그 양옆으로 흘려보내면서 내는 소리이다.']}},
-  {id:13,cat:'word',stage:4,word:'행',answer:{cho:'ㅎ',jung:'ㅐ',jong:'ㅇ'},src:'원본 게임 · 교과서 기준(수정목록_1차)에 따라 낱말 삭제',clues:{
+  {id:13,cat:'word',stage:4,word:'행',answer:{cho:'ㅎ',jung:'ㅐ',jong:'ㅇ'},src:'원본 콘텐츠 · 교과서 기준(수정목록_1차)에 따라 낱말 삭제',clues:{
     cho:['목청 사이에서 나는 소리이다.','좁은 틈 사이로 공기를 내보내면서 내는 소리이다.'], // [수정] '예사소리' 삭제 (ㅎ은 세기 분류 제외)
     jung:['혀의 최고점이 입천장의 중간점을 기준으로 앞쪽에 놓인다.','입술을 둥글게 오므리지 않고 소리 낸다.','혀의 높이가 낮다.'],
     jong:['혀 뒷부분과 여린입천장 사이에서 나는 소리이다.','입안의 통로를 막았다가 코로 공기를 내보내면서 내는 소리이다.']}}
@@ -901,7 +901,7 @@ function hasProgress(){
   if(S.kind==='word')return Object.keys(S.res).length>0;
   return false;
 }
-// 마우스로 누른 버튼에 포커스가 남으면 Enter·Space가 그 버튼(다음 문제·게임 끝내기·카드 리셋 등)을 다시 누른다 → 먼저 놓는다
+// 마우스로 누른 버튼에 포커스가 남으면 Enter·Space가 그 버튼(다음 문제·학습 끝내기·카드 리셋 등)을 다시 누른다 → 먼저 놓는다
 function dropFocus(){const a=document.activeElement;if(a&&a!==document.body&&a.blur&&!/^(INPUT|TEXTAREA)$/.test(a.tagName))a.blur()}
 function render(){dropFocus();if(S.kind==='place')renderPlace();else renderWord()}
 
@@ -1153,9 +1153,9 @@ function askFinish(){
   if(S.done)return;
   dropFocus();
   const c=stats();const left=c.skip+(S.kind==='word'?c.items.filter(x=>x.st==='fail'&&x.r.status!=='giveup').length:0);
-  const msg=S.kind==='place'?'아직 배치하지 않은 카드가 '+(c.total-Object.keys(S.placed).length)+'장 있어요. 게임을 끝낼까요?':'아직 끝내지 않은 문제가 '+left+'개 있어요. 게임을 끝낼까요?\n(손대지 않은 문제는 미응답, 풀다 멈춘 문제는 못 맞힘으로 기록돼요)';
+  const msg=S.kind==='place'?'아직 배치하지 않은 카드가 '+(c.total-Object.keys(S.placed).length)+'장 있어요. 학습을 끝낼까요?':'아직 끝내지 않은 문제가 '+left+'개 있어요. 학습을 끝낼까요?\n(손대지 않은 문제는 미응답, 풀다 멈춘 문제는 못 맞힘으로 기록돼요)';
   const remain=S.kind==='place'?c.total-Object.keys(S.placed).length:left;
-  if(!confirm(remain>0?msg:'게임을 끝내고 결과를 볼까요?'))return;
+  if(!confirm(remain>0?msg:'학습을 끝내고 결과를 볼까요?'))return;
   finishGame();
 }
 function goHomeAsk(){dropFocus();if(hasProgress()&&!confirm('시작 화면으로 가면 지금 단계 기록은 사라져요. 이동할까요?'))return;goHome()}
@@ -1203,7 +1203,7 @@ function celebrate(pts,combo,isRetry){
 function shakeWrong(){clearFx();sWrong();const c=$('clues');c.classList.remove('shake');void c.offsetWidth;c.classList.add('shake')}
 
 // ═══════════════════════════════════════════
-// 키보드 (게임 화면에서만)
+// 키보드 (학습 화면에서만)
 // ═══════════════════════════════════════════
 document.addEventListener('keydown',e=>{
   if($('reviewModal').classList.contains('on')){if(e.key==='Escape')closeReview();return}
@@ -1492,7 +1492,7 @@ function downloadTeacherXls(){
     xRow(['배점 규칙(4단계)','정답 +10 · 콤보 3~4연속 +5, 5연속 이상 +10 · 오답 감점 없음 · 만점 '+W_MAX+'점'],'b'),
     xRow(['정답률','첫 시도에 맞힌 수 ÷ 실제로 푼 수 (미응답 제외)'],'b'),
     xRow(['총문항 수','카드 10/9/19장 + 글자 13문제 = 51'],'b'),
-    xRow(['크레딧',CREDIT1+' · '+CREDIT2+' · 게임 코드 '+GAME_CONFIG.gameCode],'b')];
+    xRow(['크레딧',CREDIT1+' · '+CREDIT2+' · 자료 코드 '+GAME_CONFIG.gameCode],'b')];
   const s1=[xRow(['1단계 · 단모음 배치하기 · 카드 10장'],'h'),xRow(['원본 id','모음','정답 자리(혀의 최고점의 위치)','혀의 높이','입술 모양','팁'],'h')];
   VOWELS.forEach(v=>s1.push(xRow([v.char,v.char,v.pos+' 모음',v.height+'모음',v.shape+'모음',STAGES[0].tip],null,[2,3,4])));  // 정답 자리 = 빨간 굵은 글씨
   const s2=[xRow(['2단계 · 특징 라벨 배치 · 카드 9장'],'h'),xRow(['원본 id','카드','분류','정답 자리','팁'],'h')];

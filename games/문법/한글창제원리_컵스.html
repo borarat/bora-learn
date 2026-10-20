@@ -7,10 +7,10 @@
      수정(2026.10.01 13:00): ㄹ 문항(id 20·34)을 '어느 기본자에 획을 더해 만들었을까요?'(정답 ㄴ, 이체자)로 되살림(28/14문항), ㅿ 이름 '반치음'으로 통일, 3단계 가획자 해설에 '○보다 소리가 셉니다' 추가
      수정(2026.10.01 16:10): 2015 성취기준 삭제(교사 결정: 2022만)
      버그: 답하기 전 Enter·Space·→ 로 문제가 넘어가던 문제 — 채점 전에는 키로 넘기지 않음
-     2026.10.05 03:00 화면: 이전·다음·게임 끝내기 내비게이션 바를 플레이 화면 오른쪽으로 옮김, 시작 화면 안내 '왼쪽 사이드바' → '오른쪽 사이드바'(교사 요청)
+     2026.10.05 03:00 화면: 이전·다음·학습 끝내기 내비게이션 바를 플레이 화면 오른쪽으로 옮김, 시작 화면 안내 '왼쪽 사이드바' → '오른쪽 사이드바'(교사 요청)
      2026.10.05 03:00 정답 배너를 깔끔한 카드형으로(교사 결정): 화면 어둡게·광선·색종이·이모지 낙하 없앰, 5·10연속에만 작은 색종이
      2026.10.07 09:20 테마층 + 실제 조작 버그 검사·수정
-     2026.10.07 13:58 끝낸 게임 다시 훑기(실제 조작 재검사): 보완 칸 하나, 엑셀 정답 빨강, 첫 시도 오답 후 끝내면 못 맞힘, 마지막 다음 확인
+     2026.10.07 13:58 끝낸 학습 다시 훑기(실제 조작 재검사): 보완 칸 하나, 엑셀 정답 빨강, 첫 시도 오답 후 끝내면 못 맞힘, 마지막 다음 확인
      2026.10.11 16:10 13차: 남은 확인 목록 반영(버그·표준·설계 결정) · 실제 조작 검사 통과 -->
 <html lang="ko">
 <head>
@@ -401,7 +401,7 @@ button{font-family:inherit;cursor:pointer;border:none;background:none;color:inhe
 }
 ::-webkit-scrollbar{width:9px}
 ::-webkit-scrollbar-thumb{background:#cfc4ad;border-radius:5px}
-/* ═══ 게임 테마층 · 하늘·땅·사람 (2026.10.07) ═══
+/* ═══ 화면 테마층 · 하늘·땅·사람 (2026.10.07) ═══
    모음 기본자를 만든 하늘(·)·땅(ㅡ)·사람(ㅣ). 보조색 금 #C9A227. 영역 팔레트·헤더 띠·문제 화면·컵 색·정답/오답 색은 그대로.
    이 블록과 시작 화면 SVG를 지우면 원래 모습 */
 :root{--th:#C9A227;--th-soft:#F6E7B0}
@@ -446,7 +446,7 @@ button{font-family:inherit;cursor:pointer;border:none;background:none;color:inhe
    <div class="cols">
     <div>
      <div class="box">
-      <h3>게임 방법</h3>
+      <h3>학습 방법</h3>
       <ul>
        <li>화면 가운데에 <b>글자(자음자·모음자)</b>가 한 개씩 나타납니다.</li>
        <li class="pc-only">그 글자가 들어갈 컵을 고르세요.</li>
@@ -456,8 +456,8 @@ button{font-family:inherit;cursor:pointer;border:none;background:none;color:inhe
        <li><b>한 번 더</b> 도전할 수 있고, 두 번째로 틀리면 정답을 알려줍니다.</li>
        <li class="pc-only">답한 뒤 <b>Enter · Spacebar · →</b> 를 누르면 다음 문제로 넘어갑니다.</li>
        <li class="mo-only">답을 고른 뒤 <b>«다음 문제 ▶»</b> 단추를 누르면 넘어갑니다.</li>
-       <li class="pc-only">오른쪽 사이드바의 <b>이전 · 다음 · 게임 끝내기</b>로 이동합니다.</li>
-       <li class="mo-only">화면 위쪽의 <b>이전 · 다음 · 게임 끝내기</b> 단추로 이동합니다.</li>
+       <li class="pc-only">오른쪽 사이드바의 <b>이전 · 다음 · 학습 끝내기</b>로 이동합니다.</li>
+       <li class="mo-only">화면 위쪽의 <b>이전 · 다음 · 학습 끝내기</b> 단추로 이동합니다.</li>
       </ul>
      </div>
      <div class="box">
@@ -472,7 +472,7 @@ button{font-family:inherit;cursor:pointer;border:none;background:none;color:inhe
       </ul>
      </div>
      <div class="box">
-      <h3>이 게임에서 배우는 것</h3>
+      <h3>이 콘텐츠에서 배우는 것</h3>
       <div class="klist">
        <div><b>발음 기관</b> <span class="nb">어금닛소리</span> · <span class="nb">혓소리</span> · <span class="nb">입술소리</span> · <span class="nb">잇소리</span> · <span class="nb">목구멍소리(목청소리)</span></div>
        <div><b>자음자를 만든 방법</b> <span class="nb">기본자</span> · <span class="nb">가획자</span> · <span class="nb">이체자</span></div>
@@ -514,12 +514,12 @@ button{font-family:inherit;cursor:pointer;border:none;background:none;color:inhe
 
    <div class="privacy" id="privacyOffline">
     <b>🔒 개인정보 보호 안내</b><br>
-    본 게임은 별도의 서버로 데이터를 전송하거나 저장하지 않습니다.<br>
-    게임 중 입력하는 이름, 활동 소감 등의 정보는 오직 사용자 기기 내부에서 리포트 이미지를 다운로드하는 용도로만 안전하게 처리됩니다.
+    본 콘텐츠는 별도의 서버로 데이터를 전송하거나 저장하지 않습니다.<br>
+    학습 중 입력하는 이름, 활동 소감 등의 정보는 오직 사용자 기기 내부에서 리포트 이미지를 다운로드하는 용도로만 안전하게 처리됩니다.
    </div>
    <div class="privacy" id="privacyOnline" style="display:none">
     <b>🔒 개인정보 보호 안내</b><br>
-    본 게임의 학습 결과(학번, 이름, 점수, 오답 정보, 학습 소감)는 담당 선생님의 학습 관리용 스프레드시트에 안전하게 전송·저장됩니다.<br>
+    본 콘텐츠의 학습 결과(학번, 이름, 점수, 오답 정보, 학습 소감)는 담당 선생님의 학습 관리용 스프레드시트에 안전하게 전송·저장됩니다.<br>
     수집된 정보는 학습 지도 목적으로만 사용되며, 제3자에게 제공되지 않습니다.
    </div>
   </div>
@@ -531,7 +531,7 @@ button{font-family:inherit;cursor:pointer;border:none;background:none;color:inhe
  <div style="background:#fff;border-radius:20px;padding:32px;max-width:380px;width:90%;box-shadow:0 20px 60px rgba(0,0,0,0.3);text-align:center">
   <div style="font-size:36px;margin-bottom:8px">🔑</div>
   <h2 style="font-size:20px;margin-bottom:4px;color:var(--ink)">학생 인증</h2>
-  <p style="font-size:13px;color:var(--ink2);margin-bottom:20px">학번과 이름을 입력하면 게임을 시작할 수 있어요.</p>
+  <p style="font-size:13px;color:var(--ink2);margin-bottom:20px">학번과 이름을 입력하면 학습을 시작할 수 있어요.</p>
   <div style="text-align:left;margin-bottom:12px">
    <label style="font-size:13px;font-weight:700;color:var(--ink)">학번 (5자리)</label>
    <input id="loginId" type="text" maxlength="5" inputmode="numeric" placeholder="예: 20101" style="width:100%;padding:10px 14px;border:2px solid var(--line);border-radius:10px;font-size:16px;margin-top:4px;box-sizing:border-box">
@@ -579,7 +579,7 @@ button{font-family:inherit;cursor:pointer;border:none;background:none;color:inhe
    <button class="nav-btn" id="btnPrev">◀ 이전</button>
    <button class="nav-btn" id="btnNext">다음 ▶</button>
    <div class="keyhint"><b id="keyRange">1~5</b> 컵 선택<br><b>Enter</b> 다음<br><b>← →</b> 앞뒤 이동</div>
-   <button class="nav-btn end" id="btnEnd">게임 끝내기</button>
+   <button class="nav-btn end" id="btnEnd">학습 끝내기</button>
   </div>
   <div class="main">
    <div class="combohud" id="comboHud">🔥 <span id="comboNum">0</span></div>
@@ -1289,7 +1289,7 @@ function goNext(){
   if(!q.done){ S.combo=0; updateHud(); }
   if(S.i>=S.qs.length-1){
     // 마지막 문항에서 '다음' — 남은 문항이 있으면 한 번 확인
-    if(S.qs.every(x=>x.done) || confirm('게임을 끝내고 결과 화면으로 이동할까요?')) finish();
+    if(S.qs.every(x=>x.done) || confirm('학습을 끝내고 결과 화면으로 이동할까요?')) finish();
     return;
   }
   S.i++; renderQ();
@@ -1297,7 +1297,7 @@ function goNext(){
 function goPrev(){ if(cbShown()) closeBanner(); if(S.i>0){ S.i--; renderQ(); } }
 $('btnNext').addEventListener('click',goNext);
 $('btnPrev').addEventListener('click',goPrev);
-$('btnEnd').addEventListener('click',()=>{ if(confirm('게임을 끝내고 결과 화면으로 이동할까요?')) finish(); });
+$('btnEnd').addEventListener('click',()=>{ if(confirm('학습을 끝내고 결과 화면으로 이동할까요?')) finish(); });
 
 document.addEventListener('keydown',e=>{
   if($('reviewModal').classList.contains('on')){ if(e.key==='Escape') closeReview(); return; }
@@ -1540,7 +1540,7 @@ function downloadTeacherXls(){
   sum.push(row(cell('')));
   sum.push(row(cell('성취기준')+cell(stdTxt)));
   sum.push(row(cell('총 문항 수')+cell(totalN,'Number')+cell('전 단계 합계 만점')+cell(totalMax,'Number')));
-  sum.push(row(cell('게임 코드')+cell(GAME_CONFIG.gameCode)+cell('게임 이름')+cell(GAME_NAME)));
+  sum.push(row(cell('자료 코드')+cell(GAME_CONFIG.gameCode)+cell('콘텐츠 이름')+cell(GAME_NAME)));
   sum.push(row(cell('크레딧')+cell('제작 · 보라라샘 · 전주서신중학교 교사 · siaawase@gmail.com · 제작일 '+MADE_DATE+' · 최종 수정 '+LAST_MOD)));
   sheets.push(sheet('유형별 요약',sum));
 
@@ -1629,7 +1629,7 @@ function memoBox(ctx,y,memo,W){
   lines.forEach((l,i)=>ctx.fillText(l,66,y+52+i*27));
   return y+h;
 }
-const PRIV_OFF='🔒 본 게임은 별도의 서버로 데이터를 전송하거나 저장하지 않습니다. 입력한 이름과 소감은 이 이미지 생성에만 쓰였습니다.';
+const PRIV_OFF='🔒 본 콘텐츠는 별도의 서버로 데이터를 전송하거나 저장하지 않습니다. 입력한 이름과 소감은 이 이미지 생성에만 쓰였습니다.';
 const PRIV_ON ='🔒 학습 결과(학번·이름·점수·오답 정보·학습 소감)는 담당 선생님의 학습 관리용 스프레드시트에 안전하게 전송·저장됩니다. 학습 지도 목적으로만 사용되며 제3자에게 제공되지 않습니다.';
 function footerH(ctx,W,withStd){
   ctx.font=F(14);

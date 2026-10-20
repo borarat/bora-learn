@@ -1,12 +1,12 @@
 <!DOCTYPE html>
 <html lang="ko">
 <!-- 리모델링 2026.10.01 08:55 (5차 야간)
-     기록: 게임 중 단계 이동 버튼을 누르면 화면 안 확인 창을 띄움 (채우거나 틀린 칸이 있을 때만). 취소하면 판과 기록이 그대로 남고 포커스는 누른 단계 버튼으로 돌아감. 다 푼 직후(완료 화면이 뜨기 전)에는 단계 이동을 막아 결과 전송이 빠지지 않게 함
+     기록: 학습 중 단계 이동 버튼을 누르면 화면 안 확인 창을 띄움 (채우거나 틀린 칸이 있을 때만). 취소하면 판과 기록이 그대로 남고 포커스는 누른 단계 버튼으로 돌아감. 다 푼 직후(완료 화면이 뜨기 전)에는 단계 이동을 막아 결과 전송이 빠지지 않게 함
      연동: 틀리게 채운 칸을 wrongItems로 전송 (칸 위치 · 정답 성분 · 넣은 성분). 소감(reflection)은 교사 결정으로 빈 값 유지
      2026.10.05 03:00 정답 배너를 깔끔한 카드형으로(교사 결정): 화면 어둡게·광선·색종이·이모지 낙하 없앰, 5·10연속에만 작은 색종이
-     2026.10.06 01:40 테마층 '타일 모자이크'(시작 화면 격자 모자이크·타일 그림, 보조색 청록 #2A8C8C) · '게임 끝내기' 추가(교사 결정, 화면 안 확인 창 한 번) — 지금까지 채운 결과로 마무리, 시간 보너스는 다 채웠을 때만, 끝까지 안 채우면 칭찬 대신 '끝까지 풀지 않았어요 (n칸 남음)', 전송에 채운 칸·남은 칸(answeredCount·skippedCount) 추가 · 버그: 마지막 칸 직후 다시하기·시작화면을 누르면 결과 화면·전송이 사라지던 것, 다시하기 버튼 포커스로 Enter·Space에 판이 또 바뀌던 것, 오답 표시 중 새 판을 열면 옛 타이머가 새 판 잠금을 풀던 것, 줄 완성 알림이 새 판·끝낸 뒤에 뜰 수 있던 것
+     2026.10.06 01:40 테마층 '타일 모자이크'(시작 화면 격자 모자이크·타일 그림, 보조색 청록 #2A8C8C) · '학습 끝내기' 추가(교사 결정, 화면 안 확인 창 한 번) — 지금까지 채운 결과로 마무리, 시간 보너스는 다 채웠을 때만, 끝까지 안 채우면 칭찬 대신 '끝까지 풀지 않았어요 (n칸 남음)', 전송에 채운 칸·남은 칸(answeredCount·skippedCount) 추가 · 버그: 마지막 칸 직후 다시하기·시작화면을 누르면 결과 화면·전송이 사라지던 것, 다시하기 버튼 포커스로 Enter·Space에 판이 또 바뀌던 것, 오답 표시 중 새 판을 열면 옛 타이머가 새 판 잠금을 풀던 것, 줄 완성 알림이 새 판·끝낸 뒤에 뜰 수 있던 것
      2026.10.06 12:30 실제 조작 버그 검사 처음부터 다시 실행 — 전 항목 통과 확인 후 사이트 반영
-     2026.10.07 13:58 끝낸 게임 다시 훑기(실제 조작 재검사): 중간 종료·채점 0개 제목, 크레딧 ·
+     2026.10.07 13:58 끝낸 학습 다시 훑기(실제 조작 재검사): 중간 종료·채점 0개 제목, 크레딧 ·
      2026.10.11 16:10 13차: 남은 확인 목록 반영(버그·표준·설계 결정) · 실제 조작 검사 통과 -->
 <head>
 <meta charset="UTF-8">
@@ -81,7 +81,7 @@
     font-size:.78rem;line-height:1.6;color:#888;}
   .privacy b{color:#666;}
 
-  /* 게임 화면 */
+  /* 학습 화면 */
   .hud{display:flex;gap:7px;margin-top:10px;}
   .stat{background:var(--soft);border-radius:10px;padding:7px 8px;text-align:center;flex:1;min-width:0;
     display:flex;align-items:baseline;justify-content:center;gap:6px;}
@@ -239,9 +239,9 @@
     .report .ex{display:none;}
     .banner{font-size:1.25rem;padding:12px 22px;}
   }
-/* ═══ 게임 테마층 · 타일 모자이크 (2026.10.06) ═══
+/* ═══ 화면 테마층 · 타일 모자이크 (2026.10.06) ═══
    시작 화면 제목 오른쪽에 반쯤 채운 격자 모자이크 판과 따로 놓인 타일 한 장. 보조색 청록 #2A8C8C.
-   영역 강조색(보라)·헤더 띠·성분 색·정답/오답 색·게임판·카드·정답 카드(#cbn)는 그대로. 이 블록과 시작 화면 SVG를 지우면 원래 모습 */
+   영역 강조색(보라)·헤더 띠·성분 색·정답/오답 색·학습판·카드·정답 카드(#cbn)는 그대로. 이 블록과 시작 화면 SVG를 지우면 원래 모습 */
 :root{--th:#2A8C8C}
 .intro-header .keyArt{flex:0 0 auto;height:124px;width:auto}
 @media (max-width:860px){.intro-header .keyArt{display:none}}
@@ -276,7 +276,7 @@
 
       <div class="info-grid">
         <div class="rules">
-          <h3>📖 게임 방법</h3>
+          <h3>📖 학습 방법</h3>
           7×7 판의 빈칸에 문장 성분 카드를 채워요.<br>
           가로 한 줄, 세로 한 줄에 7가지 성분이 한 번씩만 들어가요.<br>
           카드를 고른 뒤 점선 칸을 누르면 채워져요.<br>
@@ -307,18 +307,18 @@
 
       <div class="privacy" id="privacyOffline">
         <b>🔒 개인정보 보호 안내</b><br>
-        본 게임은 별도의 서버로 데이터를 전송하거나 저장하지 않습니다.<br>
-        게임 중 입력하는 이름, 활동 소감 등의 정보는 오직 사용자 기기 내부에서 리포트 이미지를 다운로드하는 용도로만 안전하게 처리됩니다.
+        본 콘텐츠는 별도의 서버로 데이터를 전송하거나 저장하지 않습니다.<br>
+        학습 중 입력하는 이름, 활동 소감 등의 정보는 오직 사용자 기기 내부에서 리포트 이미지를 다운로드하는 용도로만 안전하게 처리됩니다.
       </div>
       <div class="privacy" id="privacyOnline" style="display:none">
         <b>🔒 개인정보 보호 안내</b><br>
-        본 게임의 학습 결과(학번, 이름, 점수, 오답 정보, 학습 소감)는 담당 선생님의 학습 관리용 스프레드시트에 안전하게 전송·저장됩니다.<br>
+        본 콘텐츠의 학습 결과(학번, 이름, 점수, 오답 정보, 학습 소감)는 담당 선생님의 학습 관리용 스프레드시트에 안전하게 전송·저장됩니다.<br>
         수집된 정보는 학습 지도 목적으로만 사용되며, 제3자에게 제공되지 않습니다.
       </div>
     </div>
   </section>
 
-  <!-- ===== 게임 화면 ===== -->
+  <!-- ===== 학습 화면 ===== -->
   <section id="game" class="screen">
     <div class="area-bar">
       <span>문법<span class="goal"> · 문장 성분 7가지의 이름을 익힌다</span></span>
@@ -348,7 +348,7 @@
               <button class="sbtn" onclick="restart()">다시하기</button>
               <button class="sbtn" onclick="goIntro()">시작화면</button>
             </div>
-            <button class="sbtn" id="endBtn" onclick="requestEnd()">게임 끝내기</button>
+            <button class="sbtn" id="endBtn" onclick="requestEnd()">학습 끝내기</button>
           </div>
         </div>
       </div>
@@ -384,8 +384,8 @@
       </div>
       <div class="privacy" id="endPrivacy">
         <b>🔒 개인정보 보호 안내</b><br>
-        본 게임은 별도의 서버로 데이터를 전송하거나 저장하지 않습니다.<br>
-        게임 중 입력하는 이름, 활동 소감 등의 정보는 오직 사용자 기기 내부에서 리포트 이미지를 다운로드하는 용도로만 안전하게 처리됩니다.
+        본 콘텐츠는 별도의 서버로 데이터를 전송하거나 저장하지 않습니다.<br>
+        학습 중 입력하는 이름, 활동 소감 등의 정보는 오직 사용자 기기 내부에서 리포트 이미지를 다운로드하는 용도로만 안전하게 처리됩니다.
       </div>
     </div>
   </section>
@@ -396,7 +396,7 @@
  <div style="background:#fff;border-radius:20px;padding:32px;max-width:380px;width:90%;box-shadow:0 20px 60px rgba(0,0,0,0.3);text-align:center">
   <div style="font-size:36px;margin-bottom:8px">🔑</div>
   <h2 style="font-size:20px;margin-bottom:4px;color:var(--ink)">학생 인증</h2>
-  <p style="font-size:13px;color:var(--ink2);margin-bottom:20px">학번과 이름을 입력하면 게임을 시작할 수 있어요.</p>
+  <p style="font-size:13px;color:var(--ink2);margin-bottom:20px">학번과 이름을 입력하면 학습을 시작할 수 있어요.</p>
   <div style="text-align:left;margin-bottom:12px">
    <label style="font-size:13px;font-weight:700;color:var(--ink)">학번 (5자리)</label>
    <input id="loginId" type="text" maxlength="5" inputmode="numeric" placeholder="예: 20101" style="width:100%;padding:10px 14px;border:2px solid var(--line);border-radius:10px;font-size:16px;margin-top:4px;box-sizing:border-box">
@@ -430,7 +430,7 @@
       <div class="guide-how">
         <p>① 카드를 고르고 ② 점선 칸을 누르면 채워져요.</p>
         <p>틀리면 칸이 다시 비워지고 5점이 깎여요.</p>
-        <p>진짜 게임판은 <b>7×7</b>이고, 문장 성분 7가지가 줄마다 한 번씩 들어가요.</p>
+        <p>진짜 학습판은 <b>7×7</b>이고, 문장 성분 7가지가 줄마다 한 번씩 들어가요.</p>
       </div>
       <div class="guide-foot">
         <button class="btn" id="guideBtn" onclick="closeGuide()">알겠어요, 시작!</button>
@@ -651,7 +651,7 @@ function show(id){
 function finishing(){return state.finished&&$('game').classList.contains('active');}  // 다 푼 판의 완료 화면이 뜨기 전 (2026.10.06)
 function goIntro(){
   if(finishing())return;
-  // 게임 중 채우거나 틀린 칸이 있으면 단계 이동과 같은 화면 안 확인 창을 먼저 띄운다 (2026.10.09 — 기록이 없으면 묻지 않음)
+  // 학습 중 채우거나 틀린 칸이 있으면 단계 이동과 같은 화면 안 확인 창을 먼저 띄운다 (2026.10.09 — 기록이 없으면 묻지 않음)
   if($('game').classList.contains('active')&&!state.finished&&(state.ok>0||state.no>0)){if(jumpTarget===null)openJumpConfirm('intro');return;}
   closeGuideSilently();show('intro');
 }
@@ -792,8 +792,8 @@ function requestStageJump(s){
 }
 function openJumpConfirm(s){
   jumpTarget=s;jumpOpener=document.activeElement;
-  if(s==='end'){   // '게임 끝내기' 확인 (2026.10.06)
-    $('jumpTitle').textContent='게임을 끝낼까요?';
+  if(s==='end'){   // '학습 끝내기' 확인 (2026.10.06)
+    $('jumpTitle').textContent='학습을 끝낼까요?';
     $('jumpMsg').innerHTML='지금까지 채운 결과로 마무리해요. 채운 칸 <b>'+state.ok+'개</b>, 남은 빈칸 <b>'+(state.totalBlanks-state.ok)+'개</b>예요.';
     $('jumpOk').textContent='끝내기';
   }else if(s==='intro'){   // '시작화면' (2026.10.09)
@@ -904,7 +904,7 @@ function gradeText(acc){
   if(acc>=50)return '💪 기본은 잡혔어요';return '🔁 다시 한 번 도전해요';
 }
 let resultSent=false;
-// '게임 끝내기' (2026.10.06 교사 결정) — 한 번 확인한 뒤 지금까지 채운 결과로 마무리. 시간 보너스는 다 채웠을 때만
+// '학습 끝내기' (2026.10.06 교사 결정) — 한 번 확인한 뒤 지금까지 채운 결과로 마무리. 시간 보너스는 다 채웠을 때만
 function requestEnd(){
   if(state.finished||guideOpen||jumpTarget!==null||!$('game').classList.contains('active'))return;  // 다 채운 판은 곧 완료 화면이 뜬다
   openJumpConfirm('end');
@@ -924,7 +924,7 @@ function finish(){
   const left=state.totalBlanks-state.ok,unfinished=left>0;
   if(!state.bonusGiven){state.timeBonus=unfinished?0:timeBonus(state.elapsed);state.score+=state.timeBonus;state.bonusGiven=true;}
   const bonus=state.timeBonus,tries=state.ok+state.no,acc=tries?Math.round(state.ok/tries*100):0;
-  $('doneBar').textContent=currentStage+(unfinished?'단계 · 게임을 끝냄':'단계 완료');
+  $('doneBar').textContent=currentStage+(unfinished?'단계 · 학습을 끝냄':'단계 완료');
   $('doneTag').textContent=currentStage+'단계 · '+STAGES[currentStage].label;
   $('doneTitle').textContent=!unfinished?'스도쿠 완성!':tries?'여기까지 풀었어요':'풀어 본 문제가 없어요';   // 화면연출표준 7장 중간 종료·채점 0개 제목
   const g=$('grade');g.className='grade';

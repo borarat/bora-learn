@@ -185,7 +185,7 @@ mark.hl{background:linear-gradient(180deg,transparent 55%,rgba(245,138,46,.30) 5
  .opts3{grid-template-columns:1fr}
  .rules{grid-template-columns:1fr 1fr}
 }
-/* ═══ 게임 테마층 · 연설 무대 (2026.10.08) ═══
+/* ═══ 화면 테마층 · 연설 무대 (2026.10.08) ═══
    커튼이 열린 무대 가운데 연단과 마이크가 놓인 장면(사람·글자 없음). 보조색 먹 #3D3D4A. 영역 팔레트·헤더 띠·정답/오답 색·흰 문제 카드·정답 카드는 그대로.
    유형 색(인성 파랑·이성 초록·감성 분홍·종합 보라)과 빨강은 그림에 쓰지 않음. 이 블록과 시작 화면 SVG를 지우면 원래 모습 */
 :root{--th:#3D3D4A}
@@ -257,7 +257,7 @@ mark.hl{background:linear-gradient(180deg,transparent 55%,rgba(245,138,46,.30) 5
    </div>
    <div>
     <div class="box">
-     <div class="box-t">🎮 게임 방법</div>
+     <div class="box-t">🎮 학습 방법</div>
      <p>1단계는 개념 문제를 풉니다.</p>
      <p>2·3단계는 연설문에서 밑줄 친 부분에 쓰인 설득 전략을 찾습니다.</p>
      <p>4단계는 연설문을 쓸 때 어떤 문장이 어느 전략인지 고릅니다.</p>
@@ -283,12 +283,12 @@ mark.hl{background:linear-gradient(180deg,transparent 55%,rgba(245,138,46,.30) 5
 
   <div class="privacy" id="privacyOffline">
    <b>🔒 개인정보 보호 안내</b><br>
-   본 게임은 별도의 서버로 데이터를 전송하거나 저장하지 않습니다.<br>
-   게임 중 입력하는 이름, 활동 소감 등의 정보는 오직 사용자 기기 내부에서 리포트 이미지를 다운로드하는 용도로만 안전하게 처리됩니다.
+   본 콘텐츠는 별도의 서버로 데이터를 전송하거나 저장하지 않습니다.<br>
+   학습 중 입력하는 이름, 활동 소감 등의 정보는 오직 사용자 기기 내부에서 리포트 이미지를 다운로드하는 용도로만 안전하게 처리됩니다.
   </div>
   <div class="privacy" id="privacyOnline" style="display:none">
    <b>🔒 개인정보 보호 안내</b><br>
-   본 게임의 학습 결과(학번, 이름, 점수, 오답 정보, 학습 소감)는 담당 선생님의 학습 관리용 스프레드시트에 안전하게 전송·저장됩니다.<br>
+   본 콘텐츠의 학습 결과(학번, 이름, 점수, 오답 정보, 학습 소감)는 담당 선생님의 학습 관리용 스프레드시트에 안전하게 전송·저장됩니다.<br>
    수집된 정보는 학습 지도 목적으로만 사용되며, 제3자에게 제공되지 않습니다.
   </div>
 
@@ -305,7 +305,7 @@ mark.hl{background:linear-gradient(180deg,transparent 55%,rgba(245,138,46,.30) 5
  <div style="background:#fff;border-radius:20px;padding:32px;max-width:380px;width:90%;box-shadow:0 20px 60px rgba(0,0,0,0.3);text-align:center">
   <div style="font-size:36px;margin-bottom:8px">🔑</div>
   <h2 style="font-size:20px;margin-bottom:4px;color:var(--ink)">학생 인증</h2>
-  <p style="font-size:13px;color:var(--ink2);margin-bottom:20px">학번과 이름을 입력하면 게임을 시작할 수 있어요.</p>
+  <p style="font-size:13px;color:var(--ink2);margin-bottom:20px">학번과 이름을 입력하면 학습을 시작할 수 있어요.</p>
   <div style="text-align:left;margin-bottom:12px">
    <label style="font-size:13px;font-weight:700;color:var(--ink)">학번 (5자리)</label>
    <input id="loginId" type="text" maxlength="5" inputmode="numeric" placeholder="예: 30101" style="width:100%;padding:10px 14px;border:2px solid var(--line);border-radius:10px;font-size:16px;margin-top:4px;box-sizing:border-box">
@@ -344,7 +344,7 @@ mark.hl{background:linear-gradient(180deg,transparent 55%,rgba(245,138,46,.30) 5
      <div class="nav" id="navB">
       <button class="nbtn" onclick="go(-1)">◀ 이전</button>
       <button class="nbtn" onclick="go(1)">다음 ▶</button>
-      <button class="nbtn fin" onclick="askFinish()">게임 끝내기</button>
+      <button class="nbtn fin" onclick="askFinish()">학습 끝내기</button>
      </div>
     </div>
 
@@ -366,7 +366,7 @@ mark.hl{background:linear-gradient(180deg,transparent 55%,rgba(245,138,46,.30) 5
       <div class="nav row" id="navS">
        <button class="nbtn" onclick="go(-1)">◀ 이전</button>
        <button class="nbtn" onclick="go(1)">다음 ▶</button>
-       <button class="nbtn fin" onclick="askFinish()">게임 끝내기</button>
+       <button class="nbtn fin" onclick="askFinish()">학습 끝내기</button>
       </div>
      </div>
     </div>
@@ -898,7 +898,7 @@ function closeBanner(){cbHide()}
 function go(d){
  const nx=S.idx+d;
  if(nx<0){toast('첫 문항입니다.');return}
- if(nx>=S.qs.length){toast('마지막 문항입니다. 「게임 끝내기」를 눌러 주세요.');return}
+ if(nx>=S.qs.length){toast('마지막 문항입니다. 「학습 끝내기」를 눌러 주세요.');return}
  S.idx=nx; closeBanner(); render();
 }
 document.addEventListener('keydown',e=>{
@@ -958,7 +958,7 @@ function summary(){
 function askFinish(){
  if(S.done)return;
  const left=S.st.filter(x=>x.status===null).length;
- const msg=left>0?'아직 '+left+'문항이 남았어요. 게임을 끝낼까요?\n(남은 문항은 미응답으로 기록돼요)':'지금까지 푼 결과로 게임을 끝낼까요?';
+ const msg=left>0?'아직 '+left+'문항이 남았어요. 학습을 끝낼까요?\n(남은 문항은 미응답으로 기록돼요)':'지금까지 푼 결과로 학습을 끝낼까요?';
  if(!confirm(msg))return;
  finishGame();
 }
@@ -1109,7 +1109,7 @@ function dlWrong(){
  c.fillStyle='#7A6A52';c.font='12px '+SYSF;
  c.fillText(IS_ONLINE
   ?'🔒 학습 결과는 담당 선생님의 학습 관리용 스프레드시트에 전송·저장되며, 학습 지도 목적으로만 사용됩니다.'
-  :'🔒 본 게임은 별도의 서버로 데이터를 전송하거나 저장하지 않습니다. 입력한 이름과 소감은 이 이미지 생성에만 사용되었습니다.',pad,H-34);
+  :'🔒 본 콘텐츠는 별도의 서버로 데이터를 전송하거나 저장하지 않습니다. 입력한 이름과 소감은 이 이미지 생성에만 사용되었습니다.',pad,H-34);
  c.fillText('제작 · 보라라샘 · 전주서신중학교 교사 · siaawase@gmail.com',pad,H-15);
  saveJPG(cv,name+'_오답노트_'+STAGE_INFO[S.stage].short+'_'+s.file+'.jpg');
  toast('오답노트를 저장했어요!');
@@ -1200,7 +1200,7 @@ function dlReport(){
  c.font='12px '+SYSF;
  c.fillText(IS_ONLINE
   ?'🔒 학습 결과는 담당 선생님의 학습 관리용 스프레드시트에 전송·저장되며, 학습 지도 목적으로만 사용됩니다.'
-  :'🔒 본 게임은 별도의 서버로 데이터를 전송하거나 저장하지 않습니다. 입력한 이름과 소감은 이 이미지 생성에만 사용되었습니다.',pad,H-34);
+  :'🔒 본 콘텐츠는 별도의 서버로 데이터를 전송하거나 저장하지 않습니다. 입력한 이름과 소감은 이 이미지 생성에만 사용되었습니다.',pad,H-34);
  c.fillText('제작 · 보라라샘 · 전주서신중학교 교사 · siaawase@gmail.com',pad,H-15);
  saveJPG(cv,name+'_학습리포트_'+STAGE_INFO[S.stage].short+'_'+s.file+'.jpg');
  toast('학습 리포트를 저장했어요!');

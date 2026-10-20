@@ -7,7 +7,7 @@
      2026.10.05 03:00 정답 배너를 깔끔한 카드형으로(교사 결정): 화면 어둡게·광선·색종이·이모지 낙하 없앰, 5·10연속에만 작은 색종이
      2026.10.07 09:20 테마층 + 실제 조작 버그 검사·수정
      2026.10.07 10:32 리포트 '보완이 필요한 유형'과 '가장 먼저 공부할 것'을 한 칸으로(유형 하나 + 판단 방법)
-     2026.10.07 13:58 끝낸 게임 다시 훑기(실제 조작 재검사): 엑셀 정답 빨강, 첫 시도 오답 후 끝내면 못 맞힘, 유형 구분 문구 조건, 마지막 단계 문구
+     2026.10.07 13:58 끝낸 학습 다시 훑기(실제 조작 재검사): 엑셀 정답 빨강, 첫 시도 오답 후 끝내면 못 맞힘, 유형 구분 문구 조건, 마지막 단계 문구
      2026.10.11 16:10 13차: 남은 확인 목록 반영(버그·표준·설계 결정) · 실제 조작 검사 통과 -->
 <html lang="ko">
 <head>
@@ -490,7 +490,7 @@ textarea.fi{resize:vertical;min-height:56px}
 }
 .chart th.hd .alt-nm{display:block;font-size:.72em;font-weight:500;opacity:.8;line-height:1.2}
 .chart.mini th.hd .alt-nm{font-size:.85em}
-/* ═══ 게임 테마층 · 목판 인쇄소 (2026.10.07) ═══
+/* ═══ 화면 테마층 · 목판 인쇄소 (2026.10.07) ═══
    목판에 새긴 기본자 다섯 글자와 인쇄된 종이. 보조색 먹 #3D3D4A. 영역 팔레트·헤더 띠·체계표·카드·정답/오답 색은 그대로.
    이 블록과 시작 화면 SVG를 지우면 원래 모습 */
 :root{--th:#3D3D4A;--th-soft:#ECECF0}
@@ -527,7 +527,7 @@ textarea.fi{resize:vertical;min-height:56px}
 
   <div class="cols">
    <div class="box">
-    <h3>🎮 게임 방법</h3>
+    <h3>🎮 학습 방법</h3>
     <ul>
      <li><b>1~4단계</b> — 아래 카드를 클릭한 뒤 체계표의 알맞은 빈칸을 눌러 배치합니다.</li>
      <li>틀려도 <b>맞을 때까지 다시 놓을 수 있습니다.</b> 표를 끝까지 완성하는 것이 목표입니다.</li>
@@ -559,7 +559,7 @@ textarea.fi{resize:vertical;min-height:56px}
   <div class="stages" id="stageBtns"></div>
 
   <div class="catbox">
-   <h3>📚 이 게임에서 익히는 유형</h3>
+   <h3>📚 이 콘텐츠에서 익히는 유형</h3>
    <div class="catgrid" id="catGrid"></div>
   </div>
 
@@ -570,12 +570,12 @@ textarea.fi{resize:vertical;min-height:56px}
 
   <div class="privacy" id="privacyOffline">
    <b>🔒 개인정보 보호 안내</b><br>
-   본 게임은 별도의 서버로 데이터를 전송하거나 저장하지 않습니다.<br>
-   게임 중 입력하는 이름, 활동 소감 등의 정보는 오직 사용자 기기 내부에서 리포트 이미지를 다운로드하는 용도로만 안전하게 처리됩니다.
+   본 콘텐츠는 별도의 서버로 데이터를 전송하거나 저장하지 않습니다.<br>
+   학습 중 입력하는 이름, 활동 소감 등의 정보는 오직 사용자 기기 내부에서 리포트 이미지를 다운로드하는 용도로만 안전하게 처리됩니다.
   </div>
   <div class="privacy" id="privacyOnline" style="display:none">
    <b>🔒 개인정보 보호 안내</b><br>
-   본 게임의 학습 결과(학번, 이름, 점수, 오답 정보, 학습 소감)는 담당 선생님의 학습 관리용 스프레드시트에 안전하게 전송·저장됩니다.<br>
+   본 콘텐츠의 학습 결과(학번, 이름, 점수, 오답 정보, 학습 소감)는 담당 선생님의 학습 관리용 스프레드시트에 안전하게 전송·저장됩니다.<br>
    수집된 정보는 학습 지도 목적으로만 사용되며, 제3자에게 제공되지 않습니다.
   </div>
  </div>
@@ -585,7 +585,7 @@ textarea.fi{resize:vertical;min-height:56px}
  <div style="background:#fff;border-radius:20px;padding:32px;max-width:380px;width:90%;box-shadow:0 20px 60px rgba(0,0,0,0.3);text-align:center">
   <div style="font-size:36px;margin-bottom:8px">🔑</div>
   <h2 style="font-size:20px;margin-bottom:4px;color:var(--ink)">학생 인증</h2>
-  <p style="font-size:13px;color:var(--ink2);margin-bottom:20px">학번과 이름을 입력하면 게임을 시작할 수 있어요.</p>
+  <p style="font-size:13px;color:var(--ink2);margin-bottom:20px">학번과 이름을 입력하면 학습을 시작할 수 있어요.</p>
   <div style="text-align:left;margin-bottom:12px">
    <label style="font-size:13px;font-weight:700;color:var(--ink)">학번 (5자리)</label>
    <input id="loginId" type="text" maxlength="5" inputmode="numeric" placeholder="예: 20101" style="width:100%;padding:10px 14px;border:2px solid var(--line2);border-radius:10px;font-size:16px;margin-top:4px;box-sizing:border-box">
@@ -1631,7 +1631,7 @@ function loadQ(pos){
 function navQ(d){
   const np = S.pos + d;
   if(np < 0) return;
-  if(np >= TOTAL_Q){ if(confirm('마지막 문제입니다. 게임을 끝낼까요?')) finish(); return; }
+  if(np >= TOTAL_Q){ if(confirm('마지막 문제입니다. 학습을 끝낼까요?')) finish(); return; }
   const idx = S.order[S.pos];
   if(d>0 && !getRes(idx)) S.res[idx] = {status:'skip', tries:0, pts:0, pick:{...S.pick}, wrongPart:{}, hint:false};
   loadQ(np);
@@ -1644,18 +1644,18 @@ function renderSide(){
     s.innerHTML =
      '<button class="nav" id="nPrev"'+(S.pos===0?' disabled':'')+'><span class="k">◀</span>이전</button>'+
      '<button class="nav" id="nNext"><span class="k">▶</span>다음</button>'+
-     '<button class="nav fin" id="nFin"><span class="k">🏁</span>게임<br>끝내기</button>'+
+     '<button class="nav fin" id="nFin"><span class="k">🏁</span>학습<br>끝내기</button>'+
      '<button class="nav" id="nHome"><span class="k">🏠</span>시작<br>화면</button>';
     $('nPrev').onclick = ()=>navQ(-1);
     $('nNext').onclick = ()=>navQ(1);
   } else {
     s.innerHTML =
      '<button class="nav rst" id="nRst"><span class="k">↺</span>카드<br>리셋</button>'+
-     '<button class="nav fin" id="nFin"><span class="k">🏁</span>게임<br>끝내기</button>'+
+     '<button class="nav fin" id="nFin"><span class="k">🏁</span>학습<br>끝내기</button>'+
      '<button class="nav" id="nHome"><span class="k">🏠</span>시작<br>화면</button>';
     $('nRst').onclick = ()=>{ if(confirm('배치한 내용을 모두 지우고 이 단계를 처음부터 다시 할까요?')) doStartStage(S.stage); };
   }
-  $('nFin').onclick = ()=>{ if(confirm('게임을 끝내고 결과를 볼까요?')) finish(); };
+  $('nFin').onclick = ()=>{ if(confirm('학습을 끝내고 결과를 볼까요?')) finish(); };
   $('nHome').onclick= ()=>{ if(confirm('시작 화면으로 돌아갈까요? 진행 상황은 사라집니다.')) show('start'); };
 }
 
@@ -1672,7 +1672,7 @@ document.addEventListener('keydown', e=>{
   else if(e.key==='ArrowLeft'){ e.preventDefault(); navQ(-1); }
 });
 
-/* ══════════ 게임 시작 ══════════ */
+/* ══════════ 학습 시작 ══════════ */
 let pendingStage = 1;
 if(IS_ONLINE){
   $('privacyOffline').style.display='none';
@@ -2053,7 +2053,7 @@ function stamp(){
 function stageTag(){ return END.label.replace(/[ ·]/g,''); }
 const PRIV_SHORT = () => IS_ONLINE
   ? '🔒 개인정보 보호 안내 · 학습 결과는 담당 선생님의 학습 관리용 스프레드시트에 안전하게 전송·저장되며, 학습 지도 목적으로만 사용됩니다.'
-  : '🔒 개인정보 보호 안내 · 본 게임은 서버로 데이터를 전송·저장하지 않습니다. 입력한 이름과 소감은 이 이미지를 만드는 데에만 쓰였습니다.';
+  : '🔒 개인정보 보호 안내 · 본 콘텐츠는 서버로 데이터를 전송·저장하지 않습니다. 입력한 이름과 소감은 이 이미지를 만드는 데에만 쓰였습니다.';
 const CREDIT_LINE = '제작 · 보라라샘 · 전주서신중학교 교사 · siaawase@gmail.com';
 
 function headerBlock(g, W, PX, title, nm, s, line2){
@@ -2253,7 +2253,7 @@ function xSheet(name, rows, ansOf){
 function downloadTeacherXls(){
   const rule = ['배점 규칙','첫 시도 정답 +'+BASE_PT+' · 다시 풀어 맞힘 +'+RETRY_PT+' · 오답 −'+PENALTY+'(하한 0) · 콤보 3~4 +5 / 5이상 +10 · 5단계 체계표 보기 −'+HINT_COST];
   const ach = ['성취기준 (2022)','['+ACH_2022.code+'] '+ACH_2022.text];
-  const credit = ['크레딧', CREDIT_LINE+' · 제작일 '+MADE_DATE+' · 최종 수정 '+MOD_DATE+' · 게임코드 '+GAME_CODE];
+  const credit = ['크레딧', CREDIT_LINE+' · 제작일 '+MADE_DATE+' · 최종 수정 '+MOD_DATE+' · 자료코드 '+GAME_CODE];
   const tail = (n,max)=>[[],['총문항 수',String(n),'만점',String(max)],ach,rule,credit];
 
   const hdrPlace = ['원본 id','유형','카드','놓을 자리','해설'];

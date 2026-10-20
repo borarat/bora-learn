@@ -1,6 +1,6 @@
 <!DOCTYPE html>
 <html lang="ko">
-<!-- 리모델링 2026.10.01 15:00 (6차): 게임 코드 L301→L303, 조사 떼기 오판 예외(처가·화가·화로·혹은·왜요·일본도·부인과), 409 스텐코프를 감방 시기에 만난 장교로
+<!-- 리모델링 2026.10.01 15:00 (6차): 자료 코드 L301→L303, 조사 떼기 오판 예외(처가·화가·화로·혹은·왜요·일본도·부인과), 409 스텐코프를 감방 시기에 만난 장교로
      2026.10.05 03:00 정답 배너를 깔끔한 카드형으로(교사 결정): 화면 어둡게·광선·색종이·이모지 낙하 없앰, 5·10연속에만 작은 색종이
      9차: 테마층(진료 차트) + 실제 조작 버그 검사·수정 — 중간 종료·채점 0개 총평, 보완 칸 하나, 틀리고 떠난 빈칸=못 맞힘,
           어느 장면에서든 마지막 빈칸을 채우면 자동 종료, 교사용 엑셀은 '최종 수정' 클릭·정답 빨간 글씨, 옆 버튼 포커스
@@ -179,7 +179,7 @@ h1{font-size:clamp(26px,3.6vw,36px);font-weight:700;color:var(--dark);line-heigh
   .band .goal,.band .dot{display:none}
   .titleRow{gap:12px}
 }
-/* ═══ 게임 테마층 · 진료 차트 (2026.10.07) ═══
+/* ═══ 화면 테마층 · 진료 차트 (2026.10.07) ═══
    이인국 박사의 진료 차트 위에 놓인 회중시계와 청진기. 보조색 남색 #2F4A6D. 영역 팔레트·헤더 띠·정답/오답 색·흰 문제 카드·정답 카드는 그대로.
    이 블록과 시작 화면 SVG를 지우면 원래 모습 */
 :root{--th:#2F4A6D}
@@ -222,7 +222,7 @@ h1{font-size:clamp(26px,3.6vw,36px);font-weight:700;color:var(--dark);line-heigh
      <p>작품에 반영된 사회·문화적 상황을<br>파악하며 작품을 감상한다.</p>
     </div>
     <div class="box">
-     <h3>🎮 게임 방법</h3>
+     <h3>🎮 학습 방법</h3>
      <ul>
       <li>장면마다 지문 속 노란 빈칸에 알맞은 말을 쓰고 Enter를 누르세요.</li>
       <li>맞히면 다음 빈칸으로 넘어가고, 다른 빈칸은 클릭이나 Tab으로 옮겨요.</li>
@@ -257,12 +257,12 @@ h1{font-size:clamp(26px,3.6vw,36px);font-weight:700;color:var(--dark);line-heigh
 
   <div class="privacy" id="privacyOffline">
    <b>🔒 개인정보 보호 안내</b><br>
-   본 게임은 별도의 서버로 데이터를 전송하거나 저장하지 않습니다.<br>
-   게임 중 입력하는 이름, 활동 소감 등의 정보는 오직 사용자 기기 내부에서 리포트 이미지를 다운로드하는 용도로만 안전하게 처리됩니다.
+   본 콘텐츠는 별도의 서버로 데이터를 전송하거나 저장하지 않습니다.<br>
+   학습 중 입력하는 이름, 활동 소감 등의 정보는 오직 사용자 기기 내부에서 리포트 이미지를 다운로드하는 용도로만 안전하게 처리됩니다.
   </div>
   <div class="privacy" id="privacyOnline" style="display:none">
    <b>🔒 개인정보 보호 안내</b><br>
-   본 게임의 학습 결과(학번, 이름, 점수, 오답 정보, 학습 소감)는 담당 선생님의 학습 관리용 스프레드시트에 안전하게 전송·저장됩니다.<br>
+   본 콘텐츠의 학습 결과(학번, 이름, 점수, 오답 정보, 학습 소감)는 담당 선생님의 학습 관리용 스프레드시트에 안전하게 전송·저장됩니다.<br>
    수집된 정보는 학습 지도 목적으로만 사용되며, 제3자에게 제공되지 않습니다.
   </div>
   </div>
@@ -273,7 +273,7 @@ h1{font-size:clamp(26px,3.6vw,36px);font-weight:700;color:var(--dark);line-heigh
  <div style="background:#fff;border-radius:20px;padding:32px;max-width:380px;width:90%;box-shadow:0 20px 60px rgba(0,0,0,0.3);text-align:center">
   <div style="font-size:36px;margin-bottom:8px">🔑</div>
   <h2 style="font-size:20px;margin-bottom:4px;color:var(--ink)">학생 인증</h2>
-  <p style="font-size:13px;color:var(--ink2);margin-bottom:20px">학번과 이름을 입력하면 게임을 시작할 수 있어요.</p>
+  <p style="font-size:13px;color:var(--ink2);margin-bottom:20px">학번과 이름을 입력하면 학습을 시작할 수 있어요.</p>
   <div style="text-align:left;margin-bottom:12px">
    <label style="font-size:13px;font-weight:700;color:var(--ink)">학번 (5자리)</label>
    <input id="loginId" type="text" maxlength="5" inputmode="numeric" placeholder="예: 20101" style="width:100%;padding:10px 14px;border:2px solid var(--line);border-radius:10px;font-size:16px;margin-top:4px;box-sizing:border-box">
@@ -309,7 +309,7 @@ h1{font-size:clamp(26px,3.6vw,36px);font-weight:700;color:var(--dark);line-heigh
     <button id="btnPrev">◀ 이전 장면</button>
     <button id="btnNext">다음 장면 ▶</button>
     <button id="btnJump"></button>
-    <button id="btnEnd">게임 끝내기</button>
+    <button id="btnEnd">학습 끝내기</button>
    </div>
   </div>
  </div>
@@ -332,7 +332,7 @@ h1{font-size:clamp(26px,3.6vw,36px);font-weight:700;color:var(--dark);line-heigh
 
    <div class="form">
     <div><label for="inName">이름 (필수)</label><input id="inName" type="text" maxlength="10" placeholder="실명을 입력하세요"></div>
-    <div><label for="inMemo">학습 소감 (선택)</label><textarea id="inMemo" maxlength="200" placeholder="오늘 게임에서 새로 알게 된 점이나 느낀 점"></textarea></div>
+    <div><label for="inMemo">학습 소감 (선택)</label><textarea id="inMemo" maxlength="200" placeholder="오늘 학습에서 새로 알게 된 점이나 느낀 점"></textarea></div>
    </div>
    <div class="warn" id="warn">이름을 입력해야 이미지를 만들 수 있어요.</div>
    <p class="note" id="endNote">입력하신 이름과 소감은 서버에 저장되지 않으며, 리포트 이미지(JPG) 생성용으로만 쓰입니다.</p>
@@ -348,8 +348,8 @@ h1{font-size:clamp(26px,3.6vw,36px);font-weight:700;color:var(--dark);line-heigh
    </div>
    <div class="privacy" style="margin-top:10px;text-align:left" id="endPrivacy">
     <b>🔒 개인정보 보호 안내</b><br>
-    본 게임은 별도의 서버로 데이터를 전송하거나 저장하지 않습니다.<br>
-    게임 중 입력하는 이름, 활동 소감 등의 정보는 오직 사용자 기기 내부에서 리포트 이미지를 다운로드하는 용도로만 안전하게 처리됩니다.
+    본 콘텐츠는 별도의 서버로 데이터를 전송하거나 저장하지 않습니다.<br>
+    학습 중 입력하는 이름, 활동 소감 등의 정보는 오직 사용자 기기 내부에서 리포트 이미지를 다운로드하는 용도로만 안전하게 처리됩니다.
    </div>
   </div>
  </div>
@@ -436,8 +436,8 @@ const STD_CODE = '(2015) [9국05-06]';
 const STD_TEXT = '작품에 반영된 사회·문화적 상황을 파악하며 작품을 감상한다.';
 const CREDIT1 = '제작 · 보라라샘 · 전주서신중학교 교사 · siaawase@gmail.com';
 const CREDIT2 = `제작일 ${MADE_DATE} · 최종 수정 ${MODIFIED}`;
-const PRIV_OFF = '본 게임은 별도의 서버로 데이터를 전송하거나 저장하지 않습니다. 게임 중 입력하는 이름, 활동 소감 등의 정보는 오직 사용자 기기 내부에서 리포트 이미지를 다운로드하는 용도로만 안전하게 처리됩니다.';
-const PRIV_ON = '본 게임의 학습 결과(학번, 이름, 점수, 오답 정보, 학습 소감)는 담당 선생님의 학습 관리용 스프레드시트에 안전하게 전송·저장됩니다. 수집된 정보는 학습 지도 목적으로만 사용되며, 제3자에게 제공되지 않습니다.';
+const PRIV_OFF = '본 콘텐츠는 별도의 서버로 데이터를 전송하거나 저장하지 않습니다. 학습 중 입력하는 이름, 활동 소감 등의 정보는 오직 사용자 기기 내부에서 리포트 이미지를 다운로드하는 용도로만 안전하게 처리됩니다.';
+const PRIV_ON = '본 콘텐츠의 학습 결과(학번, 이름, 점수, 오답 정보, 학습 소감)는 담당 선생님의 학습 관리용 스프레드시트에 안전하게 전송·저장됩니다. 수집된 정보는 학습 지도 목적으로만 사용되며, 제3자에게 제공되지 않습니다.';
 
 /* ================= 유틸 ================= */
 const $ = id => document.getElementById(id);
@@ -730,7 +730,7 @@ function goPrev(){ if(S.ended || S.sc===0) return; hideBanner(); S.sc--; renderS
 function endGame(){
   if(S.ended) return;
   const left = S.qs.filter(q => !q.done).length;
-  if(left>0 && !confirm(`아직 빈칸 ${left}개가 남았어요. 게임을 끝낼까요?\n(안 채운 빈칸은 미응답으로 따로 기록돼요)`)) return;
+  if(left>0 && !confirm(`아직 빈칸 ${left}개가 남았어요. 학습을 끝낼까요?\n(안 채운 빈칸은 미응답으로 따로 기록돼요)`)) return;
   finish();
 }
 function jumpStage(){

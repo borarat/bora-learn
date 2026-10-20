@@ -266,7 +266,7 @@
   .rv .ra{font-size:13.5px;color:#1F6E3E;margin-top:5px;line-height:1.5;}
   .rv .re{font-size:12.5px;color:var(--muted);margin-top:4px;line-height:1.55;}
 
-/* ═══ 게임 테마층 · 슬라이드 작업대 (2026.10.08) ═══
+/* ═══ 화면 테마층 · 슬라이드 작업대 (2026.10.08) ═══
    내려 건 스크린의 빈 슬라이드에 막대 몇 개, 레이저 포인터로 한 곳을 짚는 발표 준비 장면. 보조색 회청 #5F7C8A. 영역 팔레트·헤더 띠·정답/오답 색·흰 문제 카드·정답 카드는 그대로.
    이 블록과 시작 화면 SVG를 지우면 원래 모습 */
 :root{--th:#5F7C8A}
@@ -327,7 +327,7 @@
 
         <div class="start-grid">
           <div class="panel">
-            <h3>🔧 게임 방법</h3>
+            <h3>🔧 학습 방법</h3>
             <ul>
               <li>먼저 발표 상황(주제·목적·청중·장소)을 확인합니다.</li>
               <li>자료를 하나씩 받아 두 단계로 정비합니다.</li>
@@ -354,7 +354,7 @@
         </div>
 
         <div class="panel" style="margin-top:14px;">
-          <h3>🧭 이 게임에서 익히는 네 가지</h3>
+          <h3>🧭 이 콘텐츠에서 익히는 네 가지</h3>
           <div class="types">
             <div class="type-it"><span>🙋</span><span><b>청중 수준 고려</b><br>어려운 용어를 청중에 맞게 풀어 쓰기</span></div>
             <div class="type-it"><span>🖼️</span><span><b>시각 자료 활용</b><br>도표·그림·자막·영상으로 바꾸어 보여 주기</span></div>
@@ -382,12 +382,12 @@
 
         <div class="privacy" id="privacyOffline">
           <b>🔒 개인정보 보호 안내</b><br>
-          본 게임은 별도의 서버로 데이터를 전송하거나 저장하지 않습니다.<br>
-          게임 중 입력하는 이름, 활동 소감 등의 정보는 오직 사용자 기기 내부에서 리포트 이미지를 다운로드하는 용도로만 안전하게 처리됩니다.
+          본 콘텐츠는 별도의 서버로 데이터를 전송하거나 저장하지 않습니다.<br>
+          학습 중 입력하는 이름, 활동 소감 등의 정보는 오직 사용자 기기 내부에서 리포트 이미지를 다운로드하는 용도로만 안전하게 처리됩니다.
         </div>
         <div class="privacy" id="privacyOnline" style="display:none">
           <b>🔒 개인정보 보호 안내</b><br>
-          본 게임의 학습 결과(학번, 이름, 점수, 오답 정보, 학습 소감)는 담당 선생님의 학습 관리용 스프레드시트에 안전하게 전송·저장됩니다.<br>
+          본 콘텐츠의 학습 결과(학번, 이름, 점수, 오답 정보, 학습 소감)는 담당 선생님의 학습 관리용 스프레드시트에 안전하게 전송·저장됩니다.<br>
           수집된 정보는 학습 지도 목적으로만 사용되며, 제3자에게 제공되지 않습니다.
         </div>
       </div>
@@ -398,7 +398,7 @@
    <div style="background:#fff;border-radius:20px;padding:32px;max-width:380px;width:90%;box-shadow:0 20px 60px rgba(0,0,0,0.3);text-align:center">
     <div style="font-size:36px;margin-bottom:8px">🔑</div>
     <h2 style="font-size:20px;margin-bottom:4px;color:var(--ink)">학생 인증</h2>
-    <p style="font-size:13px;color:var(--muted);margin-bottom:20px">학번과 이름을 입력하면 게임을 시작할 수 있어요.</p>
+    <p style="font-size:13px;color:var(--muted);margin-bottom:20px">학번과 이름을 입력하면 학습을 시작할 수 있어요.</p>
     <div style="text-align:left;margin-bottom:12px">
      <label style="font-size:13px;font-weight:700;color:var(--ink)">학번 (5자리)</label>
      <input id="loginId" type="text" maxlength="5" inputmode="numeric" placeholder="예: 20101" style="width:100%;padding:10px 14px;border:2px solid var(--line);border-radius:10px;font-size:16px;margin-top:4px;box-sizing:border-box;font-family:inherit">
@@ -454,7 +454,7 @@
           <div class="nav">
             <button class="prev" id="btnPrev">◀ 이전</button>
             <button class="next" id="btnNext">다음 ▶</button>
-            <button class="quit" id="btnQuit">게임 끝내기</button>
+            <button class="quit" id="btnQuit">학습 끝내기</button>
           </div>
         </aside>
         <div class="main">
@@ -1161,7 +1161,7 @@ function checkAllDone(){
 function askFinish(){
   if(state.done) return;
   const left = state.answered.filter(a => !a).length;
-  const msg = left > 0 ? "아직 " + left + "문항이 남았어요. 게임을 끝낼까요?\n(남은 문항은 미응답으로 기록돼요)" : "게임을 끝내고 결과를 볼까요?";
+  const msg = left > 0 ? "아직 " + left + "문항이 남았어요. 학습을 끝낼까요?\n(남은 문항은 미응답으로 기록돼요)" : "학습을 끝내고 결과를 볼까요?";
   if(confirm(msg)) finishStage();
 }
 function goPrev(){ if(state.idx > 0){ state.idx--; renderQuestion(); } }
@@ -1369,7 +1369,7 @@ function needName(){
 function saveJPG(cv, filename){
   const a = document.createElement("a"); a.href = cv.toDataURL("image/jpeg", 0.94); a.download = filename; a.click();
 }
-const PRIV_OFF = "본 게임은 서버로 데이터를 전송·저장하지 않습니다. 이름과 소감은 이 이미지를 만드는 데에만 쓰입니다.";
+const PRIV_OFF = "본 콘텐츠는 서버로 데이터를 전송·저장하지 않습니다. 이름과 소감은 이 이미지를 만드는 데에만 쓰입니다.";
 const PRIV_ON  = "학습 결과는 담당 선생님의 학습 관리 시스템에 전송됩니다. 이름과 소감은 이 이미지 생성에도 쓰입니다.";
 const CREDIT_LINE = "제작 · 보라라샘 · 전주서신중학교 교사 · siaawase@gmail.com";
 
@@ -1560,7 +1560,7 @@ function downloadTeacherXls(){
     sum.push(xrow([c, CATEGORIES[c].label, CATEGORIES[c].desc, CATEGORIES[c].tip, n1 + " / " + n2]));
   });
   sum.push(xrow([""]));
-  sum.push(xrow(["게임 코드", GAME_CONFIG.gameCode + " · " + GAME_CONFIG.gameName]));
+  sum.push(xrow(["자료 코드", GAME_CONFIG.gameCode + " · " + GAME_CONFIG.gameName]));
   sum.push(xrow(["성취기준", ACH_CODE + " " + ACH_TEXT]));
   sum.push(xrow(["총문항 수", allItems("plant").length + " + " + allItems("dust").length + " = " +
     (allItems("plant").length + allItems("dust").length) + "문항 · 만점 " +

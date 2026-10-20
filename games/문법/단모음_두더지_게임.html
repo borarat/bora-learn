@@ -2,13 +2,13 @@
 <html lang="ko">
 <!-- 리모델링 2026.10.01 02:23 (1차 야간)
      채점: 잘못 탭 감점 −5 → −10 (맞힘 득점과 같게, 지침 3-6 속도형). 놓친 목표 모음 감점(−5)은 그대로
-     화면: 시작 화면에 ㅚ·ㅟ 이중 모음 발음 허용 안내 한 줄, '게임 끝내기' 확인 단계(확인창이 떠 있는 동안 시간·두더지 멈춤)
+     화면: 시작 화면에 ㅚ·ㅟ 이중 모음 발음 허용 안내 한 줄, '학습 끝내기' 확인 단계(확인창이 떠 있는 동안 시간·두더지 멈춤)
      2026.10.01 13:00 안내: ㅚ·ㅟ 문구를 '단모음으로 발음하는 것이 원칙이지만, 이중 모음으로 발음할 수도 있어요'로
-     2026.10.01 13:00 '게임 끝내기' 확인을 브라우저 confirm() 대신 화면 안 확인창으로 (떠 있는 동안 시간·두더지 멈춤, 계속하기·Esc면 이어서) 
-     화면 2026.10.05 02:10: 게임 테마층 '두더지 굴 모음 지도'(시작 화면 그림, 모음 사각도). 문항·채점·로직 변경 없음
+     2026.10.01 13:00 '학습 끝내기' 확인을 브라우저 confirm() 대신 화면 안 확인창으로 (떠 있는 동안 시간·두더지 멈춤, 계속하기·Esc면 이어서) 
+     화면 2026.10.05 02:10: 화면 테마층 '두더지 굴 모음 지도'(시작 화면 그림, 모음 사각도). 문항·채점·로직 변경 없음
      2026.10.05 03:00 정답 배너를 깔끔한 카드형으로(교사 결정): 화면 어둡게·광선·색종이·이모지 낙하 없앰, 5·10연속에만 작은 색종이
      2026.10.06 17:25 실제 조작 버그 검사·수정: '소리' 버튼을 누른 뒤 Space로 소리가 다시 바뀌던 버그, 연속 카드에 +점수, 중간 종료 제목·총평, 판정 0개 문구, 플레이 크레딧 가운뎃점
-     2026.10.07 13:58 끝낸 게임 다시 훑기(실제 조작 재검사): 보완 칸 하나(모음 하나+tip), 엑셀 정답 빨간 글씨, 0개 판 정답률 – -->
+     2026.10.07 13:58 끝낸 학습 다시 훑기(실제 조작 재검사): 보완 칸 하나(모음 하나+tip), 엑셀 정답 빨간 글씨, 0개 판 정답률 – -->
 <head>
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0, viewport-fit=cover">
@@ -282,8 +282,8 @@ body.playing{overflow:hidden;}
   .mole.miss{animation:none;}
 }
 
-/* ═══ 게임 테마층 · 두더지 굴 모음 지도 (2026.10.05) ═══
-   단모음 게임 공통 그림 언어 = 모음 사각도(혀의 앞뒤 × 높낮이). 영역 팔레트·헤더 띠·플레이 화면은 그대로. 이 블록과 시작 화면 SVG를 지우면 원래 모습 */
+/* ═══ 화면 테마층 · 두더지 굴 모음 지도 (2026.10.05) ═══
+   단모음 콘텐츠 공통 그림 언어 = 모음 사각도(혀의 앞뒤 × 높낮이). 영역 팔레트·헤더 띠·플레이 화면은 그대로. 이 블록과 시작 화면 SVG를 지우면 원래 모습 */
 .titleWrap .keyArt{flex:0 0 auto;height:126px;width:auto;margin-left:18px}
 @media (max-width:860px){.titleWrap .keyArt{display:none}}
 </style>
@@ -324,7 +324,7 @@ body.playing{overflow:hidden;}
      </div>
 
      <div class="box howto">
-      <div class="boxTitle">🎮 게임 방법</div>
+      <div class="boxTitle">🎮 학습 방법</div>
       <p>분류 기준(전설 모음, 고모음 등) 하나를 고르고 시작해요.</p>
       <p>구멍에서 단모음 두더지가 잠깐 튀어나왔다가 들어가요.</p>
       <p>고른 기준에 해당하는 모음 두더지만 탭하거나 클릭하세요.</p>
@@ -382,7 +382,7 @@ body.playing{overflow:hidden;}
        <button class="pick" data-stage="3">3단계<small>빠른 고급</small></button>
       </div>
      </div>
-     <button class="startBtn" id="startBtn">게임 시작 ▶</button>
+     <button class="startBtn" id="startBtn">학습 시작 ▶</button>
      <div class="keyTip">⌨️ 키보드로도 칠 수 있어요<br>Q W E / A S D / Z X C 또는 숫자패드 7~9 / 4~6 / 1~3</div>
     </div>
    </div>
@@ -394,12 +394,12 @@ body.playing{overflow:hidden;}
 
    <div class="privacy" id="privacyOffline">
     <b>🔒 개인정보 보호 안내</b><br>
-    본 게임은 별도의 서버로 데이터를 전송하거나 저장하지 않습니다.<br>
-    게임 중 입력하는 이름, 활동 소감 등의 정보는 오직 사용자 기기 내부에서 리포트 이미지를 다운로드하는 용도로만 안전하게 처리됩니다.
+    본 콘텐츠는 별도의 서버로 데이터를 전송하거나 저장하지 않습니다.<br>
+    학습 중 입력하는 이름, 활동 소감 등의 정보는 오직 사용자 기기 내부에서 리포트 이미지를 다운로드하는 용도로만 안전하게 처리됩니다.
    </div>
    <div class="privacy" id="privacyOnline" style="display:none">
     <b>🔒 개인정보 보호 안내</b><br>
-    본 게임의 학습 결과(학번, 이름, 점수, 오답 정보, 학습 소감)는 담당 선생님의 학습 관리용 스프레드시트에 안전하게 전송·저장됩니다.<br>
+    본 콘텐츠의 학습 결과(학번, 이름, 점수, 오답 정보, 학습 소감)는 담당 선생님의 학습 관리용 스프레드시트에 안전하게 전송·저장됩니다.<br>
     수집된 정보는 학습 지도 목적으로만 사용되며, 제3자에게 제공되지 않습니다.
    </div>
   </div>
@@ -410,7 +410,7 @@ body.playing{overflow:hidden;}
  <div style="background:#fff;border-radius:20px;padding:32px;max-width:380px;width:90%;box-shadow:0 20px 60px rgba(0,0,0,0.3);text-align:center">
   <div style="font-size:36px;margin-bottom:8px">🔑</div>
   <h2 style="font-size:20px;margin-bottom:4px;color:var(--ink)">학생 인증</h2>
-  <p style="font-size:13px;color:var(--ink2);margin-bottom:20px">학번과 이름을 입력하면 게임을 시작할 수 있어요.</p>
+  <p style="font-size:13px;color:var(--ink2);margin-bottom:20px">학번과 이름을 입력하면 학습을 시작할 수 있어요.</p>
   <div style="text-align:left;margin-bottom:12px">
    <label style="font-size:13px;font-weight:700;color:var(--ink)">학번 (5자리)</label>
    <input id="loginId" type="text" maxlength="5" inputmode="numeric" placeholder="예: 20101" style="width:100%;padding:10px 14px;border:2px solid var(--line);border-radius:10px;font-size:16px;margin-top:4px;box-sizing:border-box">
@@ -435,7 +435,7 @@ body.playing{overflow:hidden;}
    <div class="card pLives"><div class="k">생명</div><div class="livesNum">❤ <span id="livesV">15</span><span style="font-size:13px;color:var(--muted)"> / 15</span></div><div class="lifeBar" id="lifeBar"></div></div>
    <div class="card pCombo" id="comboHud"><span class="flame">🔥</span><span class="k">콤보</span><span class="cnum" id="comboV">0</span></div>
    <div class="pHint"><div class="hintBox" id="hintBox"></div></div>
-   <div class="pBtns"><button class="sideBtn" id="muteBtn" aria-label="소리 켜기/끄기">🔊 소리</button><button class="sideBtn quit" id="quitBtn">⏹ 게임 끝내기</button></div>
+   <div class="pBtns"><button class="sideBtn" id="muteBtn" aria-label="소리 켜기/끄기">🔊 소리</button><button class="sideBtn quit" id="quitBtn">⏹ 학습 끝내기</button></div>
    <div class="boardArea hammer"><div class="board" id="board"></div></div>
   </div>
  </div>
@@ -493,9 +493,9 @@ body.playing{overflow:hidden;}
 
 <div class="modal" id="quitModal" role="dialog" aria-modal="true" aria-labelledby="qmTitle">
  <div class="modalCard" style="max-width:420px">
-  <div class="modalHead"><span id="qmTitle">⏹ 게임 끝내기</span></div>
+  <div class="modalHead"><span id="qmTitle">⏹ 학습 끝내기</span></div>
   <div class="qmBody">
-   <b>게임을 끝낼까요?</b><br>지금까지의 결과로 마무리돼요.
+   <b>학습을 끝낼까요?</b><br>지금까지의 결과로 마무리돼요.
    <div class="btnRow two"><button class="btn sec" id="qmNo">계속하기</button><button class="btn" id="qmYes">끝내기</button></div>
   </div>
  </div>
@@ -732,7 +732,7 @@ function buildLifeBar(){
   for(let i=0;i<MAX_LIVES;i++) bar.appendChild(document.createElement("i"));
 }
 
-/* ═══════════ 게임 진행 ═══════════ */
+/* ═══════════ 학습 진행 ═══════════ */
 function runGame(){
   clearInterval(spawnTimer); clearInterval(gameTimer);
   const cfg = STAGES[chosenStage-1];
@@ -892,14 +892,14 @@ function cbCelebrate(n,pts){const sub=pts!=null&&pts!==''?'+'+pts:'';
   if(n>=5&&n%5===0){cbShow(n+'연속 정답!',sub,'combo');cbConfetti()}
   else if(n===3)cbShow('3연속 정답!',sub,'combo');
   else cbShow('정답!',sub,'')}
-/* 콤보 연출 (속도형, 게임을 멈추지 않음): 3연속·5의 배수 연속에만 카드. 효과음은 그대로 */
+/* 콤보 연출 (속도형, 학습을 멈추지 않음): 3연속·5의 배수 연속에만 카드. 효과음은 그대로 */
 function comboFx(c, gain){
   if(c === 3) sndCombo3(); else sndCombo5();
   cbCelebrate(c, gain);   // 카드에 얻은 점수(+N)도 함께(화면연출표준 3-1)
 }
 
 $("muteBtn").addEventListener("click", () => { muted = !muted; $("muteBtn").textContent = muted ? "🔇 소리" : "🔊 소리"; });
-// 게임 끝내기: 한 번 확인한 뒤 끝낸다 (지침 6-1). 화면 안 확인창이 떠 있는 동안에는 시간과 두더지를 멈춘다
+// 학습 끝내기: 한 번 확인한 뒤 끝낸다 (지침 6-1). 화면 안 확인창이 떠 있는 동안에는 시간과 두더지를 멈춘다
 function askQuit(){
   if(!S || S.endAt || S.paused) return;
   const now = Date.now();
@@ -1091,8 +1091,8 @@ $("reviewModal").addEventListener("click", e => { if(e.target.id === "reviewModa
 
 /* ═══════════ 캔버스 JPG 공통 ═══════════ */
 const CF = (w, s) => w + " " + s + 'px "Malgun Gothic","맑은 고딕","Apple SD Gothic Neo","Noto Sans CJK KR",sans-serif';
-const PRIVACY_OFF = "본 게임은 별도의 서버로 데이터를 전송하거나 저장하지 않습니다. 게임 중 입력하는 이름, 활동 소감 등의 정보는 오직 사용자 기기 내부에서 리포트 이미지를 다운로드하는 용도로만 안전하게 처리됩니다.";
-const PRIVACY_ON = "본 게임의 학습 결과(학번, 이름, 점수, 오답 정보, 학습 소감)는 담당 선생님의 학습 관리용 스프레드시트에 안전하게 전송·저장됩니다. 수집된 정보는 학습 지도 목적으로만 사용되며, 제3자에게 제공되지 않습니다.";
+const PRIVACY_OFF = "본 콘텐츠는 별도의 서버로 데이터를 전송하거나 저장하지 않습니다. 학습 중 입력하는 이름, 활동 소감 등의 정보는 오직 사용자 기기 내부에서 리포트 이미지를 다운로드하는 용도로만 안전하게 처리됩니다.";
+const PRIVACY_ON = "본 콘텐츠의 학습 결과(학번, 이름, 점수, 오답 정보, 학습 소감)는 담당 선생님의 학습 관리용 스프레드시트에 안전하게 전송·저장됩니다. 수집된 정보는 학습 지도 목적으로만 사용되며, 제3자에게 제공되지 않습니다.";
 const CREDIT_LINE = "제작 · 보라라샘 · 전주서신중학교 교사 · siaawase@gmail.com";
 
 function Doc(W){ this.W = W; this.ops = []; this.y = 0; this.m = document.createElement("canvas").getContext("2d"); }
@@ -1317,7 +1317,7 @@ document.addEventListener("keydown", e => {
   }
   if(S && S.paused){ if(e.key === "Escape"){ e.preventDefault(); quitCancel(); } return; }
   if($("reviewModal").classList.contains("active") && e.key === "Escape"){ $("reviewModal").classList.remove("active"); return; }
-  // 플레이 중: 마우스로 누른 '소리'·'게임 끝내기' 버튼에 포커스가 남아 Space·Enter로 다시 눌리던 버그 막기
+  // 플레이 중: 마우스로 누른 '소리'·'학습 끝내기' 버튼에 포커스가 남아 Space·Enter로 다시 눌리던 버그 막기
   if($("playScreen").classList.contains("active") && S && !S.endAt && (e.key === " " || e.key === "Enter") && document.activeElement && document.activeElement.tagName === "BUTTON"){ e.preventDefault(); return; }
   if($("playScreen").classList.contains("active") && S && !S.endAt && e.code in KEYMAP){
     e.preventDefault(); onTap(KEYMAP[e.code]);

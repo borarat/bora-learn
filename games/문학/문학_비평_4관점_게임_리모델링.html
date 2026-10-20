@@ -8,7 +8,7 @@
 <head>
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
-<title>문학 비평, 네 개의 눈 — 4대 관점 게임</title>
+<title>문학 비평, 네 개의 눈 — 4대 관점 콘텐츠</title>
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
 <link href="https://fonts.googleapis.com/css2?family=Noto+Sans+KR:wght@400;500;700&display=swap" rel="stylesheet">
@@ -207,7 +207,7 @@
   .ritem .ra{color:#0F6E56;font-weight:700}
   .ritem .re{color:#64748b;font-size:12.5px}
   .mblock{display:none;text-align:center;padding:14px;margin:10px 0;background:#fff4e2;border:1px solid #f6d79c;border-radius:12px;color:#8a5a12;font-size:13px;line-height:1.6}
-  /* ═══ 게임 테마층 · 네 개의 창 (2026.10.07) ═══
+  /* ═══ 화면 테마층 · 네 개의 창 (2026.10.07) ═══
      하나의 작품을 네 창으로 들여다보는 장면. 보조색 남색 #2F4A6D. 영역 팔레트·헤더 띠·정답/오답 색·흰 문제 카드·정답 카드는 그대로.
      창 안 그림은 시작 화면의 관점 설명(작품·작가·시대·독자)과 같은 것만. 이 블록과 시작 화면 SVG를 지우면 원래 모습 */
   :root{--th:#2F4A6D}
@@ -255,7 +255,7 @@
     </div>
     <div class="grid2">
       <div class="box">
-        <h3>🎮 게임 방법</h3>
+        <h3>🎮 학습 방법</h3>
         <p>1단계 개념에서 네 관점의 뜻을 먼저 익혀요.</p>
         <p>2단계 기본·3단계 도전은 비평 예문을 읽고 관점을 골라요.</p>
         <p>문제 유형은 관점 이름 · 요소 이름 · 요소 설명 세 가지예요.</p>
@@ -279,12 +279,12 @@
     </div>
     <div class="privacy" id="privacyOffline">
       🔒 <b>개인정보 보호 안내</b><br>
-      본 게임은 별도의 서버로 데이터를 전송하거나 저장하지 않습니다.<br>
-      게임 중 입력하는 이름, 활동 소감 등의 정보는 오직 사용자 기기 내부에서 리포트 이미지를 다운로드하는 용도로만 안전하게 처리됩니다.
+      본 콘텐츠는 별도의 서버로 데이터를 전송하거나 저장하지 않습니다.<br>
+      학습 중 입력하는 이름, 활동 소감 등의 정보는 오직 사용자 기기 내부에서 리포트 이미지를 다운로드하는 용도로만 안전하게 처리됩니다.
     </div>
     <div class="privacy" id="privacyOnline" style="display:none">
       🔒 <b>개인정보 보호 안내</b><br>
-      본 게임의 학습 결과(학번, 이름, 점수, 오답 정보, 학습 소감)는 담당 선생님의 학습 관리용 스프레드시트에 안전하게 전송·저장됩니다.<br>
+      본 콘텐츠의 학습 결과(학번, 이름, 점수, 오답 정보, 학습 소감)는 담당 선생님의 학습 관리용 스프레드시트에 안전하게 전송·저장됩니다.<br>
       수집된 정보는 학습 지도 목적으로만 사용되며, 제3자에게 제공되지 않습니다.
     </div>
     <div class="maker">
@@ -298,7 +298,7 @@
  <div style="background:#fff;border-radius:20px;padding:32px;max-width:380px;width:90%;box-shadow:0 20px 60px rgba(0,0,0,0.3);text-align:center">
   <div style="font-size:36px;margin-bottom:8px">🔑</div>
   <h2 style="font-size:20px;margin-bottom:4px;color:var(--ink)">학생 인증</h2>
-  <p style="font-size:13px;color:var(--ink2);margin-bottom:20px">학번과 이름을 입력하면 게임을 시작할 수 있어요.</p>
+  <p style="font-size:13px;color:var(--ink2);margin-bottom:20px">학번과 이름을 입력하면 학습을 시작할 수 있어요.</p>
   <div style="text-align:left;margin-bottom:12px">
    <label style="font-size:13px;font-weight:700;color:var(--ink)">학번 (5자리)</label>
    <input id="loginId" type="text" maxlength="5" inputmode="numeric" placeholder="예: 30101" style="width:100%;padding:10px 14px;border:2px solid var(--line);border-radius:10px;font-size:16px;margin-top:4px;box-sizing:border-box">
@@ -336,7 +336,7 @@
         <div class="side">
           <button class="nav" id="prev">◀ 이전</button>
           <button class="nav next" id="next">다음 ▶</button>
-          <button class="nav end" id="finish">게임 끝내기</button>
+          <button class="nav end" id="finish">학습 끝내기</button>
           <div class="stagebtns"><small>다른 단계로</small><div class="row" id="stageRow"></div></div>
         </div>
       </div>
@@ -790,7 +790,7 @@ function goNext(){ if(S.idx<S.order.length-1){S.idx++; render();} else askFinish
 function askFinish(){
   if(S.done) return;
   const left=S.order.filter(id=>!S.st[id].resolved).length;
-  const msg=left>0?'아직 풀지 않은 문항이 '+left+'개 있어요.\n지금 끝낼까요? (미응답 문항은 점수를 얻지 못해요)':'지금까지 푼 결과로 게임을 끝낼까요?';
+  const msg=left>0?'아직 풀지 않은 문항이 '+left+'개 있어요.\n지금 끝낼까요? (미응답 문항은 점수를 얻지 못해요)':'지금까지 푼 결과로 학습을 끝낼까요?';
   if(!confirm(msg)) return; finish();
 }
 $('prev').onclick=()=>{ if(S.idx>0){S.idx--; render();} };
@@ -1158,7 +1158,7 @@ function downloadTeacherXls(){
   sum+=xRow(['배점 규칙','첫 시도 정답 +'+BASE+' · 재시도 정답 +'+RETRY+' · 오답 −'+WRONG+'(하한 0) · 콤보 보너스 3~4연속 +5, 5연속 이상 +10 · 2회 오답 시 정답 공개']);
   sum+=xRow(['만점','1단계 '+STAGE_FULL[1]+'점 · 2단계 '+STAGE_FULL[2]+'점 · 3단계 '+STAGE_FULL[3]+'점']);
   sum+=xRow(['총 문항 수',DATA.length]);
-  sum+=xRow(['게임 코드',GAME_CONFIG.gameCode+' · '+GAME_CONFIG.gameName]);
+  sum+=xRow(['자료 코드',GAME_CONFIG.gameCode+' · '+GAME_CONFIG.gameName]);
   sum+=xRow(['크레딧','제작 · 보라라샘 · 전주서신중학교 교사 · siaawase@gmail.com · 제작일 '+MADE_DATE+' · 최종 수정 '+MOD_DATE]);
   sum+='</Table></Worksheet>';
   const xml='<?xml version="1.0" encoding="UTF-8"?><?mso-application progid="Excel.Sheet"?>'+

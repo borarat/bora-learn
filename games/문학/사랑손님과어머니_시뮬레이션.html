@@ -4,7 +4,7 @@
      내용: 교과서(비상 2-1, 교사 제공 PDF)와 대조 — 원작에 없는 선택지·독백·엔딩 B에 '게임 설정(원작에 없음)' 표시,
            원작 인용 4곳을 교과서 문구로 맞춤(내외·꽃·화냥년 대목, 편지를 끝까지 읽음), 풍금 장면의 '옥희를 재워 놓고' 삭제, 낱말 풀이 3개를 교과서 풀이로
      설계: 결말을 게이지 비교 → 마지막 선택대로(교사 결정), 독백 장면은 손수건에 받아들이는 답을 보냈을 때만
-     화면: 헤더 띠·배지·마스코트·성취기준·게임 방법·크레딧·개인정보 안내, '게임 끝내기'(확인), '최종 수정' 클릭 = 교사용 엑셀
+     화면: 헤더 띠·배지·마스코트·성취기준·학습 방법·크레딧·개인정보 안내, '학습 끝내기'(확인), '최종 수정' 클릭 = 교사용 엑셀
      기술: Pretendard CDN 삭제(Google Fonts만), 옛 이메일 → siaawase@gmail.com, 버튼 포커스 해제
      2026.10.07 23:36 9차: 표준 화면·테마(옥희의 그림일기)·원작 표시·결말 마지막 선택대로
      2026.10.11 16:48 13차 문구 조정(남은 확인 목록 문항·해설) · 실제 조작 검사 통과 -->
@@ -132,7 +132,7 @@ h1{font-size:clamp(22px,4.4vw,30px); color:var(--ink); font-weight:700; letter-s
  .note-item{font-size:13.5px}
 }
 
-/* ═══ 게임 테마층 · 옥희의 그림일기 (2026.10.07) ═══
+/* ═══ 화면 테마층 · 옥희의 그림일기 (2026.10.07) ═══
    여섯 살 옥희가 크레용으로 그린 그림일기 한 장 — 풍금과 달걀 바구니. 보조색 자주 #8E4A6B. 영역 팔레트·헤더 띠·선택지·흰 이야기 화면은 그대로.
    이 블록과 시작 화면 SVG를 지우면 원래 모습 */
 :root{--th:#8E4A6B}
@@ -200,9 +200,9 @@ h1{font-size:clamp(22px,4.4vw,30px); color:var(--ink); font-weight:700; letter-s
   </div>
 
   <div class="box">
-   <h3>🎮 게임 방법</h3>
+   <h3>🎮 학습 방법</h3>
    <p>주요섭의 소설 「사랑 손님과 어머니」를 바탕으로 한 분기형 이야기입니다.</p>
-   <p>원작에서 우리는 <b>여섯 살 옥희의 눈</b>으로만 어머니를 봅니다. 이 게임은 옥희가 끝내 보지 못한 <b>어머니의 속마음</b>으로 들어갑니다.</p>
+   <p>원작에서 우리는 <b>여섯 살 옥희의 눈</b>으로만 어머니를 봅니다. 이 콘텐츠는 옥희가 끝내 보지 못한 <b>어머니의 속마음</b>으로 들어갑니다.</p>
    <p>여러분은 ‘어머니’가 되어 장면마다 선택을 내립니다. 정답은 없습니다. 선택이 곧 이야기입니다.</p>
    <p>결말은 마지막 장면에서 고른 선택에 따라 갈립니다.</p>
    <p>선택지와 장면 가운데 원작에 없는 것에는 <span class="gs">게임 설정(원작에 없음)</span> 표시가 붙어 있습니다.</p>
@@ -222,8 +222,8 @@ h1{font-size:clamp(22px,4.4vw,30px); color:var(--ink); font-weight:700; letter-s
   </div>
   <div class="privacy">
    <b>🔒 개인정보 보호 안내</b><br>
-   본 게임은 별도의 서버로 데이터를 전송하거나 저장하지 않습니다.<br>
-   이 게임은 이름이나 소감을 입력받지 않으며, 고른 선택은 이 화면 안에서만 쓰이고 저장되지 않습니다.
+   본 콘텐츠는 별도의 서버로 데이터를 전송하거나 저장하지 않습니다.<br>
+   이 콘텐츠는 이름이나 소감을 입력받지 않으며, 고른 선택은 이 화면 안에서만 쓰이고 저장되지 않습니다.
   </div>
  </div>
 </div>
@@ -257,7 +257,7 @@ h1{font-size:clamp(22px,4.4vw,30px); color:var(--ink); font-weight:700; letter-s
   <div class="nav-row">
    <button class="nav-btn" id="prev-btn" onclick="goPrev()">← 이전</button>
    <button class="nav-btn" id="next-btn" onclick="goNext()">다음 →</button>
-   <button class="nav-btn end" id="end-btn" onclick="endGame()">게임 끝내기</button>
+   <button class="nav-btn end" id="end-btn" onclick="endGame()">학습 끝내기</button>
   </div>
   <div class="pcredit">제작 · 보라라샘 · 2026.06.09</div>
  </div>
@@ -400,10 +400,10 @@ function startGame(){
   render();
 }
 
-// 게임 끝내기 — 결말 전이면 한 번 확인. 이 게임은 점수가 없어 결과 화면 없이 시작 화면으로 돌아간다
+// 학습 끝내기 — 결말 전이면 한 번 확인. 이 콘텐츠는 점수가 없어 결과 화면 없이 시작 화면으로 돌아간다
 function endGame(){
   const done = path.length && path[path.length-1].id === "ending";
-  if (!done && !confirm("게임을 끝낼까요? 지금까지의 선택은 사라집니다.")) return;
+  if (!done && !confirm("학습을 끝낼까요? 지금까지의 선택은 사라집니다.")) return;
   closeGloss();
   show("start");
 }
@@ -610,7 +610,7 @@ function dlTeacherXls(){
   const xml = '<?xml version="1.0" encoding="UTF-8"?>\n<?mso-application progid="Excel.Sheet"?>\n'
    + '<Workbook xmlns="urn:schemas-microsoft-com:office:spreadsheet" xmlns:ss="urn:schemas-microsoft-com:office:spreadsheet">'
    + '<Styles><Style ss:ID="ans"><Font ss:Bold="1" ss:Color="#E00000"/></Style></Styles>'
-   + sheet('장면·선택지·원작 대조', r1, [8]) + sheet('게임 정보', r2) + '</Workbook>';
+   + sheet('장면·선택지·원작 대조', r1, [8]) + sheet('학습 정보', r2) + '</Workbook>';
   const a = document.createElement('a');
   a.href = 'data:application/vnd.ms-excel;charset=utf-8,' + encodeURIComponent(xml);
   a.download = '사랑손님과어머니_장면선택지목록_' + ymd() + '.xls';

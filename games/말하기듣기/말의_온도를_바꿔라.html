@@ -187,7 +187,7 @@ button:focus-visible,input:focus-visible,.slot:focus-visible{outline:3px solid v
 #cbnFx{position:fixed;inset:0;width:100%;height:100%;pointer-events:none;z-index:8999}
 @media (prefers-reduced-motion:reduce){#cbn.show{animation:none!important;opacity:1!important;transform:translate(-50%,-50%)!important}}
 @keyframes cbnFade{0%,100%{opacity:0;transform:translate(-50%,-50%)}15%,80%{opacity:1;transform:translate(-50%,-50%)}}
-#cbn.combo{background:linear-gradient(135deg,#e8590c,#fab005)!important} /* 이 게임의 .combo(연속 정답 상자) 규칙이 !important라 카드 색을 덮지 않게 */
+#cbn.combo{background:linear-gradient(135deg,#e8590c,#fab005)!important} /* 이 콘텐츠의 .combo(연속 정답 상자) 규칙이 !important라 카드 색을 덮지 않게 */
 #mini{position:fixed;left:50%;bottom:28px;transform:translateX(-50%);z-index:10001;background:var(--ink);color:#fff;font-size:14px;padding:10px 20px;border-radius:99px;display:none;box-shadow:0 8px 24px rgba(0,0,0,.25)}
 #mini.show{display:block}
 
@@ -291,7 +291,7 @@ button:focus-visible,input:focus-visible,.slot:focus-visible{outline:3px solid v
  #siBody div{white-space:normal!important}
  #siBody div[style*="grid"]{grid-template-columns:1fr!important}
 }
-/* ═══ 게임 테마층 · 온도계 (2026.10.08) ═══
+/* ═══ 화면 테마층 · 온도계 (2026.10.08) ═══
    차가운 말풍선이 온도계를 지나 따뜻한 말풍선으로 바뀌는 장면(말풍선 안 글자 없음). 보조색 하늘 #3B86C9. 영역 팔레트·헤더 띠·정답/오답 색·흰 문제 카드·정답 카드는 그대로.
    이 블록과 시작 화면 SVG를 지우면 원래 모습 */
 :root{--th:#3B86C9}
@@ -343,7 +343,7 @@ button:focus-visible,input:focus-visible,.slot:focus-visible{outline:3px solid v
   <div class="cols">
    <div style="display:grid;gap:12px">
     <div class="box">
-     <h3>게임 방법</h3>
+     <h3>학습 방법</h3>
      <ol>
       <li><b>1단계 진단</b> — 인물의 말을 읽고 어떤 표현이 갈등을 키우는지 고릅니다. (6문항)</li>
       <li><b>2단계 조립</b> — 카드 6장 중 갈등을 조정하는 말 4장을 골라 순서대로 놓습니다. (4문항)</li>
@@ -367,7 +367,7 @@ button:focus-visible,input:focus-visible,.slot:focus-visible{outline:3px solid v
     <div class="box std">
      <h3>성취기준</h3>
      <p class="sline"><b>(2022) [9국01-04]</b> <small>교과서 단원</small><br>상대의 말을 경청하고 상대의 감정과 입장에 공감하는 반응을 보이며 대화한다.</p>
-     <p class="sline"><b>(2022) [9국01-09]</b> <small>게임이 다루는 내용</small><br>서로의 감정이나 바라는 바를 진솔하게 표현하면서 갈등을 조정한다.</p>
+     <p class="sline"><b>(2022) [9국01-09]</b> <small>콘텐츠가 다루는 내용</small><br>서로의 감정이나 바라는 바를 진솔하게 표현하면서 갈등을 조정한다.</p>
      <p style="margin-top:4px;color:var(--ink2);font-size:12px">비상교육 중학 국어 2-2 · 1단원 「함께 살아가는 즐거움」<br>02. 공감하고 조정하는 대화</p>
     </div>
     <div class="box">
@@ -383,16 +383,16 @@ button:focus-visible,input:focus-visible,.slot:focus-visible{outline:3px solid v
 
   <div class="privacy" id="privacyOffline">
    <b>🔒 개인정보 보호 안내</b><br>
-   본 게임은 별도의 서버로 데이터를 전송하거나 저장하지 않습니다.<br>
-   게임 중 입력하는 이름, 활동 소감 등의 정보는 오직 사용자 기기 내부에서 리포트 이미지를 다운로드하는 용도로만 안전하게 처리됩니다.
+   본 콘텐츠는 별도의 서버로 데이터를 전송하거나 저장하지 않습니다.<br>
+   학습 중 입력하는 이름, 활동 소감 등의 정보는 오직 사용자 기기 내부에서 리포트 이미지를 다운로드하는 용도로만 안전하게 처리됩니다.
   </div>
   <div class="privacy" id="privacyOnline" style="display:none">
    <b>🔒 개인정보 보호 안내</b><br>
-   본 게임의 학습 결과(학번, 이름, 점수, 오답 정보, 학습 소감)는 담당 선생님의 학습 관리용 스프레드시트에 안전하게 전송·저장됩니다.<br>
+   본 콘텐츠의 학습 결과(학번, 이름, 점수, 오답 정보, 학습 소감)는 담당 선생님의 학습 관리용 스프레드시트에 안전하게 전송·저장됩니다.<br>
    수집된 정보는 학습 지도 목적으로만 사용되며, 제3자에게 제공되지 않습니다.
   </div>
 
-  <div class="gobar"><button class="go" onclick="startGame()">게임 시작</button></div>
+  <div class="gobar"><button class="go" onclick="startGame()">학습 시작</button></div>
  </div>
 </div>
 
@@ -400,7 +400,7 @@ button:focus-visible,input:focus-visible,.slot:focus-visible{outline:3px solid v
  <div style="background:#fff;border-radius:20px;padding:32px;max-width:380px;width:90%;box-shadow:0 20px 60px rgba(0,0,0,0.3);text-align:center">
   <div style="font-size:36px;margin-bottom:8px">🔑</div>
   <h2 style="font-size:20px;margin-bottom:4px;color:var(--ink)">학생 인증</h2>
-  <p style="font-size:13px;color:var(--ink2);margin-bottom:20px">학번과 이름을 입력하면 게임을 시작할 수 있어요.</p>
+  <p style="font-size:13px;color:var(--ink2);margin-bottom:20px">학번과 이름을 입력하면 학습을 시작할 수 있어요.</p>
   <div style="text-align:left;margin-bottom:12px">
    <label style="font-size:13px;font-weight:700;color:var(--ink)">학번 (5자리)</label>
    <input id="loginId" type="text" maxlength="5" inputmode="numeric" placeholder="예: 20101" style="width:100%;padding:10px 14px;border:2px solid var(--line);border-radius:10px;font-size:16px;margin-top:4px;box-sizing:border-box">
@@ -427,7 +427,7 @@ button:focus-visible,input:focus-visible,.slot:focus-visible{outline:3px solid v
     <div class="stat combo" id="sComboBox"><div class="n" id="sCombo">0</div><div class="l">🔥 연속<span class="dsk"> 정답</span></div></div>
     <button class="nav" id="bPrev" onclick="go(-1)">◀ 이전</button>
     <button class="nav" id="bNext" onclick="go(1)">다음 ▶</button>
-    <button class="nav fin" onclick="askFinish(true)">게임 끝내기</button>
+    <button class="nav fin" onclick="askFinish(true)">학습 끝내기</button>
     <div id="sideFb"></div>
    </div>
   </div>
@@ -504,9 +504,9 @@ button:focus-visible,input:focus-visible,.slot:focus-visible{outline:3px solid v
 const MADE_DATE = '2026.09.02';
 const MOD_DATE  = '2026.10.11 16:48';
 const DATE_LINE = '제작일 ' + MADE_DATE + ' · 최종 수정 ' + MOD_DATE + '';
-const STD_LINE  = '(2022) [9국01-04] 상대의 말을 경청하고 상대의 감정과 입장에 공감하는 반응을 보이며 대화한다.(교과서 단원) / (2022) [9국01-09] 서로의 감정이나 바라는 바를 진솔하게 표현하면서 갈등을 조정한다.(게임이 다루는 내용)';
+const STD_LINE  = '(2022) [9국01-04] 상대의 말을 경청하고 상대의 감정과 입장에 공감하는 반응을 보이며 대화한다.(교과서 단원) / (2022) [9국01-09] 서로의 감정이나 바라는 바를 진솔하게 표현하면서 갈등을 조정한다.(콘텐츠가 다루는 내용)';
 
-// ── 게임 설정 (보라쌤 결정: 점수가 최대한 많이 쌓이는 방식) ──
+// ── 학습 설정 (보라쌤 결정: 점수가 최대한 많이 쌓이는 방식) ──
 const MOBILE_GRADE = 'M1';   // M1 노트북·모바일 / M2 노트북 권장 / M3 노트북 전용
 const RETRY_RATE   = 0.7;    // 다시 풀어 맞힌 점수 비율 (표준은 0.5)
 const PENALTY      = 0;      // 두 번 다 틀렸을 때 감점 (원래 3점)
@@ -1077,12 +1077,12 @@ function go(n){
   S.i=Math.max(0,Math.min(N_ITEMS-1,S.i+n)); render();
   window.scrollTo({top:0,behavior:REDUCED?'auto':'smooth'});
 }
-/* 게임 끝내기(fromQuit)·마지막 문항 '결과 보기' — 남은 문항이 있으면 한 번 확인, 게임 끝내기는 다 풀었어도 한 번 확인 */
+/* 학습 끝내기(fromQuit)·마지막 문항 '결과 보기' — 남은 문항이 있으면 한 번 확인, 학습 끝내기는 다 풀었어도 한 번 확인 */
 function askFinish(fromQuit){
   const left=S.res.filter(r=>!r.done).length;
   const untouched=S.res.filter(r=>!r.done&&!r.tries).length;
   if(left>0){ if(!confirm('아직 풀지 않은 문항이 '+left+'개 있습니다. 정말 끝낼까요?'+(untouched>0?'\n(풀지 않은 문항은 오답이 아니라 미응답으로 따로 표시됩니다.)':'')))return; }
-  else if(fromQuit){ if(!confirm('게임을 끝내고 결과를 볼까요?'))return; }
+  else if(fromQuit){ if(!confirm('학습을 끝내고 결과를 볼까요?'))return; }
   finish();
 }
 /* 모든 문항이 채점되면 약 2초 뒤 결과 화면 (그사이 끝났거나 화면이 바뀌면 무효) */
@@ -1165,7 +1165,7 @@ function startGame(){
   doStartGame();
 }
 function doStartGame(){
-  if(MOBILE_GRADE==='M3' && window.innerWidth<600){ alert('이 게임은 노트북에서만 할 수 있습니다.'); return; }
+  if(MOBILE_GRADE==='M3' && window.innerWidth<600){ alert('이 콘텐츠는 노트북에서만 할 수 있습니다.'); return; }
   S.t0=Date.now(); show('play'); render();
 }
 
@@ -1584,7 +1584,7 @@ function downloadDataXlsx(){
   rows.push(['성취기준','','',STD_LINE]);
   rows.push(['배점','','','1단계 10점×6 · 2단계 30점×4 · 3단계 50점×5(칸별 10점) = 기본 '+BASE_MAX+'점 + 연속 정답 보너스 최대 '+BONUS_MAX+'점(3·4번째 +5, 5번째부터 +10) = 만점 '+MAX_SCORE+'점 · 다시 풀어 얻은 점수 '+Math.round(RETRY_RATE*100)+'%']);
   rows.push(['총문항 수','','',N_ITEMS+'문항 (진단 '+DIAG.length+' · 조립 '+ASM.length+' · 서술 '+WR.length+', 서술 칸 '+WR.length*5+'개)']);
-  rows.push(['제작 정보','','','제작 · 보라라샘 · 전주서신중학교 교사 · siaawase@gmail.com · '+DATE_LINE+' · 게임코드 '+GAME_CONFIG.gameCode]);
+  rows.push(['제작 정보','','','제작 · 보라라샘 · 전주서신중학교 교사 · siaawase@gmail.com · '+DATE_LINE+' · 자료코드 '+GAME_CONFIG.gameCode]);
 
   const common=[['구분','낱말 / 규칙','어떻게 쓰이나']];
   common.push(['감정 어휘 (EMO)',EMO.join(' / '),'② 감정 칸: 하나 이상 있어야 인정 · ① 상황 칸: 있으면 절반']);
