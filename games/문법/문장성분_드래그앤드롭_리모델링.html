@@ -8,7 +8,8 @@
      2026.10.06 12:30 실제 조작 버그 검사 처음부터 다시 실행 — 전 항목 통과 확인 후 사이트 반영, 중간 종료 제목 '게임 종료' → '여기까지 풀었어요'
      2026.10.07 13:58 끝낸 게임 다시 훑기(실제 조작 재검사): 중간 종료 제목·못 맞힘 집계·자동 단계 종료·끝 확인, 보완 칸 하나, 엑셀 정답 빨강, JPG 크레딧·높이
      2026.10.11 16:10 13차: 남은 확인 목록 반영(버그·표준·설계 결정) · 실제 조작 검사 통과
-     2026.10.16 리모델링: 문항 3단계 재분류(14/14/17 — 쉬운→어려운, 보어 2단계→부사어→관형어→독립어), CSS 레이아웃(게임 헤더 확대·콘텐츠 수직 중앙), 힌트 수정(재시도 힌트에서 성분 이름 제거, 유도 질문으로 교체), 단계 내 문항 셔플(Fisher-Yates) 추가 -->
+     2026.10.16 리모델링: 문항 3단계 재분류(14/14/17 — 쉬운→어려운, 보어 2단계→부사어→관형어→독립어), CSS 레이아웃(게임 헤더 확대·콘텐츠 수직 중앙), 힌트 수정(재시도 힌트에서 성분 이름 제거, 유도 질문으로 교체), 단계 내 문항 셔플(Fisher-Yates) 추가
+     2026.10.20 컨테이너 너비 820→1200px(긴 문장 한 줄 표시), 3단계 심화 문항 5개 추가(46~50번: 보어+관형어, 부사어 2개, 관형어 2개, 경어법 주어, 6성분 복합) → 총 50문항(14/14/22) -->
 <head>
 <meta charset="UTF-8"/>
 <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
@@ -58,7 +59,7 @@ body.stage-3{background:linear-gradient(135deg,#0f4c3a,#1a6b4f,#2d8f6f);color:#e
 /* ===== GAME ===== */
 #gameScreen{display:none}
 .game-hdr-strip{background:var(--gm-acc);color:#fff;height:52px;display:flex;align-items:center;justify-content:space-between;padding:0 16px;font-size:14px;font-weight:700}
-.game-container{max-width:820px;margin:0 auto;padding:14px 20px 20px;display:flex;flex-direction:column;gap:10px;min-height:calc(100vh - 52px);justify-content:center}
+.game-container{max-width:1200px;margin:0 auto;padding:14px 20px 20px;display:flex;flex-direction:column;gap:10px;min-height:calc(100vh - 52px);justify-content:center}
 .sentence-card{background:rgba(0,0,0,.15);border:1px dashed rgba(255,255,255,.18);border-radius:16px;padding:18px 16px 14px;box-shadow:0 6px 16px rgba(0,0,0,.2)}
 body.stage-2 .sentence-card{background:rgba(255,255,255,.6);border-color:rgba(0,0,0,.2)}
 body.stage-3 .sentence-card{background:rgba(0,0,0,.12);border-color:rgba(255,255,255,.12)}
@@ -221,7 +222,7 @@ body.stage-3 .nav-prev,body.stage-3 .nav-next{background:#059669;border-color:#0
   <div class="stage-btns">
     <button class="stage-btn s1" onclick="startGame(1)"><span class="emoji">📘</span>1단계<span class="desc">기본 (1~14)</span></button>
     <button class="stage-btn s2" onclick="startGame(2)"><span class="emoji">📗</span>2단계<span class="desc">심화 (15~28)</span></button>
-    <button class="stage-btn s3" onclick="startGame(3)"><span class="emoji">📕</span>3단계<span class="desc">도전 (29~45)</span></button>
+    <button class="stage-btn s3" onclick="startGame(3)"><span class="emoji">📕</span>3단계<span class="desc">도전 (29~50)</span></button>
   </div>
   <div class="privacy" id="privacyOffline">🔒 <strong>개인정보 보호 안내</strong><br/>본 게임은 별도의 서버로 데이터를 전송하거나 저장하지 않습니다. 게임 중 입력하는 이름, 활동 소감 등의 정보는 오직 사용자 기기 내부에서 리포트 이미지를 다운로드하는 용도로만 안전하게 처리됩니다.</div>
   <div class="privacy" id="privacyOnline" style="display:none">🔒 <strong>개인정보 보호 안내</strong><br/>본 게임의 학습 결과(학번, 이름, 점수, 오답 정보, 학습 소감)는 담당 선생님의 학습 관리용 스프레드시트에 안전하게 전송·저장됩니다.<br/>수집된 정보는 학습 지도 목적으로만 사용되며, 제3자에게 제공되지 않습니다.</div>
@@ -353,7 +354,12 @@ const DATA=[
   {"sentence":"우아, 밖에 눈이 펑펑 내리네!","components":["독립어=우아","부사어=밖에","주어=눈이","부사어=펑펑","서술어=내리네"],"seq":["독립어","부사어","주어","부사어","서술어"]},
   {"sentence":"오호, 너는 노래를 잘 부르네.","components":["독립어=오호","주어=너는","목적어=노래를","부사어=잘","서술어=부르네"],"seq":["독립어","주어","목적어","부사어","서술어"]},
   {"sentence":"어머나, 귀여운 아기가 아장아장 걷는구나.","components":["독립어=어머나","관형어=귀여운","주어=아기가","부사어=아장아장","서술어=걷는구나"],"seq":["독립어","관형어","주어","부사어","서술어"]},
-  {"sentence":"지영아, 너는 그림을 정말 잘 그리는구나.","components":["독립어=지영아","주어=너는","목적어=그림을","부사어=정말","부사어=잘","서술어=그리는구나"],"seq":["독립어","주어","목적어","부사어","부사어","서술어"]}
+  {"sentence":"지영아, 너는 그림을 정말 잘 그리는구나.","components":["독립어=지영아","주어=너는","목적어=그림을","부사어=정말","부사어=잘","서술어=그리는구나"],"seq":["독립어","주어","목적어","부사어","부사어","서술어"]},
+  {"sentence":"민재야, 너는 훌륭한 사람이 되었구나.","components":["독립어=민재야","주어=너는","관형어=훌륭한","보어=사람이","서술어=되었구나"],"seq":["독립어","주어","관형어","보어","서술어"]},
+  {"sentence":"아, 오늘 날씨가 참 좋구나!","components":["독립어=아","부사어=오늘","주어=날씨가","부사어=참","서술어=좋구나"],"seq":["독립어","부사어","주어","부사어","서술어"]},
+  {"sentence":"얘들아, 그 낡은 다리를 조심히 건너라.","components":["독립어=얘들아","관형어=그","관형어=낡은","목적어=다리를","부사어=조심히","서술어=건너라"],"seq":["독립어","관형어","관형어","목적어","부사어","서술어"]},
+  {"sentence":"할아버지께서 매일 공원에서 산책을 하신다.","components":["주어=할아버지께서","부사어=매일","부사어=공원에서","목적어=산책을","서술어=하신다"],"seq":["주어","부사어","부사어","목적어","서술어"]},
+  {"sentence":"여보세요, 저는 어제 큰 실수를 했어요.","components":["독립어=여보세요","주어=저는","부사어=어제","관형어=큰","목적어=실수를","서술어=했어요"],"seq":["독립어","주어","부사어","관형어","목적어","서술어"]}
 ];
 const COMP_HINTS={"주어":"문장에서 '누가/무엇이'에 해당하는 말 (조사: 이/가, 은/는, 께서)","서술어":"문장에서 '어쩌다/어떠하다/무엇이다'에 해당하는 말","목적어":"문장에서 '무엇을/누구를'에 해당하는 말 (조사: 을/를)","보어":"'되다/아니다' 앞에서 보충해 주는 말 (조사: 이/가)","관형어":"체언(명사) 앞에서 꾸며 주는 말 ('새', '헌', '모든' 등)","부사어":"용언이나 문장 전체를 꾸며 주는 말 (장소·시간·정도 등)","독립어":"문장과 직접 관련 없이 독립적으로 쓰이는 말 (감탄사·호칭 등)"};
 const COMP_RETRY_HINTS={"주어":"이 어절이 '누가' 또는 '무엇이'에 해당하는지 생각해 보세요.","서술어":"이 어절이 '어쩌다/어떠하다/무엇이다'에 해당하는지 확인해 보세요.","목적어":"이 어절에 '을/를'이 붙어 있나요? '무엇을/누구를'에 해당하는지 보세요.","보어":"서술어가 '되다/아니다'인가요? 그 앞에서 보충해 주는 말인지 확인해 보세요.","관형어":"이 어절이 바로 뒤의 명사를 꾸며 주는 말인지 확인해 보세요.","부사어":"이 어절이 동작이나 상태를 꾸며 주는 말(장소·시간·정도 등)인지 확인해 보세요.","독립어":"이 어절이 문장의 다른 성분과 직접 관련 없이 독립적으로 쓰인 말인지 확인해 보세요."};
