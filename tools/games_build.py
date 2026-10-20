@@ -1,5 +1,5 @@
-# games.html 생성기 — catalog.json(학습 콘텐츠 파일에서 뽑은 정보) → 밝은 디자인 + 영역·학년·기기 필터 + 검색
-# 쓰는 법: python3 tools/games_build.py  (저장소 루트에서). 콘텐츠를 더하거나 뺄 때는 catalog.json을 고친 뒤 다시 실행한다. games.html은 손으로 고치지 않는다
+# learn.html 생성기 — catalog.json(학습 콘텐츠 파일에서 뽑은 정보) → 밝은 디자인 + 영역·학년·기기 필터 + 검색
+# 쓰는 법: python3 tools/games_build.py  (저장소 루트에서). 콘텐츠를 더하거나 뺄 때는 catalog.json을 고친 뒤 다시 실행한다. learn.html은 손으로 고치지 않는다
 import json,html
 import os
 HERE=os.path.dirname(os.path.abspath(__file__))
@@ -258,5 +258,5 @@ a{{color:inherit;text-decoration:none}}
 </body>
 </html>
 '''
-open(os.path.join(HERE,'..','games.html'),'w',encoding='utf8').write(page)
+open(os.path.join(HERE,'..','learn.html'),'w',encoding='utf8').write(page)
 print(len(games),'games written')

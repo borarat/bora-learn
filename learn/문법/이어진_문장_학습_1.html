@@ -1218,7 +1218,7 @@ function downloadTeacherXls(){
   const tot=STAGES.reduce((a,q)=>a+q.length,0);
   h+='</table><br><table border="1">'+row(['성취기준',STD_TEXT])+row(['배점',`첫 시도 정답 ${BASE}점 · 오답 −${PENALTY}점(0점 하한) · 3~4번째 연속 +5 · 5번째부터 +10 · 다시 풀어 맞힘 ${RETRY_PT}점(보기 3개 이상·직접 쓰기 문항 1회, 2단계 1차 질문은 바로 공개) · 만점 ${STAGES.map(q=>stageMax(q.length)).join('/')}점`])+row(['총문항 수',`${tot}문항 (단계별 ${STAGES.map(q=>q.length).join('/')})`])+row(['크레딧',`${CREDIT} · 제작일 ${MADE_DATE} · 최종 수정 ${MOD_DATE}`])+'</table></body></html>';
   const d=new Date(),blob=new Blob(['\ufeff'+h],{type:'application/vnd.ms-excel'}),a=document.createElement('a');
-  a.href=URL.createObjectURL(blob);a.download=`G304_이어진문장학습게임_학습데이터목록_${d.getFullYear()}${pad(d.getMonth()+1)}${pad(d.getDate())}.xls`;document.body.appendChild(a);a.click();a.remove();setTimeout(()=>URL.revokeObjectURL(a.href),1000);
+  a.href=URL.createObjectURL(blob);a.download=`G304_이어진문장학습콘텐츠_학습데이터목록_${d.getFullYear()}${pad(d.getMonth()+1)}${pad(d.getDate())}.xls`;document.body.appendChild(a);a.click();a.remove();setTimeout(()=>URL.revokeObjectURL(a.href),1000);
 }
 (function(){const t=document.getElementById('lastMod');if(t){t.style.cursor='default';t.addEventListener('click',downloadTeacherXls)}})();
 
