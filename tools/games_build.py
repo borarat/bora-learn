@@ -203,7 +203,7 @@ a{{color:inherit;text-decoration:none}}
   </header>
 
   <div class="tools">
-    <label class="search" id="searchBox"><span aria-hidden="true">🔍</span><input id="q" type="search" placeholder="콘텐츠 이름, 설명, 성취기준 코드로 찾기 (예: 피동, 9국04-02, 두더지)" autocomplete="off"><button class="clr" id="clr" aria-label="지우기">✕</button></label>
+    <label class="search" id="searchBox"><span aria-hidden="true">🔍</span><input id="q" type="search" placeholder="학습 콘텐츠 이름, 설명, 성취기준 코드로 찾기 (예: 피동, 9국04-02, 두더지)" autocomplete="off"><button class="clr" id="clr" aria-label="지우기">✕</button></label>
     <div class="frow"><span class="lab">영역</span>
       <button class="chip on" data-f="area" data-v="">전체</button>
       {' '.join(f'<button class="chip c-{a}" data-f="area" data-v="{a}">{AREA_LABEL[a]}<span class="n"></span></button>' for a in areas)}
