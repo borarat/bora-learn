@@ -1,0 +1,1392 @@
+<!DOCTYPE html>
+<!-- 새 게임 2026.11.09
+     문장 성분 기초 다지기 — 1단계 주성분·부속성분 / 2단계 어찌하다·어떠하다·무엇이다 / 3단계 관형어·부사어와 꾸밈을 받는 말
+     문항 53개(교사 검토는 게임을 풀어 보며 하기로 함)
+     2026.11.09 12:56 4단계 서술어의 자릿수(한·두·세 자리) 19문항 추가 → 72문항
+     2026.11.09 교사 의견 반영 — 3단계: 꾸며 주는 말 → 꾸밈을 받는 말 → 품사 → 관형어/부사어 순서로 바꿈, 중간 물음 결과는 '지금 할 일' 상자 안에서 알림
+       문항: 1단계 필수적 부사어·보어를 뒤로(난이도 순 출제), 2단계 크다·밝다·아니다 5문항 빼고 쉬운 4문항 추가, 3단계 필수적 부사어 2문항 빼고 문장 단순화, 4단계 쉬운 예문 15문항만 → 65문항
+     2026.11.11 09:10 7단계에 독립어·부사어 구분 문장 9개 추가(과연 문장은 홑문장으로 바꿈, 아무리 문장은 보어 넣음)(제발·설마·과연·아무리 — 교사 제공, 물론·확실히·역시 / 어머나·얘들아)
+     2026.11.10 16:30 5단계를 관형어의 형태(25)·6단계 부사어의 형태(25)로 나눔(관형사형 어미 -ㄴ·-은·-는·-을·-던, 부사형 어미 -게·-도록 예문 추가), 문장 성분 분석은 7단계(번호 7xx), 부사어 형태 문항 번호 52x·53x → 6xx
+     2026.11.10 16:20 1단계 기뻐했다·좋아한다 2문항 뺌(형용사→동사 파생은 중학 수준에서 어려움), 3단계 자릿수 10문항 추가(긴 한 자리 4개 포함)
+     2026.11.10 6단계 문장 성분 분석 추가 — 옛 '문장 성분 드래그 앤 드롭'(G301) 문장 49개(「세상에, 이게 무슨 일이야?」 뺌), 키보드 번호키로 성분 카드 고르기
+     2026.11.10 5단계 관형어·부사어의 형태 25문항 추가(학습지 형태 표), 시작 화면 단계 버튼을 개념 설명 위로
+     2026.11.09 22:10 단계 순서 바꿈(1 서술어의 종류 · 2 주성분·부속성분, 문항 번호도 1xx↔2xx), 1단계 보기를 품사 표시→표시 없음→품사 묻기로 바꿈, 발문 수정,
+       3단계 처음 10문항에 세 자리 서술어를 내지 않음, 3단계 쉬운 문항 4개 추가(학습지)
+     2026.11.09 교사 학습지(문장의 짜임) 예문 추가 → 100문항(31/27/21/21), 단계 순서 바꿈: 3단계 서술어의 자릿수(문항 번호 3xx) · 4단계 관형어와 부사어(4xx) -->
+<html lang="ko">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>문장 성분 기초 다지기</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Noto+Sans+KR:wght@400;500;700;900&display=swap">
+<style>
+html{color-scheme:light}
+:root{--bg:#F7F3FC;--acc:#7C5CBF;--ink:#3C3489;--ink2:#555;--line:#EAE5F8;--ok:#2f9e44;--ng:#e03131;--theme:#C99A2E;--txt:#333}
+*{box-sizing:border-box}
+body{margin:0;background:var(--bg);font-family:'Noto Sans KR','Malgun Gothic','맑은 고딕',sans-serif;color:var(--txt);-webkit-font-smoothing:antialiased}
+button{font-family:inherit}
+.wrap{width:min(94vw,1280px);margin:0 auto;padding:16px 0 60px}
+.screen{display:none}.screen.on{display:block}
+.band{background:var(--acc);color:#fff;height:40px;border-radius:12px 12px 0 0;display:flex;align-items:center;justify-content:space-between;padding:0 18px;font-weight:700;font-size:15px;gap:12px}
+.band .goal{white-space:nowrap;overflow:hidden;text-overflow:ellipsis}
+.badge{background:rgba(255,255,255,.22);padding:3px 12px;border-radius:999px;font-size:13px;white-space:nowrap}
+.panel{background:#fff;border:1px solid var(--line);border-top:none;border-radius:0 0 16px 16px;padding:24px 26px}
+/* 시작 화면 */
+.hero{display:flex;align-items:center;gap:20px;margin-top:48px;margin-bottom:22px}
+.hero img{height:90px;border-radius:12px}
+.hero h1{margin:0;font-size:clamp(26px,3.4vw,36px);color:var(--ink);font-weight:700}
+.hero p{margin:6px 0 0;color:#555;font-size:16px}
+.hero .art{margin-left:auto}
+@media(max-width:860px){.hero .art{display:none}}
+.box{border:1px solid var(--line);border-radius:14px;padding:16px 20px;margin:14px 0;background:#fff}
+.box h3{margin:0 0 8px;font-size:16px;color:var(--ink)}
+.box p,.box li{margin:4px 0;font-size:15px;line-height:1.6}
+.box ul{margin:0;padding-left:20px}
+.std{background:#fbf9ff}
+.concepts{display:grid;grid-template-columns:repeat(2,1fr);gap:14px}
+@media(max-width:760px){.concepts{grid-template-columns:1fr}}
+.ccard{border:1px solid var(--line);border-left:5px solid var(--theme);border-radius:12px;padding:14px 16px;background:#fff}
+.ccard h4{margin:0 0 6px;color:var(--ink);font-size:16px}
+.ccard p{margin:4px 0;font-size:14.5px;line-height:1.6}
+.stagebtns{display:grid;grid-template-columns:repeat(5,1fr);gap:12px;margin:20px 0 18px}
+@media(max-width:1000px){.stagebtns{grid-template-columns:repeat(2,1fr)}}
+@media(min-width:1001px){.stagebtns{grid-template-columns:repeat(4,minmax(0,1fr))}}
+@media(min-width:1250px){.stagebtns{grid-template-columns:repeat(7,minmax(0,1fr));gap:10px}.btn.big{padding:12px 6px}.btn.big .st{font-size:15px}}
+@media(max-width:520px){.stagebtns{grid-template-columns:1fr}}
+.btn{background:var(--acc);color:#fff;border:2px solid var(--acc);border-radius:12px;padding:12px 22px;font-size:16px;font-weight:700;cursor:pointer;min-height:44px}
+.btn:hover{filter:brightness(1.07)}
+.btn.sec{background:#fff;color:var(--acc)}
+.btn.big{padding:14px 12px;font-size:16px}
+.btn.big .sn{display:block;font-size:15px;opacity:.95}
+.btn.big .st{display:block;font-size:17px;white-space:nowrap;margin:2px 0}
+.btn small{display:block;font-weight:500;font-size:13px;opacity:.9;margin-top:2px}
+.credit{margin-top:22px;font-size:13.5px;color:#666;line-height:1.8;text-align:center}
+.privacy{margin-top:12px;font-size:13px;color:#666;background:#faf8fd;border:1px dashed #d9d0ee;border-radius:10px;padding:10px 14px;line-height:1.7}
+/* 단계 개념 확인 */
+.intro{max-width:760px;margin:24px auto 0}
+.intro .ccard{font-size:16px}
+.intro .ccard p{font-size:16px}
+/* 문제 화면 */
+.topbar{position:sticky;top:16px;z-index:5}
+.playgrid{display:grid;grid-template-columns:1fr 176px;gap:16px;margin-top:16px;min-height:calc(100vh - 140px);align-items:center}
+@media(max-width:760px){.playgrid{grid-template-columns:1fr;min-height:0;align-items:start}}
+.qcard{background:#fff;border:1px solid var(--line);border-radius:16px;padding:22px 26px;position:relative}
+.prog{height:8px;background:var(--line);border-radius:0 0 8px 8px;overflow:hidden}
+.prog i{display:block;height:100%;background:var(--acc);width:0;transition:width .3s}
+.qhead{display:flex;justify-content:space-between;align-items:center;gap:10px;margin-bottom:10px}
+.qlabel{font-weight:700;color:var(--ink);font-size:16px}
+.ask{font-size:clamp(17px,2vw,20px);font-weight:700;color:#222;margin:4px 0 16px;line-height:1.5}
+.sent{font-size:clamp(22px,3vw,32px);line-height:1.9;text-align:center;padding:18px 10px;margin:0 0 16px;background:#fdfcff;border:1px solid var(--line);border-radius:12px;word-break:keep-all}
+.sent .w{display:inline-block;margin:0 .14em;padding:0 .12em;border-radius:8px}
+.sent .mk{text-decoration:underline;text-decoration-thickness:3px;text-underline-offset:8px;font-weight:700;color:var(--ink)}
+.w6{display:inline-flex;flex-direction:column;align-items:center;margin:0 .18em;padding:2px 10px 4px;border-radius:12px;border:2px solid transparent;transition:background .2s}
+.w6 .lab{font-style:normal;font-size:14px;font-weight:700;color:#999;margin-top:-4px;line-height:1.3}
+.w6.now{background:#fff3bf;border-color:#f0b400;box-shadow:0 0 0 4px rgba(240,180,0,.25),0 0 18px rgba(240,180,0,.55);animation:glow 1.2s ease-in-out infinite;font-weight:700}
+@keyframes glow{50%{box-shadow:0 0 0 6px rgba(240,180,0,.15),0 0 26px rgba(240,180,0,.75)}}
+.w6.done{color:#555}.w6 .lab.first{color:#2b8a3e}.w6 .lab.retry{color:#1c7ed6}.w6 .lab.fail{color:#c92a2a}
+.chip{border:2px solid #d8cff0;background:#fff;border-radius:12px;padding:6px 14px;margin:6px 5px;font-size:clamp(20px,2.6vw,28px);cursor:pointer;min-height:48px;position:relative;font-family:inherit;color:#222}
+.chip .n{position:absolute;top:-9px;left:-7px;background:#ece6f8;color:var(--ink);font-size:11px;border-radius:999px;padding:1px 6px;font-weight:700}
+.chip:hover:not(:disabled){border-color:var(--acc)}
+.chip:disabled{cursor:default}
+.chip.tg{background:#fff4d6;border-color:var(--theme);font-weight:700}
+.chip.hd{background:#e9f6ec;border-color:var(--ok);font-weight:700}
+.chip.bad{background:#fff0f0;border-color:var(--ng);color:#999;text-decoration:line-through}
+.opts{display:grid;gap:12px}
+.opts.c2{grid-template-columns:repeat(2,1fr)}.opts.c7{grid-template-columns:repeat(7,1fr)}.opts.c3{grid-template-columns:repeat(3,1fr)}.opts.c4{grid-template-columns:repeat(4,1fr)}.opts.c7{grid-template-columns:repeat(7,1fr)}
+@media(max-width:900px){.opts.c7{grid-template-columns:repeat(4,1fr)}}
+@media(max-width:900px){.opts.c4{grid-template-columns:repeat(2,1fr)}}
+@media(max-width:520px){.opts.c7{grid-template-columns:repeat(4,1fr)!important}.opts.c7 .opt{font-size:15px;padding:10px 2px;min-height:48px}.w6{padding:2px 6px 3px;margin:0 .08em}.sent{padding:12px 6px}}
+@media(max-width:520px){.opts.c3{grid-template-columns:1fr}.opts.c4{grid-template-columns:1fr}.opts.c7{grid-template-columns:repeat(2,1fr)}}
+.opt{border:2px solid #d8cff0;background:#fff;border-radius:14px;padding:14px 10px;font-size:clamp(17px,2vw,20px);font-weight:700;cursor:pointer;min-height:56px;color:#222;position:relative}
+.opt .n{position:absolute;top:6px;left:9px;font-size:12px;color:#999;font-weight:500}
+.opt:hover:not(:disabled){border-color:var(--acc);background:#faf7ff}
+.opt:disabled{cursor:default}
+.opt.right{background:#ebfbee;border-color:var(--ok);color:#1b6e2c}
+.opt.wrong{background:#fff0f0;border-color:var(--ng);color:#c92a2a}
+.shake{animation:shake .35s}
+@keyframes shake{20%{transform:translateX(-6px)}40%{transform:translateX(6px)}60%{transform:translateX(-4px)}80%{transform:translateX(4px)}}
+.steps{display:grid;grid-template-columns:repeat(4,1fr);gap:8px;margin:0 0 12px}
+@media(max-width:700px){.steps{grid-template-columns:repeat(2,1fr)}}
+.pill{font-size:14px;padding:7px 10px;border-radius:10px;background:#f6f3fc;border:2px solid transparent;color:#888;line-height:1.4}
+.pill span{display:block;font-size:12.5px}
+.pill b{color:#222;font-size:16px}
+.pill.now{background:#fffbea;border-color:#f0c94a;color:#8a6200;font-weight:700}
+.pill.ok{background:#ebfbee;color:#2b8a3e}.pill.ng{background:#fff0f0;color:#c92a2a}
+.ask{background:#fffbea;border:2px solid #f0c94a;border-radius:12px;padding:12px 16px}
+.ask.done{background:#f8f9fa;border-color:#e9ecef;color:#777}
+.ask .note{font-size:15px;font-weight:700;margin-bottom:4px}.ask .note.ok{color:#2b8a3e}.ask .note.ng{color:#c92a2a}
+.ask.flash{animation:flash .6s}
+@keyframes flash{0%{box-shadow:0 0 0 0 rgba(240,201,74,.9)}100%{box-shadow:0 0 0 12px rgba(240,201,74,0)}}
+.hintbtn{background:#fff8e1;border:1px solid #f0d58a;color:#8a6200;border-radius:999px;padding:6px 14px;font-size:14px;font-weight:700;cursor:pointer;min-height:36px}
+.hintbox{display:none;margin-top:14px;background:#fff8e1;border:1px solid #f0d58a;border-left:5px solid #f0b400;border-radius:10px;padding:10px 14px;font-size:15.5px;line-height:1.6}
+.fb{display:none;margin-top:14px;border-radius:12px;padding:12px 16px;font-size:15.5px;line-height:1.65}
+.fb.ok{background:#ebfbee;border:1px solid #b2f2bb}
+.fb.ng{background:#fff0f0;border:1px solid #ffc9c9}
+.fb .t{font-weight:700;margin-bottom:4px;font-size:16.5px}
+.fb .go{margin-top:10px}
+.side{display:flex;flex-direction:column;gap:10px;align-self:center}
+.side .btn{width:100%;padding:12px 10px;font-size:15px}
+.side .lab{font-size:13px;color:#777;text-align:center;margin-top:6px}
+.side .stg{display:flex;gap:6px}.side .stg .btn{padding:8px 0;font-size:14px}
+@media(max-width:760px){.side{flex-direction:row;flex-wrap:wrap}.side .btn{width:auto;flex:1;font-size:14px;padding:10px 6px}.side .lab{width:100%}.side .stg{width:100%}.side .stg .btn{flex:1}}
+.side .btn{white-space:nowrap}
+.combo{position:fixed;top:72px;right:24px;background:#fff;border:2px solid #fab005;color:#e8590c;border-radius:999px;padding:4px 14px;font-weight:900;font-size:18px;display:none;z-index:20}
+.combo.pulse{animation:pulse .4s}
+@keyframes pulse{50%{transform:scale(1.25)}}
+.mini{position:fixed;right:14px;bottom:8px;font-size:11px;color:#aaa}
+/* 정답 카드 */
+#cbn{position:fixed;left:50%;top:44%;transform:translate(-50%,-50%);z-index:50;pointer-events:none;display:none;text-align:center;color:#fff;border-radius:22px;padding:18px 44px;box-shadow:0 10px 30px rgba(0,0,0,.18)}
+#cbn.ok{background:linear-gradient(135deg,#2f9e44,#69db7c)}
+#cbn.combo{background:linear-gradient(135deg,#e8590c,#fab005)}
+#cbn.retry{background:linear-gradient(135deg,#1c7ed6,#74c0fc);padding:12px 30px}
+#cbn.info{background:linear-gradient(135deg,#7C5CBF,#b197fc)}
+#cbn .b{font-size:34px;font-weight:900}#cbn.retry .b{font-size:24px}
+#cbn .s{font-size:18px;font-weight:700;margin-top:2px}
+#cbn.hi{top:18%}
+#cbn.pop{animation:pop .2s ease-out}
+@keyframes pop{0%{transform:translate(-50%,-50%) scale(.8)}70%{transform:translate(-50%,-50%) scale(1.06)}100%{transform:translate(-50%,-50%) scale(1)}}
+.cf{position:fixed;width:8px;height:12px;z-index:49;pointer-events:none;border-radius:2px}
+@media (prefers-reduced-motion:reduce){#cbn.pop,.shake,.combo.pulse,.ask.flash,.w6.now{animation:none}}
+/* 종료 화면 */
+.endhead{text-align:center;margin:30px 0 10px}
+.endhead h2{margin:0;color:var(--ink);font-size:30px}
+.endhead .sc{font-size:44px;font-weight:900;color:var(--acc);margin:6px 0}
+.stats{display:grid;grid-template-columns:repeat(4,1fr);gap:10px;margin:14px 0}
+@media(max-width:700px){.stats{grid-template-columns:repeat(2,1fr)}}
+.stat{background:#faf8fd;border:1px solid var(--line);border-radius:12px;padding:10px;text-align:center}
+.stat b{display:block;font-size:24px;color:var(--ink)}.stat span{font-size:13px;color:#666}
+.review{font-size:16px;line-height:1.7;background:#fbf9ff;border:1px solid var(--line);border-radius:12px;padding:14px 18px}
+.inrow{display:grid;grid-template-columns:1fr 2fr;gap:12px;margin-top:14px}
+@media(max-width:700px){.inrow{grid-template-columns:1fr}}
+.inrow label{font-size:14px;font-weight:700;color:var(--ink)}
+.inrow input,.inrow textarea{width:100%;padding:10px 12px;border:2px solid var(--line);border-radius:10px;font-size:16px;font-family:inherit;margin-top:4px;background:#fff;color:#222}
+.endbtns{display:flex;flex-wrap:wrap;gap:10px;margin-top:18px}
+.endbtns .btn{flex:1;min-width:170px}
+.wlist{margin-top:16px}
+.witem{border:1px solid #ffd8d8;background:#fffafa;border-radius:12px;padding:10px 14px;margin:8px 0;font-size:15px;line-height:1.6}
+.modal{position:fixed;inset:0;background:rgba(0,0,0,.45);display:none;z-index:60;align-items:center;justify-content:center}
+.modal .in{background:#fff;border-radius:16px;width:min(92vw,900px);max-height:86vh;overflow:auto;padding:22px 26px}
+.modal h3{margin:0 0 10px;color:var(--ink)}
+.ritem{border-bottom:1px solid #eee;padding:10px 0;font-size:15px;line-height:1.6}
+</style>
+</head>
+<body>
+<div class="wrap">
+
+<!-- ═════════ 시작 화면 ═════════ -->
+<div class="screen on" id="start">
+ <div class="band"><span>문법</span><span class="badge">💻📱 노트북·모바일</span></div>
+ <div class="panel">
+  <div class="hero">
+   <img src="data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAIQAAACxCAMAAAAyLeWLAAAB/lBMVEUAAABMNSXZ1s7hupPcto7alVnNxba4uryMqcKptsLQiEyTp7jTmmfXpXTkwZxGLBvipW3i2snLeDWcscPUrIR8osLnx6NqSDBNMR7FvbLb0b2telCoq6vGxsb7+vqth2eHm6ivpJaMZ0rhmlvgnWGLeGm2g1ipmozGfUJtWEjTgTySlpVaRDS2lHXo6OeVhXbk4dl0UjmdsL6+wL1ELiDFbCd4mraGWDe8wcLGxsaXc1Z4ZVZ8oL77+vo6JhhiPSWoq6uTjIa4urzZ1s6DXELwsnh6bWK8dTuSYzwIBQUbFRNuOBZ3Qh3groDi0rsqHRdMNSWcoJuvpJbFvbLi2sl1nsKSlpWzajKptsLawZ7Nxbbo6OdtWEiLeGmpmowxIyF7c2l+lJ2BTSeTjIa2WBG8YhyjbUXd4eLk4dk8MS1ELiBlT0B4ZVaVhXaTp7imf2GvpJbAZh3An4De3+AAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAADGtm7NAAAAgHRSTlMA///////////////////////////////////////////////////////////////////////////c////3P//3P/c3P///////////////9z/3Nzc/9z/3P/c3Nzc3P/////c/////9z/3P/c3Nz/oP///wAAAAAAAAAAAAAAAKaTQcIAABeqSURBVHja7VwHd+JItl4kUUpVKCAjhMjYYINxTh2me3q6e3vyvNnZ3dmcw8vx/5/z7r1VEghjLLfp3XPeebVjaANWffrud0PdKvYHP/j/sa3xC5Ml7cmrSdLRnvxdAPwjm+wdVPIRH+wN/sZAnhwfVJpepTi8SnzMPvqbQdg79C4q68fhr/8mED5+VvEqm8bBJx8cw68r9w7v4DcfFMJP72EhG3u//GAQXv+wHIRKpXn4iw+E4buDshhwfCBFxg/BUPnnD4Hhk8oD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" alt="보라라샘" style="height:90px;border-radius:12px">
+   <div><h1>문장 성분 기초 다지기</h1><p>🧱 서술어의 종류와 자릿수, 주성분과 부속성분, 꾸미는 말과 그 형태, 문장 성분 분석</p></div>
+   <svg class="art" width="230" height="110" viewBox="0 0 230 110" aria-hidden="true">
+    <rect x="10" y="52" width="210" height="14" rx="4" fill="#3C3489" opacity=".85"/>
+    <rect x="22" y="66" width="34" height="40" rx="4" fill="#7C5CBF"/>
+    <rect x="98" y="66" width="34" height="40" rx="4" fill="#7C5CBF"/>
+    <rect x="174" y="66" width="34" height="40" rx="4" fill="#7C5CBF"/>
+    <path d="M60 30 q18 -24 36 0" stroke="#C99A2E" stroke-width="4" fill="none" stroke-linecap="round"/>
+    <path d="M92 30 l4 6 l-7 1z" fill="#C99A2E"/>
+    <rect x="40" y="18" width="28" height="22" rx="6" fill="#C99A2E"/>
+    <path d="M136 30 q18 -24 36 0" stroke="#C99A2E" stroke-width="4" fill="none" stroke-linecap="round"/>
+    <path d="M168 30 l4 6 l-7 1z" fill="#C99A2E"/>
+    <rect x="116" y="18" width="28" height="22" rx="6" fill="#C99A2E"/>
+   </svg>
+  </div>
+
+  <div class="box std"><h3>📚 성취기준</h3>
+   <p>[9국04-04](2022) 문장의 짜임을 이해하고 표현 효과를 고려하여 문장을 구성한다.</p>
+  </div>
+
+  <div class="box"><h3>🎮 게임 방법</h3>
+   <ul>
+    <li>1·2·3단계는 밑줄 친 말을 보고 알맞은 버튼을 누릅니다. 번호키로도 고를 수 있어요.</li>
+    <li>4단계는 ① 꾸며 주는 말을 찾아 누르고, ② 그 말이 꾸며 주는 말을 누르고, ③ 꾸밈을 받는 말의 품사를 고른 뒤, ④ 관형어인지 부사어인지 정합니다.</li>
+    <li>5·6단계는 밑줄 친 관형어·부사어가 어떤 형태로 이루어졌는지 고릅니다.</li>
+    <li>7단계는 문장의 어절에 차례로 불이 들어오면 번호키 1~7로 문장 성분 카드를 고릅니다.</li>
+    <li>첫 시도에 맞히면 10점, 3연속부터 +5점, 5연속부터 +10점이 더 붙어요.</li>
+    <li>틀리면 5점이 깎이고 연속이 끊깁니다. 보기가 셋 이상이면 한 번 더 풀 수 있고, 다시 풀어 맞히면 5점이에요.</li>
+    <li>💡 힌트는 언제든 볼 수 있어요. 채점이 끝나면 Enter·Space·→로 다음으로 넘어갑니다.</li>
+    <li>끝나면 학습 리포트와 오답노트를 JPG로 내려받을 수 있어요.</li>
+   </ul>
+  </div>
+
+  <div class="stagebtns" id="stageBtns"></div>
+
+  <div class="concepts" id="conceptCards"></div>
+
+  <div class="privacy" id="privacyOffline"><b>🔒 개인정보 보호 안내</b><br>본 게임은 별도의 서버로 데이터를 전송하거나 저장하지 않습니다.<br>게임 중 입력하는 이름, 활동 소감 등의 정보는 오직 사용자 기기 내부에서 리포트 이미지를 다운로드하는 용도로만 안전하게 처리됩니다.</div>
+  <div class="privacy" id="privacyOnline" style="display:none"><b>🔒 개인정보 보호 안내</b><br>본 게임의 학습 결과(학번, 이름, 점수, 오답 정보, 학습 소감)는 담당 선생님의 학습 관리용 스프레드시트에 안전하게 전송·저장됩니다.<br>수집된 정보는 학습 지도 목적으로만 사용되며, 제3자에게 제공되지 않습니다.</div>
+
+  <div class="credit">제작 · 보라라샘 · 전주서신중학교 교사 · siaawase@gmail.com<br>제작일 2026.11.09 · <span id="lastMod">최종 수정 2026.11.11 09:48</span></div>
+ </div>
+</div>
+
+<div id="loginOverlay" style="display:none;position:fixed;inset:0;background:rgba(0,0,0,0.5);z-index:9999;justify-content:center;align-items:center">
+ <div style="background:#fff;border-radius:20px;padding:32px;max-width:380px;width:90%;box-shadow:0 20px 60px rgba(0,0,0,0.3);text-align:center">
+  <div style="font-size:36px;margin-bottom:8px">🔑</div>
+  <h2 style="font-size:20px;margin-bottom:4px;color:var(--ink)">학생 인증</h2>
+  <p style="font-size:13px;color:var(--ink2);margin-bottom:20px">학번과 이름을 입력하면 게임을 시작할 수 있어요.</p>
+  <div style="text-align:left;margin-bottom:12px">
+   <label style="font-size:13px;font-weight:700;color:var(--ink)">학번 (5자리)</label>
+   <input id="loginId" type="text" maxlength="5" inputmode="numeric" placeholder="예: 20101" style="width:100%;padding:10px 14px;border:2px solid var(--line);border-radius:10px;font-size:16px;margin-top:4px;box-sizing:border-box">
+  </div>
+  <div style="text-align:left;margin-bottom:16px">
+   <label style="font-size:13px;font-weight:700;color:var(--ink)">이름</label>
+   <input id="loginName" type="text" maxlength="10" placeholder="예: 김민준" style="width:100%;padding:10px 14px;border:2px solid var(--line);border-radius:10px;font-size:16px;margin-top:4px;box-sizing:border-box">
+  </div>
+  <div id="loginMsg" style="font-size:13px;color:var(--ng);min-height:20px;margin-bottom:12px"></div>
+  <button id="loginBtn" onclick="doLogin()" style="width:100%;padding:12px;background:var(--ink);color:#fff;border:none;border-radius:12px;font-size:16px;font-weight:700;cursor:pointer">확인</button>
+  <div id="loginSpinner" style="display:none;margin-top:12px"><div style="width:28px;height:28px;border:3px solid var(--line);border-top-color:var(--ink);border-radius:50%;animation:spin 0.7s linear infinite;margin:0 auto"></div><style>@keyframes spin{to{transform:rotate(360deg)}}</style></div>
+ </div>
+</div>
+
+<!-- ═════════ 단계 개념 확인 ═════════ -->
+<div class="screen" id="intro">
+ <div class="band"><span id="introBand">문법</span></div>
+ <div class="panel">
+  <div class="intro">
+   <div class="ccard" id="introCard"></div>
+   <div style="text-align:center;margin-top:20px"><button class="btn" id="introGo">▶️ 문제 풀기</button></div>
+  </div>
+ </div>
+</div>
+
+<!-- ═════════ 문제 화면 ═════════ -->
+<div class="screen" id="play">
+ <div class="topbar">
+  <div class="band"><span class="goal" id="pBand">문법</span><span id="pInfo" style="white-space:nowrap">문항 1/1 · 0점</span></div>
+  <div class="prog"><i id="pBar"></i></div>
+ </div>
+ <div class="playgrid">
+  <div class="qcard" id="qcard">
+   <div class="qhead"><span class="qlabel" id="qLabel"></span><button class="hintbtn" id="hintBtn">💡 힌트</button></div>
+   <div class="ask" id="qAsk"></div>
+   <div class="steps" id="qSteps"></div>
+   <div class="sent" id="qSent"></div>
+   <div class="opts" id="qOpts"></div>
+   <div class="hintbox" id="hintBox"></div>
+   <div class="fb" id="fb"></div>
+  </div>
+  <div class="side">
+   <button class="btn sec" id="prevBtn">⬅️ 이전</button>
+   <button class="btn sec" id="nextBtn">다음 ➡️</button>
+   <button class="btn sec" id="quitBtn">🏁 게임 끝내기</button>
+   <div class="lab">단계 바로 가기</div>
+   <div class="stg" id="sideStages"></div>
+  </div>
+ </div>
+ <div class="combo" id="comboHud">🔥 0</div>
+ <div class="mini">제작 · 보라라샘 · 2026.11.09</div>
+</div>
+
+<!-- ═════════ 종료 화면 ═════════ -->
+<div class="screen" id="end">
+ <div class="band"><span id="eBand">문법</span><span class="badge">💻📱 노트북·모바일</span></div>
+ <div class="panel">
+  <div class="endhead"><h2 id="eTitle">게임 완료!</h2><div class="sc" id="eScore">0점</div><div id="eMax" style="color:#666"></div></div>
+  <div class="stats" id="eStats"></div>
+  <div class="review" id="eReview"></div>
+  <div class="inrow">
+   <div><label for="inName">✏️ 이름 (필수)</label><input id="inName" type="text" maxlength="20" placeholder="실명을 입력하세요"></div>
+   <div><label for="inMemo">💬 학습 소감 (선택)</label><input id="inMemo" type="text" maxlength="120" placeholder="오늘 배운 점이나 어려웠던 점"></div>
+  </div>
+  <div class="privacy" style="margin-top:10px;text-align:left" id="endPrivacy">입력하신 이름과 소감은 서버에 저장되지 않으며, 리포트 이미지(JPG) 생성용으로만 쓰입니다.</div>
+  <div class="endbtns">
+   <button class="btn" id="dlReport">📊 학습 리포트 JPG</button>
+   <button class="btn" id="dlWrong">📝 오답노트 JPG</button>
+   <button class="btn sec" id="showToday">📖 오늘 나온 문제 모두 보기</button>
+  </div>
+  <div class="endbtns">
+   <button class="btn" id="nextStage">다음 단계로 ➡️</button>
+   <button class="btn sec" id="againStage">🔁 이 단계 다시 하기</button>
+   <button class="btn sec" id="toStart">🏠 시작화면으로</button>
+  </div>
+  <div class="wlist" id="eWrong"></div>
+ </div>
+</div>
+
+</div>
+
+<div id="cbn"><div class="b"></div><div class="s"></div></div>
+<div class="modal" id="todayModal"><div class="in"><h3>📖 오늘 나온 문제</h3><div id="todayList"></div><div style="text-align:right;margin-top:12px"><button class="btn" id="closeToday">닫기</button></div></div></div>
+
+<script>
+// ═══════════════════════════════════════════
+// 1. 설정
+// ═══════════════════════════════════════════
+const MADE_DATE = '2026.11.09';
+const LAST_MOD = '2026.11.11 09:48';
+const GAME_CONFIG = {
+  gameCode: "G305",
+  gameName: "문장 성분 기초 다지기",
+  webAppUrl: "https://script.google.com/macros/s/AKfycbzgq9yT5svpFzeFwW5p2pWOpL-lKpj5_RldoJejFT1EOk1Osjcf6hDx85jGQzvr5rU0ww/exec"
+};
+const params = new URLSearchParams(location.search);
+const TEACHER_KEY = params.get("key");
+const IS_ONLINE = !!TEACHER_KEY;
+let STUDENT = { id: "", name: "", className: "", verified: false };
+
+async function verifyStudent(studentId, studentName) {
+  if (!IS_ONLINE) return { status: "ok" };
+  try {
+    const res = await fetch(GAME_CONFIG.webAppUrl, {
+      method: "POST", headers: { "Content-Type": "text/plain" },
+      body: JSON.stringify({ action: "verify", teacherKey: TEACHER_KEY, studentId, studentName })
+    });
+    return await res.json();
+  } catch (e) { return { status: "error", message: "서버에 연결할 수 없습니다. 인터넷 연결을 확인해주세요." }; }
+}
+function notifyGameStart(studentId, studentName, className) {
+  if (!IS_ONLINE) return;
+  fetch(GAME_CONFIG.webAppUrl, {
+    method: "POST", headers: { "Content-Type": "text/plain" },
+    body: JSON.stringify({ action: "start", teacherKey: TEACHER_KEY, gameCode: GAME_CONFIG.gameCode, studentId, studentName, className })
+  }).catch(() => {});
+}
+async function submitResult(resultData) {
+  if (!IS_ONLINE) return { status: "ok" };
+  try {
+    const res = await fetch(GAME_CONFIG.webAppUrl, {
+      method: "POST", headers: { "Content-Type": "text/plain" },
+      body: JSON.stringify({ action: "submit", teacherKey: TEACHER_KEY, gameCode: GAME_CONFIG.gameCode, gameName: GAME_CONFIG.gameName, ...resultData })
+    });
+    return await res.json();
+  } catch (e) { return { status: "error", message: "결과 전송에 실패했습니다." }; }
+}
+
+const MOD = 4; // 꾸며 주는 말을 네 물음으로 푸는 단계
+const ANA = 7; // 문장 성분 분석: 어절마다 불이 들어오면 번호키로 성분 카드를 고른다
+const PRED = 1; // 서술어의 종류 단계 — 문항 위치에 따라 보기 이름과 발문이 바뀐다
+const PRED_POS = { '어찌하다':'동사', '어떠하다':'형용사', '무엇이다':"체언 + 서술격 조사 '이다'" };
+const PRED_PHASE = [10, 20]; // 1~10번: 품사 함께 표시 / 11~20번: 품사 없이 / 21번부터: 품사를 묻는다
+function predPhase(pos){ return pos < PRED_PHASE[0] ? 0 : pos < PRED_PHASE[1] ? 1 : 2; }
+function predFull(o){ return `${o} (${o==='무엇이다' ? '체언 + 이다' : PRED_POS[o]})`; }
+// 보기에 보여 줄 이름 (채점은 늘 어찌하다·어떠하다·무엇이다 값으로 한다)
+function optLabel(o){
+  if(S.stage!==PRED) return o;
+  const ph = predPhase(S.idx);
+  return ph===0 ? predFull(o) : ph===1 ? o : PRED_POS[o];
+}
+const BASE = 10, RETRY_PT = 5, WRONG_PT = 5;
+const STD_TEXT = '[9국04-04](2022) 문장의 짜임을 이해하고 표현 효과를 고려하여 문장을 구성한다.';
+const COMP6_LIST = ['주어', '서술어', '목적어', '보어', '관형어', '부사어', '독립어'];
+const STAGES = [
+  { n: 1, name: '1단계 · 서술어의 종류', short: '서술어 종류', goal: '서술어가 움직임·상태·지정 가운데 무엇인지 판단한다',
+    opts: ['어찌하다', '어떠하다', '무엇이다'],
+    concept: '<h4>🏃 1단계 · 어찌하다 · 어떠하다 · 무엇이다</h4><p><b>어찌하다</b> — 서술어가 동사 (뛴다, 흐른다)</p><p><b>어떠하다</b> — 서술어가 형용사 (맑다, 차가웠다)</p><p><b>무엇이다</b> — 서술어가 체언 + 서술격 조사 \'이다\' (요리사이다, 사과다)</p><p>👉 기본형에 "-는다/-ㄴ다"를 붙여 보세요. 자연스러우면 동사, 어색하면 형용사예요.</p><p>👉 물이 <u>흐른다</u>(동작) · 물이 <u>차갑다</u>(상태) · 물은 <u>액체이다</u>(지정)</p><p>👉 처음 10문제는 보기에 품사가 함께 나오고, 그다음 10문제는 품사가 빠져요. 20문제가 넘으면 서술어가 어떤 품사로 만들어졌는지 직접 골라요.</p>' },
+  { n: 2, name: '2단계 · 주성분과 부속성분', short: '주성분·부속성분', goal: '밑줄 친 성분이 문장에서 맡은 역할을 가른다',
+    opts: ['주성분', '부속성분'],
+    concept: '<h4>🧱 2단계 · 주성분과 부속성분</h4><p><b>주성분</b> — 문장의 뼈대: 주어 · 서술어 · 목적어 · 보어</p><p><b>부속성분</b> — 주성분을 꾸며 주는 말: 관형어 · 부사어</p><p>👉 먼저 "이 말이 어떤 성분인가?"를 정하세요. 조사가 바뀌거나(나는, 밥도) 빠져도(빵 먹었어) 성분은 그대로예요.</p><p>👉 빼면 어색한 부사어(지팡이로 삼았다)도 부사어라서 부속성분이에요.</p>' },
+  { n: 3, name: '3단계 · 서술어의 자릿수', holdBack: { cat:'three', first:10 }, short: '서술어 자릿수', goal: '서술어가 꼭 필요로 하는 성분의 수를 센다',
+    opts: ['한 자리', '두 자리', '세 자리'],
+    concept: '<h4>1️⃣ 3단계 · 서술어의 자릿수</h4><p>서술어가 문장을 완성하려고 <b>꼭 필요로 하는 성분의 수</b>예요. 주어도 한 자리로 셉니다.</p><p><b>한 자리</b> — 주어만 (개나리가 피었다)</p><p><b>두 자리</b> — 주어 + 목적어·보어·필수적 부사어 가운데 하나 (아이가 과자를 먹는다, 물이 얼음이 되었다, 나는 모델처럼 생겼다)</p><p><b>세 자리</b> — 주어 + 목적어 + 필수적 부사어 (친구가 나에게 용기를 주었다)</p><p>👉 빼도 문장이 성립하는 말(언제·어디서·어떻게)은 세지 않아요. 어절 수와 자릿수는 달라요.</p><p>👉 2단계에서 필수적 부사어는 부속성분이었지요. 그래도 꼭 필요한 말이라 자릿수에는 들어가요.</p>' },
+  { n: 4, name: '4단계 · 꾸미는 말 찾기', short: '관형어·부사어', goal: '꾸미는 말과 꾸밈을 받는 말을 찾고 품사를 판단한다',
+    opts: ['명사', '대명사', '수사', '동사', '형용사', '관형사', '부사'],
+    concept: '<h4>🔖 4단계 · 관형어와 부사어</h4><p>꾸며 주는 말은 <b>꾸밈을 받는 말의 품사</b>로 이름이 정해져요.</p><p><b>관형어</b> — 체언(명사·대명사·수사)을 꾸며요. "어떤 ○○?" "누구의 ○○?"</p><p><b>부사어</b> — 용언(동사·형용사)을 주로 꾸미고, 부사·관형사도 꾸며요. "어떻게?" "언제?" "얼마나?"</p><p>👉 순서: ① 꾸며 주는 말 찾기 → ② 꾸밈을 받는 말 찾기 → ③ 그 품사 → ④ 관형어/부사어</p><p>👉 꾸밈을 받는 말은 바로 뒤가 아닐 수도 있어요. 품사는 조사를 뺀 낱말로 판단해요(신발을 → 신발).</p>' },
+  { n: 5, name: '5단계 · 관형어의 형태', short: '관형어의 형태', goal: '관형어가 어떤 형태로 이루어졌는지 판단한다',
+    opts: ['관형사', '체언', "체언 + 관형격 조사 '의'", '용언 어간 + 관형사형 어미'],
+    concept: '<h4>🔖 5단계 · 관형어의 형태</h4><p>① <b>관형사</b>(새 옷, 모든 학생) ② <b>체언</b>(동생 몸) ③ <b>체언 + 관형격 조사 \'의\'</b>(연필의 심) ④ <b>용언 어간 + 관형사형 어미</b></p><p>👉 관형사형 어미: -(으)ㄴ(예쁜, 본, 낡은) · -는(웃는) · -(으)ㄹ(읽을) · -던(살던)</p><p>👉 기본형 "-다"로 돌릴 수 있으면 용언에 어미가 붙은 것이에요(예쁜 → 예쁘다). "새, 헌, 모든"은 돌릴 수 없는 관형사예요.</p><p>👉 관형어는 문장 성분, 관형사는 품사예요. "예쁜"은 품사는 형용사, 문장 성분은 관형어예요.</p>' },
+  { n: 6, name: '6단계 · 부사어의 형태', short: '부사어의 형태', goal: '부사어가 어떤 형태로 이루어졌는지 판단한다',
+    opts: ['부사', '체언 + 부사격 조사', '용언 어간 + 부사형 어미'],
+    concept: '<h4>🧭 6단계 · 부사어의 형태</h4><p>① <b>부사</b>(멀리, 천천히, 깨끗이) ② <b>체언 + 부사격 조사</b>(지하철역에서, 공원으로, 친구와, 꿀처럼) ③ <b>용언 어간 + 부사형 어미</b></p><p>👉 부사형 어미: -게(예쁘게, 깨끗하게) · -도록(배부르도록, 지치도록)</p><p>👉 "깨끗이"(부사)와 "깨끗하게"(깨끗하다 + -게)를 구별하세요. "-이, -히, -리"로 끝나는 말은 사전에 오른 부사예요.</p>' },
+  { n: 7, name: '7단계 · 문장 성분 분석', short: '문장 성분 분석', goal: '문장의 모든 어절에 문장 성분을 붙인다',
+    opts: COMP6_LIST,
+    concept: '<h4>🧩 7단계 · 문장 성분 분석</h4><p>어절에 차례로 <b>불이 들어오면</b> 그 어절의 성분 카드 번호를 누르세요. 마우스로 카드를 눌러도 돼요.</p><p>1 주어 · 2 서술어 · 3 목적어 · 4 보어 · 5 관형어 · 6 부사어 · 7 독립어</p><p>👉 틀리면 바로 알려 주고 한 번 더 풀 수 있어요. 문장을 다 마치면 Space로 다음 문장!</p><p>👉 감탄·대답·부름(와, 네, 지영아)은 독립어예요. 쉼표가 붙어도 "제발, 설마, 과연"처럼 뒤의 말을 꾸미면 부사어예요. 주어가 생략된 문장도 있어요.</p>' },
+];
+
+// ═══════════════════════════════════════════
+// 2·3. 유형 마스터 · 문항 데이터
+// ═══════════════════════════════════════════
+// 문장 성분 기초 다지기 — 문항 데이터 (2026.11.10 6단계 문장 성분 분석 추가 — 옛 문장 성분 드래그 앤 드롭 G301의 문장 49개)
+// level: 단계 안의 난이도. 같은 level 안에서만 섞고 level 1 → 2 → 3 순서로 낸다
+// 1·2·3단계: words + mark(밑줄 어절 번호) + answer
+// (7단계) origNo = G301에서의 문항 번호
+// 5단계: 관형어의 형태(보기 4개) · 6단계: 부사어의 형태(보기 3개) — 학습지 형태 표. oldId = 바뀌기 전 번호
+// 7단계: seq = 어절마다 문장 성분
+// 4단계: mods = 문장 속 꾸며 주는 말 전부 {i: 꾸며 주는 말, head: 꾸밈을 받는 말, pos: 그 품사, role: 관형어/부사어}
+//        ①에서 mods 가운데 무엇을 골라도 정답이고, 고른 말로 ②③④가 이어진다
+
+const CATEGORIES = {
+  main: {
+    label: "주성분",
+    emoji: "🧱",
+    desc: "문장의 뼈대를 이루는 성분 (주어·서술어·목적어·보어)",
+    tip: "먼저 \"이 말이 어떤 성분인가?\"를 정하세요. 주어·서술어·목적어·보어면 주성분입니다. 조사가 바뀌거나 빠져도 성분은 그대로예요."
+  },
+  sub: {
+    label: "부속성분",
+    emoji: "🎀",
+    desc: "주성분을 꾸며 주는 성분 (관형어·부사어)",
+    tip: "\"무엇을 꾸미는가?\"를 따져 보세요. 체언을 꾸미면 관형어, 용언 등을 꾸미면 부사어로 부속성분입니다. 빼면 어색한 부사어(필수적 부사어)도 부속성분이에요."
+  },
+  act: {
+    label: "어찌하다",
+    emoji: "🏃",
+    desc: "서술어가 동사 — 움직임을 나타냄",
+    tip: "서술어에 \"-는다/-ㄴ다\"를 붙여 보세요. 자연스러우면 동사, 곧 \"어찌하다\"입니다."
+  },
+  state: {
+    label: "어떠하다",
+    emoji: "🌡️",
+    desc: "서술어가 형용사 — 성질·상태를 나타냄",
+    tip: "\"-는다/-ㄴ다\"가 붙지 않으면 형용사, 곧 \"어떠하다\"입니다. 같은 말이라도 뜻에 따라 동사가 되기도 하니(큰다/크다) 문장 속 뜻으로 판단하세요."
+  },
+  ident: {
+    label: "무엇이다",
+    emoji: "🏷️",
+    desc: "서술어가 체언 + 이다",
+    tip: "서술어를 \"체언 + 이다\"로 나눌 수 있는지 보세요. 받침 없는 말 뒤에서는 \"이\"가 빠지기도 합니다(사과다 = 사과 + 이다)."
+  },
+  gwan: {
+    label: "관형어",
+    emoji: "🔖",
+    desc: "체언(명사·대명사·수사)을 꾸미는 말",
+    tip: "\"어떤 ○○?\", \"누구의 ○○?\"에 답하는 말이 관형어예요. 꾸밈을 받는 말은 늘 체언이고, 명사뿐 아니라 대명사·수사·의존 명사도 됩니다."
+  },
+  busa: {
+    label: "부사어",
+    emoji: "🧭",
+    desc: "용언·부사·관형사 등을 꾸미는 말",
+    tip: "\"어떻게?\", \"언제?\", \"어디에?\"에 답하는 말이 부사어예요. 바로 뒤의 말이 아니라 뜻이 이어지는 말을 찾고, 그 말이 동사·형용사·부사·관형사 가운데 무엇인지 보세요."
+  },
+  one: {
+    label: "한 자리",
+    emoji: "1️⃣",
+    desc: "주어 하나만 있으면 문장이 완성되는 서술어",
+    tip: "서술어 앞에 \"누가/무엇이\"만 있으면 뜻이 완성되는지 보세요. \"어디에서, 어떻게\" 같은 말은 빼도 되니 자릿수에 넣지 않아요."
+  },
+  two: {
+    label: "두 자리",
+    emoji: "2️⃣",
+    desc: "주어 말고도 목적어·보어·필수적 부사어 가운데 하나가 꼭 필요한 서술어",
+    tip: "주어 말고 꼭 필요한 말이 하나 더 있는지 보세요. \"무엇을 먹다\", \"무엇이 되다\", \"누구와 닮다\"처럼 목적어가 아닌 보어·부사어도 자리를 차지해요."
+  },
+  three: {
+    label: "세 자리",
+    emoji: "3️⃣",
+    desc: "주어·목적어·필수적 부사어가 모두 필요한 서술어",
+    tip: "\"누가 누구에게 무엇을 주다\", \"무엇을 어디에 넣다\"처럼 주어 말고 두 개가 더 필요한지 보세요. 문장이 길다고 자릿수가 늘어나지는 않아요."
+  },
+  f_gs: {
+    label: "관형사",
+    emoji: "🔖",
+    desc: "관형사 그대로 관형어가 된 것 (새, 저, 세, 헌)",
+    tip: "모양이 바뀌지 않고 조사도 붙지 않는 말인지 보세요. \"새, 헌, 저, 세\"는 기본형이 따로 없는 관형사예요. \"예쁜, 낡은\"처럼 \"예쁘다, 낡다\"로 돌릴 수 있으면 관형사가 아니에요."
+  },
+  f_gc: {
+    label: "체언",
+    emoji: "🔖",
+    desc: "조사 없이 체언이 그대로 관형어가 된 것 (동생 몸)",
+    tip: "꾸미는 말이 명사인데 뒤에 조사가 없는지 보세요. \"동생 몸\"은 \"동생의 몸\"에서 \"의\"가 빠진 것과 같아요."
+  },
+  f_gu: {
+    label: "체언 + 관형격 조사 '의'",
+    emoji: "🔖",
+    desc: "체언에 관형격 조사 '의'가 붙은 것 (연필의 심)",
+    tip: "체언 뒤에 \"의\"가 붙어 있는지 보세요. \"의\"가 붙어 뒤의 체언을 꾸미면 이 형태예요."
+  },
+  f_gy: {
+    label: "용언 어간 + 관형사형 어미",
+    emoji: "🔖",
+    desc: "동사·형용사에 관형사형 어미가 붙은 것 (예쁜, 멋있는)",
+    tip: "기본형 \"-다\"로 돌려 보세요. \"예쁜 → 예쁘다\", \"멋있는 → 멋있다\"처럼 돌릴 수 있으면 용언에 관형사형 어미(-ㄴ/-은/-는/-ㄹ)가 붙은 것이에요."
+  },
+  f_bs: {
+    label: "부사",
+    emoji: "🧭",
+    desc: "부사 그대로 부사어가 된 것 (매우, 멀리)",
+    tip: "모양이 바뀌지 않는 말인지 보세요. \"깨끗이, 멀리\"처럼 \"-이, -리\"로 끝나는 말은 사전에 오른 부사예요. \"-게\"로 끝나는 말과 구별하세요."
+  },
+  f_bj: {
+    label: "체언 + 부사격 조사",
+    emoji: "🧭",
+    desc: "체언에 부사격 조사가 붙은 것 (학교에서, 꿀처럼)",
+    tip: "체언 뒤에 \"에, 에서, 로, 처럼, 와/과\" 같은 부사격 조사가 붙었는지 보세요."
+  },
+  f_by: {
+    label: "용언 어간 + 부사형 어미",
+    emoji: "🧭",
+    desc: "동사·형용사에 부사형 어미 '-게'가 붙은 것 (예쁘게)",
+    tip: "기본형 \"-다\"로 돌려 보세요. \"예쁘게 → 예쁘다\"처럼 돌릴 수 있으면 용언에 부사형 어미 \"-게\"가 붙은 것이에요."
+  },
+  sent6: {
+    label: "문장 성분 분석",
+    emoji: "🧩",
+    desc: "한 문장의 모든 어절에 문장 성분 붙이기",
+    tip: "어절마다 \"누가/무엇이\", \"무엇을\", \"어찌하다/어떠하다/무엇이다\", \"어떤/누구의\", \"어떻게/언제/어디서\" 가운데 어디에 답하는지 차례로 물어보세요."
+  },
+  c_ju: {
+    label: "주어",
+    emoji: "🟥",
+    desc: "서술어의 주체",
+    tip: "\"누가/무엇이\"에 답하는 말을 찾으세요. \"는, 도, 께서\"가 붙거나 조사가 빠져도 주어예요."
+  },
+  c_se: {
+    label: "서술어",
+    emoji: "⬜",
+    desc: "주어를 풀이하는 말",
+    tip: "\"어찌하다, 어떠하다, 무엇이다\"에 해당하는 말을 찾으세요. 보통 문장 끝에 와요."
+  },
+  c_mok: {
+    label: "목적어",
+    emoji: "🟦",
+    desc: "서술어의 대상",
+    tip: "\"무엇을/누구를\"에 답하는 말을 찾으세요. 조사가 \"도, 만\"으로 바뀌거나 빠져도 목적어예요."
+  },
+  c_bo: {
+    label: "보어",
+    emoji: "🟪",
+    desc: "'되다/아니다' 앞에서 보충하는 말",
+    tip: "서술어가 \"되다, 아니다\"일 때 그 앞에서 무엇이 되는지, 무엇이 아닌지 채우는 말이 보어예요."
+  },
+  c_gw: {
+    label: "관형어",
+    emoji: "🟨",
+    desc: "체언을 꾸미는 말",
+    tip: "\"어떤 ○○?\", \"누구의 ○○?\"에 답하며 체언을 꾸미는 말이 관형어예요."
+  },
+  c_bu: {
+    label: "부사어",
+    emoji: "🟩",
+    desc: "용언 등을 꾸미는 말",
+    tip: "\"어떻게, 언제, 어디서, 얼마나\"에 답하며 서술어 등을 꾸미는 말이 부사어예요."
+  },
+  c_dok: {
+    label: "독립어",
+    emoji: "⬛",
+    desc: "다른 성분과 직접 관계없이 홀로 쓰이는 말",
+    tip: "감탄하는 말(와, 아), 대답하는 말(네, 응), 부르는 말(지영아)은 다른 성분과 관계없이 쓰이는 독립어예요."
+  }
+};
+
+const POS_OPTIONS = ["명사","대명사","수사","동사","형용사","관형사","부사"];
+
+const QUESTIONS = [
+  {id: 101,cat: "act",stage: 1,words: ["강아지들이","잔디밭에서","뛴다."],mark: 2,answer: "어찌하다",hint: "기본형 \"뛰다\"에 \"-ㄴ다\"를 붙인 꼴인가요?",detail: "\"뛰다 → 뛴다\"처럼 현재형 \"-ㄴ다\"가 자연스럽게 붙어요. 움직임을 나타내는 동사이므로 \"어찌하다\"입니다.",edge: false,src: "교사 제공",level: 1},
+  {id: 103,cat: "act",stage: 1,words: ["사람들이","운동장에","모였다."],mark: 2,answer: "어찌하다",hint: "지난 일로 쓰였어요. 기본형 \"모이다\"에 \"-ㄴ다\"를 붙여 보세요.",detail: "\"모이다 → 모인다\"가 자연스러워요. 과거형으로 쓰였어도 기본형으로 돌려 검사하면 동사, 곧 \"어찌하다\"입니다.",edge: false,src: "교사 제공",level: 1},
+  {id: 107,cat: "state",stage: 1,words: ["하늘이","맑다."],mark: 1,answer: "어떠하다",hint: "\"하늘이 맑는다\"라고 말할 수 있나요?",detail: "\"맑는다\"는 어색해요. 현재형 \"-는다\"가 붙지 않으니 형용사이고, 하늘의 상태를 나타내는 \"어떠하다\"입니다.",edge: false,src: "교사 제공",level: 1},
+  {id: 108,cat: "state",stage: 1,words: ["작은","고추가","더","맵다."],mark: 3,answer: "어떠하다",hint: "\"고추가 맵는다\"라고 할 수 있나요?",detail: "\"맵다\"에는 \"-는다\"를 붙일 수 없어요. 고추의 성질을 나타내는 형용사이므로 \"어떠하다\"입니다.",edge: false,src: "교사 제공",level: 1},
+  {id: 109,cat: "state",stage: 1,words: ["우리","엄마는","매우","멋지시다."],mark: 3,answer: "어떠하다",hint: "높임의 \"-시-\"를 빼면 \"멋지다\"예요. \"멋진다\"라고 할 수 있나요?",detail: "\"멋지다\"는 \"멋진다\"가 되지 않는 형용사예요. \"-시-\"는 높임일 뿐 품사를 바꾸지 않습니다. 그래서 \"어떠하다\"예요.",edge: false,src: "교사 제공",level: 1},
+  {id: 110,cat: "state",stage: 1,words: ["어제는","바람이","차가웠다."],mark: 2,answer: "어떠하다",hint: "과거형으로 쓰였어요. 기본형 \"차갑다\"에 \"-는다\"를 붙여 보세요.",detail: "\"차갑는다\"는 말이 되지 않아요. \"-었-\"이 붙어 지난 일이 되어도 형용사는 형용사이므로 \"어떠하다\"입니다.",edge: false,src: "기억(미확인)",level: 2},
+  {id: 114,cat: "ident",stage: 1,words: ["내","꿈은","요리사이다."],mark: 2,answer: "무엇이다",hint: "서술어를 \"체언 + 이다\"로 나눌 수 있나요?",detail: "\"요리사이다\"는 명사 \"요리사\"에 \"이다\"가 붙은 서술어예요. \"꿈은 무엇이다\"를 말해 주므로 \"무엇이다\"입니다.",edge: false,src: "기억(미확인)",level: 1},
+  {id: 115,cat: "ident",stage: 1,words: ["이것은","동생의","가방이다."],mark: 2,answer: "무엇이다",hint: "\"가방이다\"에서 \"이다\"를 떼면 무엇이 남나요?",detail: "\"가방이다\" = 명사 \"가방\" + \"이다\"예요. 이것이 무엇인지 밝히는 서술어이므로 \"무엇이다\"입니다.",edge: false,src: "기억(미확인)",level: 1},
+  {id: 116,cat: "ident",stage: 1,words: ["토끼와","거북이는","친구였다."],mark: 2,answer: "무엇이다",hint: "\"친구였다\"를 기본형으로 돌리면 \"친구 + ○○\"가 돼요. ○○는 무엇인가요?",detail: "\"친구였다\" = \"친구 + 이- + -었- + -다\"가 줄어든 말이에요. 명사에 \"이다\"가 붙었으니 과거형이어도 \"무엇이다\"입니다.",edge: false,src: "기억(미확인)",level: 1},
+  {id: 117,cat: "ident",stage: 1,words: ["그녀는","우리","반","반장이다."],mark: 3,answer: "무엇이다",hint: "그녀가 \"무엇\"인지 말해 주나요, \"어떠한지\" 말해 주나요?",detail: "\"반장이다\"는 명사 \"반장\"에 \"이다\"가 붙어 그녀가 누구인지 밝혀요. 그래서 \"무엇이다\"입니다.",edge: false,src: "기억(미확인)",level: 1},
+  {id: 118,cat: "ident",stage: 1,words: ["이것은","내","사과다."],mark: 2,answer: "무엇이다",hint: "\"사과다\"에 \"이\"를 넣어 \"사과이다\"로 바꾸어 보세요. 뜻이 같나요?",detail: "받침 없는 \"사과\" 뒤에서 \"이다\"의 \"이\"가 빠져 \"사과다\"가 되었어요. 명사 + 이다이므로 \"무엇이다\"입니다.",edge: false,src: "기억(미확인)",level: 2},
+  {id: 119,cat: "ident",stage: 1,words: ["엄마는","세상에서","최고이다."],mark: 2,answer: "무엇이다",hint: "\"최고이다\"에서 \"이다\" 앞의 말은 어떤 품사인가요?",detail: "\"최고\"는 명사이고 여기에 \"이다\"가 붙었어요. 엄마가 무엇인지(최고) 말해 주므로 \"무엇이다\"입니다.",edge: false,src: "교사 제공",level: 1},
+  {id: 120,cat: "act",stage: 1,words: ["아이들이","운동장에서","공을","찬다."],mark: 3,answer: "어찌하다",hint: "기본형 \"차다\"에 \"-ㄴ다\"가 붙은 꼴인가요?",detail: "\"차다 → 찬다\"처럼 \"-ㄴ다\"가 자연스럽게 붙어요. 공을 차는 움직임을 나타내는 동사이므로 \"어찌하다\"입니다.",edge: false,src: "기억(미확인)",level: 1},
+  {id: 121,cat: "act",stage: 1,words: ["참새가","하늘을","난다."],mark: 2,answer: "어찌하다",hint: "\"날다\"에 \"-ㄴ다\"를 붙이면 어떻게 되나요?",detail: "\"날다\"는 \"-ㄴ다\"가 붙어 \"난다\"가 돼요(ㄹ이 빠짐). 움직임을 나타내는 동사이므로 \"어찌하다\"입니다.",edge: false,src: "기억(미확인)",level: 1},
+  {id: 122,cat: "state",stage: 1,words: ["수박이","꿀처럼","달다."],mark: 2,answer: "어떠하다",hint: "\"수박이 단다\"라고 말할 수 있나요?",detail: "\"달다\"는 \"-ㄴ다\"를 붙여 \"단다\"라고 하면 어색해요. 맛(성질)을 나타내는 형용사이므로 \"어떠하다\"입니다.",edge: false,src: "교사 제공",level: 1},
+  {id: 123,cat: "state",stage: 1,words: ["도서관이","조용하다."],mark: 1,answer: "어떠하다",hint: "\"도서관이 조용한다\"라고 말할 수 있나요?",detail: "\"조용한다\"는 어색해요. 도서관의 상태를 나타내는 형용사이므로 \"어떠하다\"입니다.",edge: false,src: "기억(미확인)",level: 1},
+  {id: 124,cat: "act",stage: 1,words: ["물이","흐른다."],mark: 1,answer: "어찌하다",hint: "\"흐르다\"에 \"-ㄴ다\"가 붙었나요?",detail: "\"흐르다 → 흐른다\"처럼 \"-ㄴ다\"가 붙어요. 물의 움직임(동작)을 나타내는 동사이므로 \"어찌하다\"입니다.",edge: false,src: "교사 제공",level: 1},
+  {id: 125,cat: "state",stage: 1,words: ["물이","차갑다."],mark: 1,answer: "어떠하다",hint: "\"물이 차갑는다\"라고 할 수 있나요?",detail: "\"차갑는다\"는 말이 되지 않아요. 물의 상태를 나타내는 형용사이므로 \"어떠하다\"입니다.",edge: false,src: "교사 제공",level: 1},
+  {id: 126,cat: "ident",stage: 1,words: ["물은","액체이다."],mark: 1,answer: "무엇이다",hint: "\"액체이다\"를 \"체언 + 이다\"로 나눌 수 있나요?",detail: "\"액체이다\" = 명사 \"액체\" + \"이다\"예요. 물이 무엇인지 지정하므로 \"무엇이다\"입니다.",edge: false,src: "교사 제공",level: 1},
+  {id: 127,cat: "act",stage: 1,words: ["동생이","잔다."],mark: 1,answer: "어찌하다",hint: "\"자다\"에 \"-ㄴ다\"가 붙은 꼴인가요?",detail: "\"자다 → 잔다\"처럼 \"-ㄴ다\"가 붙는 동사예요. 그래서 \"어찌하다\"입니다.",edge: false,src: "교사 제공",level: 1},
+  {id: 128,cat: "ident",stage: 1,words: ["동생은","학생이다."],mark: 1,answer: "무엇이다",hint: "\"학생이다\"에서 \"이다\"를 떼면 무엇이 남나요?",detail: "\"학생이다\" = 명사 \"학생\" + \"이다\"예요. 동생이 누구인지 밝히므로 \"무엇이다\"입니다.",edge: false,src: "교사 제공",level: 1},
+  {id: 129,cat: "state",stage: 1,words: ["꽃이","예쁘다."],mark: 1,answer: "어떠하다",hint: "\"꽃이 예쁜다\"라고 할 수 있나요?",detail: "\"예쁜다\"는 어색해요. 꽃의 상태를 나타내는 형용사이므로 \"어떠하다\"입니다.",edge: false,src: "교사 제공",level: 1},
+  {id: 130,cat: "state",stage: 1,words: ["동생","몸이","튼튼하다."],mark: 2,answer: "어떠하다",hint: "\"몸이 튼튼한다\"라고 할 수 있나요?",detail: "\"튼튼한다\"는 말이 되지 않아요. 몸의 상태를 나타내는 형용사이므로 \"어떠하다\"입니다.",edge: false,src: "교사 제공",level: 1},
+  {id: 131,cat: "act",stage: 1,words: ["알바생이","커피를","만든다."],mark: 2,answer: "어찌하다",hint: "기본형 \"만들다\"에 \"-ㄴ다\"를 붙이면 어떻게 되나요?",detail: "\"만들다 → 만든다\"처럼 \"-ㄴ다\"가 붙는 동사예요. 그래서 \"어찌하다\"입니다.",edge: false,src: "교사 제공",level: 1},
+  {id: 132,cat: "act",stage: 1,words: ["사람들이","택시를","기다린다."],mark: 2,answer: "어찌하다",hint: "\"기다리다\"에 \"-ㄴ다\"가 붙었나요?",detail: "\"기다리다 → 기다린다\"가 자연스러운 동사예요. 그래서 \"어찌하다\"입니다.",edge: false,src: "교사 제공",level: 1},
+  {id: 201,cat: "main",stage: 2,words: ["토끼는","그늘에서","잠을","잔다."],mark: 0,answer: "주성분",hint: "잠을 자는 것은 누구인가요? 그 대답이 되는 자리는 어떤 성분인가요?",detail: "\"잔다\"의 주체가 토끼이므로 주어예요. \"는\"은 보조사지만 자리는 주어 자리입니다. 주어는 주성분이에요.",edge: true,src: "교사 제공",level: 2},
+  {id: 203,cat: "main",stage: 2,words: ["거북이는","부지런히","산을","오른다."],mark: 2,answer: "주성분",hint: "무엇을 오르나요? 서술어의 대상이 되는 말은 어떤 성분인가요?",detail: "\"오른다\"는 오를 대상이 있어야 하는 서술어이고, 그 대상이 \"산을\"이에요. 목적어이므로 주성분입니다.",edge: false,src: "교사 제공",level: 1},
+  {id: 204,cat: "sub",stage: 2,words: ["까만","모자가","정말","멋있다."],mark: 0,answer: "부속성분",hint: "\"까만\"은 바로 뒤 \"모자\"를 어떻게 하나요? 체언을 꾸미는 말은 어떤 성분인가요?",detail: "\"까만\"은 \"어떤 모자?\"에 답하며 체언 \"모자\"를 꾸미는 관형어예요. 관형어는 부속성분입니다.",edge: false,src: "교사 제공",level: 1},
+  {id: 205,cat: "sub",stage: 2,words: ["비가","머리","위로","쏟아졌다."],mark: 2,answer: "부속성분",hint: "\"어디로 쏟아졌나?\"에 답하는 말이에요. 서술어를 꾸미는 말은 어떤 성분인가요?",detail: "\"위로\"는 비가 쏟아진 방향을 나타내며 \"쏟아졌다\"를 꾸며요. 부사어이므로 부속성분입니다. 조사 \"로\"가 붙었다고 주성분이 되지는 않아요.",edge: false,src: "교사 제공",level: 1},
+  {id: 206,cat: "sub",stage: 2,words: ["정인이는","우산을","지팡이로","삼았다."],mark: 2,answer: "부속성분",hint: "\"지팡이로\"를 빼면 문장이 어색하지요. 그래도 이 말이 어떤 성분인지부터 정해 보세요.",detail: "\"삼았다\"는 \"무엇을 무엇으로\"를 요구하므로 \"지팡이로\"를 빼면 문장이 어색해요. 이렇게 꼭 필요한 부사어를 필수적 부사어라고 하는데, 성분은 여전히 부사어라서 부속성분입니다. 빼면 어색하다고 모두 주성분은 아니에요.",edge: true,src: "기준표 3-1",level: 3},
+  {id: 207,cat: "main",stage: 2,words: ["동생이","중학생이","되었다."],mark: 1,answer: "주성분",hint: "바로 뒤의 서술어가 \"되다\" 또는 \"아니다\"인가요?",detail: "\"되었다\" 앞에서 무엇이 되었는지를 채워 주는 말이므로 보어예요. \"이\"가 붙어 주어처럼 보이지만 주어는 \"동생이\"입니다. 보어는 주성분이에요.",edge: true,src: "기준표 3-1",level: 3},
+  {id: 208,cat: "main",stage: 2,words: ["이것은","거짓말이","아니다."],mark: 1,answer: "주성분",hint: "서술어가 \"아니다\"예요. \"아니다\" 앞에서 서술어를 채워 주는 말은 어떤 성분인가요?",detail: "\"아니다\"는 \"무엇이 아니다\"를 요구해요. 그 자리를 채운 \"거짓말이\"는 보어이고, 보어는 주성분입니다.",edge: true,src: "기준표 3-1",level: 3},
+  {id: 209,cat: "sub",stage: 2,words: ["바람이","씽씽","분다."],mark: 1,answer: "부속성분",hint: "\"어떻게 분다?\"에 답하는 말이에요. 서술어를 꾸미는 말은 어떤 성분인가요?",detail: "\"씽씽\"은 부는 모양을 나타내며 서술어 \"분다\"를 꾸미는 부사어예요. 부사어는 부속성분입니다.",edge: false,src: "교사 제공",level: 1},
+  {id: 210,cat: "sub",stage: 2,words: ["나는","우리","가족을","사랑한다."],mark: 1,answer: "부속성분",hint: "\"우리\"는 \"가족\"을 꾸미나요, 서술어 \"사랑한다\"의 주체인가요?",detail: "\"우리\"는 \"누구의 가족?\"에 답하며 체언 \"가족\"을 꾸미는 관형어예요. 사랑하는 주체(주어)는 \"나는\"입니다. 관형어는 부속성분이에요.",edge: false,src: "기억(미확인)",level: 2},
+  {id: 211,cat: "main",stage: 2,words: ["나는","아침에","빵","먹었어."],mark: 2,answer: "주성분",hint: "무엇을 먹었나요? 조사가 없어도 그 자리가 어떤 성분인지 생각해 보세요.",detail: "\"빵\"은 \"먹었어\"의 대상이에요. \"빵을\"에서 \"을\"이 빠졌을 뿐 목적어이므로 주성분입니다.",edge: true,src: "기준표 3-1",level: 2},
+  {id: 212,cat: "sub",stage: 2,words: ["교사는","학생에게","영향을","준다."],mark: 1,answer: "부속성분",hint: "\"누구에게 준다?\"에 답하는 말이에요. 빼면 어색해도, 성분 이름부터 정해 보세요.",detail: "\"준다\"는 받는 대상이 필요해서 \"학생에게\"를 빼면 뜻이 모자라요. 그래도 이 말은 부사어(필수적 부사어)이고, 부사어는 부속성분입니다.",edge: true,src: "기준표 3-1",level: 3},
+  {id: 213,cat: "main",stage: 2,words: ["아버지가","부엌에서","요리를","하신다."],mark: 3,answer: "주성분",hint: "주어가 \"어찌하는지\"를 말해 주는 자리는 어떤 성분인가요?",detail: "\"하신다\"는 아버지가 무엇을 하는지 풀이하는 서술어예요. 서술어가 없으면 문장이 되지 않으니 주성분입니다.",edge: false,src: "교사 제공",level: 1},
+  {id: 214,cat: "sub",stage: 2,words: ["갑자기","비가","엄청","쏟아졌다."],mark: 0,answer: "부속성분",hint: "맨 앞에 있지만, \"갑자기\"는 무엇을 꾸미나요?",detail: "\"갑자기\"는 비가 어떻게 쏟아졌는지 나타내며 \"쏟아졌다\"를 꾸미는 부사어예요. 문장 맨 앞에 있다고 주어는 아닙니다. 부속성분이에요.",edge: false,src: "교사 제공",level: 1},
+  {id: 215,cat: "main",stage: 2,words: ["그는","친구에게서","우정을","느꼈다."],mark: 2,answer: "주성분",hint: "무엇을 느꼈나요? 그 대상이 되는 자리는 어떤 성분인가요?",detail: "\"느꼈다\"의 대상이 \"우정\"이므로 \"우정을\"은 목적어예요. 목적어는 주성분입니다. 같은 문장의 \"친구에게서\"는 부사어(부속성분)이에요.",edge: false,src: "교사 제공",level: 1},
+  {id: 216,cat: "main",stage: 2,words: ["누나는","만화도","좋아한다."],mark: 1,answer: "주성분",hint: "누나가 무엇을 좋아하나요? \"도\"를 \"를\"로 바꾸어 보세요.",detail: "\"만화도\"를 \"만화를\"로 바꿔도 뜻이 통해요. 좋아하는 대상이므로 목적어이고, 보조사 \"도\"가 붙어도 목적어는 주성분입니다.",edge: true,src: "기준표 3-1",level: 2},
+  {id: 217,cat: "sub",stage: 2,words: ["동생의","가방이","무겁다."],mark: 0,answer: "부속성분",hint: "\"동생의\"는 서술어 \"무겁다\"와 이어지나요, \"가방\"과 이어지나요?",detail: "무거운 것은 동생이 아니라 가방이에요. \"동생의\"는 \"누구의 가방?\"에 답하며 체언 \"가방\"을 꾸미는 관형어이므로 부속성분입니다. 조사가 붙었다고 주성분은 아니에요.",edge: false,src: "기억(미확인)",level: 2},
+  {id: 219,cat: "main",stage: 2,words: ["다윤이가","쓰레기통을","비웠다."],mark: 1,answer: "주성분",hint: "무엇을 비웠나요? 서술어의 대상이 되는 말은 어떤 성분인가요?",detail: "\"비웠다\"의 대상이 \"쓰레기통\"이므로 \"쓰레기통을\"은 목적어예요. 목적어는 주성분입니다.",edge: false,src: "교사 제공",level: 1},
+  {id: 220,cat: "main",stage: 2,words: ["할아버지께서","콩나물을","사셨다."],mark: 0,answer: "주성분",hint: "콩나물을 산 사람은 누구인가요?",detail: "\"께서\"는 높임의 주격 조사예요. \"사셨다\"의 주체이므로 주어이고, 주어는 주성분입니다.",edge: false,src: "교사 제공",level: 1},
+  {id: 221,cat: "main",stage: 2,words: ["빨간","장미가","피었다."],mark: 1,answer: "주성분",hint: "무엇이 피었나요?",detail: "피어난 것은 장미이므로 \"장미가\"는 주어예요. 앞의 \"빨간\"은 장미를 꾸미는 관형어(부속성분)이고, \"장미가\"는 주성분입니다.",edge: false,src: "교사 제공",level: 1},
+  {id: 222,cat: "main",stage: 2,words: ["연필의","심이","부러졌다."],mark: 1,answer: "주성분",hint: "부러진 것은 연필인가요, 심인가요?",detail: "부러진 것은 \"심\"이에요. \"심이\"는 \"부러졌다\"의 주체인 주어라서 주성분입니다. \"연필의\"는 심을 꾸미는 관형어예요.",edge: false,src: "교사 제공",level: 1},
+  {id: 223,cat: "sub",stage: 2,words: ["경찰이","이","사건을","철저히","조사하겠지."],mark: 3,answer: "부속성분",hint: "\"어떻게 조사하나?\"에 답하는 말이에요. 이런 말은 어떤 성분인가요?",detail: "\"철저히\"는 조사하는 모습을 나타내며 \"조사하겠지\"를 꾸미는 부사어예요. 부사어는 부속성분입니다.",edge: false,src: "교사 제공",level: 1},
+  {id: 224,cat: "sub",stage: 2,words: ["혜주가","만화를","화려하게","그려냈다."],mark: 2,answer: "부속성분",hint: "\"어떻게 그려냈나?\"에 답하는 말이에요.",detail: "\"화려하게\"는 그린 모습을 나타내며 \"그려냈다\"를 꾸미는 부사어예요(형용사 \"화려하다\"의 부사형). 부사어는 부속성분입니다.",edge: false,src: "교사 제공",level: 1},
+  {id: 225,cat: "sub",stage: 2,words: ["예찬이가","멋있는","춤을","췄다."],mark: 1,answer: "부속성분",hint: "\"멋있는\"은 무엇을 꾸미나요?",detail: "\"멋있는\"은 \"어떤 춤?\"에 답하며 체언 \"춤\"을 꾸미는 관형어예요. 관형어는 부속성분입니다.",edge: false,src: "교사 제공",level: 1},
+  {id: 226,cat: "sub",stage: 2,words: ["나는","학교에서","잠을","잔다."],mark: 1,answer: "부속성분",hint: "\"학교에서\"는 잠을 자는 사람인가요, 장소인가요?",detail: "\"학교에서\"는 잠을 자는 장소를 나타내며 \"잔다\"를 꾸미는 부사어예요(부사격 조사 \"에서\"). 부사어는 부속성분입니다. \"정부에서 정책을 폈다\"의 \"에서\"와 비교해 보세요.",edge: false,src: "교사 제공",level: 2},
+  {id: 227,cat: "main",stage: 2,words: ["정부에서","강력한","부동산","정책을","폈다."],mark: 0,answer: "주성분",hint: "정책을 편 주체는 누구인가요? \"에서\"를 \"가\"로 바꾸어 보세요.",detail: "정책을 편 주체가 정부이므로 \"정부에서\"는 주어예요. 단체 뒤의 \"에서\"는 주격 조사로 쓰여요. 같은 \"에서\"라도 장소를 나타내면 부사어입니다. 주어는 주성분이에요.",edge: true,src: "교사 제공",level: 3},
+  {id: 228,cat: "sub",stage: 2,words: ["예지가","육상","선수가","되었다."],mark: 1,answer: "부속성분",hint: "\"육상\"은 무엇을 꾸미나요?",detail: "\"육상\"은 명사지만 \"어떤 선수?\"에 답하며 \"선수\"를 꾸미는 관형어예요. 보어는 \"선수가\"이고, \"육상\"은 부속성분입니다.",edge: false,src: "교사 제공",level: 2},
+  {id: 229,cat: "sub",stage: 2,words: ["동생","몸이","튼튼하다."],mark: 0,answer: "부속성분",hint: "튼튼한 것은 동생인가요, 몸인가요?",detail: "튼튼한 것은 \"몸\"이에요. \"동생\"은 조사 없이 \"누구의 몸?\"에 답하며 \"몸\"을 꾸미는 관형어라서 부속성분입니다.",edge: false,src: "교사 제공",level: 2},
+  {id: 230,cat: "sub",stage: 2,words: ["수박이","꿀처럼","달다."],mark: 1,answer: "부속성분",hint: "\"꿀처럼\"은 무엇을 꾸미나요?",detail: "\"꿀처럼\"은 \"어떻게 단가?\"에 답하며 \"달다\"를 꾸미는 부사어예요(조사 \"처럼\"). 부사어는 부속성분입니다.",edge: false,src: "교사 제공",level: 2},
+  {id: 231,cat: "main",stage: 2,words: ["한별이는","당번이","아니야."],mark: 1,answer: "주성분",hint: "서술어가 \"아니다\"예요. 그 앞에서 서술어를 채우는 말은?",detail: "\"아니야\"(아니다) 앞에서 무엇이 아닌지 채우는 \"당번이\"는 보어예요. 보어는 주성분입니다.",edge: true,src: "교사 제공",level: 3},
+  {id: 232,cat: "main",stage: 2,words: ["형이","대학생이","되었다."],mark: 1,answer: "주성분",hint: "서술어가 \"되다\"예요. 무엇이 되었나요?",detail: "\"되었다\" 앞에서 무엇이 되었는지 채우는 \"대학생이\"는 보어예요. 주어는 \"형이\"이고, 보어는 주성분입니다.",edge: true,src: "교사 제공",level: 3},
+  {id: 233,cat: "sub",stage: 2,words: ["나는","모델처럼","생겼다."],mark: 1,answer: "부속성분",hint: "\"모델처럼\"을 빼면 어색하지요. 그래도 성분 이름부터 정해 보세요.",detail: "\"생겼다\"는 어떻게 생겼는지가 있어야 해서 \"모델처럼\"을 빼면 어색해요. 이런 필수적 부사어도 부사어라서 부속성분입니다.",edge: true,src: "교사 제공",level: 3},
+  {id: 301,cat: "one",stage: 3,words: ["꽃이","활짝","피었다."],mark: 2,answer: "한 자리",hint: "\"꽃이\"와 \"활짝\" 가운데 빼면 문장이 어색해지는 말은 무엇인가요?",detail: "\"꽃이 피었다\"만으로 뜻이 완성돼요. \"활짝\"은 빼도 되는 부사어라서 자릿수에 넣지 않아요. 주어 하나만 필요하니 한 자리 서술어예요.",edge: false,src: "교사 제공",level: 1},
+  {id: 302,cat: "one",stage: 3,words: ["바닷물이","아주","차갑다."],mark: 2,answer: "한 자리",hint: "\"무엇이 차갑다\"에서 더 채워야 할 자리가 있나요?",detail: "\"바닷물이 차갑다\"로 문장이 끝나요. 형용사 \"차갑다\"는 주어 하나만 요구하므로 한 자리 서술어예요.",edge: false,src: "기억(미확인)",level: 1},
+  {id: 306,cat: "one",stage: 3,words: ["어제","갑자기","눈이","내렸다."],mark: 3,answer: "한 자리",hint: "\"눈이 내렸다\"에 더 채워야 할 자리가 있나요?",detail: "\"어제\", \"갑자기\"는 빼도 되는 부사어이고, \"눈이 내렸다\"로 완성돼요. 한 자리 서술어예요.",edge: false,src: "기억(미확인)",level: 1},
+  {id: 311,cat: "two",stage: 3,words: ["나는","아침에","빵을","먹었다."],mark: 3,answer: "두 자리",hint: "\"무엇을 먹었나?\"를 빼면 어떻게 되나요? \"아침에\"는 어떤가요?",detail: "\"먹다\"는 먹는 사람(주어)과 먹는 대상(목적어 \"빵을\")이 꼭 필요해요. \"아침에\"는 빼도 돼요. 그래서 두 자리 서술어예요.",edge: false,src: "기억(미확인)",level: 1},
+  {id: 312,cat: "two",stage: 3,words: ["물이","얼음이","되었다."],mark: 2,answer: "두 자리",hint: "\"물이 되었다\"만으로 뜻이 통하나요?",detail: "\"되다\"는 무엇이 되었는지 채우는 보어(\"얼음이\")가 꼭 필요해요. 주어와 보어, 두 자리 서술어예요. 목적어가 없어도 두 자리일 수 있어요.",edge: true,src: "기준표 3-1",level: 2},
+  {id: 317,cat: "two",stage: 3,words: ["형은","축구를","무척","좋아한다."],mark: 3,answer: "두 자리",hint: "무엇을 좋아하는지 빼면 문장이 완성되나요?",detail: "\"좋아하다\"는 좋아하는 사람과 좋아하는 대상(\"축구를\")이 꼭 필요해요. \"무척\"은 빼도 되니 두 자리 서술어예요.",edge: false,src: "기억(미확인)",level: 1},
+  {id: 321,cat: "three",stage: 3,words: ["나는","친구에게","편지를","보냈다."],mark: 3,answer: "세 자리",hint: "\"친구에게\"를 빼면 누구에게 보냈는지 궁금하지 않나요? 꼭 필요한 말을 모두 세어 보세요.",detail: "\"보내다\"는 보내는 사람, 받는 사람(\"친구에게\"), 보내는 것(\"편지를\")이 모두 필요해요. 세 자리 서술어예요.",edge: false,src: "교사 제공",level: 1},
+  {id: 322,cat: "three",stage: 3,words: ["동생이","가방에","책을","넣었다."],mark: 3,answer: "세 자리",hint: "\"동생이 책을 넣었다\"라고만 하면 뜻이 다 통하나요?",detail: "\"넣다\"는 무엇을(\"책을\") 어디에(\"가방에\") 넣는지가 모두 필요해요. 주어까지 세 자리 서술어예요.",edge: true,src: "기준표 3-1",level: 1},
+  {id: 323,cat: "three",stage: 3,words: ["누나가","동생에게","수학을","가르친다."],mark: 3,answer: "세 자리",hint: "가르치는 사람 말고 꼭 필요한 말이 몇 개인가요?",detail: "\"가르치다\"는 가르치는 사람, 배우는 사람(\"동생에게\"), 가르치는 내용(\"수학을\")이 필요해요. 세 자리 서술어예요.",edge: false,src: "기억(미확인)",level: 1},
+  {id: 331,cat: "one",stage: 3,words: ["아기가","웃는다."],mark: 1,answer: "한 자리",hint: "\"아기가 웃는다\"에 더 채워야 할 자리가 있나요?",detail: "\"웃다\"는 웃는 사람(주어)만 있으면 문장이 완성돼요. 한 자리 서술어예요.",edge: false,src: "기억(미확인)",level: 1},
+  {id: 332,cat: "one",stage: 3,words: ["바람이","분다."],mark: 1,answer: "한 자리",hint: "\"무엇이 분다\"만으로 뜻이 다 통하나요?",detail: "\"바람이 분다\"로 문장이 끝나요. 주어 하나만 필요한 한 자리 서술어예요.",edge: false,src: "기억(미확인)",level: 1},
+  {id: 333,cat: "two",stage: 3,words: ["동생이","우유를","마신다."],mark: 2,answer: "두 자리",hint: "무엇을 마시는지 빼면 문장이 완성되나요?",detail: "\"마시다\"는 마시는 사람과 마시는 것(\"우유를\")이 꼭 필요해요. 두 자리 서술어예요.",edge: false,src: "기억(미확인)",level: 1},
+  {id: 335,cat: "three",stage: 3,words: ["나는","동생에게","연필을","빌려주었다."],mark: 3,answer: "세 자리",hint: "누구에게, 무엇을 빌려주었는지 가운데 하나를 빼 보세요. 문장이 완성되나요?",detail: "\"빌려주다\"는 빌려주는 사람, 받는 사람(\"동생에게\"), 빌려주는 물건(\"연필을\")이 모두 필요해요. 세 자리 서술어예요.",edge: false,src: "기억(미확인)",level: 1},
+  {id: 336,cat: "one",stage: 3,words: ["개나리가","피었다."],mark: 1,answer: "한 자리",hint: "\"개나리가 피었다\"에 더 채워야 할 자리가 있나요?",detail: "\"피다\"는 주어 하나만 있으면 문장이 완성돼요. 한 자리 서술어예요.",edge: false,src: "교사 제공",level: 1},
+  {id: 337,cat: "two",stage: 3,words: ["아이가","과자를","먹는다."],mark: 2,answer: "두 자리",hint: "무엇을 먹는지 빼면 문장이 완성되나요?",detail: "\"먹다\"는 먹는 사람과 먹는 것(\"과자를\")이 꼭 필요해요. 두 자리 서술어예요.",edge: false,src: "교사 제공",level: 1},
+  {id: 338,cat: "three",stage: 3,words: ["친구가","나에게","용기를","주었다."],mark: 3,answer: "세 자리",hint: "받는 사람과 주는 것 가운데 하나를 빼 보세요. 문장이 완성되나요?",detail: "\"주다\"는 주는 사람, 받는 사람(\"나에게\"), 주는 것(\"용기를\")이 모두 필요해요. 세 자리 서술어예요.",edge: false,src: "교사 제공",level: 1},
+  {id: 339,cat: "two",stage: 3,words: ["다윤이가","쓰레기통을","비웠다."],mark: 2,answer: "두 자리",hint: "무엇을 비웠는지 빼면 문장이 완성되나요?",detail: "\"비우다\"는 비우는 사람과 비우는 것(\"쓰레기통을\")이 필요해요. 두 자리 서술어예요.",edge: false,src: "교사 제공",level: 1},
+  {id: 340,cat: "three",stage: 3,words: ["엄마가","탕후루를","냉장고에","넣었다."],mark: 3,answer: "세 자리",hint: "무엇을, 어디에 넣었는지 가운데 하나를 빼 보세요.",detail: "\"넣다\"는 넣는 사람, 넣는 것(\"탕후루를\"), 넣는 곳(\"냉장고에\")이 모두 필요해요. \"에게\"가 없어도 세 자리 서술어예요.",edge: false,src: "교사 제공",level: 1},
+  {id: 341,cat: "two",stage: 3,words: ["한별이는","당번이","아니야."],mark: 2,answer: "두 자리",hint: "\"한별이는 아니야\"만으로 뜻이 통하나요?",detail: "\"아니다\"는 무엇이 아닌지(\"당번이\", 보어)가 꼭 필요해요. 목적어가 없어도 두 자리 서술어예요.",edge: true,src: "교사 제공",level: 2},
+  {id: 342,cat: "three",stage: 3,words: ["나는","영철이를","동생으로","삼았다."],mark: 3,answer: "세 자리",hint: "\"나는 영철이를 삼았다\"만으로 뜻이 통하나요?",detail: "\"삼다\"는 누구를(\"영철이를\") 무엇으로(\"동생으로\") 삼는지가 모두 필요해요. 세 자리 서술어예요.",edge: true,src: "교사 제공",level: 2},
+  {id: 343,cat: "two",stage: 3,words: ["나는","모델처럼","생겼다."],mark: 2,answer: "두 자리",hint: "\"나는 생겼다\"만으로 뜻이 통하나요?",detail: "\"생기다\"(생김새)는 어떻게 생겼는지(\"모델처럼\")가 꼭 필요해요. 이런 필수적 부사어도 자리를 차지해 두 자리 서술어예요.",edge: true,src: "교사 제공",level: 2},
+  {id: 344,cat: "two",stage: 3,words: ["사람들이","택시를","기다린다."],mark: 2,answer: "두 자리",hint: "무엇을 기다리는지 빼면 문장이 완성되나요?",detail: "\"기다리다\"는 기다리는 사람과 기다리는 대상(\"택시를\")이 필요해요. 두 자리 서술어예요.",edge: false,src: "교사 제공",level: 1},
+  {id: 345,cat: "two",stage: 3,words: ["주번이","문을","닫았다."],mark: 2,answer: "두 자리",hint: "무엇을 닫았는지 빼면 뜻이 다 통하나요?",detail: "\"닫다\"는 닫는 사람과 닫는 것(\"문을\")이 필요해요. 두 자리 서술어예요.",edge: false,src: "교사 제공",level: 1},
+  {id: 346,cat: "one",stage: 3,words: ["물이","흐른다."],mark: 1,answer: "한 자리",hint: "\"물이 흐른다\"에 더 채워야 할 자리가 있나요?",detail: "\"흐르다\"는 흐르는 것(주어)만 있으면 문장이 완성돼요. 한 자리 서술어예요.",edge: false,src: "교사 제공",level: 1},
+  {id: 347,cat: "one",stage: 3,words: ["동생이","잔다."],mark: 1,answer: "한 자리",hint: "\"동생이 잔다\"에 더 채워야 할 자리가 있나요?",detail: "\"자다\"는 자는 사람(주어)만 있으면 문장이 완성돼요. 한 자리 서술어예요.",edge: false,src: "교사 제공",level: 1},
+  {id: 348,cat: "one",stage: 3,words: ["우리","반","아이들이","점심시간에","운동장에서","신나게","뛰어놀았다."],mark: 6,answer: "한 자리",hint: "어절이 일곱 개예요. \"언제, 어디서, 어떻게\"를 모두 빼면 무엇이 남나요?",detail: "\"점심시간에\", \"운동장에서\", \"신나게\"는 모두 빼도 되는 부사어예요. \"아이들이 뛰어놀았다\"만으로 뜻이 완성되니 한 자리 서술어예요. 문장이 길어도 자릿수는 늘지 않아요.",edge: false,src: "기억(미확인)",level: 2},
+  {id: 349,cat: "one",stage: 3,words: ["작은","새","한","마리가","이른","아침부터","창밖에서","지저귄다."],mark: 7,answer: "한 자리",hint: "\"새가 지저귄다\"만 남겨도 문장이 되나요?",detail: "\"작은, 한, 이른\"은 꾸미는 말이고 \"아침부터\", \"창밖에서\"는 빼도 되는 부사어예요. \"새가 지저귄다\"로 완성되니 한 자리 서술어예요.",edge: false,src: "기억(미확인)",level: 2},
+  {id: 350,cat: "one",stage: 3,words: ["할머니께서","따뜻한","봄볕","아래에서","꾸벅꾸벅","조신다."],mark: 5,answer: "한 자리",hint: "누가 조는지만 있으면 뜻이 통하나요? 나머지 말은 꼭 필요한가요?",detail: "\"따뜻한 봄볕 아래에서\", \"꾸벅꾸벅\"은 빼도 되는 말이에요. \"할머니께서 조신다\"로 완성되니 한 자리 서술어예요.",edge: false,src: "기억(미확인)",level: 2},
+  {id: 351,cat: "one",stage: 3,words: ["지난밤","우리","동네에","비가","아주","많이","내렸다."],mark: 6,answer: "한 자리",hint: "\"동네에\"를 빼 보세요. \"비가 내렸다\"가 어색한가요?",detail: "\"지난밤\", \"우리 동네에\", \"아주 많이\"는 모두 빼도 되는 말이에요. \"에\"가 붙었어도 꼭 필요하지 않으면 자리를 차지하지 않아요. \"비가 내렸다\", 한 자리 서술어예요.",edge: false,src: "기억(미확인)",level: 2},
+  {id: 352,cat: "one",stage: 3,words: ["별이","반짝인다."],mark: 1,answer: "한 자리",hint: "\"별이 반짝인다\"에 더 채워야 할 자리가 있나요?",detail: "\"반짝이다\"는 반짝이는 것(주어)만 있으면 문장이 완성돼요. 한 자리 서술어예요.",edge: false,src: "기억(미확인)",level: 1},
+  {id: 353,cat: "two",stage: 3,words: ["언니가","매일","아침","일기를","쓴다."],mark: 4,answer: "두 자리",hint: "\"매일 아침\"과 \"일기를\" 가운데 빼면 어색해지는 말은?",detail: "\"매일 아침\"은 빼도 되지만, \"쓰다\"는 무엇을 쓰는지(\"일기를\")가 꼭 필요해요. 두 자리 서술어예요.",edge: false,src: "기억(미확인)",level: 1},
+  {id: 354,cat: "two",stage: 3,words: ["동생이","방에서","숙제를","한다."],mark: 3,answer: "두 자리",hint: "\"방에서\"와 \"숙제를\" 가운데 꼭 필요한 말은?",detail: "\"방에서\"는 빼도 되지만 \"하다\"는 무엇을 하는지(\"숙제를\")가 필요해요. 두 자리 서술어예요.",edge: false,src: "기억(미확인)",level: 1},
+  {id: 355,cat: "two",stage: 3,words: ["아버지께서","신문을","읽으신다."],mark: 2,answer: "두 자리",hint: "무엇을 읽으시는지 빼면 문장이 완성되나요?",detail: "\"읽다\"는 읽는 사람과 읽는 것(\"신문을\")이 필요해요. \"-시-\"는 높임일 뿐 자릿수와 관계없어요. 두 자리 서술어예요.",edge: false,src: "기억(미확인)",level: 1},
+  {id: 356,cat: "three",stage: 3,words: ["선생님께서","우리에게","숙제를","내주셨다."],mark: 3,answer: "세 자리",hint: "누구에게, 무엇을 내주셨는지 가운데 하나를 빼 보세요.",detail: "\"내주다\"는 내주는 사람, 받는 사람(\"우리에게\"), 내주는 것(\"숙제를\")이 모두 필요해요. 세 자리 서술어예요.",edge: false,src: "기억(미확인)",level: 1},
+  {id: 357,cat: "three",stage: 3,words: ["나는","어제","할머니께","전화를","드렸다."],mark: 4,answer: "세 자리",hint: "\"어제\"는 꼭 필요한가요? 누구께, 무엇을 드렸는지는 어떤가요?",detail: "\"어제\"는 빼도 되지만 \"드리다\"(주다의 높임말)는 받는 분(\"할머니께\")과 드리는 것(\"전화를\")이 모두 필요해요. 세 자리 서술어예요.",edge: false,src: "기억(미확인)",level: 2},
+  {id: 402,words: ["세","사람이","웃었다."],level: 2,edge: true,src: "기준표 2-2",mods: [{i: 0,head: 1,headWord: "사람",pos: "명사",role: "관형어",hint: {b: "\"세\"가 몇 개인지 알려 주는 대상은?",c: "\"사람\"은 수를 나타내나요, 대상의 이름인가요?"},detail: "\"세\"는 \"몇 사람?\"에 답하며 \"사람\"을 꾸며요. \"사람\"이 명사(체언)이므로 \"세\"는 관형어예요. 수를 나타내도 체언을 꾸미면 수사가 아니라 관형사예요(\"셋이 웃었다\"의 \"셋\"은 수사)."}],cat: "gwan",stage: 4,hint: {a: "\"어떤 ○○?\" \"누구의 ○○?\" \"어떻게?\" \"얼마나?\" \"언제?\"에 답하는 말을 찾아보세요. 주어·목적어·서술어는 꾸며 주는 말이 아니에요."}},
+  {id: 404,words: ["이","둘이","친하다."],level: 2,edge: true,src: "기준표 2-2",mods: [{i: 0,head: 1,headWord: "둘",pos: "수사",role: "관형어",hint: {b: "\"이\"가 가리키는 대상은?",c: "\"둘\" 뒤에 조사 \"이\"가 붙었어요. 수량을 나타내며 조사가 붙는 말은 무엇인가요?"},detail: "\"이\"는 \"어느 둘?\"에 답하며 \"둘\"을 꾸며요. \"둘\"은 수량을 나타내고 조사가 붙었으니 수사(체언)예요. 그래서 \"이\"는 관형어예요."}],cat: "gwan",stage: 4,hint: {a: "\"어떤 ○○?\" \"누구의 ○○?\" \"어떻게?\" \"얼마나?\" \"언제?\"에 답하는 말을 찾아보세요. 주어·목적어·서술어는 꾸며 주는 말이 아니에요."}},
+  {id: 405,words: ["우리는","용감한","그녀를","응원했다."],level: 1,edge: false,src: "기억(미확인)",mods: [{i: 1,head: 2,headWord: "그녀",pos: "대명사",role: "관형어",hint: {b: "용감한 사람은 누구인가요?",c: "\"그녀\"는 사람의 이름을 대신해 가리키는 말인가요?"},detail: "\"용감한\"은 \"어떤 그녀?\"에 답하며 \"그녀\"를 꾸며요. \"그녀\"는 대명사(체언)이므로 \"용감한\"은 관형어예요."}],cat: "gwan",stage: 4,hint: {a: "\"어떤 ○○?\" \"누구의 ○○?\" \"어떻게?\" \"얼마나?\" \"언제?\"에 답하는 말을 찾아보세요. 주어·목적어·서술어는 꾸며 주는 말이 아니에요."}},
+  {id: 406,words: ["나는","헌","것을","버렸다."],level: 1,edge: false,src: "기억(미확인)",mods: [{i: 1,head: 2,headWord: "것",pos: "명사",role: "관형어",hint: {b: "\"헌\" 뒤에 와서 \"헌 ○\"이 되는 말은?",c: "\"것\" 뒤에 조사 \"을\"이 붙었어요. 조사가 붙는 말은 어떤 품사들인가요?"},detail: "\"헌\"은 \"어떤 것?\"에 답하며 \"것\"을 꾸며요. \"것\"은 앞에 꾸미는 말이 있어야 쓰이는 의존 명사로 명사에 속해요. 그래서 \"헌\"은 관형어예요."}],cat: "gwan",stage: 4,hint: {a: "\"어떤 ○○?\" \"누구의 ○○?\" \"어떻게?\" \"얼마나?\" \"언제?\"에 답하는 말을 찾아보세요. 주어·목적어·서술어는 꾸며 주는 말이 아니에요."}},
+  {id: 412,words: ["하늘이","몹시","파랗다."],level: 1,edge: false,src: "교사 제공",mods: [{i: 1,head: 2,headWord: "파랗다",pos: "형용사",role: "부사어",hint: {b: "\"몹시\" 무엇한가요?",c: "\"파랗는다\"라고 할 수 있나요?"},detail: "\"몹시\"는 \"얼마나 파랗나?\"에 답하며 \"파랗다\"를 꾸며요. \"파랗다\"는 형용사(용언)이므로 \"몹시\"는 부사어예요."}],cat: "busa",stage: 4,hint: {a: "\"어떤 ○○?\" \"누구의 ○○?\" \"어떻게?\" \"얼마나?\" \"언제?\"에 답하는 말을 찾아보세요. 주어·목적어·서술어는 꾸며 주는 말이 아니에요."}},
+  {id: 413,words: ["동생은","아주","빨리","달렸다."],level: 3,edge: false,src: "기억(미확인)",mods: [{i: 1,head: 2,headWord: "빨리",pos: "부사",role: "부사어",hint: {b: "\"아주 달렸다\"와 \"아주 빨리\" 가운데 어느 쪽이 뜻이 맞나요?",c: "\"빨리\"는 모양이 바뀌나요? 무엇을 꾸미는 말인가요?"},detail: "\"아주\"는 \"얼마나 빨리?\"에 답하며 \"빨리\"를 꾸며요. \"빨리\"는 부사이므로 \"아주\"는 부사어예요. 부사어는 부사도 꾸며요."},{i: 2,head: 3,headWord: "달렸다",pos: "동사",role: "부사어",hint: {b: "\"빨리\" 어찌했나요?",c: "\"달리다\"에 \"-ㄴ다\"를 붙여 보세요."},detail: "\"빨리\"는 \"어떻게 달렸나?\"에 답하며 \"달렸다\"를 꾸며요. \"달렸다\"는 동사(용언)이므로 \"빨리\"는 부사어예요."}],cat: "busa",stage: 4,hint: {a: "\"어떤 ○○?\" \"누구의 ○○?\" \"어떻게?\" \"얼마나?\" \"언제?\"에 답하는 말을 찾아보세요. 주어·목적어·서술어는 꾸며 주는 말이 아니에요."}},
+  {id: 414,words: ["언니는","아주","새","옷을","입었다."],level: 3,edge: false,src: "기억(미확인)",mods: [{i: 1,head: 2,headWord: "새",pos: "관형사",role: "부사어",hint: {b: "\"아주 입었다\"와 \"아주 새\" 가운데 어느 쪽이 뜻이 맞나요?",c: "\"새\"는 조사도 붙지 않고 모양도 바뀌지 않으면서 체언을 꾸며요. 어떤 품사인가요?"},detail: "\"아주\"는 \"얼마나 새?\"에 답하며 \"새\"를 꾸며요. \"새\"는 관형사이고 체언이 아니므로 \"아주\"는 부사어예요. 부사어는 관형사도 꾸며요."},{i: 2,head: 3,headWord: "옷",pos: "명사",role: "관형어",hint: {b: "\"새\" 뒤에 이어 읽어서 뜻이 통하는 말은?",c: "\"옷\"은 사물의 이름인가요?"},detail: "\"새\"는 \"어떤 옷?\"에 답하며 \"옷\"을 꾸며요. \"옷\"이 명사(체언)이므로 \"새\"는 관형어예요."}],cat: "busa",stage: 4,hint: {a: "\"어떤 ○○?\" \"누구의 ○○?\" \"어떻게?\" \"얼마나?\" \"언제?\"에 답하는 말을 찾아보세요. 주어·목적어·서술어는 꾸며 주는 말이 아니에요."}},
+  {id: 415,words: ["어제","나는","영화를","보았다."],level: 2,edge: false,src: "기억(미확인)",mods: [{i: 0,head: 3,headWord: "보았다",pos: "동사",role: "부사어",hint: {b: "\"어제\" 무엇을 했나요? 바로 뒤의 말이 아니어도 됩니다.",c: "\"보다\"에 \"-ㄴ다\"를 붙여 보세요."},detail: "\"어제\"는 \"언제 보았나?\"에 답하며 멀리 떨어진 \"보았다\"를 꾸며요. \"보았다\"는 동사(용언)이므로 \"어제\"는 부사어예요."}],cat: "busa",stage: 4,hint: {a: "\"어떤 ○○?\" \"누구의 ○○?\" \"어떻게?\" \"얼마나?\" \"언제?\"에 답하는 말을 찾아보세요. 주어·목적어·서술어는 꾸며 주는 말이 아니에요."}},
+  {id: 416,words: ["동생이","빨리","숙제를","끝냈다."],level: 2,edge: false,src: "기억(미확인)",mods: [{i: 1,head: 3,headWord: "끝냈다",pos: "동사",role: "부사어",hint: {b: "\"빨리 숙제\"와 \"빨리 끝냈다\" 가운데 어느 쪽이 뜻이 맞나요?",c: "\"끝내다\"에 \"-ㄴ다\"를 붙여 보세요."},detail: "\"빨리\"는 바로 뒤 \"숙제를\"이 아니라 \"어떻게 끝냈나?\"에 답하며 \"끝냈다\"를 꾸며요. \"끝냈다\"는 동사(용언)이므로 \"빨리\"는 부사어예요."}],cat: "busa",stage: 4,hint: {a: "\"어떤 ○○?\" \"누구의 ○○?\" \"어떻게?\" \"얼마나?\" \"언제?\"에 답하는 말을 찾아보세요. 주어·목적어·서술어는 꾸며 주는 말이 아니에요."}},
+  {id: 419,words: ["매우","예쁜","꽃이","피었다."],level: 3,edge: false,src: "기억(미확인)",mods: [{i: 0,head: 1,headWord: "예쁜",pos: "형용사",role: "부사어",hint: {b: "\"매우 꽃\"과 \"매우 예쁜\" 가운데 어느 쪽이 뜻이 맞나요?",c: "\"예쁜\"의 기본형 \"예쁘다\"에 \"-ㄴ다\"를 붙일 수 있나요?"},detail: "\"매우\"는 \"얼마나 예쁜?\"에 답하며 \"예쁜\"을 꾸며요. \"예쁜\"은 형용사(용언)이므로 \"매우\"는 부사어예요. \"예쁜\"은 문장에서 관형어지만 품사는 형용사예요."},{i: 1,head: 2,headWord: "꽃",pos: "명사",role: "관형어",hint: {b: "\"예쁜\" 것은 무엇인가요?",c: "\"꽃\"은 무엇의 이름인가요?"},detail: "\"예쁜\"은 \"어떤 꽃?\"에 답하며 \"꽃\"을 꾸며요. \"꽃\"이 명사(체언)이므로 \"예쁜\"은 관형어예요. 품사는 형용사지만 성분은 관형어예요."}],cat: "busa",stage: 4,hint: {a: "\"어떤 ○○?\" \"누구의 ○○?\" \"어떻게?\" \"얼마나?\" \"언제?\"에 답하는 말을 찾아보세요. 주어·목적어·서술어는 꾸며 주는 말이 아니에요."}},
+  {id: 420,words: ["예찬이가","멋있는","춤을","췄다."],level: 1,edge: false,src: "교사 제공",mods: [{i: 1,head: 2,headWord: "춤",pos: "명사",role: "관형어",hint: {b: "\"멋있는\" 것은 무엇인가요?",c: "\"춤\"은 무엇의 이름인가요?"},detail: "\"멋있는\"은 \"어떤 춤?\"에 답하며 \"춤\"을 꾸며요. \"춤\"이 명사(체언)이므로 \"멋있는\"은 관형어예요. \"멋있는\"의 품사는 형용사(멋있다)예요."}],cat: "gwan",stage: 4,hint: {a: "\"어떤 ○○?\" \"누구의 ○○?\" \"어떻게?\" \"얼마나?\" \"언제?\"에 답하는 말을 찾아보세요. 주어·목적어·서술어는 꾸며 주는 말이 아니에요."}},
+  {id: 421,words: ["빨간","장미가","피었다."],level: 1,edge: false,src: "교사 제공",mods: [{i: 0,head: 1,headWord: "장미",pos: "명사",role: "관형어",hint: {b: "무엇이 빨간가요?",c: "\"장미\"는 무엇의 이름인가요?"},detail: "\"빨간\"은 \"어떤 장미?\"에 답하며 \"장미\"를 꾸며요. \"장미\"가 명사(체언)이므로 \"빨간\"은 관형어예요."}],cat: "gwan",stage: 4,hint: {a: "\"어떤 ○○?\" \"누구의 ○○?\" \"어떻게?\" \"얼마나?\" \"언제?\"에 답하는 말을 찾아보세요. 주어·목적어·서술어는 꾸며 주는 말이 아니에요."}},
+  {id: 422,words: ["연필의","심이","부러졌다."],level: 1,edge: false,src: "교사 제공",mods: [{i: 0,head: 1,headWord: "심",pos: "명사",role: "관형어",hint: {b: "\"연필의\" 뒤에 이어 읽어 뜻이 통하는 말은?",c: "\"심\"은 사물의 이름인가요?"},detail: "\"연필의\"는 \"무엇의 심?\"에 답하며 \"심\"을 꾸며요. \"심\"이 명사(체언)이므로 \"연필의\"는 관형어예요."}],cat: "gwan",stage: 4,hint: {a: "\"어떤 ○○?\" \"누구의 ○○?\" \"어떻게?\" \"얼마나?\" \"언제?\"에 답하는 말을 찾아보세요. 주어·목적어·서술어는 꾸며 주는 말이 아니에요."}},
+  {id: 423,words: ["성준이는","급식을","다","먹었다."],level: 1,edge: false,src: "교사 제공",mods: [{i: 2,head: 3,headWord: "먹었다",pos: "동사",role: "부사어",hint: {b: "\"다\" 어찌했나요?",c: "\"먹다\"에 \"-는다\"를 붙여 보세요."},detail: "\"다\"는 \"얼마나 먹었나?\"에 답하며 \"먹었다\"를 꾸며요. \"먹었다\"는 동사(용언)이므로 \"다\"는 부사어예요."}],cat: "busa",stage: 4,hint: {a: "\"어떤 ○○?\" \"누구의 ○○?\" \"어떻게?\" \"얼마나?\" \"언제?\"에 답하는 말을 찾아보세요. 주어·목적어·서술어는 꾸며 주는 말이 아니에요."}},
+  {id: 424,words: ["동생","몸이","튼튼하다."],level: 2,edge: false,src: "교사 제공",mods: [{i: 0,head: 1,headWord: "몸",pos: "명사",role: "관형어",hint: {b: "튼튼한 것은 동생인가요, 몸인가요?",c: "\"몸\"은 무엇의 이름인가요?"},detail: "\"동생\"은 명사지만 조사 없이 \"누구의 몸?\"에 답하며 \"몸\"을 꾸며요. \"몸\"이 명사(체언)이므로 \"동생\"은 관형어예요."}],cat: "gwan",stage: 4,hint: {a: "\"어떤 ○○?\" \"누구의 ○○?\" \"어떻게?\" \"얼마나?\" \"언제?\"에 답하는 말을 찾아보세요. 주어·목적어·서술어는 꾸며 주는 말이 아니에요."}},
+  {id: 425,words: ["혜주가","만화를","화려하게","그려냈다."],level: 2,edge: false,src: "교사 제공",mods: [{i: 2,head: 3,headWord: "그려냈다",pos: "동사",role: "부사어",hint: {b: "\"화려하게\" 어찌했나요?",c: "\"그려 내다\"에 \"-ㄴ다\"를 붙여 보세요."},detail: "\"화려하게\"는 \"어떻게 그려 냈나?\"에 답하며 \"그려냈다\"를 꾸며요. \"그려냈다\"는 동사(용언)이므로 \"화려하게\"는 부사어예요."}],cat: "busa",stage: 4,hint: {a: "\"어떤 ○○?\" \"누구의 ○○?\" \"어떻게?\" \"얼마나?\" \"언제?\"에 답하는 말을 찾아보세요. 주어·목적어·서술어는 꾸며 주는 말이 아니에요."}},
+  {id: 426,words: ["수박이","꿀처럼","달다."],level: 2,edge: false,src: "교사 제공",mods: [{i: 1,head: 2,headWord: "달다",pos: "형용사",role: "부사어",hint: {b: "\"꿀처럼\" 무엇한가요?",c: "\"달다\"를 \"단다\"로 바꾸면 자연스러운가요?"},detail: "\"꿀처럼\"은 \"어떻게 단가?\"에 답하며 \"달다\"를 꾸며요. \"달다\"는 형용사(용언)이므로 \"꿀처럼\"은 부사어예요."}],cat: "busa",stage: 4,hint: {a: "\"어떤 ○○?\" \"누구의 ○○?\" \"어떻게?\" \"얼마나?\" \"언제?\"에 답하는 말을 찾아보세요. 주어·목적어·서술어는 꾸며 주는 말이 아니에요."}},
+  {id: 427,words: ["채린이가","고난도의","문제를","교무실에서","풀었다."],level: 3,edge: false,src: "교사 제공",mods: [{i: 1,head: 2,headWord: "문제",pos: "명사",role: "관형어",hint: {b: "\"고난도의\" 뒤에 이어 읽어 뜻이 통하는 말은?",c: "\"문제\"는 무엇의 이름인가요?"},detail: "\"고난도의\"는 \"어떤 문제?\"에 답하며 \"문제\"를 꾸며요. \"문제\"가 명사(체언)이므로 \"고난도의\"는 관형어예요."},{i: 3,head: 4,headWord: "풀었다",pos: "동사",role: "부사어",hint: {b: "\"교무실에서\" 무엇을 했나요?",c: "\"풀다\"에 \"-ㄴ다\"를 붙여 보세요."},detail: "\"교무실에서\"는 \"어디에서 풀었나?\"에 답하며 \"풀었다\"를 꾸며요. \"풀었다\"는 동사(용언)이므로 \"교무실에서\"는 부사어예요."}],cat: "gwan",stage: 4,hint: {a: "\"어떤 ○○?\" \"누구의 ○○?\" \"어떻게?\" \"얼마나?\" \"언제?\"에 답하는 말을 찾아보세요. 주어·목적어·서술어는 꾸며 주는 말이 아니에요."}},
+  {id: 428,words: ["꽃이","아주","예쁘게","피었다."],level: 3,edge: false,src: "교사 제공",mods: [{i: 1,head: 2,headWord: "예쁘게",pos: "형용사",role: "부사어",hint: {b: "\"아주 피었다\"와 \"아주 예쁘게\" 가운데 뜻이 맞는 쪽은?",c: "\"예쁘게\"의 기본형 \"예쁘다\"에 \"-ㄴ다\"를 붙일 수 있나요?"},detail: "\"아주\"는 \"얼마나 예쁘게?\"에 답하며 \"예쁘게\"를 꾸며요. \"예쁘게\"는 형용사(예쁘다)이므로 \"아주\"는 부사어예요. 부사어는 다른 부사어도 꾸며요."},{i: 2,head: 3,headWord: "피었다",pos: "동사",role: "부사어",hint: {b: "\"예쁘게\" 어찌했나요?",c: "\"피다\"에 \"-ㄴ다\"를 붙여 보세요."},detail: "\"예쁘게\"는 \"어떻게 피었나?\"에 답하며 \"피었다\"를 꾸며요. \"피었다\"는 동사(용언)이므로 \"예쁘게\"는 부사어예요."}],cat: "busa",stage: 4,hint: {a: "\"어떤 ○○?\" \"누구의 ○○?\" \"어떻게?\" \"얼마나?\" \"언제?\"에 답하는 말을 찾아보세요. 주어·목적어·서술어는 꾸며 주는 말이 아니에요."}},
+  {id: 429,words: ["신난","아이들이","매우","시끄럽게","떠든다."],level: 3,edge: false,src: "교사 제공",mods: [{i: 0,head: 1,headWord: "아이들",pos: "명사",role: "관형어",hint: {b: "신난 사람은 누구인가요?",c: "\"아이들\"은 무엇의 이름인가요?"},detail: "\"신난\"은 \"어떤 아이들?\"에 답하며 \"아이들\"을 꾸며요. \"아이들\"이 명사(체언)이므로 \"신난\"은 관형어예요."},{i: 2,head: 3,headWord: "시끄럽게",pos: "형용사",role: "부사어",hint: {b: "\"매우 떠든다\"와 \"매우 시끄럽게\" 가운데 뜻이 더 잘 맞는 쪽은?",c: "\"시끄럽게\"의 기본형 \"시끄럽다\"에 \"-는다\"를 붙일 수 있나요?"},detail: "\"매우\"는 \"얼마나 시끄럽게?\"에 답하며 \"시끄럽게\"를 꾸며요. \"시끄럽게\"는 형용사(시끄럽다)이므로 \"매우\"는 부사어예요."},{i: 3,head: 4,headWord: "떠든다",pos: "동사",role: "부사어",hint: {b: "\"시끄럽게\" 어찌하나요?",c: "\"떠들다\"에 \"-ㄴ다\"가 붙었나요?"},detail: "\"시끄럽게\"는 \"어떻게 떠드나?\"에 답하며 \"떠든다\"를 꾸며요. \"떠든다\"는 동사(용언)이므로 \"시끄럽게\"는 부사어예요."}],cat: "gwan",stage: 4,hint: {a: "\"어떤 ○○?\" \"누구의 ○○?\" \"어떻게?\" \"얼마나?\" \"언제?\"에 답하는 말을 찾아보세요. 주어·목적어·서술어는 꾸며 주는 말이 아니에요."}},
+  {id: 430,words: ["이제","저","영상을","같이","보자."],level: 3,edge: false,src: "교사 제공",mods: [{i: 0,head: 4,headWord: "보자",pos: "동사",role: "부사어",hint: {b: "\"이제\" 무엇을 하자는 건가요?",c: "\"보다\"에 \"-ㄴ다\"를 붙여 보세요."},detail: "\"이제\"는 \"언제 보자?\"에 답하며 \"보자\"를 꾸며요. \"보자\"는 동사(용언)이므로 \"이제\"는 부사어예요."},{i: 1,head: 2,headWord: "영상",pos: "명사",role: "관형어",hint: {b: "\"저\"가 가리키는 대상은?",c: "\"영상\"은 무엇의 이름인가요?"},detail: "\"저\"는 \"어느 영상?\"에 답하며 \"영상\"을 꾸며요. \"영상\"이 명사(체언)이므로 \"저\"는 관형어예요."},{i: 3,head: 4,headWord: "보자",pos: "동사",role: "부사어",hint: {b: "\"같이\" 무엇을 하자는 건가요?",c: "\"보다\"에 \"-ㄴ다\"를 붙여 보세요."},detail: "\"같이\"는 \"어떻게 보자?\"에 답하며 \"보자\"를 꾸며요. \"보자\"는 동사(용언)이므로 \"같이\"는 부사어예요."}],cat: "busa",stage: 4,hint: {a: "\"어떤 ○○?\" \"누구의 ○○?\" \"어떻게?\" \"얼마나?\" \"언제?\"에 답하는 말을 찾아보세요. 주어·목적어·서술어는 꾸며 주는 말이 아니에요."}},
+  {id: 501,cat: "f_gs",stage: 5,role: "관형어",words: ["동생이","새","옷을","입었다."],mark: 1,answer: "관형사",hint: "\"새\"를 \"-다\"로 끝나는 기본형으로 돌릴 수 있나요?",detail: "\"새\"는 모양이 바뀌지 않고 조사도 붙지 않는 관형사예요. 관형사가 그대로 관형어가 되었어요. 품사는 관형사, 문장 성분은 관형어예요.",edge: false,src: "교사 제공",level: 1},
+  {id: 502,cat: "f_gs",stage: 5,role: "관형어",words: ["이제","저","영상을","같이","보자."],mark: 1,answer: "관형사",hint: "\"저\"에 조사가 붙어 있나요? 모양이 바뀌는 말인가요?",detail: "\"저\"는 \"어느 영상?\"을 가리키는 관형사예요. 관형사가 그대로 관형어가 되었어요.",edge: false,src: "교사 제공",level: 1},
+  {id: 503,cat: "f_gs",stage: 5,role: "관형어",words: ["세","사람이","웃었다."],mark: 0,answer: "관형사",hint: "\"세\"에 조사가 붙어 있나요? \"셋이\"와 무엇이 다른가요?",detail: "\"세\"는 수를 나타내지만 조사 없이 체언 \"사람\"을 꾸미므로 관형사예요(\"셋이\"의 \"셋\"은 수사). 관형사가 그대로 관형어가 되었어요.",edge: false,src: "기준표 2-2",level: 2},
+  {id: 504,cat: "f_gs",stage: 5,role: "관형어",words: ["나는","헌","책을","버렸다."],mark: 1,answer: "관형사",hint: "\"헌\"을 \"-다\"로 끝나는 기본형으로 돌릴 수 있나요? \"낡은 책\"과 비교해 보세요.",detail: "\"헌\"은 \"오래되어 낡은\"이라는 뜻의 관형사예요. \"낡은\"은 \"낡다\"로 돌릴 수 있지만 \"헌\"은 이 뜻의 기본형이 따로 없어요.",edge: false,src: "기억(미확인)",level: 2},
+  {id: 505,cat: "f_gc",stage: 5,role: "관형어",words: ["동생","몸이","튼튼하다."],mark: 0,answer: "체언",hint: "\"동생\" 뒤에 조사가 붙어 있나요?",detail: "\"동생\"은 명사(체언)인데 조사 없이 그대로 \"몸\"을 꾸며요. 체언이 관형어가 된 형태예요. \"동생의 몸\"에서 \"의\"가 빠진 것과 같아요.",edge: false,src: "교사 제공",level: 1},
+  {id: 506,cat: "f_gc",stage: 5,role: "관형어",words: ["예지가","육상","선수가","되었다."],mark: 1,answer: "체언",hint: "\"육상\"은 어떤 품사이고, 뒤에 조사가 있나요?",detail: "\"육상\"은 명사(체언)이고 조사 없이 \"선수\"를 꾸며요. 체언이 그대로 관형어가 되었어요.",edge: false,src: "교사 제공",level: 2},
+  {id: 507,cat: "f_gc",stage: 5,role: "관형어",words: ["시골","풍경이","아름답다."],mark: 0,answer: "체언",hint: "\"시골\"에 조사나 어미가 붙어 있나요?",detail: "\"시골\"은 명사(체언)인데 조사 없이 \"풍경\"을 꾸며요. 체언이 그대로 관형어가 되었어요.",edge: false,src: "기억(미확인)",level: 1},
+  {id: 508,cat: "f_gu",stage: 5,role: "관형어",words: ["할아버지의","말씀이","생생하다."],mark: 0,answer: "체언 + 관형격 조사 '의'",hint: "\"할아버지의\"를 체언과 조사로 나누어 보세요.",detail: "\"할아버지의\" = 명사 \"할아버지\" + 관형격 조사 \"의\"예요. 체언에 \"의\"가 붙어 관형어가 되었어요.",edge: false,src: "교사 제공",level: 1},
+  {id: 509,cat: "f_gu",stage: 5,role: "관형어",words: ["연필의","심이","부러졌다."],mark: 0,answer: "체언 + 관형격 조사 '의'",hint: "\"연필의\"에서 \"의\"를 떼면 무엇이 남나요?",detail: "\"연필의\" = 명사 \"연필\" + 관형격 조사 \"의\"예요. 체언에 \"의\"가 붙어 관형어가 되었어요.",edge: false,src: "교사 제공",level: 1},
+  {id: 510,cat: "f_gu",stage: 5,role: "관형어",words: ["동생이","언니의","옷을","입었다."],mark: 1,answer: "체언 + 관형격 조사 '의'",hint: "\"언니의\"를 체언과 조사로 나누어 보세요.",detail: "\"언니의\" = 명사 \"언니\" + 관형격 조사 \"의\"예요. 그래서 품사로 말하면 \"명사 + 조사\", 문장 성분은 관형어예요.",edge: false,src: "교사 제공",level: 1},
+  {id: 511,cat: "f_gy",stage: 5,role: "관형어",words: ["동생이","예쁜","옷을","입었다."],mark: 1,answer: "용언 어간 + 관형사형 어미",hint: "\"예쁜\"을 \"-다\"로 끝나는 기본형으로 돌려 보세요.",detail: "\"예쁜\" = 형용사 \"예쁘다\"의 어간 \"예쁘-\" + 관형사형 어미 \"-ㄴ\"이에요. 품사는 형용사, 문장 성분은 관형어예요. \"새 옷\"의 \"새\"(관형사)와 비교해 보세요.",edge: false,src: "교사 제공",level: 1},
+  {id: 512,cat: "f_gy",stage: 5,role: "관형어",words: ["예찬이가","멋있는","춤을","췄다."],mark: 1,answer: "용언 어간 + 관형사형 어미",hint: "\"멋있는\"의 기본형은 무엇인가요?",detail: "\"멋있는\" = 형용사 \"멋있다\"의 어간 \"멋있-\" + 관형사형 어미 \"-는\"이에요. 용언이 관형사형으로 바뀌어 관형어가 되었어요.",edge: false,src: "교사 제공",level: 1},
+  {id: 513,cat: "f_gy",stage: 5,role: "관형어",words: ["빨간","장미가","피었다."],mark: 0,answer: "용언 어간 + 관형사형 어미",hint: "\"빨간\"을 \"-다\"로 끝나는 기본형으로 돌려 보세요.",detail: "\"빨간\" = 형용사 \"빨갛다\"의 어간 + 관형사형 어미 \"-ㄴ\"이에요(ㅎ이 빠짐). 용언이 관형사형으로 바뀌어 관형어가 되었어요.",edge: false,src: "교사 제공",level: 1},
+  {id: 514,cat: "f_gy",stage: 5,role: "관형어",words: ["할머니께서","낡은","가방을","버리셨다."],mark: 1,answer: "용언 어간 + 관형사형 어미",hint: "\"낡은\"의 기본형은 무엇인가요? \"헌\"과 무엇이 다른가요?",detail: "\"낡은\" = 형용사 \"낡다\"의 어간 \"낡-\" + 관형사형 어미 \"-은\"이에요. 뜻이 비슷한 \"헌\"은 관형사지만, \"낡은\"은 기본형으로 돌릴 수 있는 용언이에요.",edge: false,src: "기억(미확인)",level: 2},
+  {id: 515,cat: "f_gs",stage: 5,role: "관형어",words: ["모든","학생이","교실에","모였다."],mark: 0,answer: "관형사",hint: "\"모든\"을 \"-다\"로 끝나는 기본형으로 돌릴 수 있나요?",detail: "\"모든\"은 모양이 바뀌지 않고 조사도 붙지 않는 관형사예요. 관형사가 그대로 관형어가 되었어요.",edge: false,src: "교사 제공",level: 1},
+  {id: 516,cat: "f_gc",stage: 5,role: "관형어",words: ["우리","학교","운동장이","넓다."],mark: 1,answer: "체언",hint: "\"학교\" 뒤에 조사가 붙어 있나요? 무엇을 꾸미나요?",detail: "\"학교\"는 명사(체언)인데 조사 없이 \"운동장\"을 꾸며요. 체언이 그대로 관형어가 되었어요(\"학교의 운동장\"에서 \"의\"가 빠진 것과 같아요).",edge: false,src: "기억(미확인)",level: 1},
+  {id: 517,cat: "f_gc",stage: 5,role: "관형어",words: ["나는","고향","친구를","만났다."],mark: 1,answer: "체언",hint: "\"고향\"에 조사나 어미가 붙어 있나요?",detail: "\"고향\"은 명사(체언)인데 조사 없이 \"친구\"를 꾸며요. 체언이 그대로 관형어가 되었어요.",edge: false,src: "기억(미확인)",level: 1},
+  {id: 518,cat: "f_gu",stage: 5,role: "관형어",words: ["선생님의","목소리가","크다."],mark: 0,answer: "체언 + 관형격 조사 '의'",hint: "\"선생님의\"를 체언과 조사로 나누어 보세요.",detail: "\"선생님의\" = 명사 \"선생님\" + 관형격 조사 \"의\"예요. 체언에 \"의\"가 붙어 관형어가 되었어요.",edge: false,src: "기억(미확인)",level: 1},
+  {id: 519,cat: "f_gu",stage: 5,role: "관형어",words: ["나는","친구의","부탁을","들어주었다."],mark: 1,answer: "체언 + 관형격 조사 '의'",hint: "\"친구의\"에서 \"의\"를 떼면 무엇이 남나요?",detail: "\"친구의\" = 명사 \"친구\" + 관형격 조사 \"의\"예요. 체언에 \"의\"가 붙어 관형어가 되었어요.",edge: false,src: "기억(미확인)",level: 1},
+  {id: 520,cat: "f_gy",stage: 5,role: "관형어",words: ["웃는","아이가","귀엽다."],mark: 0,answer: "용언 어간 + 관형사형 어미",hint: "\"웃는\"의 기본형은 무엇인가요? 끝에 붙은 어미는?",detail: "\"웃는\" = 동사 \"웃다\"의 어간 \"웃-\" + 관형사형 어미 \"-는\"이에요. \"-는\"은 지금 일어나는 일을 나타내요.",edge: false,src: "기억(미확인)",level: 1},
+  {id: 521,cat: "f_gy",stage: 5,role: "관형어",words: ["내일","읽을","책을","골랐다."],mark: 1,answer: "용언 어간 + 관형사형 어미",hint: "\"읽을\"을 \"-다\"로 끝나는 기본형으로 돌려 보세요.",detail: "\"읽을\" = 동사 \"읽다\"의 어간 \"읽-\" + 관형사형 어미 \"-을\"이에요. \"-(으)ㄹ\"은 앞으로 일어날 일을 나타내요.",edge: false,src: "기억(미확인)",level: 1},
+  {id: 522,cat: "f_gy",stage: 5,role: "관형어",words: ["엄마가","먹을","음식을","만드신다."],mark: 1,answer: "용언 어간 + 관형사형 어미",hint: "\"먹을\"의 기본형은 무엇인가요?",detail: "\"먹을\" = 동사 \"먹다\"의 어간 \"먹-\" + 관형사형 어미 \"-을\"이에요. 용언이 관형사형으로 바뀌어 \"음식\"을 꾸며요.",edge: false,src: "기억(미확인)",level: 1},
+  {id: 523,cat: "f_gy",stage: 5,role: "관형어",words: ["어릴","때","살던","집이","그립다."],mark: 2,answer: "용언 어간 + 관형사형 어미",hint: "\"살던\"의 기본형은 무엇인가요? 끝에 붙은 어미는?",detail: "\"살던\" = 동사 \"살다\"의 어간 \"살-\" + 관형사형 어미 \"-던\"이에요. \"-던\"은 지난 일을 떠올리는 뜻을 나타내요.",edge: false,src: "기억(미확인)",level: 2},
+  {id: 524,cat: "f_gy",stage: 5,role: "관형어",words: ["동생이","먹던","빵을","버렸다."],mark: 1,answer: "용언 어간 + 관형사형 어미",hint: "\"먹던\"에서 \"-던\"을 떼면 무엇이 남나요?",detail: "\"먹던\" = 동사 \"먹다\"의 어간 \"먹-\" + 관형사형 어미 \"-던\"이에요. 먹다가 남긴 빵이라는 뜻으로 \"빵\"을 꾸며요.",edge: false,src: "기억(미확인)",level: 1},
+  {id: 525,cat: "f_gy",stage: 5,role: "관형어",words: ["어제","본","영화가","재미있었다."],mark: 1,answer: "용언 어간 + 관형사형 어미",hint: "\"본\"의 기본형은 무엇인가요? \"새\", \"헌\"과 무엇이 다른가요?",detail: "\"본\" = 동사 \"보다\"의 어간 \"보-\" + 관형사형 어미 \"-ㄴ\"이에요. 동사에 붙은 \"-ㄴ\"은 지난 일을 나타내요. \"보다\"로 돌릴 수 있으니 관형사가 아니에요.",edge: false,src: "기억(미확인)",level: 2},
+  {id: 601,cat: "f_bs",stage: 6,role: "부사어",words: ["성준이는","급식을","다","먹었다."],mark: 2,answer: "부사",hint: "\"다\"에 조사가 붙거나 모양이 바뀌나요?",detail: "\"다\"는 모양이 바뀌지 않는 부사예요. 부사가 그대로 부사어가 되었어요.",edge: false,src: "교사 제공",level: 1,oldId: 521},
+  {id: 602,cat: "f_bs",stage: 6,role: "부사어",words: ["하늘이","몹시","파랗다."],mark: 1,answer: "부사",hint: "\"몹시\"를 기본형으로 돌릴 수 있나요?",detail: "\"몹시\"는 정도를 나타내는 부사예요. 부사가 그대로 부사어가 되었어요.",edge: false,src: "기억(미확인)",level: 1,oldId: 522},
+  {id: 603,cat: "f_bs",stage: 6,role: "부사어",words: ["이","공을","멀리","던져라."],mark: 2,answer: "부사",hint: "\"멀리\"는 \"-게\"로 끝나나요? \"멀게\"와 비교해 보세요.",detail: "\"멀리\"는 사전에 오른 부사예요. \"멀게\"처럼 \"-게\"가 붙은 꼴이 아니므로 부사가 그대로 부사어가 된 것이에요.",edge: false,src: "교사 제공",level: 2,oldId: 523},
+  {id: 604,cat: "f_bs",stage: 6,role: "부사어",words: ["범수가","유리창을","깨끗이","닦는다."],mark: 2,answer: "부사",hint: "\"깨끗이\"는 \"-게\"로 끝나나요? \"깨끗하게\"와 비교해 보세요.",detail: "\"깨끗이\"는 사전에 오른 부사예요. \"깨끗하게\"(형용사 + 부사형 어미 \"-게\")와 달리 부사가 그대로 부사어가 되었어요.",edge: false,src: "기억(미확인)",level: 2,oldId: 524},
+  {id: 605,cat: "f_bj",stage: 6,role: "부사어",words: ["우리는","지하철역에서","만났다."],mark: 1,answer: "체언 + 부사격 조사",hint: "\"지하철역에서\"를 체언과 조사로 나누어 보세요.",detail: "\"지하철역에서\" = 명사 \"지하철역\" + 부사격 조사 \"에서\"예요. 체언에 부사격 조사가 붙어 부사어가 되었어요.",edge: false,src: "교사 제공",level: 1,oldId: 525},
+  {id: 606,cat: "f_bj",stage: 6,role: "부사어",words: ["수박이","꿀처럼","달다."],mark: 1,answer: "체언 + 부사격 조사",hint: "\"꿀처럼\"에서 \"처럼\"을 떼면 무엇이 남나요?",detail: "\"꿀처럼\" = 명사 \"꿀\" + 부사격 조사 \"처럼\"이에요. 체언에 부사격 조사가 붙어 부사어가 되었어요.",edge: false,src: "교사 제공",level: 1,oldId: 526},
+  {id: 607,cat: "f_bj",stage: 6,role: "부사어",words: ["나는","학교에서","잠을","잔다."],mark: 1,answer: "체언 + 부사격 조사",hint: "\"학교에서\"를 체언과 조사로 나누어 보세요.",detail: "\"학교에서\" = 명사 \"학교\" + 부사격 조사 \"에서\"예요. 장소를 나타내는 부사어예요.",edge: false,src: "교사 제공",level: 1,oldId: 527},
+  {id: 608,cat: "f_by",stage: 6,role: "부사어",words: ["꽃이","아주","예쁘게","피었다."],mark: 2,answer: "용언 어간 + 부사형 어미",hint: "\"예쁘게\"를 \"-다\"로 끝나는 기본형으로 돌려 보세요.",detail: "\"예쁘게\" = 형용사 \"예쁘다\"의 어간 \"예쁘-\" + 부사형 어미 \"-게\"예요. 품사는 형용사, 문장 성분은 부사어예요.",edge: false,src: "교사 제공",level: 1,oldId: 531},
+  {id: 609,cat: "f_by",stage: 6,role: "부사어",words: ["혜주가","만화를","화려하게","그려냈다."],mark: 2,answer: "용언 어간 + 부사형 어미",hint: "\"화려하게\"의 기본형은 무엇인가요?",detail: "\"화려하게\" = 형용사 \"화려하다\"의 어간 + 부사형 어미 \"-게\"예요. 용언이 부사형으로 바뀌어 부사어가 되었어요.",edge: false,src: "교사 제공",level: 1,oldId: 532},
+  {id: 610,cat: "f_by",stage: 6,role: "부사어",words: ["신난","아이들이","매우","시끄럽게","떠든다."],mark: 3,answer: "용언 어간 + 부사형 어미",hint: "\"시끄럽게\"를 \"-다\"로 끝나는 기본형으로 돌려 보세요.",detail: "\"시끄럽게\" = 형용사 \"시끄럽다\"의 어간 + 부사형 어미 \"-게\"예요. 용언이 부사형으로 바뀌어 부사어가 되었어요.",edge: false,src: "교사 제공",level: 1,oldId: 533},
+  {id: 611,cat: "f_by",stage: 6,role: "부사어",words: ["닭이","크게","울었다."],mark: 1,answer: "용언 어간 + 부사형 어미",hint: "\"크게\"의 기본형은 무엇인가요?",detail: "\"크게\" = 형용사 \"크다\"의 어간 \"크-\" + 부사형 어미 \"-게\"예요. 용언이 부사형으로 바뀌어 부사어가 되었어요.",edge: false,src: "기억(미확인)",level: 1,oldId: 534},
+  {id: 612,cat: "f_bs",stage: 6,role: "부사어",words: ["동생은","항상","일찍","일어난다."],mark: 1,answer: "부사",hint: "\"항상\"을 기본형으로 돌릴 수 있나요? 조사가 붙어 있나요?",detail: "\"항상\"은 모양이 바뀌지 않는 부사예요. 부사가 그대로 부사어가 되었어요.",edge: false,src: "기억(미확인)",level: 1},
+  {id: 613,cat: "f_bs",stage: 6,role: "부사어",words: ["기차가","천천히","움직였다."],mark: 1,answer: "부사",hint: "\"천천히\"는 \"-게\"로 끝나나요?",detail: "\"천천히\"는 사전에 오른 부사예요. \"-히\"로 끝나도 어미가 붙은 꼴이 아니라 부사가 그대로 부사어가 된 것이에요.",edge: false,src: "기억(미확인)",level: 2},
+  {id: 614,cat: "f_bs",stage: 6,role: "부사어",words: ["우리는","함께","노래를","불렀다."],mark: 1,answer: "부사",hint: "\"함께\"에 조사나 어미가 붙어 있나요?",detail: "\"함께\"는 모양이 바뀌지 않는 부사예요. 부사가 그대로 부사어가 되었어요.",edge: false,src: "기억(미확인)",level: 1},
+  {id: 615,cat: "f_bs",stage: 6,role: "부사어",words: ["아기가","방긋","웃었다."],mark: 1,answer: "부사",hint: "\"방긋\"을 \"-다\"로 끝나는 말로 돌릴 수 있나요?",detail: "\"방긋\"은 웃는 모양을 흉내 내는 부사예요. 부사가 그대로 부사어가 되었어요.",edge: false,src: "기억(미확인)",level: 1},
+  {id: 616,cat: "f_bj",stage: 6,role: "부사어",words: ["동생이","공원으로","갔다."],mark: 1,answer: "체언 + 부사격 조사",hint: "\"공원으로\"를 체언과 조사로 나누어 보세요.",detail: "\"공원으로\" = 명사 \"공원\" + 부사격 조사 \"으로\"예요. 방향을 나타내는 부사어예요.",edge: false,src: "기억(미확인)",level: 1},
+  {id: 617,cat: "f_bj",stage: 6,role: "부사어",words: ["나는","친구와","놀았다."],mark: 1,answer: "체언 + 부사격 조사",hint: "\"친구와\"에서 \"와\"를 떼면 무엇이 남나요?",detail: "\"친구와\" = 명사 \"친구\" + 부사격 조사 \"와\"예요. 함께하는 대상을 나타내는 부사어예요.",edge: false,src: "기억(미확인)",level: 1},
+  {id: 618,cat: "f_bj",stage: 6,role: "부사어",words: ["형은","칼로","사과를","깎았다."],mark: 1,answer: "체언 + 부사격 조사",hint: "\"칼로\"를 체언과 조사로 나누어 보세요.",detail: "\"칼로\" = 명사 \"칼\" + 부사격 조사 \"로\"예요. 도구를 나타내는 부사어예요.",edge: false,src: "기억(미확인)",level: 1},
+  {id: 619,cat: "f_bj",stage: 6,role: "부사어",words: ["고양이가","소파에","누웠다."],mark: 1,answer: "체언 + 부사격 조사",hint: "\"소파에\"를 체언과 조사로 나누어 보세요.",detail: "\"소파에\" = 명사 \"소파\" + 부사격 조사 \"에\"예요. 장소를 나타내는 부사어예요.",edge: false,src: "기억(미확인)",level: 1},
+  {id: 620,cat: "f_bj",stage: 6,role: "부사어",words: ["그는","사자처럼","용감했다."],mark: 1,answer: "체언 + 부사격 조사",hint: "\"사자처럼\"에서 \"처럼\"을 떼면 무엇이 남나요?",detail: "\"사자처럼\" = 명사 \"사자\" + 부사격 조사 \"처럼\"이에요. 견주는 대상을 나타내는 부사어예요.",edge: false,src: "기억(미확인)",level: 1},
+  {id: 621,cat: "f_by",stage: 6,role: "부사어",words: ["우리는","배부르도록","먹었다."],mark: 1,answer: "용언 어간 + 부사형 어미",hint: "\"배부르도록\"의 기본형은 무엇인가요? 끝에 붙은 어미는?",detail: "\"배부르도록\" = 형용사 \"배부르다\"의 어간 + 부사형 어미 \"-도록\"이에요. 얼마나 먹었는지 정도를 나타내는 부사어예요.",edge: false,src: "기준표 3-2",level: 1},
+  {id: 622,cat: "f_by",stage: 6,role: "부사어",words: ["선수들이","지치도록","뛰었다."],mark: 1,answer: "용언 어간 + 부사형 어미",hint: "\"지치도록\"에서 \"-도록\"을 떼면 무엇이 남나요?",detail: "\"지치도록\" = 동사 \"지치다\"의 어간 \"지치-\" + 부사형 어미 \"-도록\"이에요. 용언이 부사형으로 바뀌어 \"뛰었다\"를 꾸며요.",edge: false,src: "기준표 3-2",level: 1},
+  {id: 623,cat: "f_by",stage: 6,role: "부사어",words: ["모두가","들리도록","크게","말했다."],mark: 1,answer: "용언 어간 + 부사형 어미",hint: "\"들리도록\"의 기본형은 무엇인가요?",detail: "\"들리도록\" = 동사 \"들리다\"의 어간 + 부사형 어미 \"-도록\"이에요. 용언이 부사형으로 바뀌어 \"말했다\"를 꾸며요.",edge: false,src: "기준표 3-2",level: 2},
+  {id: 624,cat: "f_by",stage: 6,role: "부사어",words: ["동생이","방을","깨끗하게","치웠다."],mark: 2,answer: "용언 어간 + 부사형 어미",hint: "\"깨끗하게\"를 \"-다\"로 끝나는 기본형으로 돌려 보세요. \"깨끗이\"와 무엇이 다른가요?",detail: "\"깨끗하게\" = 형용사 \"깨끗하다\"의 어간 + 부사형 어미 \"-게\"예요. 뜻이 비슷한 \"깨끗이\"는 사전에 오른 부사지만, \"깨끗하게\"는 용언에 어미가 붙은 꼴이에요.",edge: false,src: "기억(미확인)",level: 2},
+  {id: 625,cat: "f_by",stage: 6,role: "부사어",words: ["바람이","시원하게","분다."],mark: 1,answer: "용언 어간 + 부사형 어미",hint: "\"시원하게\"의 기본형은 무엇인가요?",detail: "\"시원하게\" = 형용사 \"시원하다\"의 어간 + 부사형 어미 \"-게\"예요. 용언이 부사형으로 바뀌어 \"분다\"를 꾸며요.",edge: false,src: "기억(미확인)",level: 1},
+  {id: 701,cat: "sent6",stage: 7,words: ["강아지가","달린다."],seq: ["주어","서술어"],detail: "강아지가 → 주어 / 달린다 → 서술어",edge: false,src: "교사 제공",level: 1,origNo: 1},
+  {id: 702,cat: "sent6",stage: 7,words: ["시냇물이","깨끗하다."],seq: ["주어","서술어"],detail: "시냇물이 → 주어 / 깨끗하다 → 서술어",edge: false,src: "교사 제공",level: 1,origNo: 2},
+  {id: 703,cat: "sent6",stage: 7,words: ["하늘이","맑다."],seq: ["주어","서술어"],detail: "하늘이 → 주어 / 맑다 → 서술어",edge: false,src: "교사 제공",level: 1,origNo: 3},
+  {id: 704,cat: "sent6",stage: 7,words: ["내일이","토요일이다."],seq: ["주어","서술어"],detail: "내일이 → 주어 / 토요일이다 → 서술어",edge: false,src: "교사 제공",level: 1,origNo: 4},
+  {id: 705,cat: "sent6",stage: 7,words: ["수호는","학생이다."],seq: ["주어","서술어"],detail: "수호는 → 주어 / 학생이다 → 서술어",edge: false,src: "교사 제공",level: 1,origNo: 5},
+  {id: 706,cat: "sent6",stage: 7,words: ["나는","밥을","먹었다."],seq: ["주어","목적어","서술어"],detail: "나는 → 주어 / 밥을 → 목적어 / 먹었다 → 서술어",edge: false,src: "교사 제공",level: 1,origNo: 6},
+  {id: 707,cat: "sent6",stage: 7,words: ["나는","빵을","좋아한다."],seq: ["주어","목적어","서술어"],detail: "나는 → 주어 / 빵을 → 목적어 / 좋아한다 → 서술어",edge: false,src: "교사 제공",level: 1,origNo: 7},
+  {id: 708,cat: "sent6",stage: 7,words: ["어머니께서","꽃을","선물하셨다."],seq: ["주어","목적어","서술어"],detail: "어머니께서 → 주어 / 꽃을 → 목적어 / 선물하셨다 → 서술어",edge: false,src: "교사 제공",level: 1,origNo: 8},
+  {id: 709,cat: "sent6",stage: 7,words: ["아기가","우유를","먹는다."],seq: ["주어","목적어","서술어"],detail: "아기가 → 주어 / 우유를 → 목적어 / 먹는다 → 서술어",edge: false,src: "교사 제공",level: 1,origNo: 9},
+  {id: 710,cat: "sent6",stage: 7,words: ["영수가","꽃다발을","샀다."],seq: ["주어","목적어","서술어"],detail: "영수가 → 주어 / 꽃다발을 → 목적어 / 샀다 → 서술어",edge: false,src: "교사 제공",level: 1,origNo: 10},
+  {id: 711,cat: "sent6",stage: 7,words: ["선호가","숙제를","끝냈다."],seq: ["주어","목적어","서술어"],detail: "선호가 → 주어 / 숙제를 → 목적어 / 끝냈다 → 서술어",edge: false,src: "교사 제공",level: 1,origNo: 11},
+  {id: 712,cat: "sent6",stage: 7,words: ["경미가","과일을","먹는다."],seq: ["주어","목적어","서술어"],detail: "경미가 → 주어 / 과일을 → 목적어 / 먹는다 → 서술어",edge: false,src: "교사 제공",level: 1,origNo: 12},
+  {id: 713,cat: "sent6",stage: 7,words: ["철규는","현지를","기다렸다."],seq: ["주어","목적어","서술어"],detail: "철규는 → 주어 / 현지를 → 목적어 / 기다렸다 → 서술어",edge: false,src: "교사 제공",level: 1,origNo: 13},
+  {id: 714,cat: "sent6",stage: 7,words: ["동생이","종이를","찢었다."],seq: ["주어","목적어","서술어"],detail: "동생이 → 주어 / 종이를 → 목적어 / 찢었다 → 서술어",edge: false,src: "교사 제공",level: 1,origNo: 14},
+  {id: 715,cat: "sent6",stage: 7,words: ["지민이는","선생님이","되었다."],seq: ["주어","보어","서술어"],detail: "지민이는 → 주어 / 선생님이 → 보어 / 되었다 → 서술어",edge: false,src: "교사 제공",level: 2,origNo: 15},
+  {id: 716,cat: "sent6",stage: 7,words: ["그는","학생이","아니다."],seq: ["주어","보어","서술어"],detail: "그는 → 주어 / 학생이 → 보어 / 아니다 → 서술어",edge: false,src: "교사 제공",level: 2,origNo: 16},
+  {id: 717,cat: "sent6",stage: 7,words: ["소미가","회장이","되었다."],seq: ["주어","보어","서술어"],detail: "소미가 → 주어 / 회장이 → 보어 / 되었다 → 서술어",edge: false,src: "교사 제공",level: 2,origNo: 17},
+  {id: 718,cat: "sent6",stage: 7,words: ["진우는","막내가","아니다."],seq: ["주어","보어","서술어"],detail: "진우는 → 주어 / 막내가 → 보어 / 아니다 → 서술어",edge: false,src: "교사 제공",level: 2,origNo: 18},
+  {id: 719,cat: "sent6",stage: 7,words: ["물이","얼음이","되었다."],seq: ["주어","보어","서술어"],detail: "물이 → 주어 / 얼음이 → 보어 / 되었다 → 서술어",edge: false,src: "교사 제공",level: 2,origNo: 19},
+  {id: 720,cat: "sent6",stage: 7,words: ["동생은","유치원생이","아니다."],seq: ["주어","보어","서술어"],detail: "동생은 → 주어 / 유치원생이 → 보어 / 아니다 → 서술어",edge: false,src: "교사 제공",level: 2,origNo: 20},
+  {id: 721,cat: "sent6",stage: 7,words: ["철수가","학교에","갔다."],seq: ["주어","부사어","서술어"],detail: "철수가 → 주어 / 학교에 → 부사어 / 갔다 → 서술어",edge: false,src: "교사 제공",level: 2,origNo: 21},
+  {id: 722,cat: "sent6",stage: 7,words: ["닭이","크게","울었다."],seq: ["주어","부사어","서술어"],detail: "닭이 → 주어 / 크게 → 부사어 / 울었다 → 서술어",edge: false,src: "교사 제공",level: 2,origNo: 22},
+  {id: 723,cat: "sent6",stage: 7,words: ["장미꽃이","참","예쁘다."],seq: ["주어","부사어","서술어"],detail: "장미꽃이 → 주어 / 참 → 부사어 / 예쁘다 → 서술어",edge: false,src: "교사 제공",level: 2,origNo: 23},
+  {id: 724,cat: "sent6",stage: 7,words: ["민지가","영수에게","편지를","보냈다."],seq: ["주어","부사어","목적어","서술어"],detail: "민지가 → 주어 / 영수에게 → 부사어 / 편지를 → 목적어 / 보냈다 → 서술어",edge: false,src: "교사 제공",level: 2,origNo: 24},
+  {id: 725,cat: "sent6",stage: 7,words: ["우리는","도서관에서","책을","빌렸다."],seq: ["주어","부사어","목적어","서술어"],detail: "우리는 → 주어 / 도서관에서 → 부사어 / 책을 → 목적어 / 빌렸다 → 서술어",edge: false,src: "교사 제공",level: 2,origNo: 25},
+  {id: 726,cat: "sent6",stage: 7,words: ["오빠가","설거지를","열심히","한다."],seq: ["주어","목적어","부사어","서술어"],detail: "오빠가 → 주어 / 설거지를 → 목적어 / 열심히 → 부사어 / 한다 → 서술어",edge: false,src: "교사 제공",level: 2,origNo: 26},
+  {id: 727,cat: "sent6",stage: 7,words: ["개미가","먹이를","부지런히","나른다."],seq: ["주어","목적어","부사어","서술어"],detail: "개미가 → 주어 / 먹이를 → 목적어 / 부지런히 → 부사어 / 나른다 → 서술어",edge: false,src: "교사 제공",level: 2,origNo: 27},
+  {id: 728,cat: "sent6",stage: 7,words: ["아침에","일찍","일어났다."],seq: ["부사어","부사어","서술어"],detail: "아침에 → 부사어 / 일찍 → 부사어 / 일어났다 → 서술어",edge: false,src: "교사 제공",level: 2,origNo: 28},
+  {id: 729,cat: "sent6",stage: 7,words: ["붉은","노을이","아름답다."],seq: ["관형어","주어","서술어"],detail: "붉은 → 관형어 / 노을이 → 주어 / 아름답다 → 서술어",edge: false,src: "교사 제공",level: 3,origNo: 29},
+  {id: 730,cat: "sent6",stage: 7,words: ["가을은","독서의","계절이다."],seq: ["주어","관형어","서술어"],detail: "가을은 → 주어 / 독서의 → 관형어 / 계절이다 → 서술어",edge: false,src: "교사 제공",level: 3,origNo: 30},
+  {id: 731,cat: "sent6",stage: 7,words: ["찬미가","새","모자를","썼다."],seq: ["주어","관형어","목적어","서술어"],detail: "찬미가 → 주어 / 새 → 관형어 / 모자를 → 목적어 / 썼다 → 서술어",edge: false,src: "교사 제공",level: 3,origNo: 31},
+  {id: 732,cat: "sent6",stage: 7,words: ["할머니께서","옛","친구를","만나셨다."],seq: ["주어","관형어","목적어","서술어"],detail: "할머니께서 → 주어 / 옛 → 관형어 / 친구를 → 목적어 / 만나셨다 → 서술어",edge: false,src: "교사 제공",level: 3,origNo: 32},
+  {id: 733,cat: "sent6",stage: 7,words: ["과연","그는","훌륭한","예술가로구나."],seq: ["부사어","주어","관형어","서술어"],detail: "과연 → 부사어 / 그는 → 주어 / 훌륭한 → 관형어 / 예술가로구나 → 서술어",edge: false,src: "교사 제공",level: 3,origNo: 33},
+  {id: 734,cat: "sent6",stage: 7,words: ["시간이","매우","빨리","흐른다."],seq: ["주어","부사어","부사어","서술어"],detail: "시간이 → 주어 / 매우 → 부사어 / 빨리 → 부사어 / 흐른다 → 서술어",edge: false,src: "교사 제공",level: 3,origNo: 34},
+  {id: 735,cat: "sent6",stage: 7,words: ["철수가","아주","헌","책을","발견했다."],seq: ["주어","부사어","관형어","목적어","서술어"],detail: "철수가 → 주어 / 아주 → 부사어 / 헌 → 관형어 / 책을 → 목적어 / 발견했다 → 서술어",edge: false,src: "교사 제공",level: 3,origNo: 35},
+  {id: 736,cat: "sent6",stage: 7,words: ["범수가","모든","유리창을","깨끗이","닦는다."],seq: ["주어","관형어","목적어","부사어","서술어"],detail: "범수가 → 주어 / 모든 → 관형어 / 유리창을 → 목적어 / 깨끗이 → 부사어 / 닦는다 → 서술어",edge: false,src: "교사 제공",level: 3,origNo: 36},
+  {id: 737,cat: "sent6",stage: 7,words: ["와,","정말","멋지다!"],seq: ["독립어","부사어","서술어"],detail: "와 → 독립어 / 정말 → 부사어 / 멋지다 → 서술어",edge: false,src: "교사 제공",level: 3,origNo: 37},
+  {id: 738,cat: "sent6",stage: 7,words: ["네,","아기가","우유를","먹었어요."],seq: ["독립어","주어","목적어","서술어"],detail: "네 → 독립어 / 아기가 → 주어 / 우유를 → 목적어 / 먹었어요 → 서술어",edge: false,src: "교사 제공",level: 3,origNo: 38},
+  {id: 739,cat: "sent6",stage: 7,words: ["응,","나는","여기에","있어."],seq: ["독립어","주어","부사어","서술어"],detail: "응 → 독립어 / 나는 → 주어 / 여기에 → 부사어 / 있어 → 서술어",edge: false,src: "교사 제공",level: 3,origNo: 39},
+  {id: 740,cat: "sent6",stage: 7,words: ["경식아,","저","강아지","정말","귀엽다."],seq: ["독립어","관형어","주어","부사어","서술어"],detail: "경식아 → 독립어 / 저 → 관형어 / 강아지 → 주어 / 정말 → 부사어 / 귀엽다 → 서술어",edge: false,src: "교사 제공",level: 3,origNo: 41},
+  {id: 741,cat: "sent6",stage: 7,words: ["우아,","밖에","눈이","펑펑","내리네!"],seq: ["독립어","부사어","주어","부사어","서술어"],detail: "우아 → 독립어 / 밖에 → 부사어 / 눈이 → 주어 / 펑펑 → 부사어 / 내리네 → 서술어",edge: false,src: "교사 제공",level: 3,origNo: 42},
+  {id: 742,cat: "sent6",stage: 7,words: ["오호,","너는","노래를","잘","부르네."],seq: ["독립어","주어","목적어","부사어","서술어"],detail: "오호 → 독립어 / 너는 → 주어 / 노래를 → 목적어 / 잘 → 부사어 / 부르네 → 서술어",edge: false,src: "교사 제공",level: 3,origNo: 43},
+  {id: 743,cat: "sent6",stage: 7,words: ["어머나,","귀여운","아기가","아장아장","걷는구나."],seq: ["독립어","관형어","주어","부사어","서술어"],detail: "어머나 → 독립어 / 귀여운 → 관형어 / 아기가 → 주어 / 아장아장 → 부사어 / 걷는구나 → 서술어",edge: false,src: "교사 제공",level: 3,origNo: 44},
+  {id: 744,cat: "sent6",stage: 7,words: ["지영아,","너는","그림을","정말","잘","그리는구나."],seq: ["독립어","주어","목적어","부사어","부사어","서술어"],detail: "지영아 → 독립어 / 너는 → 주어 / 그림을 → 목적어 / 정말 → 부사어 / 잘 → 부사어 / 그리는구나 → 서술어",edge: false,src: "교사 제공",level: 3,origNo: 45},
+  {id: 745,cat: "sent6",stage: 7,words: ["민재야,","너는","훌륭한","사람이","되었구나."],seq: ["독립어","주어","관형어","보어","서술어"],detail: "민재야 → 독립어 / 너는 → 주어 / 훌륭한 → 관형어 / 사람이 → 보어 / 되었구나 → 서술어",edge: false,src: "교사 제공",level: 3,origNo: 46},
+  {id: 746,cat: "sent6",stage: 7,words: ["아,","오늘","날씨가","참","좋구나!"],seq: ["독립어","부사어","주어","부사어","서술어"],detail: "아 → 독립어 / 오늘 → 부사어 / 날씨가 → 주어 / 참 → 부사어 / 좋구나 → 서술어",edge: false,src: "교사 제공",level: 3,origNo: 47},
+  {id: 747,cat: "sent6",stage: 7,words: ["얘들아,","그","낡은","다리를","조심히","건너라."],seq: ["독립어","관형어","관형어","목적어","부사어","서술어"],detail: "얘들아 → 독립어 / 그 → 관형어 / 낡은 → 관형어 / 다리를 → 목적어 / 조심히 → 부사어 / 건너라 → 서술어",edge: false,src: "교사 제공",level: 3,origNo: 48},
+  {id: 748,cat: "sent6",stage: 7,words: ["할아버지께서","매일","공원에서","산책을","하신다."],seq: ["주어","부사어","부사어","목적어","서술어"],detail: "할아버지께서 → 주어 / 매일 → 부사어 / 공원에서 → 부사어 / 산책을 → 목적어 / 하신다 → 서술어",edge: false,src: "교사 제공",level: 3,origNo: 49},
+  {id: 749,cat: "sent6",stage: 7,words: ["여보세요,","저는","어제","큰","실수를","했어요."],seq: ["독립어","주어","부사어","관형어","목적어","서술어"],detail: "여보세요 → 독립어 / 저는 → 주어 / 어제 → 부사어 / 큰 → 관형어 / 실수를 → 목적어 / 했어요 → 서술어",edge: false,src: "교사 제공",level: 3,origNo: 50},
+  {id: 750,cat: "sent6",stage: 7,words: ["제발,","내","말을","좀","믿어줘."],seq: ["부사어","관형어","목적어","부사어","서술어"],detail: "\"제발\"은 쉼표가 붙어 홀로 쓰인 것 같지만 \"간절히 바라건대\"라는 뜻으로 \"믿어줘\"를 꾸미는 부사예요. 감탄·대답·부름이 아니니 독립어가 아니라 부사어예요(주어는 생략됨). / 제발 → 부사어 / 내 → 관형어 / 말을 → 목적어 / 좀 → 부사어 / 믿어줘 → 서술어",edge: true,src: "교사 제공",level: 3},
+  {id: 751,cat: "sent6",stage: 7,words: ["설마,","네가","그런","일을","몰랐다고?"],seq: ["부사어","주어","관형어","목적어","서술어"],detail: "\"설마\"는 \"그럴 리는 없겠지만\"이라는 뜻으로 뒤의 내용을 꾸미는 부사예요. 쉼표가 있어도 감탄·대답·부름이 아니므로 부사어예요. / 설마 → 부사어 / 네가 → 주어 / 그런 → 관형어 / 일을 → 목적어 / 몰랐다고 → 서술어",edge: true,src: "교사 제공",level: 3},
+  {id: 752,cat: "sent6",stage: 7,words: ["과연,","그","소문은","사실이었다."],seq: ["부사어","관형어","주어","서술어"],detail: "\"과연\"은 \"알고 보니 정말로\"라는 뜻으로 \"사실이었다\"를 꾸미는 부사예요. 쉼표가 붙어 홀로 쓰인 것 같지만 감탄·대답·부름이 아니므로 부사어예요. / 과연 → 부사어 / 그 → 관형어 / 소문은 → 주어 / 사실이었다 → 서술어",edge: true,src: "교사 제공",level: 3},
+  {id: 753,cat: "sent6",stage: 7,words: ["아무리","생각해도","그것은","진실이","아니야."],seq: ["부사어","서술어","주어","보어","서술어"],detail: "\"아무리\"는 \"생각해도\"를 꾸미는 부사예요. 문장 맨 앞에 있다고 독립어가 아니에요. \"아무리\"는 늘 \"-아도/-어도\"와 함께 쓰여서 이 문장은 서술어가 둘인 이어진문장이에요(\"생각해도\" / \"아니야\"). \"진실이\"는 \"아니야\" 앞에서 무엇이 아닌지 채우는 보어예요. / 아무리 → 부사어 / 생각해도 → 서술어 / 그것은 → 주어 / 진실이 → 보어 / 아니야 → 서술어",edge: true,src: "교사 제공",level: 3},
+  {id: 754,cat: "sent6",stage: 7,words: ["물론,","나도","그","일에","찬성해."],seq: ["부사어","주어","관형어","부사어","서술어"],detail: "\"물론\"은 \"말할 것도 없이\"라는 뜻으로 \"찬성해\"를 꾸미는 부사어예요. \"제발, 설마, 과연\"처럼 쉼표가 있어도 독립어가 아니에요. / 물론 → 부사어 / 나도 → 주어 / 그 → 관형어 / 일에 → 부사어 / 찬성해 → 서술어",edge: false,src: "기억(미확인)",level: 3},
+  {id: 755,cat: "sent6",stage: 7,words: ["어머나,","꽃이","활짝","피었네."],seq: ["독립어","주어","부사어","서술어"],detail: "\"어머나\"는 놀라움을 나타내는 감탄사로, 빼도 문장의 짜임이 그대로예요. 감탄하는 말이라 독립어예요. \"제발, 설마\"처럼 뒤의 말을 꾸미는 부사와 구별하세요. / 어머나 → 독립어 / 꽃이 → 주어 / 활짝 → 부사어 / 피었네 → 서술어",edge: false,src: "기억(미확인)",level: 3},
+  {id: 756,cat: "sent6",stage: 7,words: ["얘들아,","빨리","와."],seq: ["독립어","부사어","서술어"],detail: "\"얘들아\"는 부르는 말이라 독립어예요. \"빨리\"는 \"와\"를 꾸미는 부사어예요. / 얘들아 → 독립어 / 빨리 → 부사어 / 와 → 서술어",edge: false,src: "기억(미확인)",level: 3},
+  {id: 757,cat: "sent6",stage: 7,words: ["확실히,","그","방법이","더","낫다."],seq: ["부사어","관형어","주어","부사어","서술어"],detail: "\"확실히\"는 \"틀림없이\"라는 뜻으로 \"낫다\"를 꾸미는 부사어예요. 쉼표가 있어도 감탄·대답·부름이 아니에요. / 확실히 → 부사어 / 그 → 관형어 / 방법이 → 주어 / 더 → 부사어 / 낫다 → 서술어",edge: false,src: "기억(미확인)",level: 3},
+  {id: 758,cat: "sent6",stage: 7,words: ["역시,","네가","최고야."],seq: ["부사어","주어","서술어"],detail: "\"역시\"는 \"생각했던 대로\"라는 뜻으로 뒤의 내용을 꾸미는 부사어예요. 쉼표가 있어도 독립어가 아니에요. / 역시 → 부사어 / 네가 → 주어 / 최고야 → 서술어",edge: false,src: "기억(미확인)",level: 3}
+];
+
+
+// ═══════════════════════════════════════════
+// 4. 상태와 계산 함수
+// ═══════════════════════════════════════════
+const $ = id => document.getElementById(id);
+let S = null;
+
+function shuffle(a){ a = a.slice(); for(let i=a.length-1;i>0;i--){ const j=Math.floor(Math.random()*(i+1)); [a[i],a[j]]=[a[j],a[i]]; } return a; }
+const clean = w => w.replace(/[.?!]$/,'');
+
+function makeSteps(q){
+  if(q.stage===ANA) return q.seq.map((c,wi)=>({ key:'w', wi, status:null, tries:0, first:null }));
+  if(q.stage!==MOD) return [{ key:'x', status:null, tries:0, first:null }];
+  return ['a','b','c','d'].map(key=>({ key, status:null, tries:0, first:null }));
+}
+function bonusFor(c){ return c>=5 ? 10 : c>=3 ? 5 : 0; }
+function maxScoreFor(n){ let s=0; for(let c=1;c<=n;c++) s += BASE + bonusFor(c); return s; }
+function unitsOf(stage){ return QUESTIONS.filter(q=>q.stage===stage).reduce((t,q)=>t+makeSteps(q).length,0); }
+const MAX_SCORE = {}; STAGES.forEach(s=>MAX_SCORE[s.n]=maxScoreFor(unitsOf(s.n)));
+
+// 지침 5-5: 결과 숫자는 여기서만 계산한다
+function computeResults(){
+  const r = { first:0, retry:0, fail:0, unanswered:0, graded:0, units:0, cats:{}, wrongIds:[], wrongItems:[], itemsAnswered:0, itemsSkipped:0 };
+  S.items.forEach(it=>{
+    let any=false, bad=false;
+    it.steps.forEach(st=>{
+      const c = st.key==='w' ? COMP_CAT[it.q.seq[st.wi]] : catOf(it); r.cats[c] = r.cats[c] || { graded:0, first:0, wrong:0 };
+      r.units++;
+      if(!st.status){ r.unanswered++; return; }
+      any=true; r.graded++; r.cats[c].graded++;
+      if(st.status==='first'){ r.first++; r.cats[c].first++; }
+      else { bad=true; r.cats[c].wrong++; if(st.status==='retry') r.retry++; else r.fail++;
+             r.wrongIds.push(st.key==='w' ? `${it.q.id}-${st.wi+1}` : it.q.stage!==MOD ? String(it.q.id) : it.q.id + st.key); }
+    });
+    if(any) r.itemsAnswered++; else r.itemsSkipped++;
+    if(bad) r.wrongItems.push(it);
+  });
+  r.acc = r.graded ? r.first / r.graded : 0;
+  r.done = r.unanswered === 0;
+  // 리포트 판정
+  const judged = Object.entries(r.cats).filter(([k,v])=>v.graded>=2);
+  r.good = judged.filter(([k,v])=>v.first===v.graded).map(([k,v])=>`${CATEGORIES[k].label} ${v.first}/${v.graded}`);
+  const weakList = judged.filter(([k,v])=>v.wrong>0).sort((a,b)=> b[1].wrong-a[1].wrong || (a[1].first/a[1].graded)-(b[1].first/b[1].graded) || b[1].graded-a[1].graded);
+  if(r.graded===0) r.weak = null;
+  else if(judged.length>=2 && judged.every(([k,v])=>v.first/v.graded<0.5)) r.weak = { text:'유형 구분 자체를 다시 익힐 단계예요. 시작 화면의 유형 설명을 먼저 읽어 보세요.' };
+  else if(weakList.length){ const [k,v]=weakList[0]; r.weak = { cat:k, text:`${CATEGORIES[k].emoji} ${CATEGORIES[k].label} ${v.first}/${v.graded}`, tip: CATEGORIES[k].tip }; }
+  else if(r.retry+r.fail>0) r.weak = { text:'뚜렷하게 약한 유형은 없어요. 틀린 문제는 오답노트의 해설을 확인해 보세요.' };
+  else if(!r.done) r.weak = { text:'남은 문제를 마저 풀어 보세요.' };
+  else r.weak = { text: S.stage < STAGES.length ? '약점이 보이지 않아요. 다음 단계에 도전해 보세요.' : '약점이 보이지 않아요. 다른 단계에도 도전해 보세요.' };
+  // 총평
+  const a = r.acc;
+  if(r.graded===0) r.verdict = '풀어 본 문제가 없어요';
+  else if(!r.done) r.verdict = `끝까지 풀지 않았어요 (${r.unanswered}문항 남음) ` + (a>=0.70 ? '잘하고 있어요! 남은 문제까지 풀며 좀 더 연습해 보면 어떨까요?' : '좀 더 연습해 보면 어떨까요? 남은 문제까지 풀어 보면 감이 잡혀요.');
+  else r.verdict = a>=0.95 ? '완벽해요!' : a>=0.85 ? '아주 잘했어요' : a>=0.70 ? '잘하고 있어요' : a>=0.50 ? '기본은 잡혔어요' : '다시 한 번 도전해요';
+  return r;
+}
+
+// ═══════════════════════════════════════════
+// 5. 화면 로직
+// ═══════════════════════════════════════════
+function show(id){ document.querySelectorAll('.screen').forEach(s=>s.classList.remove('on')); $(id).classList.add('on'); window.scrollTo(0,0); }
+
+// 시작 화면 구성
+$('conceptCards').innerHTML = STAGES.map(s=>`<div class="ccard">${s.concept}</div>`).join('');
+$('stageBtns').innerHTML = STAGES.map(s=>`<button class="btn big" data-stage="${s.n}"><span class="sn">▶️ ${s.n}단계</span><span class="st">${s.name.split(' · ')[1]}</span><small>${QUESTIONS.filter(q=>q.stage===s.n).length}문항 · 만점 ${MAX_SCORE[s.n]}점</small></button>`).join('');
+$('stageBtns').querySelectorAll('button').forEach(b=>b.addEventListener('click',()=>startStage(+b.dataset.stage)));
+$('sideStages').innerHTML = STAGES.map(s=>`<button class="btn sec" data-stage="${s.n}">${s.n}</button>`).join('');
+$('sideStages').querySelectorAll('button').forEach(b=>b.addEventListener('click',()=>{
+  if(S && computeResults().graded>0 && !confirm(`${b.dataset.stage}단계로 옮길까요? 지금 단계의 기록은 사라집니다.`)) return;
+  startStage(+b.dataset.stage);
+}));
+
+let pendingStage = 1;
+if(IS_ONLINE){
+  $('privacyOffline').style.display='none';
+  $('privacyOnline').style.display='block';
+  const ep=$('endPrivacy');
+  if(ep) ep.textContent='학습 결과는 담당 선생님의 학습 관리 시스템에 자동 전송됩니다. 이름과 소감은 리포트 이미지(JPG) 생성에도 사용됩니다.';
+}
+async function doLogin(){
+  const idVal=$('loginId').value.trim();
+  const nameVal=$('loginName').value.trim();
+  const msg=$('loginMsg');
+  if(!idVal||idVal.length!==5||!/^\d{5}$/.test(idVal)){msg.textContent='학번은 5자리 숫자여야 합니다.';return;}
+  if(!nameVal){msg.textContent='이름을 입력하세요.';return;}
+  msg.textContent='';$('loginBtn').style.display='none';$('loginSpinner').style.display='block';
+  const result=await verifyStudent(idVal,nameVal);
+  $('loginBtn').style.display='block';$('loginSpinner').style.display='none';
+  if(result.status==='ok'){
+    STUDENT={id:idVal,name:nameVal,className:result.className||'',verified:true};
+    $('loginOverlay').style.display='none';
+    notifyGameStart(STUDENT.id,STUDENT.name,STUDENT.className);
+    doStartStage(pendingStage);
+  } else { msg.textContent=result.message||'인증에 실패했습니다.'; }
+}
+function startStage(n){
+  if(IS_ONLINE&&!STUDENT.verified){pendingStage=n;$('loginOverlay').style.display='flex';$('loginId').focus();return;}
+  if(IS_ONLINE&&STUDENT.verified){notifyGameStart(STUDENT.id,STUDENT.name,STUDENT.className);}
+  doStartStage(n);
+}
+function doStartStage(n){
+  cbHide();
+  // 난이도(level) 순서는 지키고, 같은 level 안에서만 섞는다
+  const pool = QUESTIONS.filter(q=>q.stage===n);
+  const levels = [...new Set(pool.map(q=>q.level||1))].sort((a,b)=>a-b);
+  let qs = levels.flatMap(l=>shuffle(pool.filter(q=>(q.level||1)===l)));
+  const hold = STAGES[n-1].holdBack; // { cat, first }: 처음 first문항에는 cat 유형을 내지 않는다
+  if(hold){
+    const l1 = pool.filter(q=>(q.level||1)===levels[0]);
+    const early = shuffle(l1.filter(q=>q.cat!==hold.cat)).slice(0, hold.first);
+    const rest = shuffle(l1.filter(q=>!early.includes(q)));
+    qs = [...early, ...rest, ...levels.slice(1).flatMap(l=>shuffle(pool.filter(q=>(q.level||1)===l)))];
+  }
+  S = { stage:n, note:null, flashAsk:true, items: qs.map(q=>({ q, steps: makeSteps(q), chosen:null })), idx:0, score:0, combo:0, maxCombo:0, t0:null, tEnd:null, ended:false, phase:'ask', lock:false };
+  $('introBand').textContent = `문법 · ${STAGES[n-1].name}`;
+  $('introCard').innerHTML = STAGES[n-1].concept;
+  show('intro');
+  $('introGo').focus();
+}
+$('introGo').addEventListener('click',()=>{ S.t0 = Date.now(); show('play'); render(); });
+
+function cur(){ return S.items[S.idx]; }
+function curStepIdx(it){ return it.steps.findIndex(s=>!s.status); }
+function activeStep(){ const it=cur(); const i=curStepIdx(it); return i<0 ? null : it.steps[i]; }
+// 화면에서 지금 보여 줄 물음: 진행 중인 물음, 다 끝났으면 마지막 물음
+function viewStep(){ const it=cur(); return activeStep() || it.steps[it.steps.length-1]; }
+// 3단계: 학생이 ①에서 고른 꾸며 주는 말(고르기 전이면 첫 번째)
+function modOf(it){ const q=it.q; if(q.stage!==MOD) return null; return q.mods.find(m=>m.i===it.chosen) || q.mods[0]; }
+function catOf(it){ return it.q.stage===MOD ? (modOf(it).role==='관형어' ? 'gwan' : 'busa') : it.q.cat; }
+function detailOf(it){ return it.q.stage===MOD ? modOf(it).detail : it.q.detail; }
+const ROLE_OPTS = ['관형어', '부사어'];
+const COMP6 = ['주어', '서술어', '목적어', '보어', '관형어', '부사어', '독립어'];
+const COMP_CAT = { '주어':'c_ju', '서술어':'c_se', '목적어':'c_mok', '보어':'c_bo', '관형어':'c_gw', '부사어':'c_bu', '독립어':'c_dok' };
+// 학생이 고른 오답 카드에 맞춘 힌트 (정답 성분을 드러내지 않는다)
+const WRONG6 = {
+  '주어':'주어라면 "누가/무엇이"에 답해야 해요. 이 어절이 서술어의 주체인가요?',
+  '서술어':'서술어라면 "어찌하다/어떠하다/무엇이다"로 주어를 풀이해야 해요. 이 어절이 그런가요?',
+  '목적어':'목적어라면 "무엇을/누구를"에 답해야 해요. 이 어절이 서술어의 대상인가요?',
+  '보어':'보어라면 서술어가 "되다/아니다"이고 그 앞을 채우는 말이어야 해요. 이 문장의 서술어는 무엇인가요?',
+  '관형어':'관형어라면 뒤에 오는 체언을 "어떤/누구의"로 꾸며야 해요. 이 어절이 체언을 꾸미나요?',
+  '부사어':'부사어라면 "어떻게/언제/어디서/얼마나"에 답해야 해요. 이 어절이 그런가요?',
+  '독립어':'독립어라면 감탄·대답·부름처럼 다른 성분과 관계없이 홀로 쓰여야 해요. 이 어절을 빼도 문장의 짜임이 그대로인가요?'
+};
+const HINT6 = '이 어절은 어떤 물음에 답하나요? 누가/무엇이 · 무엇을 · 어찌하다/어떠하다/무엇이다 · 어떤/누구의 · 어떻게/언제/어디서 · 홀로 쓰인 말';
+function optsFor(st){ if(S.stage===ANA) return COMP6; if(S.stage!==MOD) return STAGES[S.stage-1].opts; return st.key==='c' ? POS_OPTIONS : ROLE_OPTS; }
+function nOptFor(st){ if(st.key==='a'||st.key==='b'||st.key==='w') return 3; return optsFor(st).length >= 3 ? 3 : 2; } // ①② 어절 고르기는 늘 3개 이상
+function correctFor(it, st){
+  const q = it.q, m = modOf(it);
+  if(st.key==='x') return q.answer;
+  if(st.key==='w') return q.seq[st.wi];
+  if(st.key==='a') return q.mods.map(x=>x.i);
+  if(st.key==='b') return m.head;
+  if(st.key==='c') return m.pos;
+  return m.role;
+}
+function isCorrect(it, st, choice){ const a=correctFor(it,st); return Array.isArray(a) ? a.includes(choice) : a===choice; }
+function hintFor(it, st){
+  const q=it.q;
+  if(st.key==='x') return q.hint;
+  if(st.key==='w') return st.wrongPick ? WRONG6[st.wrongPick] : HINT6;
+  if(st.key==='a') return q.hint.a;
+  const m=modOf(it);
+  if(st.key==='d') return `꾸밈을 받는 「${m.headWord}」은(는) 체언(명사·대명사·수사)인가요, 아닌가요?`;
+  return m.hint[st.key];
+}
+const W = (q,i) => clean(q.words[i]);
+function askText(it, st){
+  const q=it.q;
+  if(S.stage===PRED) return predPhase(S.idx)<2 ? '밑줄 친 서술어의 특성으로 알맞은 것을 고르시오.' : '밑줄 친 서술어는 어떤 품사로 만들어졌나요?';
+  if(S.stage===2) return '밑줄 친 말은 주성분인가요, 부속성분인가요?';
+  if(S.stage===3) return '밑줄 친 서술어는 몇 자리 서술어인가요?';
+  if(S.stage===5||S.stage===6) return `밑줄 친 ${q.role}는 어떤 형태로 이루어졌나요?`;
+  if(S.stage===ANA) return st.status ? '문장의 모든 어절에 성분을 붙였어요.' : `불이 들어온 「${W(q,st.wi)}」은(는) 어떤 문장 성분인가요? 번호를 누르세요.`;
+  const m=modOf(it);
+  if(st.key==='a') return '① 이 문장에서 다른 말을 꾸며 주는 말을 하나 찾아 누르세요.';
+  if(st.key==='b') return `② 「${W(q,m.i)}」이(가) 꾸며 주는 말을 누르세요.`;
+  if(st.key==='c') return `③ 꾸밈을 받는 말 「${m.headWord}」의 품사는 무엇인가요?`;
+  return `④ 그렇다면 「${W(q,m.i)}」은(는) 관형어인가요, 부사어인가요?`;
+}
+function stepAnswerText(it, st){ const q=it.q, a=correctFor(it,st); if(st.key==='w') return `${W(q,st.wi)}」 = 「${a}`; if(st.key==='a') return W(q,modOf(it).i); if(st.key==='b') return W(q,a); return a; }
+
+function render(){
+  const it = cur(), q = it.q, stg = STAGES[S.stage-1];
+  const r = computeResults();
+  $('pBand').textContent = window.innerWidth<=600 ? '문법' : `문법 · ${S.stage}단계 · ${stg.goal}`;
+  $('pInfo').textContent = `문항 ${S.idx+1}/${S.items.length} · ${S.score}점`;
+  $('pBar').style.width = (r.graded / r.units * 100) + '%';
+  const vs = viewStep(), act = activeStep();
+  $('hintBox').style.display='none'; $('hintBox').textContent='';
+  $('qcard').classList.remove('shake');
+  $('qLabel').textContent = ['', '📝 서술어의 종류', '📝 성분의 역할', '📝 서술어의 자릿수', '🔍 꾸며 주는 말 찾기', '🔖 관형어의 형태', '🧭 부사어의 형태', '🧩 문장 성분 분석'][S.stage];
+  // 3단계 진행 표시(네 칸)
+  if(S.stage===MOD){
+    const names={a:'① 꾸며 주는 말',b:'② 꾸밈을 받는 말',c:'③ 품사',d:'④ 관형어/부사어'};
+    $('qSteps').innerHTML = it.steps.map(st=>{
+      let cls='pill', val='';
+      if(st.status){ cls += st.status==='fail' ? ' ng' : ' ok'; val = `<b>${stepAnswerText(it,st)}</b> ${st.status==='first'?'✅':st.status==='retry'?'🔁':'❌'}`; }
+      else if(act===st) cls+=' now';
+      return `<div class="${cls}"><span>${names[st.key]}</span>${val}</div>`;
+    }).join('');
+    $('qSteps').style.display='';
+  } else { $('qSteps').innerHTML=''; $('qSteps').style.display='none'; }
+  // 지금 할 일 — 바로 앞 물음의 결과도 이 상자 안에서 알려 준다
+  const note = (S.note && S.note.idx===S.idx && act) ? `<div class="note ${S.note.ok?'ok':'ng'}">${S.note.text}</div>` : '';
+  $('qAsk').innerHTML = note + `<div>${act ? askText(it, act) : askText(it, vs)}</div>`;
+  $('qAsk').classList.toggle('done', !act);
+  if(S.flashAsk){ $('qAsk').classList.remove('flash'); void $('qAsk').offsetWidth; $('qAsk').classList.add('flash'); S.flashAsk=false; }
+  // 문장
+  const sent = $('qSent');
+  if(S.stage===ANA){
+    sent.innerHTML = q.words.map((w,i)=>{
+      const st = it.steps[i];
+      const lab = st.status ? `<em class="lab ${st.status}">${q.seq[i]}</em>` : '<em class="lab">&nbsp;</em>';
+      return `<span class="w6${act===st?' now':''}${st.status?' done':''}" data-wi="${i}">${w}${lab}</span>`;
+    }).join(' ');
+  } else if(S.stage!==MOD){
+    sent.innerHTML = q.words.map((w,i)=>`<span class="w${i===q.mark?' mk':''}">${w}</span>`).join(' ');
+  } else {
+    const m = modOf(it);
+    const aDone = it.steps[0].status, bDone = it.steps[1].status;
+    const clickable = act && (act.key==='a' || act.key==='b');
+    let n=0;
+    sent.innerHTML = q.words.map((w,i)=>{
+      const cls=['chip'];
+      if(aDone && i===m.i) cls.push('tg');
+      if(bDone && i===m.head) cls.push('hd');
+      const self = clickable && act.key==='b' && i===m.i;
+      const bad = clickable && act.wrongPick===i;
+      if(bad) cls.push('bad');
+      const dis = !clickable || self || bad;
+      let badge=''; if(clickable && !self){ n++; badge=`<span class="n">${n}</span>`; }
+      return `<button class="${cls.join(' ')}" data-i="${i}" ${dis?'disabled':''}>${badge}${w}</button>`;
+    }).join(' ');
+    sent.querySelectorAll('.chip').forEach(b=>b.addEventListener('click',e=>{ e.currentTarget.blur(); pick(+b.dataset.i); }));
+  }
+  // 보기 버튼
+  const opts = $('qOpts');
+  const showOpts = S.stage!==MOD || vs.key==='c' || vs.key==='d';
+  opts.style.display = showOpts ? '' : 'none';
+  if(showOpts){
+    const list = optsFor(vs), ans = correctFor(it, vs);
+    opts.className = 'opts c' + list.length;
+    opts.innerHTML = list.map((o,i)=>{
+      let cls='opt';
+      if(vs.status && o===ans) cls+=' right';
+      if(o===vs.wrongPick) cls+=' wrong';
+      const dis = vs.status || o===vs.wrongPick;
+      return `<button class="${cls}" data-o="${o}" ${dis?'disabled':''}><span class="n">${i+1}</span>${optLabel(o)}</button>`;
+    }).join('');
+    opts.querySelectorAll('.opt').forEach(b=>b.addEventListener('click',e=>{ e.currentTarget.blur(); pick(b.dataset.o); }));
+  } else opts.innerHTML='';
+  // 아래 피드백: 문항이 끝났을 때(해설)와 다시 풀기 안내에만 쓴다
+  const fb = $('fb');
+  if(!act) showResolved(it);
+  else if(S.phase!=='wrong'){ fb.style.display='none'; fb.innerHTML=''; }
+  $('prevBtn').disabled = S.idx===0;
+}
+
+function showResolved(it){
+  const q=it.q, fb=$('fb');
+  const allOk = it.steps.every(s=>s.status==='first');
+  const anyFail = it.steps.some(s=>s.status==='fail');
+  let head;
+  if(S.stage===ANA){ head = (allOk ? '✅ 모든 어절을 첫 시도에 맞혔어요!' : anyFail ? '❌ 정답을 확인해 보세요.' : '🔁 다시 풀어 모두 맞혔어요.'); }
+  else if(S.stage!==MOD){ const st=it.steps[0], c=CATEGORIES[q.cat], A = q.stage===PRED ? predFull(q.answer) : q.answer; head = st.status==='first' ? `✅ 정답! ${c.emoji} ${A}` : st.status==='retry' ? `🔁 다시 풀어 맞혔어요. ${c.emoji} ${A}` : `❌ 정답은 ${c.emoji} ${A}`; }
+  else { const c=CATEGORIES[catOf(it)]; head = (allOk ? '✅ 네 가지 모두 맞혔어요! ' : anyFail ? '❌ 정답을 확인해 보세요. ' : '🔁 다시 풀어 맞혔어요. ') + `${c.emoji} 「${W(q,modOf(it).i)}」은(는) ${c.label}`; }
+  fb.className = 'fb ' + (anyFail ? 'ng' : 'ok');
+  const allDone = S.items.every(x=>x.steps.every(s=>s.status));
+  fb.innerHTML = `<div class="t">${head}</div><div>📘 ${detailOf(it)}</div><div class="go"><button class="btn" id="goNext">${allDone ? '🏁 결과 보기' : '다음 문항 ➡️'} <span style="font-weight:400;font-size:13px">(Enter)</span></button></div>`;
+  fb.style.display='block';
+  $('goNext').addEventListener('click',e=>{ e.currentTarget.blur(); advance(); });
+}
+
+function pick(choice){
+  if(!S || S.ended || S.lock) return;
+  const it = cur(), st = activeStep(); if(!st) return;
+  if(choice===st.wrongPick) return;
+  if(S.phase==='wrong'){ S.phase='ask'; }
+  S.lock = true; setTimeout(()=>{ S.lock=false; }, 250);
+  if(isCorrect(it, st, choice)){
+    if(st.key==='a') it.chosen = choice;
+    if(st.tries===0){
+      st.status='first'; S.combo++; S.maxCombo=Math.max(S.maxCombo,S.combo);
+      const gain = BASE + bonusFor(S.combo); S.score += gain;
+      sfx('ok');
+      if(S.stage===ANA){ if(S.combo===3 || S.combo%5===0) cbCelebrate(S.combo, gain); }
+      else if(S.combo>=3) cbCelebrate(S.combo, gain); else cbShow('정답!', '+'+gain, 'ok');
+    } else {
+      st.status='retry'; S.score += RETRY_PT; sfx('ok'); if(S.stage!==ANA) cbShow('다시 풀어 맞힘', '+'+RETRY_PT, 'retry');
+    }
+    st.wrongPick = undefined;
+    updateHud(); afterStep(it, st);
+  } else {
+    if(st.tries===0) st.first = choice;
+    st.tries++; S.combo=0; S.score=Math.max(0,S.score-WRONG_PT); updateHud(); sfx('ng'); cbHide();
+    if(S.stage===ANA && st.tries===1){
+      st.wrongPick = choice; S.phase='ask';
+      S.note = { idx:S.idx, ok:false, text:`❌ 「${choice}」이(가) 아니에요. 한 번 더! 💡 ${WRONG6[choice]}` };
+      render();
+      const now=document.querySelector('#qSent .w6.now'); if(now){ now.classList.remove('shake'); void now.offsetWidth; now.classList.add('shake'); }
+    } else if(nOptFor(st)>=3 && st.tries===1){
+      st.wrongPick = choice; S.phase='wrong';
+      render();
+      const fb=$('fb'); fb.className='fb ng';
+      fb.innerHTML = `<div class="t">❌ 아니에요. 한 번 더 풀어 보세요. (−${WRONG_PT}점)</div><div>💡 ${hintFor(it,st)}</div><div class="go"><button class="btn sec" id="retryBtn">다시 풀기 <span style="font-weight:400;font-size:13px">(Enter)</span></button></div>`;
+      fb.style.display='block';
+      $('retryBtn').addEventListener('click',e=>{ e.currentTarget.blur(); retry(); });
+      $('qcard').classList.remove('shake'); void $('qcard').offsetWidth; $('qcard').classList.add('shake');
+    } else {
+      if(st.key==='a') it.chosen = it.q.mods[0].i;
+      st.status='fail'; st.wrongPick = undefined; S.phase='ask';
+      afterStep(it, st);
+      $('qcard').classList.remove('shake'); void $('qcard').offsetWidth; $('qcard').classList.add('shake');
+    }
+  }
+}
+function retry(){ if(S.phase!=='wrong') return; S.phase='ask'; $('fb').style.display='none'; $('fb').innerHTML=''; }
+function afterStep(it, st){
+  S.lastGrade = Date.now();
+  if(S.items.every(x=>x.steps.every(s=>s.status))) S.tEnd = Date.now();
+  S.phase='ask';
+  if(curStepIdx(it) >= 0){ // 다음 물음이 남음 → 결과는 '지금 할 일' 상자 안에서
+    const t = stepAnswerText(it, st);
+    S.note = st.status==='fail' ? { idx:S.idx, ok:false, text:`❌ 정답은 「${t}」예요. 이어서 풀어 보세요.` }
+                                : { idx:S.idx, ok:true, text:`${st.status==='first'?'✅':'🔁'} 「${t}」 맞아요.` };
+    S.flashAsk = true;
+  } else S.note = null;
+  render();
+}
+function advance(){
+  if(!S || S.ended) return;
+  if(S.items.every(x=>x.steps.every(s=>s.status))){ finish(false); return; }
+  for(let k=1;k<=S.items.length;k++){
+    const j=(S.idx+k)%S.items.length;
+    if(S.items[j].steps.some(s=>!s.status)){ S.idx=j; break; }
+  }
+  S.phase='ask'; S.note=null; S.flashAsk=true; cbHide(); render();
+}
+function go(d){
+  if(!S) return;
+  const j = S.idx + d; if(j<0) return;
+  if(j>=S.items.length){ if(confirm('마지막 문항이에요. 게임을 끝낼까요?')) finish(true); return; }
+  S.idx=j; S.phase='ask'; S.note=null; S.flashAsk=true; cbHide(); render();
+}
+$('prevBtn').addEventListener('click',e=>{ e.currentTarget.blur(); go(-1); });
+$('nextBtn').addEventListener('click',e=>{ e.currentTarget.blur(); go(1); });
+$('quitBtn').addEventListener('click',e=>{ e.currentTarget.blur(); if(confirm('게임을 끝낼까요? 지금까지 푼 문제로 결과를 보여 줍니다.')) finish(true); });
+$('hintBtn').addEventListener('click',e=>{ e.currentTarget.blur(); const it=cur(); const st=viewStep(); $('hintBox').textContent='💡 '+hintFor(it,st); $('hintBox').style.display='block'; });
+
+document.addEventListener('keydown',e=>{
+  const tag = (e.target.tagName||'').toLowerCase();
+  if(tag==='input' || tag==='textarea') return;
+  if($('todayModal').style.display==='flex'){ if(e.key==='Escape') $('todayModal').style.display='none'; return; }
+  if($('intro').classList.contains('on') && (e.key==='Enter'||e.key===' ')){ e.preventDefault(); $('introGo').click(); return; }
+  if(!$('play').classList.contains('on') || !S || S.ended) return;
+  const act = activeStep();
+  if(e.key==='Enter' || e.key===' ' || e.key==='ArrowRight'){
+    e.preventDefault();
+    if(S.phase==='wrong'){ if(e.key!=='ArrowRight') retry(); return; }
+    if(!act){ advance(); return; }
+    return; // 답하기 전에는 넘기지 않는다
+  }
+  if(/^[1-9]$/.test(e.key) && act){
+    const k = +e.key;
+    const q = cur().q;
+    if(S.stage!==MOD || act.key==='c' || act.key==='d'){
+      const list = optsFor(act); if(k<=list.length) pick(list[k-1]);
+    } else {
+      const self = act.key==='b' ? modOf(cur()).i : -1;
+      const idxs = q.words.map((w,i)=>i).filter(i=>i!==self);
+      if(k<=idxs.length) pick(idxs[k-1]);
+    }
+  }
+});
+
+// ── 연출 ──
+let cbTimer=null;
+function cbShow(big, small, kind){
+  const el=$('cbn'); el.className=kind+(S&&(S.stage===MOD||S.stage===ANA)?' hi':''); el.querySelector('.b').textContent=big; el.querySelector('.s').textContent=small||'';
+  el.style.display='block'; void el.offsetWidth; el.classList.add('pop');
+  clearTimeout(cbTimer); cbTimer=setTimeout(cbHide,1300);
+}
+function cbHide(){ const el=$('cbn'); el.style.display='none'; clearTimeout(cbTimer); document.querySelectorAll('.cf').forEach(c=>c.remove()); }
+function cbShown(){ return $('cbn').style.display==='block'; }
+function cbCelebrate(n, gain){ cbShow(`${n}연속 정답!`, '+'+gain, 'combo'); sfx('combo'); if(n%5===0) cbConfetti(); }
+function cbConfetti(){
+  if(matchMedia('(prefers-reduced-motion: reduce)').matches) return;
+  const cols=['#e8590c','#fab005','#7C5CBF','#2f9e44','#1c7ed6'];
+  for(let i=0;i<28;i++){
+    const c=document.createElement('div'); c.className='cf';
+    c.style.left=(50+(Math.random()*30-15))+'%'; c.style.top='44%'; c.style.background=cols[i%cols.length];
+    document.body.appendChild(c);
+    const dx=(Math.random()*2-1)*180, dy=(Math.random()*2-1)*140;
+    c.animate([{transform:'translate(0,0) rotate(0)',opacity:1},{transform:`translate(${dx}px,${dy}px) rotate(${Math.random()*540}deg)`,opacity:0}],{duration:900,easing:'ease-out'});
+    setTimeout(()=>c.remove(),950);
+  }
+}
+function updateHud(){
+  const h=$('comboHud'); $('pInfo').textContent = `문항 ${S.idx+1}/${S.items.length} · ${S.score}점`;
+  if(S.combo>=2){ h.style.display='block'; h.textContent='🔥 '+S.combo; h.classList.remove('pulse'); void h.offsetWidth; h.classList.add('pulse'); } else h.style.display='none';
+}
+let AC=null;
+function sfx(kind){
+  try{
+    AC = AC || new (window.AudioContext||window.webkitAudioContext)();
+    const notes = kind==='ok' ? [660,880] : kind==='combo' ? [660,880,1100] : [330,220];
+    notes.forEach((f,i)=>{ const o=AC.createOscillator(), g=AC.createGain(); o.type= kind==='ng'?'sawtooth':'sine'; o.frequency.value=f;
+      g.gain.setValueAtTime(.0001,AC.currentTime+i*.09); g.gain.exponentialRampToValueAtTime(.12,AC.currentTime+i*.09+.02); g.gain.exponentialRampToValueAtTime(.0001,AC.currentTime+i*.09+.16);
+      o.connect(g).connect(AC.destination); o.start(AC.currentTime+i*.09); o.stop(AC.currentTime+i*.09+.18); });
+  }catch(e){}
+}
+
+// ═══════════════════════════════════════════
+// 종료 화면
+// ═══════════════════════════════════════════
+let R = null;
+function fmtTime(ms){ const s=Math.max(0,Math.round(ms/1000)); return `${Math.floor(s/60)}분 ${s%60}초`; }
+function finish(early){
+  if(!S || S.ended) return;
+  S.ended = true; cbHide(); $('comboHud').style.display='none';
+  if(!S.tEnd){ // 마지막으로 채점한 시각까지
+    S.tEnd = S.lastGrade || Date.now();
+  }
+  R = computeResults();
+  const stg = STAGES[S.stage-1];
+  $('eBand').textContent = `문법 · ${stg.name}`;
+  $('eTitle').textContent = R.done ? `${S.stage}단계 완료!` : '여기까지 풀었어요';
+  $('eScore').textContent = `${S.score}점`;
+  $('eMax').textContent = `만점 ${MAX_SCORE[S.stage]}점`;
+  const accTxt = R.graded ? Math.round(R.acc*100)+'%' : '—';
+  $('eStats').innerHTML = [
+    ['첫 시도 정답', R.first], ['다시 풀어 맞힘', R.retry], ['못 맞힘', R.fail], ['미응답', R.unanswered],
+    ['정답률', accTxt], ['최고 연속', S.maxCombo], ['소요 시간', fmtTime(S.tEnd - S.t0)], ['채점 단위', S.stage===MOD?'물음 '+R.units+'개':R.units+'문항']
+  ].map(([k,v])=>`<div class="stat"><b>${v}</b><span>${k}</span></div>`).join('');
+  let rv = `<b>📝 총평</b> ${R.verdict}`;
+  if(R.graded){
+    if(R.good.length) rv += `<br><b>👍 잘하는 유형</b> ${R.good.join(', ')}`;
+    if(R.weak) rv += `<br><b>🎯 보완이 필요한 유형</b> ${R.weak.text}${R.weak.tip?'<br><span style="color:#555">'+R.weak.tip+'</span>':''}`;
+  }
+  $('eReview').innerHTML = rv;
+  $('eWrong').innerHTML = R.wrongItems.length ? '<h3 style="color:var(--ink)">❌ 틀린 문제</h3>' + R.wrongItems.map(it=>itemHtml(it,true)).join('') : '';
+  const hasNext = S.stage < STAGES.length;
+  const nb=$('nextStage'); nb.style.display = hasNext ? '' : 'none'; nb.className='btn';
+  $('againStage').className = hasNext ? 'btn sec' : 'btn';
+  $('dlReport').disabled = $('dlWrong').disabled = false;
+
+  // ── 연동 모드: 결과 전송 ──
+  if(IS_ONLINE&&STUDENT.verified){
+    const nameInput=$('inName');nameInput.value=STUDENT.name;nameInput.readOnly=true;nameInput.style.background='#f0ede5';
+    submitResult({
+      studentId:STUDENT.id, studentName:STUDENT.name, className:STUDENT.className,
+      stage:S.stage,
+      totalQuestions:R.units, answeredCount:R.graded, skippedCount:R.unanswered,
+      correctCount:R.first, retryCorrectCount:R.retry,
+      score:S.score, maxScore:MAX_SCORE[S.stage],
+      elapsedSeconds:Math.round((S.tEnd-S.t0)/1000),
+      wrongItems:R.wrongIds.join(','),
+      reflection:''
+    }).then(res=>{
+      const el=document.createElement('div');
+      el.style.cssText='margin-top:8px;padding:10px 16px;border-radius:10px;font-size:13px;font-weight:600;text-align:center;';
+      if(res.status==='ok'){ el.style.background='#e8f5e9';el.style.color='#2e7d32';el.textContent='✅ 결과가 선생님께 전송되었습니다.'; }
+      else { el.style.background='#ffebee';el.style.color='#c62828';el.textContent='❌ 전송 실패 — 인터넷 연결을 확인하고 선생님께 알려 주세요.'; }
+      const p=$('endPrivacy');if(p)p.before(el);
+    });
+  }
+  show('end');
+}
+function sentText(it, opt){
+  const q=it.q;
+  return q.words.map((w,i)=>{
+    if(q.stage!==MOD) return i===q.mark ? `<u><b>${w}</b></u>` : w;
+    const m=modOf(it);
+    if(i===m.i) return `<span style="background:#fff4d6;border-radius:4px;padding:0 3px"><b>${w}</b></span>`;
+    if(i===m.head && opt) return `<span style="background:#e9f6ec;border-radius:4px;padding:0 3px"><b>${w}</b></span>`;
+    return w;
+  }).join(' ');
+}
+function myAnswerText(it){
+  const q=it.q;
+  return it.steps.filter(s=>s.status && s.status!=='first').map(s=>{
+    const mine = s.first; const nm = s.key==='w' ? `${W(q,s.wi)}: ` : {x:'',a:'① 꾸며 주는 말: ',b:'② 꾸밈을 받는 말: ',c:'③ 품사: ',d:'④ 성분: '}[s.key];
+    const t = (s.key==='a'||s.key==='b') ? clean(q.words[mine]) : q.stage===PRED ? predFull(mine) : mine;
+    return nm + t;
+  }).join(' / ');
+}
+function answerText(it){
+  const q=it.q;
+  if(q.stage===ANA) return q.words.map((w,i)=>`${clean(w)}(${q.seq[i]})`).join(' ');
+  if(q.stage===PRED) return predFull(q.answer);
+  if(q.stage!==MOD) return q.answer;
+  const m=modOf(it);
+  return `① ${W(q,m.i)} → ② ${W(q,m.head)} → ③ ${m.pos} → ④ ${m.role}`;
+}
+function itemHtml(it, withMine){
+  const c=CATEGORIES[catOf(it)];
+  return `<div class="witem"><b>${c.emoji} ${c.label}</b><br>${sentText(it,true)}<br>✅ 정답: <b>${answerText(it)}</b>${withMine?`<br>✍️ 내 답: ${myAnswerText(it)}`:''}<br><span style="color:#555">📘 ${detailOf(it)}</span></div>`;
+}
+$('showToday').addEventListener('click',()=>{
+  const list = S.items.filter(it=>it.steps.some(s=>s.status));
+  $('todayList').innerHTML = list.length ? list.map(it=>{ const c=CATEGORIES[catOf(it)]; return `<div class="ritem"><b>${c.emoji} ${c.label}</b> — ${sentText(it,true)}<br>✅ ${answerText(it)}<br><span style="color:#555">📘 ${detailOf(it)}</span></div>`; }).join('') : '<p>이번 판에 풀어 본 문제가 없어요.</p>';
+  $('todayModal').style.display='flex';
+});
+$('closeToday').addEventListener('click',()=>$('todayModal').style.display='none');
+$('nextStage').addEventListener('click',()=>startStage(S.stage+1));
+$('againStage').addEventListener('click',()=>startStage(S.stage));
+$('toStart').addEventListener('click',()=>{ show('start'); });
+
+// ═══════════════════════════════════════════
+// 산출물 (캔버스 · 시스템 폰트)
+// ═══════════════════════════════════════════
+const FONT = '"Malgun Gothic","Apple SD Gothic Neo","Noto Sans KR",sans-serif';
+function needName(){ const n=$('inName').value.trim(); if(!n){ alert('이름을 먼저 입력해 주세요.'); $('inName').focus(); return null; } return n; }
+function stamp(){ const d=new Date(S.tEnd||Date.now()); const p=x=>String(x).padStart(2,'0'); return { f:`${d.getFullYear()}${p(d.getMonth()+1)}${p(d.getDate())}_${p(d.getHours())}${p(d.getMinutes())}`, t:`${d.getFullYear()}.${p(d.getMonth()+1)}.${p(d.getDate())} ${p(d.getHours())}:${p(d.getMinutes())}` }; }
+function wrapLines(ctx, text, maxW){
+  const out=[]; String(text).split('\n').forEach(par=>{
+    let line=''; for(const ch of par){ const t=line+ch; if(ctx.measureText(t).width>maxW && line){ out.push(line); line=ch; } else line=t; }
+    out.push(line);
+  }); return out;
+}
+function roundBox(ctx,x,y,w,h,r){ ctx.beginPath(); ctx.moveTo(x+r,y); ctx.lineTo(x+w-r,y); ctx.quadraticCurveTo(x+w,y,x+w,y+r); ctx.lineTo(x+w,y+h-r); ctx.quadraticCurveTo(x+w,y+h,x+w-r,y+h); ctx.lineTo(x+r,y+h); ctx.quadraticCurveTo(x,y+h,x,y+h-r); ctx.lineTo(x,y+r); ctx.quadraticCurveTo(x,y,x+r,y); ctx.closePath(); }
+// 블록 목록을 받아 높이를 계산한 뒤 그린다
+function drawDoc(blocks, W){
+  const c=document.createElement('canvas'); const ctx=c.getContext('2d'); const pad=40, inner=W-pad*2;
+  let H=pad; const laid=blocks.map(b=>{ ctx.font=`${b.bold?'bold ':''}${b.size}px ${FONT}`; const lines=b.text===''?['']:wrapLines(ctx,b.text,inner-(b.box?28:0)); const h=lines.length*b.size*1.5 + (b.box?24:0) + (b.gap||8); const o={...b,lines,h,y:H}; H+=h; return o; });
+  H+=pad; c.width=W; c.height=H;
+  ctx.fillStyle='#fff'; ctx.fillRect(0,0,W,H);
+  ctx.fillStyle='#7C5CBF'; ctx.fillRect(0,0,W,10);
+  laid.forEach(b=>{
+    if(b.box){ ctx.fillStyle=b.box; roundBox(ctx,pad,b.y,inner,b.h-(b.gap||8),12); ctx.fill(); }
+    ctx.font=`${b.bold?'bold ':''}${b.size}px ${FONT}`; ctx.fillStyle=b.color||'#333'; ctx.textBaseline='top';
+    b.lines.forEach((ln,i)=>ctx.fillText(ln, pad+(b.box?14:0), b.y+(b.box?12:0)+i*b.size*1.5));
+  });
+  return c;
+}
+function privacyText(){ return IS_ONLINE ? '🔒 개인정보 보호 안내 — 본 게임의 학습 결과(학번, 이름, 점수, 오답 정보, 학습 소감)는 담당 선생님의 학습 관리용 스프레드시트에 안전하게 전송·저장됩니다. 수집된 정보는 학습 지도 목적으로만 사용되며, 제3자에게 제공되지 않습니다.' : '🔒 개인정보 보호 안내 — 본 게임은 별도의 서버로 데이터를 전송하거나 저장하지 않습니다. 게임 중 입력하는 이름, 활동 소감 등의 정보는 오직 사용자 기기 내부에서 리포트 이미지를 다운로드하는 용도로만 안전하게 처리됩니다.'; }
+function footBlocks(){ return [
+  {text:'성취기준 '+STD_TEXT,size:13,color:'#666',gap:4},
+  {text:privacyText(),size:13,color:'#666',gap:4},
+  {text:`제작 · 보라라샘 · 전주서신중학교 교사 · siaawase@gmail.com · 제작일 ${MADE_DATE} · 최종 수정 ${LAST_MOD}`,size:13,color:'#666'} ]; }
+function download(canvas, name){ const a=document.createElement('a'); a.href=canvas.toDataURL('image/jpeg',0.92); a.download=name; document.body.appendChild(a); a.click(); a.remove(); }
+function plainSent(it){ return it.q.words.join(' '); }
+$('dlReport').addEventListener('click',()=>{
+  const name=needName(); if(!name) return; const t=stamp(); const stg=STAGES[S.stage-1]; const memo=$('inMemo').value.trim();
+  const B=[{text:`📊 학습 결과 분석 리포트 — ${GAME_CONFIG.gameName}`,size:24,bold:true,color:'#3C3489'},
+    {text:`${stg.name} · ${name} · ${t.t}`,size:16,color:'#555',gap:16}];
+  if(!R.graded){ B.push({text:'풀어 본 문제가 없어요',size:20,bold:true,box:'#faf8fd',gap:16}); }
+  else {
+    B.push({text:`최종 점수 ${S.score}점 / 만점 ${MAX_SCORE[S.stage]}점 · 정답률 ${Math.round(R.acc*100)}%`,size:20,bold:true,box:'#f3eefb'});
+    B.push({text:`첫 시도 정답 ${R.first} · 다시 풀어 맞힘 ${R.retry} · 못 맞힘 ${R.fail} · 미응답 ${R.unanswered} · 최고 연속 ${S.maxCombo} · 소요 시간 ${fmtTime(S.tEnd-S.t0)}`,size:16,gap:14});
+    B.push({text:'📝 총평  '+R.verdict,size:18,bold:true,gap:12});
+    if(R.good.length) B.push({text:'👍 잘하는 유형  '+R.good.join(', '),size:16,box:'#ebfbee'});
+    if(R.weak) B.push({text:'🎯 보완이 필요한 유형  '+R.weak.text+(R.weak.tip?'\n'+R.weak.tip:''),size:16,box:'#fff4e6'});
+  }
+  if(memo) B.push({text:'💬 학습 소감  '+memo,size:16,box:'#f8f9fa'});
+  B.push({text:'',size:8}); footBlocks().forEach(b=>B.push(b));
+  download(drawDoc(B,900), `${name}_학습리포트_${S.stage}단계${stg.short.replace(/[·\s]/g,'')}_${t.f}.jpg`);
+});
+$('dlWrong').addEventListener('click',()=>{
+  const name=needName(); if(!name) return; const t=stamp(); const stg=STAGES[S.stage-1];
+  const B=[{text:`📝 오답노트 — ${GAME_CONFIG.gameName}`,size:24,bold:true,color:'#3C3489'},{text:`${stg.name} · ${name} · ${t.t}`,size:16,color:'#555',gap:16}];
+  if(!R.graded) B.push({text:'풀어 본 문제가 없어요',size:20,bold:true,box:'#faf8fd'});
+  else if(!R.wrongItems.length) B.push({text:'🎉 틀린 문제가 없어요! 모든 물음을 첫 시도에 맞혔어요.',size:20,bold:true,box:'#ebfbee'});
+  else R.wrongItems.forEach(it=>{
+    const c=CATEGORIES[catOf(it)];
+    B.push({text:`${c.emoji} ${c.label}`,size:15,bold:true,color:'#7C5CBF',gap:2});
+    B.push({text:plainSent(it)+(it.q.mark!==undefined?`   (밑줄: ${clean(it.q.words[it.q.mark])})`:''),size:18,bold:true,gap:2});
+    B.push({text:'✅ 정답: '+answerText(it),size:16,color:'#2f9e44',bold:true,gap:2});
+    B.push({text:'✍️ 내 답: '+myAnswerText(it),size:15,color:'#c92a2a',gap:2});
+    B.push({text:'📘 '+detailOf(it),size:13,color:'#64748b',gap:18});
+  });
+  B.push({text:'',size:8}); footBlocks().forEach(b=>B.push(b));
+  download(drawDoc(B,900), `${name}_오답노트_${S.stage}단계${stg.short.replace(/[·\s]/g,'')}_${t.f}.jpg`);
+});
+
+// ═══════════════════════════════════════════
+// 교사용 학습 데이터 목록 (엑셀) — '최종 수정' 글자 클릭
+// ═══════════════════════════════════════════
+function downloadTeacherXls(){
+  const esc=s=>String(s).replace(/&/g,'&amp;').replace(/</g,'&lt;');
+  const red='style="color:#FF0000;font-weight:bold"';
+  let rows='';
+  QUESTIONS.forEach(q=>{
+    const c=CATEGORIES[q.cat];
+    const s3 = q.stage===MOD;
+    const sent = !s3 ? q.words.map((w,i)=>i===q.mark?`[${w}]`:w).join(' ') : q.words.join(' ');
+    const ans = q.stage===ANA ? q.words.map((w,i)=>`${clean(w)}(${q.seq[i]})`).join(' ') : q.stage===PRED ? predFull(q.answer) : !s3 ? q.answer : q.mods.map(m=>`①${clean(q.words[m.i])} → ②${clean(q.words[m.head])} → ③${m.pos} → ④${m.role}`).join(' / ') + (q.mods.length>1?' (①에서 어느 쪽을 골라도 정답)':'');
+    const others = q.stage===ANA ? '성분 카드 7개(주어·서술어·목적어·보어·관형어·부사어·독립어)' : !s3 ? STAGES[q.stage-1].opts.filter(o=>o!==q.answer).join(', ') : '①② 문장의 다른 어절 / ③ 품사 7개 / ④ 관형어·부사어';
+    const hint = q.stage===ANA ? '어절마다: '+HINT6+' / 오답 카드별 힌트는 게임 안에서' : !s3 ? q.hint : 'a) '+q.hint.a+' / '+q.mods.map(m=>`[${clean(q.words[m.i])}] b) ${m.hint.b} c) ${m.hint.c}`).join(' / ');
+    const det = !s3 ? q.detail : q.mods.map(m=>m.detail).join(' / ');
+    const lab = q.stage===ANA ? c.label + (q.origNo?` (G301 ${q.origNo}번)`:'') : !s3 ? c.label : [...new Set(q.mods.map(m=>m.role))].join('·');
+    rows += `<tr><td>${q.stage}</td><td>${q.id}</td><td>${lab}</td><td>${esc(sent)}</td><td ${red}>${esc(ans)}</td><td>${esc(others)}</td><td>${esc(det)}</td><td>${esc(hint)}</td><td>${q.level||1}</td><td>${q.edge?'경계':''}</td><td>${esc(q.src)}</td></tr>`;
+  });
+  let sum=''; Object.entries(CATEGORIES).forEach(([k,c])=>{ const n=QUESTIONS.filter(q=>q.stage===ANA ? (q.seq.some(x=>COMP_CAT[x]===k)||k==='sent6') : q.stage===MOD ? q.mods.some(m=>(m.role==='관형어'?'gwan':'busa')===k) : q.cat===k).length; sum+=`<tr><td>${c.label}</td><td>${n}</td><td>${esc(c.desc)}</td><td>${esc(c.tip)}</td></tr>`; });
+  const html=`<html><head><meta charset="UTF-8"></head><body><table border="1"><tr><th>단계</th><th>원본 id</th><th>유형</th><th>문제(밑줄은 [ ])</th><th>정답</th><th>오답 보기</th><th>해설</th><th>힌트</th><th>난이도</th><th>경계</th><th>근거</th></tr>${rows}</table><br><table border="1"><tr><th>유형</th><th>문항 수</th><th>설명</th><th>학습 조언</th></tr>${sum}</table><br><table><tr><td>성취기준: ${STD_TEXT}</td></tr><tr><td>배점: 첫 시도 정답 10점 + 연속 보너스(3~4번째 +5, 5번째부터 +10) · 다시 풀어 맞힘 5점 · 오답 −5점(0점 아래로 내려가지 않음) · 4단계는 물음(①②③④)마다 채점 · 단계 안에서 난이도 순으로 내고 같은 난이도 안에서만 섞음</td></tr><tr><td>총문항 ${QUESTIONS.length}개 · 만점 ${STAGES.map(s=>s.n+'단계 '+MAX_SCORE[s.n]+'점').join(' / ')}</td></tr><tr><td>제작 · 보라라샘 · 전주서신중학교 교사 · siaawase@gmail.com · 제작일 ${MADE_DATE} · 최종 수정 ${LAST_MOD}</td></tr></table></body></html>`;
+  const blob=new Blob(['﻿'+html],{type:'application/vnd.ms-excel'});
+  const d=new Date(); const p=x=>String(x).padStart(2,'0');
+  const a=document.createElement('a'); a.href=URL.createObjectURL(blob); a.download=`${GAME_CONFIG.gameCode}_${GAME_CONFIG.gameName.replace(/\s/g,'')}_학습데이터목록_${d.getFullYear()}${p(d.getMonth()+1)}${p(d.getDate())}.xls`;
+  document.body.appendChild(a); a.click(); a.remove();
+}
+const trigger = $('lastMod'); trigger.style.cursor='default'; trigger.addEventListener('click', downloadTeacherXls);
+</script>
+</body>
+</html>
