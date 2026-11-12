@@ -1,9 +1,10 @@
 <!DOCTYPE html>
 <html lang="ko">
 <!-- 새로 만듦 2026.11.12 (G213 모음 완전 정복)
-     합친 게임: 음운 체계 익히기(G212) 1·2단계 단모음 체계표 · 단모음 구분하기(G206) 문항 30개 · 단모음 두더지(G207) 게임 규칙
+     합친 게임: 음운 체계 익히기(G212) 1·2단계 단모음 체계표 · 단모음 구분하기(G206) 문항 30개 · 단모음 두더지(G207)·단모음 갤러그(G201) 게임 규칙
      구성: 챕터 1 단모음과 이중 모음(새 문항 42) → 챕터 2 단모음 체계표 외우기(기본 배치 → 심화 라벨, 이어서) → 챕터 3 문제로 단모음 구별하기(30) → 챕터 4 게임으로 단모음 구별하기(두더지)
      추가: 챕터 3 객관식 번호키(1~3) 선택, 챕터 4 목표에 '단모음'·'이중 모음' 추가, 보기 버튼 이모지 뺌
+     2026.11.12 16:40 챕터 4에 단모음 갤러그(G201) 게임을 넣음 — 두더지/갤러그 중 골라서 함
      용어 띄어쓰기 통일: 전설 모음·후설 모음·평순 모음·원순 모음·이중 모음 / 단모음·고모음·중모음·저모음 -->
 <head>
 <meta charset="UTF-8">
@@ -238,6 +239,48 @@ body.playing{overflow:hidden}
 .float{position:absolute;left:50%;top:10%;transform:translateX(-50%);z-index:4;pointer-events:none;white-space:nowrap;font-weight:800;font-size:clamp(15px,2.4vw,21px);padding:2px 8px;border-radius:8px;background:rgba(255,255,255,.92);animation:floatUp .85s ease-out forwards}
 @keyframes floatUp{0%{opacity:0;top:40%}15%{opacity:1;top:12%}100%{opacity:0;top:-20%}}
 
+
+/* ── 챕터 4 갤러그 (단모음 갤러그 G201 규칙 그대로) ── */
+#galaga.on{display:flex;align-items:center;min-height:100vh;padding:16px 0}
+#galaga .panel{overflow:hidden;width:100%}
+.g-wrap{padding:12px 18px 14px}
+.g-hud{display:flex;justify-content:space-between;align-items:center;gap:8px;margin-bottom:6px;flex-wrap:wrap}
+.g-target{font-weight:700;font-size:17px;color:var(--ink)}
+.g-right{display:flex;gap:6px;align-items:center}
+.g-pill{padding:3px 11px;border-radius:999px;font-weight:700;font-size:13.5px;border:1.5px solid var(--line);background:#fff;color:var(--ink)}
+.g-pill.warn{border-color:#f0b8b8;color:var(--ng);background:var(--ngbg)}
+.g-combo{padding:3px 11px;border-radius:999px;background:#fff4e6;border:1.5px solid #f5c9a3;color:#c8601a;font-weight:700;font-size:13.5px}
+.g-combo.pulse{animation:cpulse .35s ease-out}
+.g-tbar{background:var(--line);border-radius:6px;height:5px;overflow:hidden;margin-bottom:6px}
+.g-tfill{height:100%;background:var(--accent);border-radius:6px}
+.g-tfill.warn{background:var(--ng)}
+.arena{position:relative;width:100%;height:clamp(300px,calc(100vh - 250px),540px);background:linear-gradient(180deg,#1a1040 0%,#2d1860 55%,#3a2070 100%);border-radius:14px;overflow:hidden;border:2px solid #4a3090}
+.arena.shake{animation:shake .35s}
+.arena-stars{position:absolute;inset:0;background:radial-gradient(1px 1px at 10% 20%,rgba(255,255,255,.6),transparent),radial-gradient(1px 1px at 30% 60%,rgba(255,255,255,.4),transparent),radial-gradient(1px 1px at 50% 10%,rgba(255,255,255,.5),transparent),radial-gradient(1px 1px at 70% 40%,rgba(255,255,255,.3),transparent),radial-gradient(1px 1px at 90% 80%,rgba(255,255,255,.5),transparent),radial-gradient(1.5px 1.5px at 15% 90%,rgba(200,180,255,.6),transparent),radial-gradient(1.5px 1.5px at 85% 25%,rgba(200,180,255,.4),transparent)}
+.g-flash{position:absolute;inset:0;background:rgba(214,69,69,.28);opacity:0;pointer-events:none;z-index:15;transition:opacity .25s}
+.g-flash.on{opacity:1;transition:none}
+.enemy{position:absolute;width:52px;height:52px;display:flex;align-items:center;justify-content:center;font-size:28px;font-weight:700;color:#fff;border-radius:50%;pointer-events:none;z-index:5;background:radial-gradient(circle,#9b7be0,#6040c0);box-shadow:0 0 12px rgba(155,123,224,.6)}
+.enemy.hit{animation:explode .3s ease-out forwards}
+@keyframes explode{to{transform:scale(1.8);opacity:0}}
+.ship{position:absolute;bottom:16px;width:44px;height:44px;z-index:10}
+.ship-body{width:0;height:0;border-left:22px solid transparent;border-right:22px solid transparent;border-bottom:44px solid #f0c860;filter:drop-shadow(0 0 8px rgba(240,200,96,.6))}
+.bullet{position:absolute;width:4px;height:16px;background:linear-gradient(180deg,#fff,#f0c860);border-radius:2px;z-index:8;pointer-events:none}
+.gpop{position:absolute;font-size:15px;font-weight:700;z-index:20;pointer-events:none;animation:gpopUp .8s ease-out forwards;white-space:nowrap;text-shadow:0 1px 3px rgba(0,0,0,.6)}
+@keyframes gpopUp{0%{opacity:1;transform:translateY(0)}100%{opacity:0;transform:translateY(-34px)}}
+.gpop.good{color:#8ff0b5}.gpop.bad{color:#ffb0b0}
+.g-fb{height:34px;margin-top:6px;display:flex;align-items:center;justify-content:center}
+.g-hint{background:#fff7d6;border:1.5px solid #f0d27a;border-left:5px solid #e0a800;color:#5a4400;border-radius:8px;padding:5px 12px;font-size:14px;font-weight:500;opacity:0;transition:opacity .2s;white-space:nowrap;overflow:hidden;text-overflow:ellipsis;max-width:100%}
+.g-hint.on{opacity:1}
+.g-ctrls{display:grid;grid-template-columns:1fr 1.5fr 1fr auto auto;gap:8px;margin-top:6px}
+.ctrl{border:none;border-radius:12px;padding:10px;font-size:19px;font-weight:700;min-height:46px;user-select:none;-webkit-user-select:none}
+.ctrl:active{transform:scale(.96)}
+.ctrl.move{background:#F7F3FC;color:var(--accent);border:2px solid var(--line)}
+.ctrl.fire{background:linear-gradient(135deg,#f0c860,#f09060);color:#fff}
+.ctrl.small{font-size:14px;padding:10px 14px;background:#fff;border:1.5px solid var(--line);color:var(--text)}
+.ctrl.quit{font-size:14px;padding:10px 14px;background:var(--ngbg);border:1.5px solid #f0b8b8;color:#b03a3a}
+.g-keys{font-size:12px;color:var(--muted);text-align:center;margin-top:5px}
+.gtype{display:grid;grid-template-columns:1fr 1fr;gap:5px}
+
 /* ── 단계 안내 · 확인 창 ── */
 .overlay{position:fixed;inset:0;z-index:80;background:rgba(40,30,70,.5);display:none;align-items:center;justify-content:center;padding:20px}
 .overlay.on{display:flex}
@@ -411,7 +454,7 @@ body.playing #cbn{top:15%}
        <p>연속 정답은 3~4번째 <b>+5점</b>, 5번째부터 <b>+10점</b>을 더 받아요.</p>
        <p>보기가 셋 이상인 문제는 틀리면 힌트를 보고 한 번 더 풀어요.</p>
        <p>챕터 2는 점수 없이, 맞는 칸에 놓을 때까지 다시 골라요.</p>
-       <p>챕터 4는 키보드 Q W E / A S D / Z X C로도 잡을 수 있어요.</p>
+       <p>챕터 4 두더지는 Q~C 키, 갤러그는 ← →와 스페이스바로 해요.</p>
        <p>ㅚ·ㅟ는 단모음이 원칙이지만, 이중 모음으로 발음할 수도 있어요.</p>
        <p>끝나면 오답노트와 학습 리포트를 JPG로 저장할 수 있어요.</p>
       </div>
@@ -422,7 +465,7 @@ body.playing #cbn{top:15%}
     </div>
 
     <div class="start-foot">
-     <div class="credit">제작 · 보라라샘 · 전주서신중학교 교사 · siaawase@gmail.com<br>제작일 2026.11.12 · <span id="lastMod">최종 수정 2026.11.12 11:12</span></div>
+     <div class="credit">제작 · 보라라샘 · 전주서신중학교 교사 · siaawase@gmail.com<br>제작일 2026.11.12 · <span id="lastMod">최종 수정 2026.11.12 16:33</span></div>
      <div>
       <div class="privacy" id="privacyOffline">
        <b>🔒 개인정보 보호 안내</b><br>
@@ -534,6 +577,29 @@ body.playing #cbn{top:15%}
  </div>
 </section>
 
+<!-- ═══════════ 게임 화면 (챕터 4 갤러그) ═══════════ -->
+<section id="galaga" class="screen">
+ <div class="wrap">
+  <div class="panel">
+   <div class="band"><span class="band-l">문법<span class="goal"> · 챕터 4 · 목표 모음을 빠르게 골라낸다</span></span><span class="band-r" id="gBandR">⏱ 60초 · 0점</span></div>
+   <div class="g-wrap">
+    <div class="g-hud"><span class="g-target" id="gTarget"></span><div class="g-right"><span class="g-combo" id="gCombo">🔥 <span id="gComboV">0</span></span><span class="g-pill">🏅 <span id="gScore">0</span>점</span><span class="g-pill" id="gTime">⏱ <span id="gTimeV">60</span>초</span></div></div>
+    <div class="g-tbar"><div class="g-tfill" id="gTfill" style="width:100%"></div></div>
+    <div class="arena" id="arena"><div class="arena-stars"></div><div class="g-flash" id="gFlash"></div><div class="ship" id="ship"><div class="ship-body"></div></div></div>
+    <div class="g-fb"><div class="g-hint" id="gHint"></div></div>
+    <div class="g-ctrls">
+     <button class="ctrl move" id="btnL" aria-label="왼쪽">◀</button>
+     <button class="ctrl fire" id="btnFire">🔫 발사</button>
+     <button class="ctrl move" id="btnR" aria-label="오른쪽">▶</button>
+     <button class="ctrl small" id="gMute">🔊</button>
+     <button class="ctrl quit" id="gQuit">학습 끝내기</button>
+    </div>
+    <div class="g-keys">← → 이동 · 스페이스바 또는 ↑ 발사 (누르고 있으면 연사)</div>
+   </div>
+  </div>
+ </div>
+</section>
+
 <!-- ═══════════ 종료 화면 ═══════════ -->
 <section id="end" class="screen">
  <div class="wrap">
@@ -599,7 +665,7 @@ body.playing #cbn{top:15%}
 // 1. 설정
 // ═══════════════════════════════════════════
 const MADE_DATE='2026.11.12';
-const LAST_MOD='2026.11.12 11:12';
+const LAST_MOD='2026.11.12 16:33';
 const GAME_CONFIG={
   gameCode:"G213",
   gameName:"모음 완전 정복",
@@ -646,7 +712,7 @@ const CHAPTERS=[
      intro:['입술을 둥글게 오므리면 <b>원순 모음</b>, 오므리지 않으면 <b>평순 모음</b>이에요.',WI_NOTE],table:true}
    ]},
   {no:4,kind:'mole',title:'게임으로 단모음 구별하기',goal:'목표 모음을 빠르게 골라낸다',
-   desc:'3분 동안 목표 모음 두더지만 잡아요. 다른 모음을 치거나 목표 모음을 놓치면 생명이 줄어요.'}
+   desc:'두더지나 갤러그 가운데 하나를 골라, 목표 모음만 빠르게 잡거나 격추해요.'}
 ];
 
 // ═══════════════════════════════════════════
@@ -834,6 +900,8 @@ const SPEEDS=[
   {n:2,label:'중급',spawn:1100,visible:1950,maxActive:3},
   {n:3,label:'고급',spawn:800,visible:1400,maxActive:4}
 ];
+const GSTAGES=[{n:1,label:'기본',interval:2.0,speed:32},{n:2,label:'보통',interval:1.4,speed:50},{n:3,label:'빠름',interval:0.9,speed:72}];
+const G_SEC=60,G_PT=10,G_WRONG=10,REF_H=460,ENEMY=52;   // 단모음 갤러그(G201) 규칙: 60초, 목표:비목표 50:50, 놓친 목표는 오답(감점 없음)
 const TIME_LIMIT=180,MAX_LIVES=15,TARGET_RATIO=0.55,HOLES=9;
 const MOLE_PT=10,MOLE_WRONG=10,MOLE_MISS=5;   // 잘못 탭 감점 = 맞힘 기본점 (지침 3-6)
 const KEYMAP={KeyQ:0,KeyW:1,KeyE:2,KeyA:3,KeyS:4,KeyD:5,KeyZ:6,KeyX:7,KeyC:8,Numpad7:0,Numpad8:1,Numpad9:2,Numpad4:3,Numpad5:4,Numpad6:5,Numpad1:6,Numpad2:7,Numpad3:8};
@@ -886,21 +954,22 @@ function stats(){
     c.unit='칸';
   }else{ // mole: 정답률 = 맞힘 ÷ (맞힘 + 잘못 누름 + 놓침)
     c.first=S.correct;c.fail=S.wrong+S.missedN;
-    MV.forEach(v=>{const ap=S.appear[v.id]||0;if(!ap)return;const er=(S.wrongTap[v.id]||0)+(S.missed[v.id]||0);
+    if(S.kind==='galaga')Object.entries(S.perV).forEach(([id,p])=>{c.rows[id]={label:MV_BY_ID[id].ch,graded:p.n,ok:p.ok,bad:p.n-p.ok}});
+    else MV.forEach(v=>{const ap=S.appear[v.id]||0;if(!ap)return;const er=(S.wrongTap[v.id]||0)+(S.missed[v.id]||0);
       c.rows[v.id]={label:v.ch,graded:ap,ok:ap-er,bad:er}});
     c.unit='';
   }
-  c.graded=c.first+c.retry+c.fail;c.total=S.kind==='mole'?c.graded:c.items.length;
+  c.graded=c.first+c.retry+c.fail;c.total=SPD()?c.graded:c.items.length;
   c.acc=c.graded?c.first/c.graded:0;
-  c.remain=S.kind==='mole'?(S.reason==='quit'&&c.graded?1:0):(S.kind==='place'?c.total-c.first-c.retry:c.skip+c.items.filter(x=>x.st==='fail'&&x.r.st!=='fail').length);
+  c.remain=SPD()?(S.reason==='quit'&&c.graded?1:0):(S.kind==='place'?c.total-c.first-c.retry:c.skip+c.items.filter(x=>x.st==='fail'&&x.r.st!=='fail').length);
   const g=GRADES.find(r=>c.acc>=r[0]);
   if(!c.graded){c.emoji='📭';c.title='풀어 본 문제가 없어요';c.verdict='풀어 본 문제가 없어요'}
   else if(c.remain>0){c.emoji='✏️';c.title='여기까지 풀었어요';
-    const tail=S.kind==='place'?['남은 칸까지 채우며','남은 칸까지 채워 보면']:S.kind==='mole'?['남은 시간까지 하며','남은 시간까지 해 보면']:['남은 문제까지 풀며','남은 문제까지 풀어 보면'];
+    const tail=S.kind==='place'?['남은 칸까지 채우며','남은 칸까지 채워 보면']:SPD()?['남은 시간까지 하며','남은 시간까지 해 보면']:['남은 문제까지 풀며','남은 문제까지 풀어 보면'];
     c.verdict=c.acc>=.70?'잘하고 있어요! '+tail[0]+' 좀 더 연습해 보면 어떨까요?':'좀 더 연습해 보면 어떨까요? '+tail[1]+' 감이 잡혀요.'}
   else{c.emoji=g[1];c.title=g[2];c.verdict=g[2]}
-  if(S.kind==='mole'&&c.graded&&!c.remain){c.title=(S.reason==='life'?'💔 생명을 모두 잃었어요 · ':'⏰ 시간 종료 · ')+g[2]}
-  c.midNote=!c.graded||!c.remain?'':(S.kind==='mole'?'끝까지 하지 않았어요 (남은 시간 '+fmtTime(S.time)+')':'끝까지 풀지 않았어요 ('+c.remain+c.unit+' 남음)');
+  if(SPD()&&c.graded&&!c.remain){c.title=(S.reason==='life'?'💔 생명을 모두 잃었어요 · ':'⏰ 시간 종료 · ')+g[2]}
+  c.midNote=!c.graded||!c.remain?'':(SPD()?'끝까지 하지 않았어요 (남은 시간 '+fmtTime(S.time)+')':'끝까지 풀지 않았어요 ('+c.remain+c.unit+' 남음)');
   const sec=Math.max(0,Math.round(((S.end||S.lastGraded||new Date())-S.start)/1000));c.sec=sec;c.timeStr=fmtDur(sec);
   // 잘하는 유형 / 보완이 필요한 유형 한 칸 (화면연출표준 8-2)
   const rows=Object.entries(c.rows).map(([k,r])=>({k,...r})).filter(r=>r.graded>=2);
@@ -921,22 +990,31 @@ function weakTip(k){
   if(S.kind==='place')return PLACE_TIP[k]||'';
   const v=MV_BY_ID[k];return (S.target==='mono'||S.target==='diph')?v.monoTip||v.tip:v.tip;
 }
+function SPD(){return S.kind==='mole'||S.kind==='galaga'}
 function stepTag(){
-  if(S.kind==='mole')return '챕터 4 · '+TARGETS[S.target].label+' 잡기 · '+SPEEDS[S.speed-1].n+'단계 '+SPEEDS[S.speed-1].label;
+  if(S.kind==='galaga')return '챕터 4 · 갤러그 · '+TARGETS[S.target].label+' 격추 · '+GSTAGES[S.speed-1].n+'단계 '+GSTAGES[S.speed-1].label;
+  if(SPD())return '챕터 4 · 두더지 · '+TARGETS[S.target].label+' 잡기 · '+SPEEDS[S.speed-1].n+'단계 '+SPEEDS[S.speed-1].label;
   const ch=CHAPTERS[S.ch-1];return '챕터 '+ch.no+' · '+ch.title;
 }
 
 // ═══════════════════════════════════════════
 // 5. 화면 로직
 // ═══════════════════════════════════════════
-let moleTarget='mono',moleSpeed=1;
+let moleTarget='mono',moleSpeed=1,gameType='mole';
+function syncTypePicks(){
+  document.querySelectorAll('#typePicks .pick').forEach(x=>x.classList.toggle('sel',x.dataset.g===gameType));
+  const L=gameType==='galaga'?GSTAGES:SPEEDS;
+  document.querySelectorAll('#spdPicks .pick').forEach((x,i)=>x.querySelector('small').textContent=L[i].label);
+  $('moleGo').textContent=gameType==='galaga'?'🚀 게임 시작 ▶':'🔨 게임 시작 ▶';
+}
 (function buildStart(){
   $('stdBox').innerHTML=STD.map(s=>'<div class="std-line"><span class="std-code">'+s.code+'</span><small>('+s.year+' 개정)</small><br>'+s.text+'</div>').join('');
   let h='';
   CHAPTERS.forEach(ch=>{
     h+='<div class="ch-card"><div class="ch-top"><span class="ch-no">챕터 '+ch.no+'</span><span class="ch-name">'+ch.title+'</span></div><div class="ch-desc">'+ch.desc+'</div>';
     if(ch.kind==='mole'){
-      h+='<div class="pick-l">🎯 잡을 모음</div><div class="picks" id="tgtPicks">'+Object.keys(TARGETS).map(k=>'<button class="pick'+(k===moleTarget?' sel':'')+'" data-t="'+k+'">'+TARGETS[k].label+'</button>').join('')+'</div>'+
+      h+='<div class="pick-l">🕹️ 게임</div><div class="gtype picks" id="typePicks"><button class="pick sel" data-g="mole">🔨 두더지<small>3분 · 노트북·휴대폰</small></button><button class="pick" data-g="galaga">🚀 갤러그<small>1분 · 노트북 전용</small></button></div>'+
+         '<div class="pick-l">🎯 잡을 모음</div><div class="picks" id="tgtPicks">'+Object.keys(TARGETS).map(k=>'<button class="pick'+(k===moleTarget?' sel':'')+'" data-t="'+k+'">'+TARGETS[k].label+'</button>').join('')+'</div>'+
          '<div class="pick-l">⚡ 속도</div><div class="picks sp" id="spdPicks">'+SPEEDS.map(s=>'<button class="pick'+(s.n===moleSpeed?' sel':'')+'" data-s="'+s.n+'">'+s.n+'단계<small>'+s.label+'</small></button>').join('')+'</div>'+
          '<button class="go-btn" id="moleGo">🔨 게임 시작 ▶</button>';
     }else{
@@ -955,15 +1033,16 @@ let moleTarget='mono',moleSpeed=1;
   document.querySelectorAll('#tgtPicks .pick').forEach(b=>b.onclick=()=>{moleTarget=b.dataset.t;document.querySelectorAll('#tgtPicks .pick').forEach(x=>x.classList.toggle('sel',x===b))});
   document.querySelectorAll('#spdPicks .pick').forEach(b=>b.onclick=()=>{moleSpeed=+b.dataset.s;document.querySelectorAll('#spdPicks .pick').forEach(x=>x.classList.toggle('sel',x===b))});
   $('moleGo').onclick=()=>startRun(4,0);
+  document.querySelectorAll('#typePicks .pick').forEach(b=>b.onclick=()=>{gameType=b.dataset.g;syncTypePicks()});
   $('lastMod').addEventListener('click',downloadTeacherXls);
 })();
 
 function show(id){
-  ['start','game','mole','end'].forEach(s=>$(s).classList.toggle('on',s===id));
-  $('ingameCredit').classList.toggle('on',id==='game'||id==='mole');
-  document.body.classList.toggle('playing',id==='mole');
+  ['start','game','mole','galaga','end'].forEach(s=>$(s).classList.toggle('on',s===id));
+  $('ingameCredit').classList.toggle('on',id==='game'||id==='mole'||id==='galaga');
+  document.body.classList.toggle('playing',id==='mole'||id==='galaga');
   if(id!=='game')$('hud').classList.remove('on');
-  if(id!=='game'&&id!=='mole')cbHide();
+  if(id!=='game'&&id!=='mole'&&id!=='galaga')cbHide();
   window.scrollTo(0,0);
 }
 function dropFocus(){const a=document.activeElement;if(a&&a!==document.body&&a.blur&&!/^(INPUT|TEXTAREA)$/.test(a.tagName))a.blur()}
@@ -998,11 +1077,11 @@ function startRun(ch,st){
   if(IS_ONLINE&&STUDENT.verified)notifyGameStart(STUDENT.id,STUDENT.name,STUDENT.className);
   doStartRun(ch,st);
 }
-function clearTimers(){clearTimeout(S.autoT);clearTimeout(S.msgT);clearTimeout(S.phaseT);if(S.kind==='mole')stopMoleTimers()}
+function clearTimers(){clearTimeout(S.autoT);clearTimeout(S.msgT);clearTimeout(S.phaseT);if(S.kind==='mole')stopMoleTimers();if(S.kind==='galaga')stopGalaga()}
 function doStartRun(ch,st){
   clearTimers();closeIntro();cbHide();
   const C=CHAPTERS[ch-1];
-  if(C.kind==='mole'){startMole();return}
+  if(C.kind==='mole'){if(gameType==='galaga'){if(innerWidth<600){alert('💻 갤러그는 노트북에서 열어주세요.\n키보드로 조작하는 게임이라 휴대폰에서는 제대로 동작하지 않습니다.');return}startGalaga()}else startMole();return}
   S={ch,kind:C.kind,from:st,start:Date.now(),end:null,lastGraded:null,done:false};
   $('bandLeft').innerHTML='문법<span class="goal"> · 챕터 '+ch+' · '+C.goal+'</span>';
   if(C.kind==='quiz'){
@@ -1370,6 +1449,7 @@ function askQuit(){
 }
 function closeQuit(){$('quitOv').classList.remove('on')}
 function quitCancel(){
+  if(S&&S.kind==='galaga'){galagaResume();return}
   if(!S||!S.paused)return;closeQuit();S.paused=false;
   const now=S.pauseAt,t=Date.now();S.start+=t-now;   // 확인창이 떠 있던 시간은 소요 시간에서 뺀다
   holeData.forEach((h,i)=>{const r=S.moleRest[i];if(r===null||r===undefined||!h.active)return;h.hideAt=t+r;h.hideTO=setTimeout(()=>hideMole(i,false),r)});
@@ -1378,7 +1458,7 @@ function quitCancel(){
   gameTimer=setTimeout(()=>{tick();if(S&&S.kind==='mole'&&!S.done&&!S.paused)gameTimer=setInterval(tick,1000)},tickRest);
   dropFocus();
 }
-function quitConfirm(){if(!S||!S.paused)return;closeQuit();S.start+=Date.now()-S.pauseAt;S.paused=false;endMole('quit')}
+function quitConfirm(){if(S&&S.kind==='galaga'){if(!S.paused)return;closeQuit();S.paused=false;endGalaga('quit');return}if(!S||!S.paused)return;closeQuit();S.start+=Date.now()-S.pauseAt;S.paused=false;endMole('quit')}
 $('quitBtn').addEventListener('click',()=>{dropFocus();askQuit()});
 $('qmNo').addEventListener('click',quitCancel);
 $('qmYes').addEventListener('click',quitConfirm);
@@ -1392,22 +1472,147 @@ function endMole(reason){
 }
 
 // ═══════════════════════════════════════════
+// 챕터 4 — 갤러그 (단모음 갤러그 G201 규칙 그대로, 목표에 단모음·이중 모음 추가)
+// ═══════════════════════════════════════════
+let raf=null,lastTs=0,arenaW=0,arenaH=0,shipX=0,enemies=[],bullets=[],moveDir=0,firing=false,fireCd=0,gKeys=new Set(),pairBag=[],tBag=[],nBag=[];
+function galagaMax(){return S.kind==='galaga'?stepMax(S.targetsJudged):0}
+function startGalaga(){
+  ac();
+  const t=TARGETS[moleTarget],st=GSTAGES[moleSpeed-1];
+  S={ch:4,kind:'galaga',target:moleTarget,speed:moleSpeed,cfg:st,done:false,start:Date.now(),end:null,
+     score:0,correct:0,wrong:0,missedN:0,passN:0,combo:0,maxCombo:0,elapsed:0,spawnAcc:st.interval-0.4,
+     appear:{},perV:{},wrongLog:[],missedLog:[],seen:[],targetsJudged:0,reason:'',started:false,time:G_SEC};
+  enemies.forEach(e=>e.el.remove());bullets.forEach(b=>b.el.remove());enemies=[];bullets=[];pairBag=[];tBag=[];nBag=[];moveDir=0;firing=false;gKeys.clear();
+  $('gTarget').textContent='🎯 '+t.label+' 격추! · '+st.n+'단계 '+st.label;
+  $('gMute').textContent=muted?'🔇':'🔊';
+  gHud();show('galaga');
+  openIntro('챕터 4 · 갤러그 · '+st.n+'단계 '+st.label,'🚀 '+t.label+'만 격추해요',
+    ['목표 <b>'+t.label+'</b> ('+t.members.join(' ')+')','목표 모음을 맞히면 +'+G_PT+'점, 다른 모음을 맞히면 −'+G_WRONG+'점이에요.','목표 모음이 바닥까지 내려오면 놓친 것으로 기록돼요. 다른 모음은 그냥 보내면 돼요.','← → 로 움직이고, 스페이스바나 ↑로 쏴요. 60초 동안 해요.'],false,runGalaga);
+}
+function runGalaga(){
+  if(!S||S.kind!=='galaga'||S.done)return;
+  S.started=true;S.start=Date.now();
+  requestAnimationFrame(()=>{const a=$('arena');arenaW=a.clientWidth;arenaH=a.clientHeight;shipX=arenaW/2-22;$('ship').style.left=shipX+'px';
+    lastTs=performance.now();cancelAnimationFrame(raf);raf=requestAnimationFrame(gLoop)});
+}
+function stopGalaga(){cancelAnimationFrame(raf);raf=null;firing=false;moveDir=0;gKeys.clear()}
+function gHud(){
+  const left=Math.max(0,Math.ceil(G_SEC-S.elapsed));S.time=left;
+  $('gScore').textContent=S.score;$('gTimeV').textContent=left;$('gBandR').textContent='⏱ '+left+'초 · '+S.score+'점';
+  $('gTfill').style.width=(Math.max(0,G_SEC-S.elapsed)/G_SEC*100)+'%';
+  $('gTime').classList.toggle('warn',left<=10);$('gTfill').classList.toggle('warn',left<=10);$('gComboV').textContent=S.combo;
+}
+function gDraw(){
+  const T=TARGETS[S.target];
+  if(!pairBag.length)pairBag=shuffle([true,false]);   // 목표:비목표 = 50:50
+  const wantT=pairBag.pop();
+  if(wantT){if(!tBag.length)tBag=shuffle(T.vowels.filter(T.test));return tBag.pop()}
+  if(!nBag.length)nBag=shuffle(T.vowels.filter(v=>!T.test(v)));return nBag.pop();
+}
+function gSpawn(){
+  const m=16;let x=0,ok=false;
+  for(let k=0;k<15;k++){x=m+Math.random()*(arenaW-ENEMY-m*2);if(!enemies.some(e=>e.alive&&e.y<90&&Math.abs(e.x-x)<ENEMY+m)){ok=true;break}}
+  if(!ok)return false;
+  const v=gDraw(),isT=TARGETS[S.target].test(v);
+  const el=document.createElement('div');el.className='enemy';el.textContent=v.ch;el.style.left=x+'px';el.style.top=-ENEMY+'px';$('arena').appendChild(el);
+  if(!S.seen.includes(v.id))S.seen.push(v.id);S.appear[v.id]=(S.appear[v.id]||0)+1;
+  enemies.push({el,x,y:-ENEMY,v,isT,alive:true,jitter:0.9+Math.random()*0.2});return true;
+}
+function gResolve(e,out){
+  e.alive=false;const v=e.v,cx=e.x+6;S.lastGraded=new Date();
+  if(out==='pass'){S.passN++;return}
+  if(e.isT)S.targetsJudged++;
+  const p=S.perV[v.id]||(S.perV[v.id]={n:0,ok:0});p.n++;   // 모음별 정답률: 맞힘 ÷ (맞힘 + 놓침 + 잘못 격추)
+  if(out==='hit'){
+    p.ok++;S.correct++;S.combo++;S.maxCombo=Math.max(S.maxCombo,S.combo);
+    const gain=G_PT+comboBonus(S.combo);S.score+=gain;gPop(cx,e.y,'✅ +'+gain,'good');
+    const c=$('gCombo');c.classList.remove('pulse');void c.offsetWidth;c.classList.add('pulse');
+    if(S.combo===3||(S.combo>=5&&S.combo%5===0)){S.combo===3?sCombo3():sFanfare();cbCelebrate(S.combo,gain)}else sCorrect();
+  }else if(out==='wrongHit'){
+    S.wrong++;S.combo=0;S.score=Math.max(0,S.score-G_WRONG);logAdd(S.wrongLog,v.id);
+    gPop(cx,e.y,'❌ −'+G_WRONG,'bad');sWrong();
+    const f=$('gFlash');f.classList.add('on');setTimeout(()=>f.classList.remove('on'),60);
+    const a=$('arena');a.classList.remove('shake');void a.offsetWidth;a.classList.add('shake');
+    gHint('❌ '+v.ch+'는 '+featText(v)+' — '+TARGETS[S.target].label+'이 아니에요');
+  }else{
+    S.missedN++;S.combo=0;logAdd(S.missedLog,v.id);gPop(cx,arenaH-44,'❌ 놓침','bad');sMissed();
+    gHint('❌ 놓친 '+v.ch+'는 '+featText(v)+' — '+TARGETS[S.target].label+'이에요');
+  }
+  gHud();
+}
+function gLoop(ts){
+  if(!S||S.kind!=='galaga'||S.done||S.paused)return;
+  const dt=Math.min(.05,(ts-lastTs)/1000);lastTs=ts;S.elapsed+=dt;
+  const st=S.cfg,sp=st.speed*(arenaH/REF_H),fallTime=(arenaH+ENEMY)/sp,left=G_SEC-S.elapsed;
+  S.spawnAcc+=dt;
+  if(S.spawnAcc>=st.interval&&left>fallTime/0.9+0.3){if(gSpawn())S.spawnAcc=0;else S.spawnAcc=st.interval-0.2}   // 남은 시간 안에 떨어질 수 있을 때만
+  fireCd-=dt;if(firing&&fireCd<=0){gFire();fireCd=.25}
+  bullets=bullets.filter(b=>{b.y-=480*dt;b.el.style.top=b.y+'px';if(b.y<-20){b.el.remove();return false}return true});
+  enemies=enemies.filter(e=>{
+    if(!e.alive)return false;
+    e.y+=sp*e.jitter*dt;e.el.style.top=e.y+'px';
+    if(e.y>arenaH-20){gResolve(e,e.isT?'miss':'pass');e.el.remove();return false}
+    for(let i=bullets.length-1;i>=0;i--){const b=bullets[i];
+      if(Math.abs((b.x+2)-(e.x+26))<28&&Math.abs((b.y+8)-(e.y+26))<28){b.el.remove();bullets.splice(i,1);e.el.classList.add('hit');const el=e.el;setTimeout(()=>el.remove(),300);gResolve(e,e.isT?'hit':'wrongHit');return false}}
+    return true;
+  });
+  if(moveDir!==0){shipX=Math.max(0,Math.min(arenaW-44,shipX+moveDir*300*dt));$('ship').style.left=shipX+'px'}
+  if(Math.ceil(G_SEC-S.elapsed)!==+$('gTimeV').textContent)gHud();
+  if(S.elapsed>=G_SEC){gHud();endGalaga('time');return}
+  raf=requestAnimationFrame(gLoop);
+}
+function gFire(){if(!S||S.kind!=='galaga'||S.done||!S.started||S.paused)return;try{tone(880,0,.05,'square',.04)}catch(e){}
+  const el=document.createElement('div');el.className='bullet';const x=shipX+20,y=arenaH-64;el.style.left=x+'px';el.style.top=y+'px';$('arena').appendChild(el);bullets.push({el,x,y})}
+function gPop(x,y,text,cls){const p=document.createElement('div');p.className='gpop '+cls;p.textContent=text;p.style.left=x+'px';p.style.top=Math.max(4,y)+'px';$('arena').appendChild(p);setTimeout(()=>p.remove(),800)}
+function gHint(s){const h=$('gHint');h.textContent=s;h.classList.add('on');clearTimeout(h._t);h._t=setTimeout(()=>h.classList.remove('on'),2200)}
+function galagaKey(e,down){
+  const k=e.key;
+  if(S.paused||!S.started)return;
+  if(k==='Enter'&&e.target&&e.target.tagName==='BUTTON'){e.preventDefault();return}
+  if(k==='ArrowLeft'||k==='a'||k==='A'){e.preventDefault();if(down){moveDir=-1;gKeys.add('L')}else{gKeys.delete('L');moveDir=gKeys.has('R')?1:0}}
+  else if(k==='ArrowRight'||k==='d'||k==='D'){e.preventDefault();if(down){moveDir=1;gKeys.add('R')}else{gKeys.delete('R');moveDir=gKeys.has('L')?-1:0}}
+  else if(k===' '||k==='ArrowUp'){e.preventDefault();if(down){if(!gKeys.has('F')){gKeys.add('F');gFire();fireCd=.25;firing=true}}else{gKeys.delete('F');firing=false}}
+}
+document.addEventListener('keyup',e=>{if(S&&S.kind==='galaga'&&!S.done&&$('galaga').classList.contains('on'))galagaKey(e,false)});
+(function gControls(){
+  const hold=(btn,down,up)=>{btn.addEventListener('pointerdown',e=>{e.preventDefault();down()});['pointerup','pointerleave','pointercancel'].forEach(t=>btn.addEventListener(t,up))};
+  hold($('btnL'),()=>moveDir=-1,()=>{if(moveDir===-1)moveDir=0});
+  hold($('btnR'),()=>moveDir=1,()=>{if(moveDir===1)moveDir=0});
+  hold($('btnFire'),()=>{gFire();fireCd=.25;firing=true},()=>firing=false);
+  $('gMute').addEventListener('click',()=>{muted=!muted;$('gMute').textContent=muted?'🔇':'🔊';dropFocus()});
+  $('gQuit').addEventListener('click',()=>{dropFocus();
+    if(!S||S.kind!=='galaga'||S.done||S.paused)return;
+    if(!S.started){closeIntro();goHome();return}
+    S.paused=true;S.pauseAt=Date.now();stopGalaga();$('quitOv').classList.add('on');$('qmNo').focus()});
+})();
+function galagaResume(){if(!S.paused)return;closeQuit();S.paused=false;S.start+=Date.now()-S.pauseAt;lastTs=performance.now();raf=requestAnimationFrame(gLoop);dropFocus()}
+function endGalaga(reason){
+  if(!S||S.kind!=='galaga'||S.done)return;
+  S.reason=reason;stopGalaga();
+  enemies.forEach(e=>e.el.remove());enemies=[];bullets.forEach(b=>b.el.remove());bullets=[];
+  if(reason==='quit'&&S.elapsed>=G_SEC-1)S.reason='time';   // 시간을 거의 다 썼으면 중간 종료로 보지 않음
+  S.time=Math.max(0,Math.ceil(G_SEC-S.elapsed));
+  sOver();S.end=new Date();finishRun(true);
+}
+
+// ═══════════════════════════════════════════
 // 종료 화면
 // ═══════════════════════════════════════════
 function finishRun(fromMole){
   if(S.done)return;
   S.done=true;clearTimeout(S.autoT);clearTimeout(S.phaseT);cbHide();closeIntro();
   if(!fromMole)S.end=S.lastGraded||new Date();
-  if(S.kind==='mole'&&S.end<S.start)S.end=new Date(S.start);
+  if(SPD()&&S.end<S.start)S.end=new Date(S.start);
   const c=stats();
   $('endBandRight').textContent=stepTag();
   $('resEmoji').textContent=c.emoji;$('resTitle').textContent=c.title;
   $('resNote').textContent=c.midNote;$('resDesc').textContent=c.midNote?c.verdict:'';
   if(S.kind==='place')$('resScoreRow').style.display='none';
-  else{$('resScoreRow').style.display='';$('resScore').textContent=S.score;$('resMax').textContent=S.kind==='quiz'?'/ 만점 '+S.max+'점':''}
+  else{$('resScoreRow').style.display='';$('resScore').textContent=S.score;$('resMax').textContent=S.kind==='quiz'?'/ 만점 '+S.max+'점':S.kind==='galaga'?'/ 이번 판 만점 '+galagaMax()+'점':''}
   const pct=c.graded?Math.round(c.acc*100)+'%':'–';
   const sb=S.kind==='place'?[['ok',c.first,'첫 시도에 배치'],['',c.retry,'다시 시도해 배치'],['ng',c.fail,'틀린 뒤 못 배치'],['',pct,'정답률'],['ng',c.wrongTotal+'회','총 오답'],['skip',c.skip,'미응답']]:
     S.kind==='quiz'?[['ok',c.first,'첫 시도 정답'],['',c.retry,'다시 풀어 맞힘'],['ng',c.fail,'못 맞힘'],['',pct,'정답률'],['',S.maxCombo,'최고 콤보'],['skip',c.skip,'미응답']]:
+    S.kind==='galaga'?[['ok',S.correct,'✅ 바르게 격추'],['ng',S.wrong,'❌ 잘못 격추'],['ng',S.missedN,'👀 놓침'],['',pct,'정답률'],['',S.maxCombo,'🔥 최고 콤보'],['',c.timeStr,'⏱ 소요 시간']]:
     [['ok',S.correct,'✅ 바르게 잡음'],['ng',S.wrong,'❌ 잘못 침'],['ng',S.missedN,'👀 놓침'],['',pct,'정답률'],['',S.maxCombo,'🔥 최고 콤보'],['',c.timeStr,'⏱ 소요 시간']];
   $('stats').innerHTML=sb.map(s=>'<div class="stat '+s[0]+'"><div class="v">'+s[1]+'</div><div class="l">'+s[2]+'</div></div>').join('');
   $('rep').innerHTML=repHTML(c);
@@ -1419,9 +1624,9 @@ function finishRun(fromMole){
   if(hasNext){const nx=CHAPTERS[S.ch];nb.textContent='다음 챕터로 ▶ 챕터 '+nx.no+' '+nx.title;
     nb.onclick=()=>{if(nx.kind==='mole')goHome();else startRun(nx.no,0)}}
   $('btnReplay').className=hasNext?'btn sec':'btn';
-  $('btnReplay').textContent=S.kind==='mole'?'🔄 같은 목표로 다시 하기':'🔄 이 챕터 다시 하기';
-  const rp={ch:S.ch,from:S.from||0,target:S.target,speed:S.speed};
-  $('btnReplay').onclick=()=>{if(rp.ch===4){moleTarget=rp.target;moleSpeed=rp.speed}startRun(rp.ch,rp.from)};
+  $('btnReplay').textContent=SPD()?'🔄 같은 목표로 다시 하기':'🔄 이 챕터 다시 하기';
+  const rp={ch:S.ch,from:S.from||0,target:S.target,speed:S.speed,gt:S.kind};
+  $('btnReplay').onclick=()=>{if(rp.ch===4){moleTarget=rp.target;moleSpeed=rp.speed;gameType=rp.gt}startRun(rp.ch,rp.from)};
   buildWrongList(c);
   if(IS_ONLINE&&STUDENT.verified){nm.value=STUDENT.name;nm.readOnly=true;nm.style.background='#f0ede5';sendResult()}
   show('end');
@@ -1438,16 +1643,17 @@ function wrongEntries(c){
   if(S.kind==='place')return c.items.filter(x=>x.st==='retry'||x.st==='fail').map(x=>{const inf=cardInfo(x.id);
     return {label:inf.cats.join(' · '),head:inf.char,prompt:'',tag:x.st==='retry'?'다시 시도해 배치':'못 배치',my:'틀린 횟수 '+x.wrong+'회',ans:'정답 자리: '+inf.where,detail:''}});
   const out=[];
-  S.wrongLog.forEach(e=>{const v=MV_BY_ID[e.id];out.push({label:'잘못 침 · '+TARGETS[S.target].label+' 아님',head:v.ch,prompt:'',tag:e.count+'번',my:'목표가 아닌데 잡음',ans:featText(v),detail:whyText(v,S.target)+' '+moleTip(v)})});
+  const wl=S.kind==='galaga'?'잘못 격추 · ':'잘못 침 · ';
+  S.wrongLog.forEach(e=>{const v=MV_BY_ID[e.id];out.push({label:wl+TARGETS[S.target].label+' 아님',head:v.ch,prompt:'',tag:e.count+'번',my:'목표가 아닌데 잡음',ans:featText(v),detail:whyText(v,S.target)+' '+moleTip(v)})});
   S.missedLog.forEach(e=>{const v=MV_BY_ID[e.id];out.push({label:'놓침 · '+TARGETS[S.target].label,head:v.ch,prompt:'',tag:e.count+'번',my:'목표인데 놓침',ans:featText(v),detail:whyText(v,S.target)+' '+moleTip(v)})});
   return out;
 }
 function buildWrongList(c){
   const box=$('wrongList');
   if(!c.graded){box.innerHTML='';return}
-  const wl=wrongEntries(c),unit=S.kind==='place'?'카드':S.kind==='mole'?'모음':'문제';
+  const wl=wrongEntries(c),unit=S.kind==='place'?'카드':SPD()?'모음':'문제';
   if(!wl.length){box.innerHTML='<div class="allgood">'+(c.remain>0?'푼 문제는 모두 첫 시도에 맞혔어요.':'🎊 한 번도 틀리지 않았어요!')+'</div>';return}
-  box.innerHTML='<h3>❌ '+(S.kind==='mole'?'잘못 치거나 놓친 모음':'첫 시도에 틀린 '+unit)+' ('+wl.length+')</h3>'+wl.map(x=>
+  box.innerHTML='<h3>❌ '+(SPD()?'잘못 치거나 놓친 모음':'첫 시도에 틀린 '+unit)+' ('+wl.length+')</h3>'+wl.map(x=>
     '<div class="wl-item"><div class="wl-h">'+(x.head?'<span class="wl-ch">'+esc(x.head)+'</span>':'')+'<span class="tag">'+esc(x.label)+'</span><span class="tag re">'+esc(x.tag)+'</span></div>'+
     (x.prompt?'<div>'+esc(x.prompt)+'</div>':'')+
     '<div><span class="ans-ng">'+esc(x.my)+'</span> → <span class="ans-ok">✅ '+esc(x.ans)+'</span></div>'+
@@ -1455,7 +1661,7 @@ function buildWrongList(c){
 }
 function sendResult(){
   const c=stats();
-  const wrongItems=S.kind==='mole'?S.wrongLog.concat(S.missedLog).map(e=>e.id):c.items.filter(x=>x.st==='retry'||x.st==='fail').map(x=>x.id);
+  const wrongItems=SPD()?S.wrongLog.concat(S.missedLog).map(e=>e.id):c.items.filter(x=>x.st==='retry'||x.st==='fail').map(x=>x.id);
   submitResult({
     studentId:STUDENT.id,studentName:STUDENT.name,className:STUDENT.className,
     stage:S.ch,totalQuestions:c.total,answeredCount:c.graded,skippedCount:c.skip,
@@ -1484,7 +1690,7 @@ function openReview(){
     const t=TARGETS[S.target];
     html=S.seen.map(id=>{const v=MV_BY_ID[id];n++;return '<div class="rv"><div class="rv-h"><span class="rv-ch">'+v.ch+'</span><span class="tag">'+(t.test(v)?'🎯 목표':'⚪ 목표 아님')+'</span></div><div><span class="ans-ok">'+featText(v)+'</span> — '+esc(whyText(v,S.target))+'</div></div>'}).join('');
   }
-  $('reviewTitle').textContent='📖 오늘 나온 '+(S.kind==='mole'?'모음':'문제')+' ('+n+') · '+stepTag();
+  $('reviewTitle').textContent='📖 오늘 나온 '+(SPD()?'모음':'문제')+' ('+n+') · '+stepTag();
   $('reviewBody').innerHTML=html||'<p>아직 나온 문제가 없어요.</p>';
   $('reviewModal').classList.add('on');
 }
@@ -1532,6 +1738,7 @@ document.addEventListener('keydown',e=>{
     return;
   }
   const t=e.target;if(t&&(t.tagName==='INPUT'||t.tagName==='TEXTAREA')&&!t.disabled)return;
+  if($('galaga').classList.contains('on')&&S.kind==='galaga'&&!S.done){galagaKey(e,true);return}
   if($('mole').classList.contains('on')&&S.kind==='mole'&&!S.done){
     if(e.code in KEYMAP){e.preventDefault();if(!e.repeat)onTap(KEYMAP[e.code])}
     return;
@@ -1586,7 +1793,7 @@ function drawFooter(c,W,y){
   y+=para(c,IS_ONLINE?PRIV_ON:PRIV_OFF,P,y,iw,'13px','#6a6488',20);
   y+=4;txt(c,CREDIT1,P,y+2,'12px','#8a86a0');y+=20;txt(c,CREDIT2,P,y+2,'12px','#8a86a0');return y+28;
 }
-function fileTag(){return S.kind==='mole'?'챕터4_'+TARGETS[S.target].label.replace(/\s/g,'')+'잡기_'+SPEEDS[S.speed-1].n+'단계':'챕터'+S.ch+'_'+CHAPTERS[S.ch-1].title.replace(/\s/g,'')}
+function fileTag(){return SPD()?'챕터4_'+(S.kind==='galaga'?'갤러그_':'두더지_')+TARGETS[S.target].label.replace(/\s/g,'')+'_'+S.speed+'단계':'챕터'+S.ch+'_'+CHAPTERS[S.ch-1].title.replace(/\s/g,'')}
 function downloadNote(){
   const name=needName();if(!name)return;
   const W=900,P=40,iw=W-P*2;
@@ -1594,13 +1801,13 @@ function downloadNote(){
   c.fillStyle='#ffffff';c.fillRect(0,0,W,12000);
   let y=drawHeader(c,W,'📋 오답노트 · '+GAME_TITLE,stepTag()+'  ·  '+name+'  ·  '+fmtDT(S.end));
   y+=30;
-  const st=stats(),wl=wrongEntries(st),unit=S.kind==='place'?'카드':S.kind==='mole'?'모음':'문제';
+  const st=stats(),wl=wrongEntries(st),unit=S.kind==='place'?'카드':SPD()?'모음':'문제';
   if(st.midNote){c.font='bold 15px '+SF;const nl=wrapLines(c,st.midNote+' · '+st.verdict,iw);nl.forEach((l,i)=>txt(c,l,P,y+6+i*22,'bold 15px','#b45309'));y+=8+nl.length*22}
   if(!wl.length){
     c.fillStyle='#e7f6ee';roundBox(c,P,y,iw,90,14);c.fill();
     txt(c,!st.graded?'풀어 본 문제가 없어요.':(st.remain>0?'푼 문제는 모두 첫 시도에 맞혔어요.':'🎊 한 번도 틀리지 않았어요!'),W/2,y+54,'bold 22px','#1e8f5a','center');y+=120;
   }else{
-    txt(c,(S.kind==='mole'?'잘못 치거나 놓친 모음 ':'첫 시도에 틀린 '+unit+' ')+wl.length+'개 — 정답과 해설을 다시 읽어 보세요.',P,y+6,'15px','#6a6488');y+=26;
+    txt(c,(SPD()?'잘못 치거나 놓친 모음 ':'첫 시도에 틀린 '+unit+' ')+wl.length+'개 — 정답과 해설을 다시 읽어 보세요.',P,y+6,'15px','#6a6488');y+=26;
     wl.forEach(x=>{
       c.font='14px '+SF;const dl=x.detail?wrapLines(c,x.detail,iw-40):[];
       c.font='15px '+SF;const pl=x.prompt?wrapLines(c,x.prompt,iw-40):[];
@@ -1636,6 +1843,7 @@ function downloadReport(){
   const pct=c0.graded?Math.round(c0.acc*100)+'%':'–';
   const boxes=S.kind==='quiz'?[['최종 점수',S.score+' / '+S.max],['정답률',pct],['첫 시도 정답',c0.first+'문항'],['다시 풀어 맞힘',c0.retry+'문항'],['못 맞힘',c0.fail+'문항'],['미응답',c0.skip+'문항'],['최고 콤보',S.maxCombo+'연속'],['소요 시간',c0.timeStr]]:
     S.kind==='place'?[['배치 완료',(c0.first+c0.retry)+' / '+c0.total],['정답률',pct],['첫 시도에 배치',c0.first+'장'],['다시 시도해 배치',c0.retry+'장'],['틀린 뒤 못 배치',c0.fail+'장'],['미응답',c0.skip+'장'],['총 오답',c0.wrongTotal+'회'],['소요 시간',c0.timeStr]]:
+    S.kind==='galaga'?[['최종 점수',S.score+' / '+galagaMax()],['정답률',pct],['바르게 격추',S.correct+'번'],['잘못 격추',S.wrong+'번'],['놓침',S.missedN+'번'],['그냥 보낸 다른 모음',S.passN+'번'],['최고 콤보',S.maxCombo+'연속'],['소요 시간',c0.timeStr]]:
     [['최종 점수',S.score+'점'],['정답률',pct],['바르게 잡음',S.correct+'번'],['잘못 침',S.wrong+'번'],['놓침',S.missedN+'번'],['남은 생명',S.lives+' / '+MAX_LIVES],['최고 콤보',S.maxCombo+'연속'],['소요 시간',c0.timeStr]];
   const bw=(iw-3*12)/4,bh=70;
   boxes.forEach((b,i)=>{const bx=P+(i%4)*(bw+12),by=y+Math.floor(i/4)*(bh+12);c.fillStyle=i===0?'#7C5CBF':'#F7F3FC';roundBox(c,bx,by,bw,bh,12);c.fill();
@@ -1645,7 +1853,7 @@ function downloadReport(){
   c.font='bold 18px '+SF;const vl=wrapLines(c,c0.emoji+' '+verdict,iw-40);const vh=24+vl.length*28+10;
   c.fillStyle='#fff6dc';roundBox(c,P,y,iw,vh,12);c.fill();c.fillStyle='#5c4208';c.textAlign='left';vl.forEach((l,i)=>c.fillText(l,P+20,y+36+i*28));
   y+=vh+16;
-  txt(c,S.kind==='mole'?'※ 정답률은 바르게 잡은 수 ÷ (바르게 잡음 + 잘못 침 + 놓침)으로 계산했어요.':'※ 정답률은 첫 시도에 맞힌 수 ÷ 실제로 푼 '+(S.kind==='place'?'카드':'문항')+'('+c0.graded+')로 계산했어요.',P,y,'13px','#8a86a0');y+=34;
+  txt(c,SPD()?'※ 정답률은 바르게 맞힌 수 ÷ (바르게 맞힘 + 잘못 맞힘 + 놓침)으로 계산했어요.':'※ 정답률은 첫 시도에 맞힌 수 ÷ 실제로 푼 '+(S.kind==='place'?'카드':'문항')+'('+c0.graded+')로 계산했어요.',P,y,'13px','#8a86a0');y+=34;
   const sec=(title,color,bg,lines)=>{c.font='15px '+SF;let ls=[];lines.forEach(l=>ls=ls.concat(wrapLines(c,l,iw-40)));const h=46+ls.length*24+12;
     c.fillStyle=bg;roundBox(c,P,y,iw,h,12);c.fill();txt(c,title,P+20,y+30,'bold 16px',color);c.fillStyle='#333';c.font='15px '+SF;ls.forEach((l,i)=>c.fillText(l,P+20,y+58+i*24));y+=h+12};
   if(!c0.graded)sec('📌 진단','#6a6488','#f3f3f6',['풀어 본 문제가 없어요. 시작 화면에서 다시 도전해 보세요.']);
@@ -1674,7 +1882,8 @@ function downloadTeacherXls(){
     xRow(['성취기준',STD_LINE],'b'),
     xRow(['배점 규칙(챕터 1·3)','정답 +10 · 다시 풀어 맞힘 +5(보기 3개 이상만) · 오답 −5(0점 하한) · 3~4번째 연속 +5 · 5번째부터 +10 · 콤보는 단계마다 새로 · 만점 챕터 1 '+mx(1)+'점 / 챕터 3 '+mx(3)+'점'],'b'),
     xRow(['진행 방식(챕터 2)','카드를 맞는 칸에 놓을 때까지 다시 고름(틀린 횟수 기록, 점수 없음) · 기본(10장) → 심화(9장) 이어서'],'b'),
-    xRow(['규칙(챕터 4)','3분 · 생명 15 · 바르게 잡음 +'+MOLE_PT+' · 잘못 침 −'+MOLE_WRONG+' · 놓침 −'+MOLE_MISS+'(오답으로 집계) · 콤보 +5/+10 · 목표 모음 비율 55%'],'b'),
+    xRow(['규칙(챕터 4 두더지)','3분 · 생명 15 · 바르게 잡음 +'+MOLE_PT+' · 잘못 침 −'+MOLE_WRONG+' · 놓침 −'+MOLE_MISS+'(오답으로 집계) · 콤보 +5/+10 · 목표 모음 비율 55% · 속도 '+SPEEDS.map(s=>s.label).join('/')],'b'),
+    xRow(['규칙(챕터 4 갤러그)','60초 · 노트북 전용 · 바르게 격추 +'+G_PT+' · 잘못 격추 −'+G_WRONG+' · 놓친 목표는 오답으로 집계(감점 없음) · 그냥 보낸 다른 모음은 채점하지 않음 · 콤보 +5/+10 · 목표:다른 모음 50:50 · 속도 '+GSTAGES.map(s=>s.label).join('/')+' · 만점 = 그 판에 나온 목표 모음 수로 계산'],'b'),
     xRow(['정답률','첫 시도에 맞힌 수 ÷ 실제로 푼 수 (미응답 제외) · 챕터 4는 맞힘 ÷ (맞힘 + 잘못 침 + 놓침)'],'b'),
     xRow(['총문항 수','챕터 1 '+tot1+'문항 + 챕터 2 카드 19장 + 챕터 3 '+tot3+'문항 + 챕터 4 모음 21개'],'b'),
     xRow(['크레딧',CREDIT1+' · '+CREDIT2+' · 자료 코드 '+GAME_CONFIG.gameCode],'b')];
@@ -1692,13 +1901,13 @@ function downloadTeacherXls(){
   MV.forEach(v=>s4.push(xRow([v.id,v.ch,v.kind==='단'?'단모음':'이중 모음',featText(v),v.tip],null,[3])));
   const sum=[xRow(['챕터','단계','내용','문항 수','만점','유의점'],'h')];
   CHAPTERS.forEach(ch=>{
-    if(ch.kind==='mole'){sum.push(xRow(['챕터 4','—',ch.title,'모음 21','점수 누적','목표 9개 × 속도 3단계 · 단모음·이중 모음 목표는 21개, 나머지는 단모음 10개만 나옴']));return}
+    if(ch.kind==='mole'){sum.push(xRow(['챕터 4','—',ch.title+' (두더지 · 갤러그)','모음 21','점수 누적','게임 2종 × 목표 9개 × 속도 3단계 · 단모음·이중 모음 목표는 21개, 나머지는 단모음 10개만 나옴']));return}
     ch.steps.forEach((st,i)=>{const n=ch.kind==='place'?placeCards(i).length:stepQs(ch.no,i).length;
       sum.push(xRow(['챕터 '+ch.no,(i+1)+'단계',st.name,n,ch.kind==='place'?'점수 없음':stepMax(n),ch.kind==='place'?(i===1?'평순·원순 카드는 같은 이름 칸 두 곳 중 어디에 놓아도 정답':''):(st.choices?'보기 '+st.choices.length+'개 판별형'+(st.choices.length>=3?' · 다시 풀기 1회':' · 다시 풀기 없음'):'보기 4개 · 정답 위치 고르게 · 다시 풀기 1회')]))})});
   const sheets=[xSheet('챕터1 단모음과 이중 모음',qRows(1).concat(tail),[50,130,100,50,50,250,70,140,330,250,330,50,200]),
     xSheet('챕터2 단모음 체계표',s2.concat(tail),[110,200,280,90]),
     xSheet('챕터3 문제로 구별하기',qRows(3).concat(tail),[50,110,80,50,50,250,80,140,330,250,60,50,200]),
-    xSheet('챕터4 두더지 게임',s4.concat(tail),[60,110,330,330,90]),
+    xSheet('챕터4 두더지·갤러그',s4.concat(tail),[60,110,330,330,90]),
     xSheet('챕터별 요약',sum.concat(tail),[60,60,170,60,70,380])];
   const xml='<?xml version="1.0" encoding="UTF-8"?><?mso-application progid="Excel.Sheet"?>'+
    '<Workbook xmlns="urn:schemas-microsoft-com:office:spreadsheet" xmlns:ss="urn:schemas-microsoft-com:office:spreadsheet">'+

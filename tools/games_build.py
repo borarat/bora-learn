@@ -75,7 +75,7 @@ for r in rows:
     c=r['code'];a=AREA[c[0]];g=c[1]
     dev=DEV.get(r['badge'],('M2','노트북 권장'))
     gs=grades_of(c,r['std'])
-    games.append(dict(title=r['title'],desc=r['desc'],href=r['href'],emoji=r['emoji'],code=c,area=a,grades=gs,gradeLabel=grade_label(gs),std=r['std'],dev=dev[0],devLabel=dev[1]))
+    games.append(dict(title=r['title'],desc=r['desc'],href=r['href'],emoji=r['emoji'],code=c,area=a,grades=gs,gradeLabel=grade_label(gs),std=r['std'],dev=dev[0],devLabel=dev[1],pin=bool(r.get('pin'))))
 # 영역 안에서는 성취기준 → 코드 순으로
 order={a:i for i,a in enumerate(areas)}
 games.sort(key=lambda x:(order[x['area']],x['std'][0] if x['std'] else 'zz',x['code']))
@@ -97,7 +97,7 @@ for a in areas:
     subs=[]
     for gid in gids:
         gm=group_meta(gid);members=[x for x in ags if x['group']==gid]
-        members.sort(key=lambda x:x['code'])
+        members.sort(key=lambda x:(not x['pin'],x['code']))   # catalog.json에 "pin": true 인 게임은 그 묶음 맨 앞
         head=f'<span class="scode">{gm[1]}</span>' if gm[1] else ''
         subs.append(f'''      <div class="sub">
         <div class="subh">{head}<span class="stopic">{esc(gm[2])}</span><span class="stext">{esc(gm[3])}</span><span class="subcnt"></span></div>
