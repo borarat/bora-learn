@@ -8,7 +8,9 @@
                  문항 수 3단계 20 · 4단계 24(유형마다 4) · 5단계 20 · 6~8단계 20, 절의 종류 단계에서 명사절은 주어/목적어 역할을 함께 보여 줌(2:2)
                  새 예문 일부는 참고 자료 「07 문장의 종류와 짜임」에서 가져옴(기준표와 어긋나는 '-아서 부사절', 1어절 관형절 예문은 쓰지 않음)
      2026.11.11 새벽: 1~4단계 채점 뒤 시각 표시 — 이어진문장은 앞 절/뒤 절과 연결 어미(빨강), 안은문장은 안긴 절 밑줄과 절 이름
-     5단계: 의미 관계 조건(예: 대등·대조)을 주고 두 문장을 이어 쓰게 함. '어떤 연결 어미를 썼나요' 문항은 뺌(교사 결정)
+     2026.11.13: 수업 적용 후 단계 순서 변경 — 이어진(1~3) → 안은(4~6) → 겹문장 종합(7 홑·겹, 8 이어진·안은). '겹문장 기초' → '겹문장 종합'. 절의 역할·종류 30문항씩(+10)
+     단계 번호(조건에 맞게 잇기 등)는 바뀌었지만 문항 id는 그대로 둠
+     조건 잇기: 의미 관계 조건(예: 대등·대조)을 주고 두 문장을 이어 쓰게 함. '어떤 연결 어미를 썼나요' 문항은 뺌(교사 결정)
      조작: 번호키로 보기 고르기(채점 전만), 시작 화면 1~8로 단계 고르기, 단계 시작 개념 카드(Enter), 힌트 버튼
      이전 기록: 2025.08.12 제작 ~ 2026.10.11 13차(화면 표준 v3·배너·실제 조작 검사) -->
 <head>
@@ -408,7 +410,7 @@ textarea.report-input{height:60px;resize:vertical}
     <img src="data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAIQAAACxCAMAAAAyLeWLAAAB/lBMVEUAAABMNSXZ1s7hupPcto7alVnNxba4uryMqcKptsLQiEyTp7jTmmfXpXTkwZxGLBvipW3i2snLeDWcscPUrIR8osLnx6NqSDBNMR7FvbLb0b2telCoq6vGxsb7+vqth2eHm6ivpJaMZ0rhmlvgnWGLeGm2g1ipmozGfUJtWEjTgTySlpVaRDS2lHXo6OeVhXbk4dl0UjmdsL6+wL1ELiDFbCd4mraGWDe8wcLGxsaXc1Z4ZVZ8oL77+vo6JhhiPSWoq6uTjIa4urzZ1s6DXELwsnh6bWK8dTuSYzwIBQUbFRNuOBZ3Qh3groDi0rsqHRdMNSWcoJuvpJbFvbLi2sl1nsKSlpWzajKptsLawZ7Nxbbo6OdtWEiLeGmpmowxIyF7c2l+lJ2BTSeTjIa2WBG8YhyjbUXd4eLk4dk8MS1ELiBlT0B4ZVaVhXaTp7imf2GvpJbAZh3An4De3+AAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAADGtm7NAAAAgHRSTlMA///////////////////////////////////////////////////////////////////////////c////3P//3P/c3P///////////////9z/3Nzc/9z/3P/c3Nzc3P/////c/////9z/3P/c3Nz/oP///wAAAAAAAAAAAAAAAKaTQcIAABeqSURBVHja7VwHd+JItl4kUUpVKCAjhMjYYINxTh2me3q6e3vyvNnZ3dmcw8vx/5/z7r1VEghjLLfp3XPeebVjaANWffrud0PdKvYHP/j/sa3xC5Ml7cmrSdLRnvxdAPwjm+wdVPIRH+wN/sZAnhwfVJpepTi8SnzMPvqbQdg79C4q68fhr/8mED5+VvEqm8bBJx8cw68r9w7v4DcfFMJP72EhG3u//GAQXv+wHIRKpXn4iw+E4buDshhwfCBFxg/BUPnnD4Hhk8oD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" alt="보라라샘" style="height:90px;border-radius:12px"/>
     <div class="start-titles">
       <div class="game-title">문장의 구조 완전 정복</div>
-      <div class="game-subtitle">홑문장과 겹문장, 이어진문장과 안은문장까지 — 판단하고, 직접 만들어 보세요.</div>
+      <div class="game-subtitle">이어진문장과 안은문장을 익히고, 겹문장 종합까지 — 판단하고, 직접 만들어 보세요.</div>
     </div>
     <svg class="keyArt" viewBox="0 0 300 124" aria-hidden="true" font-family="'Noto Sans KR','Malgun Gothic',sans-serif" font-weight="700" text-anchor="middle">
       <g stroke="#9FB3E0" stroke-width="2" fill="none" stroke-linecap="round"><path d="M100 108q12-6 24 0t24 0 24 0 24 0"/><path d="M112 117q12-6 24 0t24 0 24 0"/></g>
@@ -425,27 +427,23 @@ textarea.report-input{height:60px;resize:vertical}
 
   <div class="stage-section">
     <div class="stage-title">🎯 단계를 고르세요 <span style="font-weight:400;font-size:.85rem;color:var(--muted)">— 번호키 1~8로도 고를 수 있어요 · 한 번에 다 하지 않아도 돼요</span></div>
-    <div class="stage-group"><div class="sg-label">🧱 겹문장 기초</div><div class="stage-btns g2">
-      <button class="stage-btn s1" onclick="startGame(0)"><span class="kk">1</span>홑문장과 겹문장<div class="stage-badge">홑문장 · 겹문장 구별 · <span id="cnt0"></span></div></button>
-      <button class="stage-btn s2" onclick="startGame(1)"><span class="kk">2</span>이어진문장과 안은문장<div class="stage-badge">겹문장의 두 갈래 구별 · <span id="cnt1"></span></div></button>
-    </div></div>
     <div class="stage-group"><div class="sg-label">🔗 이어진문장</div><div class="stage-btns g3">
-      <button class="stage-btn s3" onclick="startGame(2)"><span class="kk">3</span>대등과 종속<div class="stage-badge">대등 · 종속 구별 · <span id="cnt2"></span></div></button>
-      <button class="stage-btn s4" onclick="startGame(3)"><span class="kk">4</span>의미 관계<div class="stage-badge">나열·대조·선택·원인·조건·목적 · <span id="cnt3"></span></div></button>
-      <button class="stage-btn s5" onclick="startGame(4)"><span class="kk">5</span>조건에 맞게 잇기<div class="stage-badge">연결 어미로 직접 이어 쓰기 · <span id="cnt4"></span></div></button>
+      <button class="stage-btn s3" onclick="startGame(0)"><span class="kk">1</span>대등과 종속<div class="stage-badge">대등 · 종속 구별 · <span id="cnt0"></span></div></button>
+      <button class="stage-btn s4" onclick="startGame(1)"><span class="kk">2</span>의미 관계<div class="stage-badge">나열·대조·선택·원인·조건·목적 · <span id="cnt1"></span></div></button>
+      <button class="stage-btn s5" onclick="startGame(2)"><span class="kk">3</span>조건에 맞게 잇기<div class="stage-badge">연결 어미로 직접 이어 쓰기 · <span id="cnt2"></span></div></button>
     </div></div>
     <div class="stage-group"><div class="sg-label">🪆 안은문장</div><div class="stage-btns g3">
-      <button class="stage-btn s6" onclick="startGame(5)"><span class="kk">6</span>안은문장 만들기<div class="stage-badge">홑문장을 절로 바꾸어 쓰기 · <span id="cnt5"></span></div></button>
-      <button class="stage-btn s7" onclick="startGame(6)"><span class="kk">7</span>안긴 절의 역할<div class="stage-badge">주어·목적어·관형어·부사어·서술어 · <span id="cnt6"></span></div></button>
-      <button class="stage-btn s8" onclick="startGame(7)"><span class="kk">8</span>안긴 절의 종류<div class="stage-badge">명사절·관형절·부사절·서술절·인용절 · <span id="cnt7"></span></div></button>
+      <button class="stage-btn s6" onclick="startGame(3)"><span class="kk">4</span>안은문장 만들기<div class="stage-badge">홑문장을 절로 바꾸어 쓰기 · <span id="cnt3"></span></div></button>
+      <button class="stage-btn s7" onclick="startGame(4)"><span class="kk">5</span>안긴 절의 역할<div class="stage-badge">주어·목적어·관형어·부사어·서술어 · <span id="cnt4"></span></div></button>
+      <button class="stage-btn s8" onclick="startGame(5)"><span class="kk">6</span>안긴 절의 종류<div class="stage-badge">명사절·관형절·부사절·서술절·인용절 · <span id="cnt5"></span></div></button>
+    </div></div>
+    <div class="stage-group"><div class="sg-label">🧱 겹문장 종합</div><div class="stage-btns g2">
+      <button class="stage-btn s1" onclick="startGame(6)"><span class="kk">7</span>홑문장과 겹문장<div class="stage-badge">홑문장 · 겹문장 구별 · <span id="cnt6"></span></div></button>
+      <button class="stage-btn s2" onclick="startGame(7)"><span class="kk">8</span>이어진문장과 안은문장<div class="stage-badge">겹문장의 두 갈래 구별 · <span id="cnt7"></span></div></button>
     </div></div>
   </div>
 
   <div class="start-concept c3">
-    <div class="sc-box"><h3>1️⃣ 홑문장과 🔗 겹문장</h3>
-      <p><b>홑문장</b> 주어와 서술어의 관계가 한 번만 나타나는 문장<br>
-      <b>겹문장</b> 주어와 서술어의 관계가 두 번 이상 나타나는 문장<br>
-      겹문장은 홑문장이 결합되는 방식에 따라 <b>이어진문장</b>과 <b>안은문장</b>으로 나뉘어요.</p></div>
     <div class="sc-box"><h3>🔗 이어진문장</h3>
       <p>두 홑문장이 <b>연결 어미</b>로 이어진 문장<br>
       <b>대등</b> 순서를 바꾸어도 의미가 자연스러움 <span class="ex">— 사과는 빨갛고 귤은 노랗다.</span><br>
@@ -454,6 +452,10 @@ textarea.report-input{height:60px;resize:vertical}
       <p>한 홑문장이 <b>절</b>이 되어 다른 문장 안에서 한 성분으로 쓰인 문장<br>
       <span class="ex">나는 [동생이 어지른] 방을 치웠다. / 코끼리는 [코가 길다].</span><br>
       안긴 절: 명사절 · 관형절 · 부사절 · 서술절 · 인용절</p></div>
+    <div class="sc-box"><h3>1️⃣ 홑문장과 🔗 겹문장</h3>
+      <p><b>홑문장</b> 주어와 서술어의 관계가 한 번만 나타나는 문장<br>
+      <b>겹문장</b> 주어와 서술어의 관계가 두 번 이상 나타나는 문장<br>
+      겹문장은 홑문장이 결합되는 방식에 따라 <b>이어진문장</b>과 <b>안은문장</b>으로 나뉘어요.</p></div>
   </div>
   <table class="end-table" style="margin-bottom:14px">
     <tr><th colspan="3">대등하게 이어진문장</th><th colspan="3">종속적으로 이어진문장</th></tr>
@@ -470,7 +472,7 @@ textarea.report-input{height:60px;resize:vertical}
     ⌨️ <b>번호키</b>로 보기를 고르고, 채점이 끝나면 <b>Enter · Space · →</b> 로 다음 문제, <b>←</b> 로 이전 문제 · 쓰기 문제는 입력칸에 쓰고 Enter
   </div>
 
-  <div class="credit-box">제작 · 보라라샘 · 전주서신중학교 교사 · siaawase@gmail.com<br>제작일 2025.08.12 · <span id="lastMod">최종 수정 2026.11.11 01:00</span></div>
+  <div class="credit-box">제작 · 보라라샘 · 전주서신중학교 교사 · siaawase@gmail.com<br>제작일 2025.08.12 · <span id="lastMod">최종 수정 2026.11.13 10:10</span></div>
 <div class="privacy-box" id="privacyOffline">
   <strong>🔒 개인정보 보호 안내</strong><br>
   본 콘텐츠는 별도의 서버로 데이터를 전송하거나 저장하지 않습니다. 학습 중 입력하는 이름, 활동 소감 등의 정보는 오직 사용자 기기 내부에서 리포트 이미지를 다운로드하는 용도로만 안전하게 처리됩니다.
@@ -567,7 +569,7 @@ textarea.report-input{height:60px;resize:vertical}
 
 <script>
 /* ===== Apps Script 연동 설정 ===== */
-const MADE_DATE='2025.08.12', MOD_DATE='2026.11.11 01:00';
+const MADE_DATE='2025.08.12', MOD_DATE='2026.11.13 10:10';
 const GAME_CONFIG = {
   gameCode: "G304",
   gameName: "문장의 구조 완전 정복",
@@ -865,7 +867,7 @@ const S_KIND=[
  {id:608,cat:'부사절',text:'아이들은 <u>소리가 나지 않게</u> 걸었다.',src:'G303',detail:'절이 \'걸었다\'를 \'어떻게\' 걸었는지 꾸며 줘요. \'-게\'가 붙은 부사절이에요.'},
  {id:609,cat:'서술절',text:'우리 동네는 <u>공기가 맑다</u>.',src:'G303',detail:'\'공기가 맑다\'가 통째로 \'우리 동네는\'의 서술어 노릇을 하는 서술절이에요.'},
  {id:610,cat:'인용절',text:'아버지가 <u>"일찍 들어와라."라고</u> 당부하셨다.',src:'G303',detail:'따옴표 안의 말을 그대로 옮기고 조사 \'라고\'를 붙였어요. 직접 인용의 인용절이에요.'},
- {id:611,cat:'명사절',role:'주어',text:'<u>네가 무사함</u>이 무엇보다 기쁘다.',src:'창작',detail:'절 끝에 \'-ㅁ\'이 붙고 뒤에 조사 \'이\'가 왔어요. 절 전체가 명사처럼 쓰여 \'기쁘다\'의 주어 역할을 하는 명사절이에요.'},
+ {id:611,cat:'명사절',role:'주어',text:'<u>이번 시험에 합격하기</u>가 하늘의 별 따기다.',src:'교사 제공',detail:'절 끝에 \'-기\'가 붙고 뒤에 조사 \'가\'가 왔어요. 절 전체가 명사처럼 쓰여 \'하늘의 별 따기다\'의 주어 역할을 하는 명사절이에요.'},
  {id:612,cat:'관형절',text:'<u>형이 지난달에 읽은</u> 책을 나도 읽었다.',src:'G303',detail:'절 바로 뒤에 명사 \'책\'이 와서 그 명사를 꾸며요. 관형절이에요.'},
  {id:613,cat:'부사절',text:'할머니는 <u>허리가 아프도록</u> 일하셨다.',src:'G303',detail:'절이 \'일하셨다\'를 \'얼마나\' 일하셨는지 꾸며 줘요. 부사절이에요.'},
  {id:614,cat:'서술절',text:'이 도시는 <u>교통이 복잡하다</u>.',src:'G303',detail:'\'교통이 복잡하다\'가 통째로 \'이 도시는\'의 서술어 노릇을 하는 서술절이에요.'},
@@ -874,7 +876,17 @@ const S_KIND=[
  {id:617,cat:'명사절',role:'주어',text:'<u>동생이 거짓말을 했음</u>이 밝혀졌다.',src:'창작',detail:'절 끝에 \'-음\'이 붙고 뒤에 조사 \'이\'가 왔어요. 절 전체가 명사처럼 쓰여 \'밝혀졌다\'의 주어 역할을 하는 명사절이에요.'},
  {id:618,cat:'관형절',text:'나는 <u>네가 보낸</u> 편지를 받았다.',src:'창작',detail:'절 끝이 \'-ㄴ\'이고 바로 뒤에 명사 \'편지\'가 와서 그 명사를 꾸며요. 관형절이에요.'},
  {id:619,cat:'서술절',text:'신발이 <u>아래쪽이 뜯어졌다</u>.',src:'참고 자료(문장의 종류와 짜임)',detail:'주어가 \'신발이\', \'아래쪽이\' 둘이에요. \'아래쪽이 뜯어졌다\'가 통째로 \'신발이\'의 서술어 노릇을 하는 서술절이에요.'},
- {id:620,cat:'인용절',text:'수연이는 <u>학교에 같이 가자고</u> 말했다.',src:'참고 자료(문장의 종류와 짜임)',detail:'수연이가 한 말을 옮긴 부분이에요. 간접 인용의 조사 \'고\'가 붙은 인용절이에요.'}
+ {id:620,cat:'인용절',text:'수연이는 <u>학교에 같이 가자고</u> 말했다.',src:'참고 자료(문장의 종류와 짜임)',detail:'수연이가 한 말을 옮긴 부분이에요. 간접 인용의 조사 \'고\'가 붙은 인용절이에요.'},
+ {id:621,cat:'명사절',role:'목적어',text:'모두 <u>그가 약속을 지키기</u>를 기대했다.',src:'창작',detail:'절 끝에 \'-기\'가 붙고 뒤에 조사 \'를\'이 왔어요. 절 전체가 명사처럼 쓰여 \'기대했다\'의 목적어 역할을 하는 명사절이에요.'},
+ {id:622,cat:'명사절',role:'주어',text:'<u>내가 실수했음</u>이 분명하다.',src:'창작',detail:'절 끝에 \'-음\'이 붙고 뒤에 조사 \'이\'가 왔어요. 절 전체가 명사처럼 쓰여 \'분명하다\'의 주어 역할을 하는 명사절이에요.'},
+ {id:623,cat:'관형절',text:'<u>어머니가 심으신</u> 나무가 크게 자랐다.',src:'창작',detail:'절 끝이 \'-(으)ㄴ\'이고 바로 뒤에 명사 \'나무\'가 와서 그 명사를 꾸며요. 관형절이에요.'},
+ {id:624,cat:'관형절',text:'우리는 <u>형이 고른</u> 식당에 갔다.',src:'창작',detail:'절 바로 뒤에 명사 \'식당\'이 와서 그 명사를 꾸며요. 관형절이에요.'},
+ {id:625,cat:'부사절',text:'동생은 <u>발이 시리도록</u> 눈밭을 뛰어다녔다.',src:'창작',detail:'절이 \'뛰어다녔다\'를 \'얼마나\' 뛰어다녔는지 꾸며 줘요. \'-도록\'이 붙은 부사절이에요.'},
+ {id:626,cat:'부사절',text:'그는 <u>아무도 모르게</u> 선물을 준비했다.',src:'창작',detail:'절이 \'준비했다\'를 \'어떻게\' 준비했는지 꾸며 줘요. \'-게\'가 붙은 부사절이에요.'},
+ {id:627,cat:'서술절',text:'우리 학교는 <u>운동장이 넓다</u>.',src:'창작',detail:'주어가 \'우리 학교는\', \'운동장이\' 둘이에요. \'운동장이 넓다\'가 통째로 \'우리 학교는\'의 서술어 노릇을 하는 서술절이에요.'},
+ {id:628,cat:'서술절',text:'그 배우는 <u>목소리가 좋다</u>.',src:'창작',detail:'\'목소리가 좋다\'가 통째로 \'그 배우는\'의 서술어 노릇을 하는 서술절이에요.'},
+ {id:629,cat:'인용절',text:'형은 나에게 <u>"같이 가자."라고</u> 말했다.',src:'창작',detail:'형이 한 말을 따옴표로 그대로 옮기고 조사 \'라고\'를 붙였어요. 직접 인용의 인용절이에요.'},
+ {id:630,cat:'인용절',text:'선생님께서 <u>시험이 다음 주라고</u> 말씀하셨다.',src:'창작',edge:true,detail:'선생님이 하신 말(시험이 다음 주이다)을 옮긴 간접 인용절이에요. \'이다\' 뒤에서는 간접 인용도 \'고\' 대신 \'라고\'가 붙어요(다음 주이다 → 다음 주라고). 따옴표가 없으니 직접 인용이 아니에요.'}
 ];
 const S_ROLE=[
  {id:701,cat:'목적어',text:'우리는 <u>그 소식이 사실이기</u>를 바랐다.',src:'G303',detail:'무엇을 바랐나요? \'그 소식이 사실이기\'를요. 명사절이 \'바랐다\'의 목적어로 쓰였어요.'},
@@ -882,14 +894,14 @@ const S_ROLE=[
  {id:703,cat:'관형어',text:'<u>할머니가 직접 짜신</u> 목도리가 따뜻했다.',src:'G303',detail:'어떤 목도리인가요? \'할머니가 직접 짜신\' 목도리예요. 관형절이 \'목도리\'를 꾸미는 관형어로 쓰였어요.'},
  {id:704,cat:'부사어',text:'아이는 <u>손이 빨개지도록</u> 박수를 쳤다.',src:'G303',detail:'얼마나 박수를 쳤나요? \'손이 빨개지도록\'이요. 부사절이 \'쳤다\'를 꾸미는 부사어로 쓰였어요.'},
  {id:705,cat:'서술어',text:'토끼는 <u>앞발이 짧다</u>.',src:'G303',detail:'토끼는 어떠한가요? \'앞발이 짧다\'예요. 서술절이 \'토끼는\'의 서술어로 쓰였어요.'},
- {id:706,cat:'목적어',text:'<u>그 영화가 재미있음</u>은 누구나 인정한다.',src:'G303 · 기준표 3-2',edge:true,detail:'누가 인정하나요? \'누구나\'예요. 그러니 주어는 \'누구나\'이고, 무엇을 인정하나요? \'그 영화가 재미있음\'이에요. 보조사 \'은\'이 \'을\' 자리에 왔을 뿐 목적어예요. \'재미있음을 누구나 인정한다\'로 바꿔 보면 알 수 있어요.',
-  hint:'조사 \'은\'만 보지 말고 서술어 "인정한다"와의 관계를 보세요. 누가 인정하나요? 그러면 밑줄 친 절은 "누가"인가요, "무엇을"인가요?'},
+ {id:706,cat:'주어',text:'<u>매일 아침 일찍 일어나기</u>는 생각보다 쉽지 않다.',src:'교사 제공',edge:true,detail:'무엇이 쉽지 않나요? \'매일 아침 일찍 일어나기\'예요. 주격 조사 \'가\' 자리에 보조사 \'는\'이 왔을 뿐 명사절이 \'쉽지 않다\'의 주어로 쓰였어요. \'일어나기가 쉽지 않다\'로 바꿔 보면 알 수 있어요.',
+  hint:'조사 \'는\'만 보지 말고 서술어 "쉽지 않다"와의 관계를 보세요. 무엇이 쉽지 않나요?'},
  {id:707,cat:'관형어',text:'<u>내가 어제 산</u> 가방이 벌써 망가졌다.',src:'G303',detail:'어떤 가방인가요? \'내가 어제 산\' 가방이에요. 관형절이 관형어로 쓰였어요.'},
  {id:708,cat:'목적어',text:'나는 <u>그가 오기</u>를 기다렸다.',src:'G303',detail:'무엇을 기다렸나요? \'그가 오기\'를요. 명사절이 목적어로 쓰였어요.'},
  {id:709,cat:'부사어',text:'선수들은 <u>다리가 풀리도록</u> 달렸다.',src:'G303',detail:'얼마나 달렸나요? \'다리가 풀리도록\'이요. 부사절이 \'달렸다\'를 꾸미는 부사어로 쓰였어요.'},
  {id:710,cat:'서술어',text:'코끼리는 <u>코가 길다</u>.',src:'G303',detail:'코끼리는 어떠한가요? \'코가 길다\'예요. 서술절이 서술어로 쓰였어요.'},
  {id:711,cat:'관형어',text:'이것은 <u>내가 읽은</u> 소설책이다.',src:'G303',detail:'어떤 소설책인가요? \'내가 읽은\' 소설책이에요. 관형절이 관형어로 쓰였어요.'},
- {id:712,cat:'주어',text:'<u>친구가 전학을 갔음</u>이 알려졌다.',src:'G303',detail:'무엇이 알려졌나요? \'친구가 전학을 갔음\'이요. 명사절이 주어로 쓰였어요.'},
+ {id:712,cat:'주어',text:'<u>친구가 나를 오래 기다렸음</u>이 분명하다.',src:'교사 제공',detail:'무엇이 분명한가요? \'친구가 나를 오래 기다렸음\'이요. 명사절이 \'분명하다\'의 주어로 쓰였어요.'},
  {id:713,cat:'목적어',text:'모두 <u>날씨가 풀리기</u>를 원했다.',src:'G303',detail:'무엇을 원했나요? \'날씨가 풀리기\'를요. 명사절이 목적어로 쓰였어요.'},
  {id:714,cat:'부사어',text:'언니는 <u>눈물이 나도록</u> 웃었다.',src:'G303',detail:'얼마나 웃었나요? \'눈물이 나도록\'이요. 부사절이 부사어로 쓰였어요.'},
  {id:715,cat:'서술어',text:'우리 마을은 <u>인심이 좋다</u>.',src:'G303',detail:'우리 마을은 어떠한가요? \'인심이 좋다\'예요. 서술절이 서술어로 쓰였어요.'},
@@ -897,7 +909,17 @@ const S_ROLE=[
  {id:717,cat:'주어',text:'<u>이사를 가기</u>가 쉽지 않다.',src:'참고 자료(문장의 종류와 짜임)',detail:'무엇이 쉽지 않나요? \'이사를 가기\'가요. 명사절이 \'쉽지 않다\'의 주어로 쓰였어요.'},
  {id:718,cat:'주어',text:'<u>그가 범인임</u>이 드러났다.',src:'참고 자료(문장의 종류와 짜임)',detail:'무엇이 드러났나요? \'그가 범인임\'이요. 명사절이 \'드러났다\'의 주어로 쓰였어요.'},
  {id:719,cat:'관형어',text:'그는 <u>우리가 돌아온</u> 사실을 모른다.',src:'참고 자료(문장의 종류와 짜임)',detail:'어떤 사실인가요? \'우리가 돌아온\' 사실이에요. 관형절이 \'사실\'을 꾸미는 관형어로 쓰였어요.'},
- {id:720,cat:'서술어',text:'할아버지께서는 <u>인정이 많으시다</u>.',src:'참고 자료(문장의 종류와 짜임)',detail:'할아버지께서는 어떠하신가요? \'인정이 많으시다\'예요. 서술절이 서술어로 쓰였어요.'}
+ {id:720,cat:'서술어',text:'할아버지께서는 <u>인정이 많으시다</u>.',src:'참고 자료(문장의 종류와 짜임)',detail:'할아버지께서는 어떠하신가요? \'인정이 많으시다\'예요. 서술절이 서술어로 쓰였어요.'},
+ {id:721,cat:'주어',text:'<u>동생이 반장이 되었음</u>이 알려졌다.',src:'창작',detail:'무엇이 알려졌나요? \'동생이 반장이 되었음\'이요. 명사절이 \'알려졌다\'의 주어로 쓰였어요.'},
+ {id:722,cat:'주어',text:'<u>우리가 그 문제를 풀기</u>가 쉽지 않았다.',src:'창작',detail:'무엇이 쉽지 않았나요? \'우리가 그 문제를 풀기\'가요. 명사절이 \'쉽지 않았다\'의 주어로 쓰였어요.'},
+ {id:723,cat:'목적어',text:'나는 <u>비가 그쳤음</u>을 깨달았다.',src:'교사 제공',detail:'무엇을 깨달았나요? \'비가 그쳤음\'을요. 명사절이 \'깨달았다\'의 목적어로 쓰였어요.'},
+ {id:724,cat:'목적어',text:'할머니는 <u>손자가 건강하기</u>를 빌었다.',src:'창작',detail:'무엇을 빌었나요? \'손자가 건강하기\'를요. 명사절이 \'빌었다\'의 목적어로 쓰였어요.'},
+ {id:725,cat:'관형어',text:'<u>삼촌이 보내 주신</u> 선물이 도착했다.',src:'창작',detail:'어떤 선물인가요? \'삼촌이 보내 주신\' 선물이에요. 관형절이 \'선물\'을 꾸미는 관형어로 쓰였어요.'},
+ {id:726,cat:'관형어',text:'나는 <u>동생이 좋아하는</u> 노래를 틀었다.',src:'창작',detail:'어떤 노래인가요? \'동생이 좋아하는\' 노래예요. 관형절이 \'노래\'를 꾸미는 관형어로 쓰였어요.'},
+ {id:727,cat:'부사어',text:'아이는 <u>목이 터지도록</u> 엄마를 불렀다.',src:'창작',detail:'얼마나 불렀나요? \'목이 터지도록\'이요. 부사절이 \'불렀다\'를 꾸미는 부사어로 쓰였어요.'},
+ {id:728,cat:'부사어',text:'그는 <u>남들이 알아듣게</u> 천천히 설명했다.',src:'창작',detail:'어떻게 설명했나요? \'남들이 알아듣게\'요. 부사절이 \'설명했다\'를 꾸미는 부사어로 쓰였어요.'},
+ {id:729,cat:'서술어',text:'그 가게는 <u>음식 맛이 좋다</u>.',src:'창작',detail:'그 가게는 어떠한가요? \'음식 맛이 좋다\'예요. 서술절이 \'그 가게는\'의 서술어로 쓰였어요.'},
+ {id:730,cat:'서술어',text:'내 동생은 <u>눈이 크다</u>.',src:'창작',detail:'내 동생은 어떠한가요? \'눈이 크다\'예요. 서술절이 \'내 동생은\'의 서술어로 쓰였어요.'}
 ];
 // 8단계 안은문장 만들기 — G303 1단계 그대로 (mode: blank = 빈칸에 절만 / full = 문장 전체)
 const S_MAKE=[
@@ -936,18 +958,25 @@ S_COND.forEach(q=>{const p=PAIRS[q.pair];q.kind='cond';q.p=p;q.cat=q.cond+' 잇�
   q.okForms=p.forms.filter(f=>REL[f[1]]===q.cond&&!f[3]);
   q.model=p.fronts[0]+q.okForms[0][0]+' '+p.backs[0]+'.'});
 S_KIND.forEach(q=>{q.kind='pick';q.options=T_CH;q.answer=q.cat;q.hint=q.hint||KIND_HINT});
+// 6단계 인용절 문항 뒤에는 '직접 인용인가, 간접 인용인가'를 한 번 더 묻는다 (2026.11.13 교사 요청)
+const S_QUOTE=S_KIND.filter(q=>q.cat==='인용절').map(q=>{const direct=/["“]/.test(q.text);
+  return {id:q.id+'Q',base:q.id,kind:'pick',cat:'직접·간접 인용',text:q.text,options:['직접 인용','간접 인용'],answer:direct?'직접 인용':'간접 인용',src:q.src,
+   instr:'앞 문제의 인용절이에요. 이 인용절은 <strong>직접 인용</strong>인가요, <strong>간접 인용</strong>인가요?',
+   hint:'남이 한 말을 따옴표 안에 그대로 옮겼나요, 따옴표 없이 내 말로 바꾸어 내용만 옮겼나요?',
+   detail:direct?'따옴표 안에 한 말을 그대로 옮기고 조사 \'라고\'를 붙였어요. 직접 인용이에요.':
+     (/라고<\/u>/.test(q.text)?'따옴표 없이 말의 내용만 옮겼으니 간접 인용이에요. \'이다\' 뒤라서 \'고\' 대신 \'라고\'가 붙었을 뿐이에요.':'따옴표 없이 말의 내용만 옮기고 조사 \'고\'를 붙였어요. 간접 인용이에요.')}});
 S_ROLE.forEach(q=>{q.kind='pick';q.options=R_CH;q.answer=q.cat;q.hint=q.hint||ROLE_HINT});
 S_MAKE.forEach(q=>{q.kind='make';q.src='G303'});
 
 const SD=[
- {name:'1단계 · 홑문장과 겹문장',tag:'1홑겹',goal:'홑문장과 겹문장을 구별한다',data:S1,grid:'grid-2',badge:'🧩 홑문장 · 겹문장',instr:'이 문장은 <strong>홑문장</strong>인가요, <strong>겹문장</strong>인가요?'},
- {name:'2단계 · 이어진문장과 안은문장',tag:'2이어진안은',goal:'겹문장을 이어진문장과 안은문장으로 구별한다',data:S_EA,grid:'grid-2',badge:'🔗 이어진 · 🪆 안은',instr:'이 겹문장은 <strong>이어진문장</strong>인가요, <strong>안은문장</strong>인가요?'},
- {name:'3단계 · 대등과 종속',tag:'3대등종속',goal:'대등하게 이어진문장과 종속적으로 이어진문장을 구별한다',data:S3,grid:'grid-2',badge:'⚖️ 대등 · 종속',instr:'이 이어진문장은 어떤 문장인가요?'},
- {name:'4단계 · 의미 관계',tag:'4의미관계',goal:'이어진문장의 의미 관계를 파악한다',data:S4,grid:'grid-3',badge:'🧭 의미 관계',instr:'앞 절과 뒤 절은 어떤 <strong>의미 관계</strong>로 이어졌나요?'},
- {name:'5단계 · 조건에 맞게 잇기',tag:'5조건잇기',goal:'조건에 맞는 연결 어미로 두 홑문장을 잇는다',data:S_COND,badge:'✍️ 조건에 맞게 잇기'},
- {name:'6단계 · 안은문장 만들기',tag:'6안은만들기',goal:'홑문장을 절로 바꾸어 안은문장을 만든다',data:S_MAKE,badge:'🛠️ 안은문장 만들기'},
- {name:'7단계 · 안긴 절의 역할',tag:'7절역할',goal:'안긴 절이 문장에서 하는 역할을 판단한다',data:S_ROLE,grid:'grid-5',badge:'🎭 절의 역할',instr:'밑줄 친 안긴 절은 문장에서 <strong>어떤 성분</strong> 노릇을 하나요?'},
- {name:'8단계 · 안긴 절의 종류',tag:'8절종류',goal:'안긴 절의 종류를 판단한다',data:S_KIND,grid:'grid-5',badge:'🪆 절의 종류',instr:'밑줄 친 <strong>안긴 절</strong>은 어떤 절인가요?'}
+ {name:'1단계 · 대등과 종속',tag:'1대등종속',goal:'대등하게 이어진문장과 종속적으로 이어진문장을 구별한다',data:S3,grid:'grid-2',badge:'⚖️ 대등 · 종속',instr:'이 이어진문장은 어떤 문장인가요?'},
+ {name:'2단계 · 의미 관계',tag:'2의미관계',goal:'이어진문장의 의미 관계를 파악한다',data:S4,grid:'grid-3',badge:'🧭 의미 관계',instr:'앞 절과 뒤 절은 어떤 <strong>의미 관계</strong>로 이어졌나요?'},
+ {name:'3단계 · 조건에 맞게 잇기',tag:'3조건잇기',goal:'조건에 맞는 연결 어미로 두 홑문장을 잇는다',data:S_COND,badge:'✍️ 조건에 맞게 잇기'},
+ {name:'4단계 · 안은문장 만들기',tag:'4안은만들기',goal:'홑문장을 절로 바꾸어 안은문장을 만든다',data:S_MAKE,badge:'🛠️ 안은문장 만들기'},
+ {name:'5단계 · 안긴 절의 역할',tag:'5절역할',goal:'안긴 절이 문장에서 하는 역할을 판단한다',data:S_ROLE,grid:'grid-5',badge:'🎭 절의 역할',instr:'밑줄 친 안긴 절은 문장에서 <strong>어떤 성분</strong> 노릇을 하나요?'},
+ {name:'6단계 · 안긴 절의 종류',tag:'6절종류',goal:'안긴 절의 종류를 판단한다',data:S_KIND,grid:'grid-5',badge:'🪆 절의 종류',instr:'밑줄 친 <strong>안긴 절</strong>은 어떤 절인가요?'},
+ {name:'7단계 · 홑문장과 겹문장',tag:'7홑겹',goal:'홑문장과 겹문장을 구별한다',data:S1,grid:'grid-2',badge:'🧩 홑문장 · 겹문장',instr:'이 문장은 <strong>홑문장</strong>인가요, <strong>겹문장</strong>인가요?'},
+ {name:'8단계 · 이어진문장과 안은문장',tag:'8이어진안은',goal:'겹문장을 이어진문장과 안은문장으로 구별한다',data:S_EA,grid:'grid-2',badge:'🔗 이어진 · 🪆 안은',instr:'이 겹문장은 <strong>이어진문장</strong>인가요, <strong>안은문장</strong>인가요?'}
 ];
 const STAGES=SD.map(s=>s.data);
 const STAGE_NAMES=SD.map(s=>s.name),STAGE_TAG=SD.map(s=>s.tag),GOALS=SD.map(s=>s.goal);
@@ -955,12 +984,13 @@ const STAGE_NAMES=SD.map(s=>s.name),STAGE_TAG=SD.map(s=>s.tag),GOALS=SD.map(s=>s
 function buildStage(si){
   const Q=STAGES[si];
   const out=Q===S_MAKE?shuffle(Q.filter(q=>q.mode==='blank')).concat(shuffle(Q.filter(q=>q.mode==='full'))):shuffle(Q);
+  if(Q===S_KIND){const ex=[];out.forEach(q=>{ex.push(q);if(q.cat==='인용절')ex.push(S_QUOTE.find(x=>x.base===q.id))});return ex.map(q=>Object.assign({},q))}
   return out.map(q=>Object.assign({},q));
 }
-function stageCount(si){return STAGES[si].length}
+function stageCount(si){return STAGES[si].length+(STAGES[si]===S_KIND?S_QUOTE.length:0)}
 const STD_TEXT='(2015) [9국04-06] 문장의 짜임과 양상을 탐구하고 활용한다. · (2022) [9국04-04] 문장의 짜임을 이해하고 표현 효과를 고려하여 문장을 구성한다.';
 const CAT_EMO={'홑문장':'1️⃣','겹문장':'🔗','이어진문장':'🔗','안은문장':'🪆','대등':'⚖️','종속':'⛓️','나열':'📝','대조':'↔️','선택':'🔀','원인':'💡','조건':'❓','목적(의도)':'🎯',
- '명사절':'📦','관형절':'🏷️','부사절':'🏃','서술절':'🗣️','인용절':'💬','주어':'👤','목적어':'🎯','관형어':'🏷️','부사어':'🏃','서술어':'🗣️'};
+ '명사절':'📦','관형절':'🏷️','부사절':'🏃','서술절':'🗣️','인용절':'💬','직접·간접 인용':'🗨️','주어':'👤','목적어':'🎯','관형어':'🏷️','부사어':'🏃','서술어':'🗣️'};
 const catLabel=k=>/ 잇기$/.test(k)?'✍️ '+k:(CAT_EMO[k]?CAT_EMO[k]+' ':'')+(k==='대등'?'대등하게 이어진문장':k==='종속'?'종속적으로 이어진문장':k);
 const TIPS={
  '홑문장':'홑문장 — 문장이 길어도 서술어가 하나면 홑문장입니다. 먼저 서술어를 모두 찾고, \'되다/아니다\' 앞의 말(보어)은 주어가 아님을 확인하세요.',
@@ -986,6 +1016,7 @@ const TIPS={
  '부사절':'부사절 — 절이 뒤의 서술어를 꾸며 \'어떻게, 얼마나\'를 알려 주는지 보세요. \'-게, -도록\'뿐 아니라 \'없이\'처럼 \'-이\'로 끝나기도 해요.',
  '서술절':'서술절 — 한 문장에 주어가 둘인지 보세요. \'코끼리는 코가 길다\'처럼 \'주어+서술어\' 덩어리가 앞 주어의 서술어 노릇을 합니다.',
  '인용절':'인용절 — 남의 말이나 생각을 옮긴 부분인지 보세요. 간접 인용은 \'고\', 직접 인용은 따옴표와 \'라고\'가 붙습니다.',
+ '직접·간접 인용':'직접·간접 인용 — 따옴표로 한 말을 그대로 옮기고 \'라고\'를 붙이면 직접 인용, 따옴표 없이 내용만 옮기고 \'고\'를 붙이면 간접 인용입니다. \'이다\' 뒤에서는 간접 인용도 \'라고\'가 붙으니 따옴표를 먼저 보세요.',
  '주어':'주어 — 서술어에 \'무엇이?\'라고 물었을 때 그 답이 절인지 보세요. 조사보다 서술어와의 관계로 판단합니다.',
  '목적어':'목적어 — 서술어에 \'무엇을?\'이라고 물었을 때 그 답이 절인지 보세요. \'은/는\'이 붙어도 \'을/를\' 자리면 목적어입니다.',
  '관형어':'관형어 — 절이 바로 뒤의 명사를 꾸미는지 보세요.',
@@ -1017,7 +1048,7 @@ function markHTML(q){
   if(EMB[q.id]){const [c,n]=EMB[q.id],t=plain(q.text),k=t.indexOf(c);if(k<0)return null;
     return {html:`${esc(t.slice(0,k))}<span class="mk-emb">${esc(c)}<span class="mk-lab">${n}</span></span>${esc(t.slice(k+c.length))}`,
       cap:`🪆 안은문장 — 밑줄 친 <b>${n}</b>이 문장 안에 안겨 한 성분 노릇을 해요.`}}
-  if(q.kind==='pick'&&(LINKED_IDS.has(q.id)||currentStage===2||currentStage===3)){
+  if(q.kind==='pick'&&(LINKED_IDS.has(q.id)||STAGES[currentStage]===S3||STAGES[currentStage]===S4)){
     const t=plain(q.text),c=autoCut(t,q.id);if(!c)return null;
     const k=t.indexOf(c.cut+' '),front=t.slice(0,k)+c.cut.slice(0,c.cut.length-c.raw.length),back=t.slice(k+c.cut.length+1);
     return {html:`<span class="mk-front">${esc(front)}<span class="mk-end">${esc(c.raw)}</span></span><span class="mk-slash">/</span><span class="mk-back">${esc(back)}</span>`,
@@ -1100,14 +1131,6 @@ const SIX_TABLE=`<table class="it"><tr><th colspan="3">대등하게 이어진문
 const CLAUSE_TABLE=`<table class="it"><tr><th>명사절</th><th>관형절</th><th>부사절</th><th>서술절</th><th>인용절</th></tr>
   <tr><td>-(으)ㅁ, -기<br><span class="ex">그가 범인임이 밝혀졌다</span></td><td>-(으)ㄴ, -는, -(으)ㄹ, -던<br><span class="ex">내가 어제 산 책</span></td><td>-게, -도록, -이(없이)<br><span class="ex">손이 빨개지도록 박수를 쳤다</span></td><td>표지 없음 · 주어가 둘<br><span class="ex">코끼리는 코가 길다</span></td><td>간접 \'고\', 직접 \'라고\'<br><span class="ex">그는 비가 온다고 말했다</span></td></tr></table>`;
 const INTRO=[
- `<h2>1️⃣ 홑문장과 겹문장</h2>
-  <div class="ib"><b>홑문장</b> 주어와 서술어의 관계가 <b>한 번</b>만 나타나는 문장<br><span class="ex">예) 버스가 종점으로 달린다.</span></div>
-  <div class="ib"><b>겹문장</b> 주어와 서술어의 관계가 <b>두 번 이상</b> 나타나는 문장<br><span class="ex">예) 나는 동생이 어지른 방을 치웠다.</span></div>
-  <div class="tip">🔍 이렇게 판단해요 — <b>서술어를 모두 찾아 세어 보세요.</b> 문장 길이나 보이는 주어 수로 판단하지 않아요.<br>· 같은 주어가 생략되어도 서술어가 둘이면 겹문장<br>· \'되다/아니다\' 앞의 말(보어)은 주어가 아니에요</div>`,
- `<h2>🔗 이어진문장과 🪆 안은문장</h2>
-  <div class="ib"><b>이어진문장</b> 두 홑문장이 <b>연결 어미</b>로 앞뒤로 이어진 문장<br><span class="ex">예) 비가 오고 바람이 분다. / 나는 책을 빌리러 도서관에 갔다.</span></div>
-  <div class="ib"><b>안은문장</b> 한 홑문장이 <b>절</b>이 되어 다른 문장 안에서 한 성분(주어·목적어·꾸미는 말·서술어 등)으로 쓰인 문장<br><span class="ex">예) 나는 동생이 어지른 방을 치웠다. / 코끼리는 코가 길다.</span></div>
-  <div class="tip">🔍 이렇게 판단해요 — 앞 절과 뒤 절이 <b>나란히 이어졌는지</b>, 한 절이 문장 <b>안에 들어가 있는지</b> 보세요.<br>· 인용의 \'고\'(비가 온다고 말했다)는 연결 어미가 아니에요<br>· \'-도록, -게\'(땀이 나도록 뛰었다)는 부사절이에요</div>`,
  `<h2>⚖️ 대등과 종속</h2>
   <div class="ib"><b>대등하게 이어진문장</b> 앞 절과 뒤 절의 의미 관계가 대등한 문장<br><span class="ex">예) 사과는 빨갛고 귤은 노랗다.</span></div>
   <div class="ib"><b>종속적으로 이어진문장</b> 앞 절과 뒤 절의 의미 관계가 대등하지 못하고 종속적인 문장<br><span class="ex">예) 눈이 내려서 길이 막혔다.</span></div>
@@ -1123,7 +1146,15 @@ const INTRO=[
   <div class="ib">안긴 절은 문장 안에서 <b>주어 · 목적어 · 관형어 · 부사어 · 서술어</b> 노릇을 해요.<br><span class="ex">예) [그가 범인임]이 밝혀졌다 → 주어 / 나는 [그가 오기]를 기다렸다 → 목적어</span></div>
   <div class="tip">🔍 문장 전체의 <b>서술어</b>를 찾아 "무엇이? 무엇을? 어떤? 어떻게? 어떠하다?"를 물어 보세요. 조사만 보고 판단하지 않아요(보조사 \'은/는\'이 \'을/를\' 자리에 올 수 있어요).</div>`,
  `<h2>🪆 안긴 절의 종류</h2>${CLAUSE_TABLE}
-  <div class="tip">📦 명사절은 문장에서 <b>주어</b>로도, <b>목적어</b>로도 쓰여요. 7단계에서 익힌 역할도 함께 떠올려 보세요.<br>🔍 절의 <b>끝부분</b>과 절 <b>바로 뒤에 오는 말</b>을 함께 보세요. 절에는 그 절의 주어도 들어가요.</div>`
+  <div class="tip">📦 명사절은 문장에서 <b>주어</b>로도, <b>목적어</b>로도 쓰여요. 5단계에서 익힌 역할도 함께 떠올려 보세요.<br>🔍 절의 <b>끝부분</b>과 절 <b>바로 뒤에 오는 말</b>을 함께 보세요. 절에는 그 절의 주어도 들어가요.</div>`,
+ `<h2>1️⃣ 홑문장과 겹문장</h2>
+  <div class="ib"><b>홑문장</b> 주어와 서술어의 관계가 <b>한 번</b>만 나타나는 문장<br><span class="ex">예) 버스가 종점으로 달린다.</span></div>
+  <div class="ib"><b>겹문장</b> 주어와 서술어의 관계가 <b>두 번 이상</b> 나타나는 문장<br><span class="ex">예) 나는 동생이 어지른 방을 치웠다.</span></div>
+  <div class="tip">🔍 이렇게 판단해요 — <b>서술어를 모두 찾아 세어 보세요.</b> 문장 길이나 보이는 주어 수로 판단하지 않아요.<br>· 같은 주어가 생략되어도 서술어가 둘이면 겹문장<br>· \'되다/아니다\' 앞의 말(보어)은 주어가 아니에요</div>`,
+ `<h2>🔗 이어진문장과 🪆 안은문장</h2>
+  <div class="ib"><b>이어진문장</b> 두 홑문장이 <b>연결 어미</b>로 앞뒤로 이어진 문장<br><span class="ex">예) 비가 오고 바람이 분다. / 나는 책을 빌리러 도서관에 갔다.</span></div>
+  <div class="ib"><b>안은문장</b> 한 홑문장이 <b>절</b>이 되어 다른 문장 안에서 한 성분(주어·목적어·꾸미는 말·서술어 등)으로 쓰인 문장<br><span class="ex">예) 나는 동생이 어지른 방을 치웠다. / 코끼리는 코가 길다.</span></div>
+  <div class="tip">🔍 이렇게 판단해요 — 앞 절과 뒤 절이 <b>나란히 이어졌는지</b>, 한 절이 문장 <b>안에 들어가 있는지</b> 보세요.<br>· 인용의 \'고\'(비가 온다고 말했다)는 연결 어미가 아니에요<br>· \'-도록, -게\'(땀이 나도록 뛰었다)는 부사절이에요</div>`
 ];
 function openIntro(si){document.getElementById('introBody').innerHTML=INTRO[si];document.getElementById('mIntro').classList.add('on')}
 function closeIntro(){document.getElementById('mIntro').classList.remove('on');focusInputSoon()}
@@ -1161,10 +1192,15 @@ function renderQuestion(){
     iArea.innerHTML=textBox('ans',full?'🛠️ 완성한 문장 전체':'🛠️ 빈칸에 들어갈 절',full?'문장 전체를 쓰고 Enter':'빈칸에 들어갈 말을 쓰고 Enter');
     if(full&&current>0&&questions[current-1].mode==='blank'&&answered[current]==null&&pend[current]===0)setTimeout(()=>cbShow('이제부터 문장 전체 쓰기','빈칸이 아니라 문장 전체를 써요','info',1800),80);
   } else {
+    if(q.base&&answered[current-1]==null){
+      h+=`<div class="q-instruction">${q.instr}</div><div class="q-full-sentence muted">앞 문제를 먼저 풀어 주세요.</div>`;qCard.innerHTML=h;
+      iArea.innerHTML=`<div class="step-select-wrap"><button class="nav-inline" onclick="navigate(-1)">◀ 앞 문제로 가기</button></div>`;
+      document.getElementById('prev-btn').disabled=(current===0);document.getElementById('next-btn').disabled=(current>=questions.length-1);return;
+    }
     const mk=(answered[current]!=null)?markHTML(q):null;
-    h+=`<div class="q-instruction">${sd.instr}</div><div class="q-full-sentence${mk?' marked':''}">${mk?mk.html:showU(q.text)}</div>${mk?`<div class="mk-cap">${mk.cap}</div>`:''}`;
+    h+=`<div class="q-instruction">${q.instr||sd.instr}</div><div class="q-full-sentence${mk?' marked':''}">${mk?mk.html:showU(q.text)}</div>${mk?`<div class="mk-cap">${mk.cap}</div>`:''}`;
     qCard.innerHTML=h;
-    iArea.innerHTML=optHTML(q,q.options,q.answer,sd.grid);
+    iArea.innerHTML=optHTML(q,q.options,q.answer,q.options.length===2?'grid-2':sd.grid);
   }
   const inp=document.getElementById('ans-input');
   if(inp&&!locked(current))inp.addEventListener('keydown',e=>{if(e.key==='Enter'&&!e.isComposing){e.preventDefault();submitText()}});
@@ -1232,6 +1268,7 @@ function submitText(){
 /* ===== 선택형 채점 ===== */
 function choose(k){
   const i=current,q=questions[i];if(locked(i)||q.kind!=='pick')return;
+  if(q.base&&answered[i-1]==null)return;
   const opts=q.options,ans=q.answer;
   if(k<0||k>=opts.length)return;
   const o=opts[k];if(pend[i]===2&&o===firstAns[i])return;
@@ -1275,7 +1312,7 @@ function doRetry(){
 }
 function hintText(q){
   const i=current;
-  if([3,6,7].includes(currentStage)&&pend[i]===1){const ph=pairHint(firstAns[i],q.answer);if(ph)return ph}
+  if([S4,S_ROLE,S_KIND].includes(STAGES[currentStage])&&pend[i]===1){const ph=pairHint(firstAns[i],q.answer);if(ph)return ph}
   return q.hint;
 }
 function showHint(q){const e=document.getElementById('hint-box');e.innerHTML=`<strong>💡 힌트</strong> ${esc(hintText(q))}`;e.classList.add('show')}
@@ -1541,6 +1578,7 @@ function downloadTeacherXls(){
     else if(q.kind==='cond')h+=row([q.id,sd.name,catLabel(q.cat),'문장 쓰기',`${q.p.s1}. + ${q.p.s2}. [조건: ${REL_KIND[q.cond]} · ${q.cond}]`,okSentences(q).join(' / '),q.p.forms.filter(f=>!q.okForms.includes(f)).map(f=>`${f[0]}(${f[1]}·${REL[f[1]]})${f[3]&&REL[f[1]]===q.cond?' — '+f[3]:''}`).join(', '),'앞 절 허용: '+q.p.fronts.join(' | ')+' · 뒤 절 허용: '+q.p.backs.join(' | '),q.hint,'',q.src],0,5);
     else h+=row([q.id,sd.name,catLabel(q.cat),q.mode==='full'?'문장 전체 쓰기':'빈칸 쓰기',`${q.homt} → ${q.frame}`,q.answers.join(' / '),'',q.detail,q.hint,'',q.src],0,5);
   }));
+  S_QUOTE.forEach(q=>h+=row([q.id,SD.find(s=>s.data===S_KIND).name,catLabel(q.cat),'2지선다(인용절 문항 바로 뒤)',plain(q.text),q.answer,q.options.filter(o=>o!==q.answer).join(', '),q.detail,q.hint,'',q.src],0,5));
   h+='</table><br><table border="1">'+row(['단계','유형','문항 수'],1);
   SD.forEach(sd=>{const c={};sd.data.forEach(q=>{c[q.cat]=(c[q.cat]||0)+1});Object.keys(c).forEach(x=>h+=row([sd.name,catLabel(x),c[x]]))});
   const cnt=SD.map((s,si)=>stageCount(si)),tot=cnt.reduce((a,b)=>a+b,0);
