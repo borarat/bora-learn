@@ -6,7 +6,8 @@
      2026.11.09 09:55 · 타당성에 '주장(예측)–근거 자료' 문항 3개 추가(id 19~21)
      2026.11.09 14:55 · '문제 찾기 → 고치기' 2단계로 전환, 기준 이름은 해설에서만
      2026.11.10 01:05 · 글 제목·쓴 목적 추가, 보기를 기준별 지적으로
-     수정 2026.11.20 01:05
+     수정 2026.11.20 11:00
+     2026.11.20 · 문제 찾기 보기를 '친구 ○○의 지적'으로, 발문을 '누구의 지적이 옳을까요?'로 바꿈(교사가 '사실인 지적'을 정답으로 헷갈림). 틀린 지적을 고르면 '○○의 지적은 자료와 맞지 않아요'를 보여 줌
      구성: 판정 38번이 길어 1회(기본, 자료 11개 · 판정 18번) / 2회(심화, 자료 11개 · 판정 20번)로 나눔
      문항: 자료마다 글 제목·쓴 목적 추가, 문제 찾기 보기를 '🎯 타당성 · 🏷️ 신뢰성 · 🎨 표현 방법 · ✅ 문제없음' 순서의 기준별 지적으로 바꿈
            자료 22개(타당성 6 · 신뢰성 5 · 표현 방법 5 · 문제없음 6), 판정 38번. 등교·동아리 자료 뺌, 도서관 길 안내(목적과 안 맞는 표)·인터넷 검색 출처·손 씻기 안내문(독자와 안 맞는 표) 추가
@@ -209,6 +210,7 @@ input,textarea{font-family:inherit}
 .meta .mt b{font-size:17px;color:#1b2a44}
 .meta .mp{color:#3b4a63;margin-top:2px}
 .mlab{display:inline-block;font-size:12.5px;font-weight:700;color:#fff;background:#5b6f8f;border-radius:6px;padding:0 7px;margin-right:8px;vertical-align:1px}
+.opt .who{color:#1b2a44}
 .ctag{display:inline-block;font-size:13px;font-weight:700;border-radius:6px;padding:0 8px;margin-right:8px;vertical-align:1px;white-space:nowrap}
 .ctag.valid{background:#e3effb;color:#1f62a8}.ctag.reliable{background:#fbecdc;color:#9a520c}.ctag.express{background:#efe6fa;color:#5d3a9e}.ctag.none{background:#e6f5ea;color:#23793a}
 </style>
@@ -245,7 +247,7 @@ input,textarea{font-family:inherit}
    <div class="box howto"><h3>🎮 게임 방법</h3>
     <ul style="margin:4px 0;padding-left:22px">
      <li>자료마다 <b>글의 제목과 쓴 목적</b>이 나와요. 글쓴이가 무엇을 하려고 이 자료를 넣었는지 먼저 확인하세요.</li>
-     <li><b>🔎 문제 찾기</b> — 보기는 언제나 <b>1 🎯 타당성 · 2 🏷️ 신뢰성 · 3 🎨 표현 방법 · 4 ✅ 문제없음</b> 순서예요. 기준마다 지적이 하나씩 있는데, 그 가운데 <b>자료를 확인해 보면 사실인 지적</b>을 골라요. 셋 다 사실이 아니면 4번을 골라요.</li>
+     <li><b>🔎 문제 찾기</b> — 친구 세 명이 <b>1 🎯 타당성 · 2 🏷️ 신뢰성 · 3 🎨 표현 방법</b>에서 한 가지씩 문제를 지적해요. 지적이 자료와 정말 맞는지 확인해 <b>옳은 지적</b>을 골라요. 세 지적이 모두 틀렸다면 <b>4 ✅ 문제없음</b>을 골라요.</li>
      <li><b>🛠️ 고치기</b> — 문제를 찾았으면, 그 문제를 바로잡는 방법을 골라요.</li>
      <li>마우스로 누르거나 번호키로 골라요. 채점 뒤에는 <b>Enter · Space · →</b>로 넘어가요.</li>
      <li>처음에 맞히면 <b>+10점</b>, 3·4번 연속이면 +5, 5번 연속부터 +10을 더 받아요. 틀리면 −5점(0점 아래로는 내려가지 않음)과 힌트가 나오고, 한 번 더 고를 수 있어요. 다시 풀어 맞히면 +5점이에요.</li>
@@ -260,7 +262,7 @@ input,textarea{font-family:inherit}
    <div class="startrow"><button class="ghost" id="btnConcept">📘 개념 먼저 보기</button></div>
    <div class="credit">
     제작 · 보라라샘 · 전주서신중학교 교사 · siaawase@gmail.com<br>
-    제작일 2026.11.06 · <span id="lastMod">최종 수정 2026.11.20 01:05</span>
+    제작일 2026.11.06 · <span id="lastMod">최종 수정 2026.11.20 11:00</span>
    </div>
    <div class="privacy" id="privacyOffline">
     <b>🔒 개인정보 보호 안내</b><br>
@@ -397,7 +399,7 @@ input,textarea{font-family:inherit}
 // ★ Apps Script 연동 설정
 // ═══════════════════════════════════════════
 const MADE_DATE = '2026.11.06';
-const LAST_MOD = '2026.11.20 01:05';
+const LAST_MOD = '2026.11.20 11:00';
 const GAME_CONFIG = {
   gameCode: "R204",
   gameName: "복합양식 자료 판정실",
@@ -448,7 +450,8 @@ const STAGES = [
 const BASE = 10;          // 기본점
 const RETRY_PTS = 5;      // 다시 풀어 맞힘 (기본점의 절반)
 const PENALTY = 5;        // 오답 감점 (기본점의 절반)
-const NO_PROBLEM = '세 가지를 모두 따져 봐도 문제가 없어 그대로 써도 된다.';
+const NO_PROBLEM = '세 친구의 지적이 모두 틀렸어요. 그대로 써도 되는 자료예요.';
+const NAMES = ['민준','서연','지호','하은','도윤','수아','시우','지우','현우','유나','준서','다인'];
 const CRIT_TAG = { valid:'🎯 타당성', reliable:'🏷️ 신뢰성', express:'🎨 표현 방법', none:'✅ 문제없음' };
 const CRIT_ORDER = ['valid','reliable','express'];
 
@@ -900,7 +903,8 @@ function buildRound(stage){
   const mkStep = (kind, opts, ans, cat) => ({ kind, opts, ans, cat, status:'none', picks:[], hintSeen:false });
   items.forEach(it => {
     const q = it.q;
-    const fo = [...CRIT_ORDER.map(c => q.find.opts.find(o => o.c === c)), { c:'none', ok: q.cat==='none', t:NO_PROBLEM }];
+    const nm = shuffle(NAMES.slice());
+    const fo = [...CRIT_ORDER.map((c, k) => Object.assign(q.find.opts.find(o => o.c === c), { name: nm[k] })), { c:'none', ok: q.cat==='none', t:NO_PROBLEM }];
     if(q.cat === 'none'){
       it.steps = [ mkStep('find', fo, 3, 'none') ];
     } else {
@@ -915,7 +919,13 @@ function allSteps(){ const out=[]; S.items.forEach(it => it.steps.forEach(st => 
 function graded(st){ return st.status==='first' || st.status==='retry' || st.status==='fail'; }
 function canPick(st){ return st.status==='none' || st.status==='retryOpen'; }
 function stepId(it, st){ return st.kind === 'fix' ? `${it.q.id}-고치기` : String(it.q.id); }
-function optText(o){ return (o.c ? CRIT_TAG[o.c] + ' — ' : '') + o.t; }
+function optText(o){ return (o.c ? CRIT_TAG[o.c] + ' — ' : '') + (o.name ? `${o.name}의 지적: ` : '') + o.t; }
+function wrongMsg(st){
+  const p = st.picks[st.picks.length-1], o = st.opts[p];
+  if(st.kind !== 'find') return '앗, 다시 생각해 보세요.';
+  if(o.c === 'none') return '세 지적 가운데 자료와 맞는 것이 있어요.';
+  return `${o.name}의 지적은 자료와 맞지 않아요.`;
+}
 function stepLabel(st){ return st.kind === 'fix' ? '🛠️ 고치기' : '🔎 문제 찾기'; }
 
 // 지침 5-5: 한 숫자는 한 곳에서 계산한다
@@ -1244,15 +1254,15 @@ function renderStep(){
   $('ph1').className = 'ph' + (S.ph===0 ? ' on' : ' done');
   $('ph2').className = 'ph' + (S.ph===1 ? ' on' : '') + (it.steps[1] ? '' : ' off');
   if(st.kind === 'find'){
-    $('qText').innerHTML = '이 글의 목적에 비추어, 이 자료를 그대로 써도 될까요?<small>🎯 → 🏷️ → 🎨 차례로 따져 보고, 사실인 지적을 고르세요. 모두 사실이 아니면 ✅를 고르세요.</small>';
+    $('qText').innerHTML = '친구 세 명이 이 자료의 문제를 지적했어요. 누구의 지적이 옳을까요?<small>지적이 자료와 정말 맞는지 하나씩 확인하세요. 세 지적이 모두 틀렸다면 4번을 고르세요.</small>';
     $('qFound').className = 'found'; $('qFound').innerHTML = '';
   } else {
     const fs = it.steps[0], cat = CATEGORIES[q.cat];
     $('qText').innerHTML = '어떻게 고치면 좋을까요?<small>찾은 문제를 바로잡는 방법을 고르세요.</small>';
     $('qFound').className = 'found on';
-    $('qFound').innerHTML = `<b>${cat.emoji} 찾은 문제 · ${cat.label}</b> ${esc(fs.opts[fs.ans].t)}`;
+    $('qFound').innerHTML = `<b>${cat.emoji} 찾은 문제 · ${cat.label} (${fs.opts[fs.ans].name}의 지적)</b> ${esc(fs.opts[fs.ans].t)}`;
   }
-  $('qOpts').innerHTML = st.opts.map((o, i) => `<button class="opt${o.c==='none'?' nop':''}" data-i="${i}"><span class="n">${i+1}</span>${o.c ? `<span class="ctag ${o.c}">${CRIT_TAG[o.c]}</span>` : ''}${esc(o.t)}</button>`).join('');
+  $('qOpts').innerHTML = st.opts.map((o, i) => `<button class="opt${o.c==='none'?' nop':''}" data-i="${i}"><span class="n">${i+1}</span>${o.c ? `<span class="ctag ${o.c}">${CRIT_TAG[o.c]}</span>` : ''}${o.name ? `<b class="who">${o.name}</b>의 지적 — ` : ''}${esc(o.t)}</button>`).join('');
   paint(); updateTop();
 }
 function paint(){
@@ -1278,10 +1288,11 @@ function paint(){
     fb.innerHTML = `<h4>✅ ${st.status==='first' ? '정답!' : '다시 풀어 맞혔어요'} · ${tag}</h4><div>${esc(detail)}</div>${goFix}`;
   } else if(st.status === 'fail'){
     fb.className = 'fb on ng';
-    fb.innerHTML = `<h4>❌ 정답은 ${st.ans+1}번 · ${tag}</h4><div>${esc(detail)}</div>${goFix}`;
+    const wnote = st.kind==='find' ? st.picks.filter(p => p !== st.ans && st.opts[p].name).map(p => `${st.opts[p].name}의 지적은 자료와 맞지 않아요.`).join(' ') : '';
+    fb.innerHTML = `<h4>❌ 정답은 ${st.ans+1}번 · ${tag}</h4>${wnote ? `<div><b>${esc(wnote)}</b></div>` : ''}<div>${esc(detail)}</div>${goFix}`;
   } else if(st.status === 'retryWait'){
     fb.className = 'fb on hint';
-    fb.innerHTML = `<h4>❌ 앗, 다시 생각해 보세요.</h4><div>💡 ${esc(hintText)}</div><button class="retry" id="retryBtn">🔁 다시 풀기 (Enter)</button>`;
+    fb.innerHTML = `<h4>❌ ${esc(wrongMsg(st))}</h4><div>💡 ${esc(hintText)}</div><button class="retry" id="retryBtn">🔁 다시 풀기 (Enter)</button>`;
   } else if(st.status === 'retryOpen'){
     fb.className = 'fb on hint';
     fb.innerHTML = `<h4>🔁 한 번 더 골라 보세요</h4><div>💡 ${esc(hintText)}</div>`;
